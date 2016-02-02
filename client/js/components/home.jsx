@@ -7,8 +7,6 @@ class Home extends React.Component {
 
   render(){
     
-    const img = assets("./images/atomicjolt.jpg");
-
     return<div>
       <img src={img} />
     </div>;
