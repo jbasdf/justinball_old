@@ -71,6 +71,7 @@
     "gulp-markdown": "^1.2.0",
     "gulp-rename": "1.2.2",
     "gulp-util": "3.0.7",
+    "gutil": "^1.6.4",
     "html-minifier": "1.1.1",
     "imports-loader": "0.6.5",
     "istanbul": "0.4.2",

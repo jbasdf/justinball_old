@@ -25,6 +25,10 @@ var webpackConfig = require('./config/webpack.config')(stage);
 var webpackStats;
 
 var defaultLayout = 'application.html';
+var dateRegEx     = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/; // Regex used to parse date from file name
+
+var site          = require('./site.json');
+site.time         = new Date();
 
 // Clean up
 // -----------------------------------------------------------------------------
@@ -58,24 +62,41 @@ gulp.task('markdown', function(){
     pedantic: false,
     sanitize: false,
     smartLists: true,
-    smartypants: false
-    // highlight: function (code, lang, callback) {
-    //   require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
-    //     callback(err, result.toString());
-    //   });
-    // }
+    smartypants: false,
+    highlight: function (code, lang, callback) {
+      require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
+        callback(err, result.toString());
+      });
+    }
   };
 
   return gulp.src('./html/**/*.md')
     .pipe(frontMatter({property: 'metadata', remove: true}))
     .pipe(applyLayout(defaultLayout))
     .pipe(marked(options))
+    .pipe(summarize('<!--more-->'))
+    .pipe(filename2date())
+    .pipe(collectPosts())
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
     .pipe(!release ? $.noop() : $.htmlmin({
         removeComments: true,
         collapseWhitespace: true,
         minifyJS: true
     }))
+    .pipe(rename(function (path) {
+      path.extname = ".html";
+      var match = dateRegEx.exec(path.basename);
+      if (match){
+        var year = match[1];            
+        var month = match[2];
+        var day = match[3];
+
+        path.dirname = year + '/' + month + '/' + day;
+        path.basename = match[4];
+      }            
+    }))
+
+
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(outputPath));
 });
@@ -104,6 +125,21 @@ gulp.task('html', function(){
     .pipe(gulp.dest(outputPath));
 });
 
+// Build pages for navigating with tags
+// -----------------------------------------------------------------------------
+gulp.task('tags', ['markdown'], function () {
+  return tags()
+    .pipe(applyLayout('tag'))
+    .pipe(gulp.dest(outputPath));
+});
+
+// Builds home page
+// -----------------------------------------------------------------------------
+gulp.task('index', ['html', 'markdown'], function () {
+  return dummy('index.html')
+    .pipe(applyLayout('home'))
+    .pipe(gulp.dest(outputPath));
+});
 
 // Create JavaScript bundle
 // -----------------------------------------------------------------------------
@@ -125,7 +161,7 @@ gulp.task('javascript', function(cb){
 // Build the app from source code
 // -----------------------------------------------------------------------------
 gulp.task('build', ['clean'], function(cb){
-  runSequence('javascript', ['html', 'markdown'], cb);
+  runSequence('javascript', ['html', 'markdown', 'index', 'tags'], cb);
 });
 
 
@@ -174,6 +210,7 @@ function applyLayout(defaultLayout){
   return through2.obj(function (file, enc, cb) {            
     
     var data = {
+      site: site,
       metadata: file.metadata
     };
     
@@ -200,3 +237,108 @@ function applyLayout(defaultLayout){
 
   });
 }
+
+// Collects all .md files and adds the page and it's tags to arrays on the site object called 'posts' and 'tags'
+// This can later be used to generate a home page
+function collectPosts() {
+  var posts = [];
+  var tags = [];
+  return through2.obj(function(file, enc, cb) {
+    posts.push(file.metadata);
+    posts[posts.length - 1].content = file.contents.toString();
+
+    if(file.metadata.tags) {
+      file.metadata.tags.forEach(function(tag) {
+        if(tags.indexOf(tag) == -1) {
+          tags.push(tag);
+        }
+      });
+    }
+
+    this.push(file);
+    cb();
+  },
+  function(cb) {
+    posts.sort(function(a, b) {
+      return b.date - a.date;
+    });
+    site.posts = posts;
+    site.tags = tags;
+    cb();
+  });
+}
+
+function filename2date() {
+  return through2.obj(function(file, enc, cb) {
+    var basename = path.basename(file.path, '.md');
+    var match = dateRegEx.exec(basename);
+    if(match) {
+      var year = match[1];
+      var month = match[2];
+      var day = match[3];
+      var basename = match[4];
+      file.metadata.date = new Date(year, month, day);
+      file.metadata.url = '/' + year + '/' + month + '/' + day + '/' + basename + '.html';
+    }
+
+    this.push(file);
+    cb();
+  });
+}
+
+function summarize(marker) {
+  return through2.obj(function(file, enc, cb) {
+    var summary = file.contents.toString().split(marker)[0]
+    file.metadata.summary = summary;
+    this.push(file);
+    cb();
+  });
+}
+
+function tags() {    
+  var stream = through2.obj(function(file, enc, cb) {
+    this.push(file);
+    cb();
+  });
+    
+  if (site.tags)
+  {
+    site.tags.forEach(function (tag) {
+      var file = new gutil.File({
+        path: tag + '.html',
+        contents: new Buffer('')
+      });
+      file.metadata = {title: tag, tag: tag}
+            
+      stream.write(file);        
+    });
+  }
+  
+  stream.end();
+  stream.emit("end");
+  
+  return stream;
+}
+
+function dummy(file) {
+  var stream = through2.obj(function(file, enc, cb) {
+    this.push(file);
+    cb();
+  });
+    
+  if (site)
+  {
+    var file = new gutil.File({
+      path: file,
+      contents: new Buffer('')
+    });
+    file.metadata = {}        
+    stream.write(file);        
+  }
+  
+  stream.end();
+  stream.emit("end");
+  
+  return stream;
+}
+
