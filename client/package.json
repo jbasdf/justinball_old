@@ -1,10 +1,10 @@
 {
-  "name": "react_client_starter_app",
+  "name": "jots",
   "version": "0.0.2",
-  "description": "Client only React Starter App.",
+  "description": "Journal your life in one spot.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomicjolt/react_client_starter_app"
+    "url": "git@bitbucket.org:justinball/jots.git"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start",
@@ -14,9 +14,9 @@
     "build": "gulp build --release",
     "release": "gulp build --release && cd .. && s3_website push"
   },
-  "author": "atomicjolt, jbasdf",
+  "author": "jbasdf",
   "license": "MIT",
-  "homepage": "https://github.com/atomicjolt/react_client_starter_app",
+  "homepage": "https://www.geojots.com",
   "dependencies": {
     "babel": "5.8.29",
     "babel-runtime": "5.8.29",
