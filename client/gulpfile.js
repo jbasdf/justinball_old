@@ -308,7 +308,7 @@ function tags() {
   if (site.tags)
   {
     site.tags.forEach(function (tag) {
-      var file = new gutil.File({
+      var file = new util.File({
         path: tag + '.html',
         contents: new Buffer('')
       });
@@ -332,7 +332,7 @@ function dummy(file) {
     
   if (site)
   {
-    var file = new gutil.File({
+    var file = new util.File({
       path: file,
       contents: new Buffer('')
     });
