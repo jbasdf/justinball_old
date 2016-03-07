@@ -1,2 +1,15 @@
+<% _(site.posts).take(4).forEach(function(post){ -%>
+  <div class="post-summary">
+    <h2><%-post.title%></h2>
+    <p>
+      <% _.each(post.tags, function(cleanTag, tag){ -%>
+        <a href="/<%-site.tagsPath%>/<%-cleanTag%>.html"><%-tag%></a>
+      <% }) -%>
+    </p>
+    <p class="text-muted"><%- post.date.format("dddd, MMMM Do YYYY") %></p>
+    <p><%- post.summary %></p>    
+    <a href="<%- post.url %>">read more</a>
+  </div>
+<% }) -%>
 <div id="main-app"></div>
 <script src="./app_web_pack_bundle.js"></script>
