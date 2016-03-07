@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "cd ./client && npm install",
     "build": "cd ./client && npm run build",
+    "build_dev": "cd ./client && npm run build_dev",
     "release": "cd ./client && npm run release",
     "hot": "cd ./client && npm run hot",
     "test": "cd ./client && npm run test",
