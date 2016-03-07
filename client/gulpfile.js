@@ -93,7 +93,7 @@ gulp.task('markdown', function(){
     .pipe(applyLayout(defaultLayout))
     .pipe(filename2date())
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
-    .pipe(release ? util.noop() : htmlmin({
+    .pipe(!release ? util.noop() : htmlmin({
       removeComments: true,
       collapseWhitespace: true,
       minifyJS: true
