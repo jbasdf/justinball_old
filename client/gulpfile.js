@@ -141,6 +141,7 @@ gulp.task('html', function(){
 });
 
 
+// -----------------------------------------------------------------------------
 // Build pages for navigating with tags
 // -----------------------------------------------------------------------------
 gulp.task('tags', ['markdown'], function () {
@@ -151,8 +152,10 @@ gulp.task('tags', ['markdown'], function () {
 
 
 // -----------------------------------------------------------------------------
+// Add paging for old posts
+// -----------------------------------------------------------------------------
 gulp.task('archive', ['markdown'], function () {
-  return posts('journal', 10)
+  return posts('page', 10)
       .pipe(applyLayout(defaultLayout))
       .pipe(gulp.dest(outputPath));
 });
