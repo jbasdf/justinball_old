@@ -1,0 +1,19 @@
+<% _.each(site.posts, function(post){ -%>
+  <% _.each(post.tags, function(cleanTag, tag){ -%>
+    <% if(tag == metadata.tag){ -%>
+      <div class="post-summary">
+        <h2><a href="<%- post.url %>"><%-post.title%></a></h2>
+        <p class="pull-right">
+          <% _.each(post.tags, function(cleanTag, tag){ -%>
+            <a href="/<%-site.tagsPath%>/<%-cleanTag%>.html"><%-tag%></a>
+          <% }) -%>
+        </p>
+        <p class="text-muted"><%- post.date.format("dddd, MMMM Do YYYY") %></p>
+        <p><%- post.summary %></p>    
+        <p class="pull-right">
+          <a href="<%- post.url %>">read more</a>    
+        </p>
+      </div>
+    <% } -%>
+  <% }) -%>
+<% }) -%>
