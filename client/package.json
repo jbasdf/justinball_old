@@ -32,6 +32,7 @@
     "react-router": "2.0.0",
     "react-tap-event-plugin": "0.2.2",
     "redux": "3.3.1",
+    "reveal.js": "^3.2.0",
     "superagent": "1.7.2",
     "uuid": "2.0.1"
   },

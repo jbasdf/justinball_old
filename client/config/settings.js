@@ -32,11 +32,12 @@ module.exports = {
   devAssetsUrl: process.env.ASSETS_URL || 'http://localhost:' + hotPort,
 
   hotPort: hotPort,
-  
+
   buildSuffix: '_bundle.js',
 
   entries: {
-    app: clientAppPath + 'js/app.jsx'
+    app: clientAppPath + 'js/app.jsx',
+    reveal: clientAppPath + 'js/reveal.jsx'
   },
 
   cssEntries: {
