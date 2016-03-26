@@ -21,9 +21,9 @@ the content based on its importance.
 
 <h2>Landmarks</h2>
 Use the role tag on elements. For example:
-{% highlight html %}
+<pre><code class="html">
 <div role="main"></div>
-{% endhighlight %}
+</pre></code>
 
 Adding 'role="main"' provides a 'landmark' in the page that a screen reader can find. A blind user can use these landmarks
 to quickly navigate to specific sections of the page.

@@ -15,7 +15,7 @@ folder structure. Timers get the job done, but promises make it elegant.
 
 <h4>Original Code</h4>
 <p>Requirement: wait until the entire tree is loaded before transition.</p>
-{% highlight javascript %}
+<pre><code class="javascript">
 App.GoogleFile = Ember.Object.extend({
 });
 
@@ -72,10 +72,10 @@ App.ApplicationRoute = Ember.Route.extend({
   }
 
 });
-{% endhighlight %}
+</pre></code>
 
 <h4>The Refactored Code</h4>
-{% highlight javascript %}
+<pre><code class="javascript">
 
 App = Ember.Application.create({
 });
@@ -140,6 +140,6 @@ App.ApplicationRoute = Ember.Route.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>
 
 <p><a href="http://jsbin.com/koveg/6/edit?html,js,console" target="_blank">Working refactored code snippet on jsbin</a></p>

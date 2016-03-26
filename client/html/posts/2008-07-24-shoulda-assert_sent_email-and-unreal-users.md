@@ -14,7 +14,7 @@ tags:
 I have been banging my head against a problem in my testing.  Using the UI everything worked as expected, but my tests were failing when I tried to see if emails were being sent in a specific case.
 
 Here's the test I was trying to run using Shoulda:
-{% highlight ruby %}
+<pre><code class="ruby">
 context "reset password for user that has not been activated" do
     setup do
         @email = users(:not_activated_user).email
@@ -35,10 +35,10 @@ context "reset password for user that has not been activated" do
     should_redirect_to "login_path"
 
 end
-{% endhighlight %}
+</pre></code>
 
 Here's the yml file I was using:
-{% highlight ruby %}
+<pre><code class="ruby">
 quentin:
 	  login: quentin
 	  email: quentin@example.com
@@ -61,11 +61,11 @@ not_activated_user:
 	  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
 	  activation_code: 9f24789ae988411ccf33ab0c30fe9106fab32e9a
 	  password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
-{% endhighlight %}
+</pre></code>
 
 For some reason the email part of the test failed every time.  I finally changed my code to this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 context "reset password for user that has not been activated" do
     setup do
         user = create_user
@@ -86,6 +86,6 @@ context "reset password for user that has not been activated" do
     should_redirect_to "login_path"
 
 end
-{% endhighlight %}
+</pre></code>
 
 create_user creates a user in the database instead of using the users from the users.yml file.  Using this method everything started working.  I have found that frequently I have better luck with my tests if I create real users.  I am sure there is a good reason for this, but I am stopping my research at knowing that I need to create users or other object when the tests don't work as expected.

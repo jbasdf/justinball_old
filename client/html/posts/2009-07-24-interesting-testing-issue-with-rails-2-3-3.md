@@ -13,7 +13,7 @@ categories:
 
 I'm not sure if this applies to all the versions of Rails, but right now I'm using the latest 2.3.3.  I'm using shoulda to do testing and my code looks like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
     context "GET show" do
       setup do
         @feed = Factory(:feed)
@@ -23,11 +23,11 @@ I'm not sure if this applies to all the versions of Rails, but right now I'm usi
       should_respond_with :success
       should_render_template :show
     end
-{% endhighlight %}
+</pre></code>
 
 The method I am testing looks like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   def show
     @feed = Feed.find(params[:id])
     @entries = @feed.entries
@@ -37,7 +37,7 @@ The method I am testing looks like this:
       format.html { render :template => 'feeds/show', :layout => params[:layout] || true  }
     end
   end
-{% endhighlight %}
+</pre></code>
 
 The result of running this test is:
 <strong>Missing template feeds/show.erb in view path app/views</strong>
@@ -45,7 +45,7 @@ The result of running this test is:
 That is very irritating.
 
 I found that if I change the order as below everything works fine:
-{% highlight ruby %}
+<pre><code class="ruby">
   def show
     @feed = Feed.find(params[:id])
     @entries = @feed.entries
@@ -55,10 +55,10 @@ I found that if I change the order as below everything works fine:
       format.json { render :json => @feed.as_json }
     end
   end
-{% endhighlight %}
+</pre></code>
 
 I can also change the test and explicitly list the format:
-{% highlight ruby %}
+<pre><code class="ruby">
     context "GET show" do
       setup do
         @feed = Factory(:feed)
@@ -68,6 +68,6 @@ I can also change the test and explicitly list the format:
       should_respond_with :success
       should_render_template :show
     end
-{% endhighlight %}
+</pre></code>
 
 I'm guessing that is the appropriate way to deal with things.  It appears that the test doesn't send in 'html' as a default format.   I might add that this test lives inside a Rails engine.  I'm not sure if that affects things, but I figure that I would list this issue here in case anyone else runs into the same problem or in case I forget how to deal with this which is quite likely.

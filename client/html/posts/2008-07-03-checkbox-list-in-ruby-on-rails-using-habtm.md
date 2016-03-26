@@ -16,7 +16,7 @@ tags:
 Checkboxes are one of those things that look easy and should be easy, but they aren't always easy.  I needed a solution that could create a checkbox list of languages that a user speaks.  So I don't forget  here's how to do it:
 
 The migrations are important.  You have to be sure to exclude the id parameter when you create languages_users or you will get ' Mysql::Error: #23000Duplicate entry' due to the fact that ActiveRecord will try to store a value in the id field that indicates which model created the entry (User.languages << vs Langauges.users).  The other option is the create the id parameter so that the direction is maintained but be sure that it is not created as a primary key.
-{% highlight ruby %}
+<pre><code class="ruby">
 class LanguagesUsers < ActiveRecord::Migration
     def self.up
         create_table :languages_users, :id => false, :force => true do |t|
@@ -30,9 +30,9 @@ class LanguagesUsers < ActiveRecord::Migration
         drop_table :languages_users
     end
 end
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class Languages < ActiveRecord::Migration
 
     def self.up
@@ -48,9 +48,9 @@ class Languages < ActiveRecord::Migration
         drop_table "users_languages"
     end
 end
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class Users < ActiveRecord::Migration
 
     def self.up
@@ -64,25 +64,25 @@ class Users < ActiveRecord::Migration
         drop_table "users"
     end
 end
-{% endhighlight %}
+</pre></code>
 
 Here are my models:
 user.rb
-{% highlight ruby %}
+<pre><code class="ruby">
 class User < ActiveRecord::Base
     has_and_belongs_to_many :languages
 end
-{% endhighlight %}
+</pre></code>
 
 language.rb:
-{% highlight ruby %}
+<pre><code class="ruby">
 class Language < ActiveRecord::Base
   has_and_belongs_to_many :users
 end
-{% endhighlight %}
+</pre></code>
 
 In my user_controller.rb the create and update methods are simple.  This is thanks to the fact that you get a language_ids method on the user object because of the HABTM relationship. 
-{% highlight ruby %}
+<pre><code class="ruby">
     def create
         @user = User.new(params[:user])
         @user.save
@@ -105,28 +105,28 @@ In my user_controller.rb the create and update methods are simple.  This is than
         end
 
     end
-{% endhighlight %}
+</pre></code>
 
 On to the view:
-{% highlight ruby %}
+<pre><code class="ruby">
 <ul class="checkbox-list">
   <% @languages.each do |language| -%>
 <li><%= check_box_tag "user[language_ids][]", language.id, user_speaks_language?(language) -%> <%= language.english_name -%></li>
   <% end -%>
 </ul>
-{% endhighlight %}
+</pre></code>
 
 NOTE: I had an error in my original method.  This code:
-{% highlight ruby %}
+<pre><code class="ruby">
 <li><%= f.check_box :language_ids, {:checked => user_speaks_language?(language)}, "#{language.id}", ""  -%> <%= "#{language.english_name}" -%></li>
-{% endhighlight %}
+</pre></code>
 should be this:
-{% highlight ruby %}
+<pre><code class="ruby">
 <li><%= check_box_tag "user[language_ids][]", language.id, user_speaks_language?(language) -%> <%= language.english_name -%></li>
-{% endhighlight %}
+</pre></code>
 
 And we'll need this helper method:
-{% highlight ruby %}
+<pre><code class="ruby">
 def user_speaks_language?(language)
     if @user && !@user.login.nil? # no sense in testing new users that have no languages
         @user.languages.include?(language)
@@ -134,6 +134,6 @@ def user_speaks_language?(language)
         false
     end
 end
-{% endhighlight %}
+</pre></code>
 
 The result is that you will get a list of check boxes that update values in the join table that is part of the has_and_belongs_to_many relationship.  Rails is very cool

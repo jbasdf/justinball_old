@@ -26,7 +26,7 @@ They will automatically retry errors for you.
 gem install kato
 Kato - EC2 Pool Manager
 
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'rubygems'
 requrie 'right_aws'
 RightAws::RightAWSParser.xml_lib = 'libxml'
@@ -37,9 +37,9 @@ queue.psuh "put message in the queue" #8k max
 queue.size # get an approximate number of message in the queue
 message = queue.receive #
 message.delete # if you don't delete your messages they will show up again
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'rubygems'
 requrie 'right_aws'
 RightAws::RightAWSParser.xml_lib = 'libxml'
@@ -47,14 +47,14 @@ EC2 = RightAsw::Ec2.new(access_id, access_key)
 EC2.describe_instances # get a hash of running instances
 EC2.run_instances("name_of_ami", minium_instances_to, max) # start up instances
 EC2.terminate_instances(["id1", "id2"]) # turn them off
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'kato'
 # Let Kato manage your instances
 pool = Kato::PoolSupervisor.new(config)
 pool.run
-{% endhighlight %}
+</pre></code>
 
 Kato can manage multiple pools.  You can give it a min and max number of instances and give it an uptime interval.  Amazon charges by the hour for the machine so you if you start it up you may as well leave it on for the full hour.
 

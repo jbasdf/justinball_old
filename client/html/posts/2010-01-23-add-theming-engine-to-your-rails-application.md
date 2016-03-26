@@ -16,7 +16,7 @@ Find the install instructions on the <a href="http://github.com/jbasdf/disguise"
 
 While setting a given theme works fine and doesn't incur much of a performance hit beyond method call, swapping out the theme based on the current domain can incur a performance hit since it reloads the localization strings.  Here's the bit of code that swaps the views:
 
-{% highlight ruby %}
+<pre><code class="ruby">
       def setup_theme
         return if !Disguise::Config.themes_enabled
         return if current_theme.blank? || current_theme.name.blank?
@@ -32,6 +32,6 @@ While setting a given theme works fine and doesn't incur much of a performance h
           I18n.reload!
         end
       end
-{% endhighlight %}
+</pre></code>
 
 I'm hoping to find a way to improve performance when changing themes, but for now be aware that changing themes based on domains is a work in progress and shouldn't be used in a production environment.

@@ -16,7 +16,7 @@ I love subversion.  It is handy for all kinds of development.  I needed an easie
 I gave up until <a href="http://joemaller.com/2008/01/29/how-to-install-subversion-on-a-shared-host/">I found this article on how to fix the 64 bit compile problem</a>.
 
 The key is compiling each library that is part of the subversion-deps download and then telling the compiler where to find them:
-{% highlight ruby %}
+<pre><code class="ruby">
 cd apr
 ./configure --enable-shared --prefix=$HOME
 make && make install
@@ -31,13 +31,13 @@ cd ../neon
 ./configure --enable-shared --prefix=$HOME \
      --with-libs=$HOME --with-ssl
 make && make install
-{% endhighlight %}
+</pre></code>
 
 then do this:
-{% highlight ruby %}
+<pre><code class="ruby">
 ./configure --prefix=$HOME --without-berlekey-db \
      --with-editor=/usr/bin/vim --with-apr=$HOME \
      --with-apr-util=$HOME --with-neon=$HOME \
      --without-apxs --without-apache
 make && make install
-{% endhighlight %}
+</pre></code>

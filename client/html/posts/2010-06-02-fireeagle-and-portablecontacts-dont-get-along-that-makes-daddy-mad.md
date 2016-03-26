@@ -12,14 +12,14 @@ categories:
   - Ruby On Rails
 ---
 I have some code that looks like this:
-{% highlight ruby %}
+<pre><code class="ruby">
   user.google.portable_contacts.all
-{% endhighlight %}
+</pre></code>
 As long as user.google is a valid token provided by oauth you will get back a list of the user's contacts from gmail.
 
 That is unless you have the Fireeagle gem included in your application. In that case you will spend the night swearing like a sailor and then weeping openly like a little girl. If you include fireeagle 0.8.0.1 in your project and make that call you will get an error like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of /Library/Ruby/Gems/1.8/gems/muck-invites-0.1.12/app/views/invites/_gmail_oauth.erb:
     /Library/Ruby/Gems/1.8/gems/oauth-0.4.0/lib/oauth/consumer.rb:154:in `create_http'
     /Library/Ruby/Gems/1.8/gems/oauth-0.4.0/lib/oauth/consumer.rb:154:in `request'
@@ -30,7 +30,7 @@ ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of /L
     /Library/Ruby/Gems/1.8/gems/portablecontacts-0.1.0/lib/portable_contacts.rb:43:in `all'
     /Users/jbasdf/projects/muck-oauth/app/helpers/muck_oauth_helper.rb:32:in `gmail_contacts'
     /Users/jbasdf/projects/muck-oauth/app/helpers/muck_oauth_helper.rb:16:in `gmail_contacts_as_array'
-{% endhighlight %}
+</pre></code>
 
 Naturally you will follow the stack trace down to the call in the oauth gem to create_http. Then you will look at the call to it and everything will look fine. The oauth gem works for everyone else. Why does it not work? WTF? Stupid code. I should have dropped out of engineering and become a business major. Seriously WTF? This code is never even called. What the hell!!!!!
 
@@ -38,7 +38,7 @@ Then you will remember that ruby is the best, most awesome language ever and you
 
 Next you get to figure out what method is being called. It took a lot of colorful language, some lost hair, my wife almost left me, but by luck I found it:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 # FireEagle addition to the <code>OAuth::Consumer</code> class
 class OAuth::Consumer
   alias_method :create_http_with_verify, :create_http
@@ -50,13 +50,13 @@ class OAuth::Consumer
   end
   alias_method :create_http, :create_http_without_verify
 end
-{% endhighlight %}
+</pre></code>
 
 Death to the bastard that wrote that code.
 
 Here's what the code inside oauth looks like:
 
-{% highlight ruby %}
+<pre><code class="ruby">
     # Instantiates the http object
     def create_http(_url = nil)
       if _url.nil? || _url[0] =~ /^\//
@@ -84,7 +84,7 @@ Here's what the code inside oauth looks like:
 
       http_object
     end
-{% endhighlight %}
+</pre></code>
 
 Notice that the new method in the oauth gem takes optional parameters while the monkey patched version doesn't? MonkeyPatching causes me to use words that destroy my eternal salvation. Stop it.
 

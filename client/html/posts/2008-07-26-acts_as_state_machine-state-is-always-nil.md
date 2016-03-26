@@ -14,15 +14,15 @@ tags:
 If you are using the acts_as_state_machine plugin to manage the state of your object keep this in mind:
 If you are going to have an object like an order or something similar that likely has a field state_id to relate in a geographic state then you need to be sure to rename the column that acts_as_state_machine plugin uses thus:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 acts_as_state_machine :initial => :new, :column => :mode
-{% endhighlight %}
+</pre></code>
 
 Then you can get your object's state thus:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 obj.mode
-{% endhighlight %}
+</pre></code>
 
 If you don't follow these steps ActiveRecord will override acts_as_state_machine and try to give you the geographic state (Utah, Idaho, etc) instead of the object state (new, edit, tired, etc).  (In my case the value was always nil no matter how many times I tried to obj.next! to transition the states of my object.  You will cry and scream and be in a very bad mood for a long time if you forget this fact.
 

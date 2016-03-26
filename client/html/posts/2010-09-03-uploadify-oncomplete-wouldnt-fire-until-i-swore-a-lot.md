@@ -16,17 +16,17 @@ If you are that desperate make sure to get <a href="http://www.actionscript-flas
 
 OK so now to the point. What's going wrong? Why doesn't 'onComplete' fire? The answer is that Uploadify binds events to the DOM item you specify via jQuery('#my-upload-container').uploadify(); These events include 'uploadifySelect', 'uploadifyOpen', 'uploadifyProgress', 'uploadifyComplete', etc. What I found is that the swf makes a call that looks like this:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 ExternalInterface.call(['jQuery'+p(q('#'+param.uploadifyID)), p(list.join(','))].join('.trigger'));
-{% endhighlight %}
+</pre></code>
 
 That call does it's job - I can watch it make the ExternalInterface calls using FireFlash. The swf file attempts to trigger the events I listed above that have been bound to the element identified by id="my-upload-container". However, something goes wrong and somehow the 
 'my-upload-container' element loses it's bindings and nothing is fired.
 
 I found I can get things to work if I change 'jquery.uploadify.js' to bind the events above to the document instead of to the DOM element and then change the fla to do this:
-{% highlight javascript %}
+<pre><code class="javascript">
 ExternalInterface.call(['jQuery(document)', p(list.join(','))].join('.trigger'));
-{% endhighlight %}
+</pre></code>
 
 That means that the events do fire however it's a hack so I kept digging (and swearing) and I bummed some help off Joel.....
 
@@ -34,26 +34,26 @@ It turns out that the problem wasn't Flash. It wasn't uploadify. It wasn't jQuer
 
 In our specific case we've built a plugin to TinyMCE that let's you upload files to the server. (You can find it in the <a href="http://github.com/tatemae/muck-contents">muck-contents gem</a>). We use the TinyMCE scripts to build our popups which means using 'tiny_mce/tiny_mce_popup.js'. If you look in that code very deeply you will discover this code around line 320:
 
-{% highlight javascript %}
+<pre><code class="javascript">
   if ((nv = t.editor.translate(h)) && nv != h)
     document.body.innerHTML = nv;
-{% endhighlight %}
+</pre></code>
 
 Notice that the way the popup handles translations is to replace the entire document with new html. If you use jQuery and your bindings have already been setup you realize this is very bad because everything you've setup using the standard methods just vanished. (This goes for all methods - click, bind, etc. They will all go away).
 
 ie This won't work:
-{% highlight javascript %}
+<pre><code class="javascript">
 jQuery(document).ready(function(){
    jQuery('#mce_uploader_upload').uploadify(mce_uploader_options);
 });
-{% endhighlight %}
+</pre></code>
 
 The solution is simple and probably obvious to a seasoned TinyMCE dev (which I'm not). Put your code into a different initialization block:
-{% highlight javascript %}
+<pre><code class="javascript">
 tinyMCEPopup.onInit.add(function(ed) {
    jQuery('#mce_uploader_upload').uploadify(mce_uploader_options);
 });
-{% endhighlight %}
+</pre></code>
 
 
 

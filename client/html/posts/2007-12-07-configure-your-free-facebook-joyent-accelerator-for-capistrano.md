@@ -21,23 +21,23 @@ Not all is roses.  There is a dark side to this free hosting.  Setting it up wil
 <ol>
 <li> <a href="http://discuss.joyent.com/viewtopic.php?id=12629">Setup your shell for capistrano</a>.  Follow the link for the how and why.
    Note my $HOME/.ssh/environment file contains this:
-    {% highlight ruby %}
+    <pre><code class="ruby">
 PATH=/usr/bin:/usr/sbin:/opt/local/bin:/usr/ucb:
 /usr/sfw/bin:/usr/ccs/bin:/opt/csw/bin:/opt/csw/sbin:
 /opt/csw/gnu:/opt/csw/gcc3/bin:/opt/csw/mysql5/bin:
 /opt/csw/postgresql/bin:/opt/csw/apache2/bin:
 /opt/csw/apache2/sbin
-{% endhighlight %}
+</pre></code>
   Also be careful so that you don't edit ssh_config instead of sshd_config not that anyone would ever be so stupid and do that.  :-)
 </li>
 <li>
   Make sure you have the Capistrano gem installed on your local machine:
-  {% highlight ruby %}sudo gem install capistrano{% endhighlight %}
+  <pre><code class="ruby">sudo gem install capistrano</pre></code>
 </li>
 <li>
   capify your application:
    In the root of your rails application run this:
-   {% highlight ruby %}capify .{% endhighlight %}
+   <pre><code class="ruby">capify .</pre></code>
 </li>
 <li>
   You will now have a deploy.rb in your config directory.  Replace it with this <a href='http://www.justinball.com/wp-content/uploads/2007/12/deploy.rb' title='deploy.rb'>deploy.rb</a>.
@@ -75,7 +75,7 @@ Be sure to enter the proper username for root into your database.yml file.
 </li>
 <li>
 Now for the exciting part:
-Run {% highlight ruby %}cap deploy:setup{% endhighlight %} inside of the root of your Rails project.  It should run successfully.  If not I am very sorry.
+Run <pre><code class="ruby">cap deploy:setup</pre></code> inside of the root of your Rails project.  It should run successfully.  If not I am very sorry.
 </li>
 <li>
 Then do this:

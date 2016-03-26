@@ -40,23 +40,23 @@ Right now would be a good time to check to make sure you don't accidently do the
 It just so happens that the href of that link is '/users/auth/facebook' which means it will initiate the Oauth dance using Omniauth. We only want to talk to Facebook once
 so be sure to call e.preventDefault() or else you will keep wondering why you get two server calls:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 $('#facebook_connect').on('click', function(e){
   e.preventDefault(); // Stop the request right here.
   Facebook.login();
 });
-{% endhighlight %}
+</pre></code>
 
 The next thing you'll want to verify is that you are telling Facebook to write a cookie.
 
-{% highlight javascript %}
+<pre><code class="javascript">
 FB.init({
   appId      : GLOBAL_SETTINGS.FBappId,
   status     : false, // don't check login status
   cookie     : true, // enable cookies to allow the server to access the session
   xfbml      : true  // parse XFBML
 });
-{% endhighlight %}
+</pre></code>
 
 
 <h3>Before We Start</h3>
@@ -66,19 +66,19 @@ If you just want to see how to do the Facebook OAuth dance client side below is 
 <h3>The Problem</h3>
 I'm guessing you're still running into problems. The source of the issue is the callback_phase method inside the omniauth-oauth2 gem:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 if !options.provider_ignores_state && (request.params['state'].to_s.empty? || request.params['state'] != session.delete('omniauth.state'))
    raise CallbackError.new(nil, :csrf_detected)
 end
-{% endhighlight %}
+</pre></code>
 
 request.params['state'] and session['omniauth.state'] are both nil so the condition fails and a CallbackError exception is raised. This is due
 to the fact that we initiated the Facebook OAuth dance via FB.Login rather than using Omniauth to initiate the dance. Omniauth sets a state variable in the session
 and then passes that as a state variable to Facebook like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 session['omniauth.state'] = SecureRandom.hex(24)
-{% endhighlight %}
+</pre></code>
 
 You can see above that the omniauth-oauth2 gem checks to make sure the state passed back from Facebook matches the one it saved into the session before
 the dance started.
@@ -88,12 +88,12 @@ Sucks for the client side process.
 <h3>Solution 1 - Cheap and Easy but Not So Secure</h3>
 One solution is to set provider_ignores_state to true which circumvents the condition:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {
   strategy_class: OmniAuth::Strategies::Facebook,
   provider_ignores_state: true,
 }
-{% endhighlight %}
+</pre></code>
 
 That solution isn't especially secure since it can leave you open to csrf attacks.
 
@@ -101,7 +101,7 @@ That solution isn't especially secure since it can leave you open to csrf attack
 <h3>Solution 2 - More Code Solves Everything</h3>
 More code isn't usually a great way to solve your problems, but you can always create your own handler and parse the Facebook cookies yourself like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def handle_facebook_connect
     @provider = 'facebook'
     @oauth = Koala::Facebook::OAuth.new(ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"])
@@ -124,11 +124,11 @@ def handle_facebook_connect
       format.json { render json: user }
     end
 end
-{% endhighlight %}
+</pre></code>
 
 Then you'll need to redirect to the 'handle_facebook_connect' method when you receive a connected response:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 FB.Event.subscribe('auth.authResponseChange', function(response) {
   if(response.status === 'connected'){
     if(response.authResponse){
@@ -144,7 +144,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
   }
  });
 
-{% endhighlight %}
+</pre></code>
 
 
 <h3>Solution 3 - Fake It</h3>
@@ -153,7 +153,7 @@ If nothing so far brings joy to your heart then we can also simulate what omniau
 I create a helper method that can be called where ever we need to use the client side Facebook login. We also have a global settings object
 that can be accessed by our Javascript on the client. Calling 'add_state' generates a secure value and passes it to the client.
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def global_settings
     settings = {
       FBappId: ENV["FACEBOOK_ID"],
@@ -166,15 +166,15 @@ def global_settings
   def add_state
     @add_state ||= SecureRandom.hex(24)
   end
-{% endhighlight %}
+</pre></code>
 
 Then have a look at the finish function in the javascript. Here we pass the state from GLOBAL_SETTINGS when we call '/users/auth/facebook/callback':
 
-{% highlight javascript %}
+<pre><code class="javascript">
 finish: function(response){
     window.location.href = '/users/auth/facebook/callback?state='+ GLOBAL_SETTINGS.state;
 }
-{% endhighlight %}
+</pre></code>
 
 Ideally, I would pass the state value when I call FB.Login but as far as I can tell from the Facebook documentation they don't provide
 a mechanism for passing parameters. It is possible to manually create the FB login popup in which case it would be possible to pass the state, but

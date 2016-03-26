@@ -23,9 +23,9 @@ me a ton of time and fixed a major headache.</p>
 <p><a href="http://www.seanbehan.com/how-to-enable-iframe-support-on-heroku-with-ruby-on-rails-and-sinatra">
   It turns out that X-Frame-Options is set to 'SAMEORIGIN' by default in Rails 4. If you want your content to be framed then you'll need to set the headers:</a></p>
 
-{% highlight ruby %}
+<pre><code class="ruby">
   config.action_dispatch.default_headers = {
     'X-Frame-Options' => 'ALLOWALL'
   }
-{% endhighlight %}
+</pre></code>
 

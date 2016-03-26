@@ -25,7 +25,7 @@ If you pass some bad data you will get errors or the parts of the request that f
 
 To write you create an xml document:
 
-{% highlight xml %}
+<pre><code class="xml">
 <familytree version="1.0" xmlns="api.familysearch.org/familytree/v1">
   <persons>
     <person>
@@ -36,21 +36,21 @@ To write you create an xml document:
     <person>
   <persons>
 </familytree>
-{% endhighlight %}
+</pre></code>
 
 <br />
 <p>
 To Delete:
 </p>
 
-{% highlight xml %}
+<pre><code class="xml">
 <familytree version="1.0" xmlns="api.familysearch.org/familytree/v1">
   <persons>
     <person id="KW3b-2HB" fsaction:action="delete">
     <person>
   <persons>
 </familytree>
-{% endhighlight %}
+</pre></code>
 
 <br />
 <p>

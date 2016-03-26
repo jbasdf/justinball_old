@@ -15,18 +15,18 @@ tags:
 I can't take credit for any of these instructions.  Dave South from the Logan Ruby group sent these out in an email.  I am posting them so that I can find them later on.
 
 Install ZenTest:
-{% highlight ruby %}sudo gem install ZenTest{% endhighlight %}
+<pre><code class="ruby">sudo gem install ZenTest</pre></code>
 
 Then install RedGreen
-{% highlight ruby %}sudo gem install redgreen{% endhighlight %}
+<pre><code class="ruby">sudo gem install redgreen</pre></code>
 
 Go to your rails project directory and create a file called: .autotest
-{% highlight ruby %}mate .autotest{% endhighlight %}
+<pre><code class="ruby">mate .autotest</pre></code>
 
 Add this to the file:
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'redgreen/autotest'
-{% endhighlight %}
+</pre></code>
 
 Save and exit
 

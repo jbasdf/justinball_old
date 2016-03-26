@@ -15,22 +15,22 @@ tags:
 I have been working with rFacebook to try to get a Facebook application up and running.  Right now we are trying to integrate our conference application - <a href="http://www.51weeks.com">51weeks.com</a> with Facebook so that our users can take advantage of existing social networks instead of having to create yet another network at he conference they are attending.
 
 In working on the application I kept getting an exception related to redirect_to:
-{% highlight ruby %}wrong number of arguments (2 for 1) {% endhighlight %}
+<pre><code class="ruby">wrong number of arguments (2 for 1) </pre></code>
 
 The stack trace points to this file:
-{% highlight ruby %}controller_extensions.rb:463:in `url_for__ALIASED'{% endhighlight %}
+<pre><code class="ruby">controller_extensions.rb:463:in `url_for__ALIASED'</pre></code>
 
 So I did what any good developer would do I went to Google and <a href="http://okwithfailure.com/2007/10/21/a-fix-for-this-rfacebook-bug">came up with this post</a>.
 
 The poster replaced this line in the gem:
-{% highlight ruby %}
+<pre><code class="ruby">
   path = url_for__ALIASED(options, *parameters)
-{% endhighlight %}
+</pre></code>
 
 with this:
-{% highlight ruby %}
+<pre><code class="ruby">
   path = options
-{% endhighlight %}
+</pre></code>
 
 I am not brave enough to mess around with the gem - it makes deployment a bit of a headache so I sat back and thought about this for a bit.  This always helps me.  I checked my facebook.yml file.  I have been using '/' as the callback_path.  I switched that to 'http://www.myserver.com/facebook/'.  Then I set the callback path inside of Facebook to 'http://www.myserver.com/facebook/'.  I made sure my canvas page url was setup correctly - 'indulgences' in my case.
 

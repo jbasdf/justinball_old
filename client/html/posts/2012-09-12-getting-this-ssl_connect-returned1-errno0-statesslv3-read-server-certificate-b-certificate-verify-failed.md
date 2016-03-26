@@ -10,17 +10,17 @@ categories:
 
 Setting up a new Mac is always a joy. You forget how many configuration errors you solved long ago. Here's one I just ran into. I started getting this error when doing OAuth with Facebook on my local machine:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
-{% endhighlight %}
+</pre></code>
 
 I had already installed Ruby 1.9.3 so I had to reinstall:
-{% highlight ruby %}
+<pre><code class="ruby">
 rvm pkg install openssl
 rvm reinstall 1.9.3 â€“-with-openssl-dir=$rvm_path/usr
 cd $rvm_path/usr/ssl
 curl -O http://curl.haxx.se/ca/cacert.pem
 mv cacert.pem cert.pem
-{% endhighlight %}
+</pre></code>
 
 <a href="https://rvm.io/packages/openssl/" target="_blank">RVM has more information to help you out.</a>

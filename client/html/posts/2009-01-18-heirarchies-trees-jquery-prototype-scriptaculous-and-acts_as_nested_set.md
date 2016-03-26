@@ -19,7 +19,7 @@ categories:
 'single_message' should normally be set to false.  I added it in just in case I needed to render a single message for an ajax call.  If you aren't rendering an entire tree and thus have only one node then passing 'single_message = true' will force the method to call the database to get the level of the node in the tree.
 
 If you want to render a true tree structure (not just indents) then you'll need to do a bit of recursion.  Assuming @message is a root level message you can do this:
-{% highlight ruby %}
+<pre><code class="ruby">
 <div id="messageList">
   <ul id="message_tree">
     <% render_messages(@message) do |message| -%>
@@ -27,9 +27,9 @@ If you want to render a true tree structure (not just indents) then you'll need 
     <% end -%>
   </ul>
 </div>
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 module MessagesHelper
 
 def render_messages(message, &block)
@@ -55,13 +55,13 @@ def children_of(message_id)
 end
 
 end
-{% endhighlight %}
+</pre></code>
 
 (*Note that I've not fully tested the code above and I am betting it is not the most efficient.  At the very least you'll want to cache the resulting html.)
 
 Next you'll need to add some script to get the drag and drop to work.  It will look something like this.  Honestly I can't remember if I got this code from somewhere online or if I wrote it.  I am sure someone could make it generic, but in this instance we use css class names to add drag and drop functionality to the various nodes:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 jQuery(document).ready(function() {
 
 	jQuery(".messageContainer").draggable({
@@ -169,12 +169,12 @@ jQuery(document).ready(function() {
 	}
 
 });
-{% endhighlight %}
+</pre></code>
 
 
 In two of the projects I have removed prototype and script.aculo.us in favor of jQuery.  Personally I prefer jQuery and the <a href="http://ennerchi.com/projects/jrails">jRails plugin</a> makes the transition simple.  However, there are probably more people using the default libraries.  Prototype actually comes with the ability to create a nice drag and drop ordered tree built in.  However, I don't love the fact that their 'onUpdate' callback doesn't give the node that was dropped.  Instead you are supposed to serialize the entire tree.  awesome_nested_set makes it very easy to move just one node and that seems more efficient so you'll see a hack in the code below that constantly records the dropped node into a hash table on the 'onChange' event.  That data is then sent to the server on the 'onUpdate' event.
 
-{% highlight javascript %}
+<pre><code class="javascript">
 window._token = '#{form_authenticity_token}'; // Rails requires this token to validate forms so we'll need to pass it in the ajax request
 window._message_updates = new Hash;
 Sortable.create('message_tree', {tree:true,
@@ -208,7 +208,7 @@ Sortable.create('message_tree', {tree:true,
                                       });
                                     }
                                     });
-{% endhighlight %}
+</pre></code>
 
 Here is a link to the default script.aculo.us tree example
 <a href="http://script.aculo.us/playground/test/functional/sortable_tree_test.html">http://script.aculo.us/playground/test/functional/sortable_tree_test.html</a>

@@ -18,10 +18,10 @@ I won't go into all the details on how to implement the gems in your project.  I
 Once you have an OAuth solution in place the next step is to do something with the tokens.  I figured that it was my problem to figure out how to call the various service's apis using the OAuth token.  I spent a fair amount of time trying to figure out how to send the correct headers, sign the values, etc.  I turns out that the OAuth gem takes care of this for you so to save you hours of time, once you have your application setup and configured you can do stuff like this:
 
 Google Contacts API:
-{% highlight ruby %}
+<pre><code class="ruby">
 limit = 10000
 user.google.get("http://www.google.com/m8/feeds/contacts/default/full?max-results=#{limit}")
-{% endhighlight %}
+</pre></code>
 
 The gem will handle signing the request and adding the needed values to the header.
 

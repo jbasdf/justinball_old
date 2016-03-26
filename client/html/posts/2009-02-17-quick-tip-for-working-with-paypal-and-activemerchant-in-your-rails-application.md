@@ -20,22 +20,22 @@ https://developer.paypal.com</li>
 <li>Select the 'Seller' account and then press 'Enter Sandbox Test Site'.  You will be asked to login as the 'Buyer' user.  Login and then under 'My Account' which should be the first screen you see there will be 3 steps towards the bottom of the page.  Click on the 'Go' button to accept the billing agreement and then you will be provided with API credentials.  Note that it will tell you that you will be billed $30 a month.  However since you are in the sandbox your test account is free so don't fret.  At least I hope they are free.  Maybe I should watch my account :-).</li> 
 <li>If you don't copy the credentials provided no worries you can always get the API Credentials from inside your sandbox account by clicking on 'View Details' under the buy account.  Copy the credentials they are the information you need to setup ActiveMerchant.</li>
 <li>You can now setup your application to talk to Paypal with something like this:
-{% highlight ruby %}
+<pre><code class="ruby">
   gateway = ActiveMerchant::Billing::PaypalGateway.new(
     :login => "seller_432342373_p.example.com",
     :password => "WUDJOWK4M92C6HBE",
     :signature => "28dusj#8skaTiKxtkm6L9DcSUCUgePAUDQ3L-9s83usj@$osja82haDYtSu"
   )
-{% endhighlight %}
+</pre></code>
 <li>I won't go into all the details of how to build a payment system instead watch the Railscasts and buy the <a href="http://peepcode.com/products/activemerchant-pdf">ActiveMerchant pdf</a></li>
 </ol>
 
 Note: If you get this error during your work:
-{% highlight ruby %}
+<pre><code class="ruby">
 Error: There's an error with this transaction. Please enter a complete billing address.
-{% endhighlight %}
+</pre></code>
 It's because Paypal requires billing information even in test mode.  You'll need to include something like this in the 'options' argument to the various method calls in ActiveMerchant:
-{% highlight ruby %}
+<pre><code class="ruby">
       :billing_address => {
         :name     => "Test Guy",
         :address1 => "123 W 423 E",
@@ -44,7 +44,7 @@ It's because Paypal requires billing information even in test mode.  You'll need
         :country  => "US",
         :zip      => "88888"
       }
-{% endhighlight %}
+</pre></code>
 
 If you get an error stating 'This transaction cannot be processed due to an invalid merchant configuration' then you need to sign into your 'Buyer' account and accept the API 
 

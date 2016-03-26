@@ -24,7 +24,7 @@ That's not to say node.js is not as good. I really love node.js and we had start
 Enter Goliath.
 
 Here's a really simple example of what we will end up doing:
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'rubygems'
 require 'goliath'
 require 'em-synchrony'
@@ -40,20 +40,20 @@ class OerglueProxy < Goliath::API
     [200, {'X-Goliath' => 'Proxy'}, resp]
   end
 end
-{% endhighlight %}
+</pre></code>
 
 In just a few lines of code we're able to retrieve a page and return the results. All the async code that EventMachine provides and that gives us great performance is hidden away. We can focus on our logic. We can also utilize our team's Ruby development strength. I like that.
 
 I did run into issues getting the right version of the gems I needed. Specifically, I kept getting this error:
-{% highlight ruby %}
+<pre><code class="ruby">
 `class_eval': undefined method `get' for module `EventMachine::HTTPMethods' (NameError)
-{% endhighlight %}
+</pre></code>
 
 I found <a href="https://github.com/igrigorik/em-synchrony/issues/29">a solution in this thread</a>, but it didn't quite work for me.
 
 Luckily bundler makes it easy to get the exact version of the gem you need and with a little playing around here's what I came up with:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 source "http://rubygems.org"
 
 gem 'goliath', '0.9.1'
@@ -64,7 +64,7 @@ gem "em-synchrony", '0.3.0.beta.1'
 group :test, :development do
   gem "rspec"
 end
-{% endhighlight %}
+</pre></code>
 
 Goliath has been in use by Post Rank for over a year and serves ~500 requests per second. I'm looking forward to seeing how it works to serve up courses on <a href="http://www.oerglue.com">OER Glue</a>.
 

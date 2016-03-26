@@ -13,26 +13,22 @@ I wanted to pass a value into my ember.js view at the moment that I declare the 
 name, so it doesn't need to be bound to anything. Turns out it's really not that hard:</p>
 
 <p>Add a property to your view:</p>
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ModalView = Ember.View.extend({
   aClassName: 'modal'
 });
-{% endhighlight %}
+</pre></code>
 
 <p>When you use the view just set the property:</p>
-{% highlight html %}
-{% raw %}
+<pre><code class="html">
 {{#view App.ModalView aClassName="wide_modal"}}
   Some great content goes here
 {{/view}}
-{% endraw %}
-{% endhighlight %}
+</pre></code>
 
 <p>Use the value in your template:</p>
-{% highlight html %}
-{% raw %}
-  <div {{bindAttr class="view.aClassName"}}>
+<pre><code class="html">
+  &lt;div {{bindAttr class=&quot;view.aClassName&quot;}}&gt;
     More stuff here
-  </div>
-{% endraw %}
-{% endhighlight %}
+  &lt;/div&gt;
+</pre></code>

@@ -12,15 +12,15 @@ categories:
 
 <p>It's a tiny problem that is hard to spot. Right there at the very end there's a property declared like this:<p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
   property('selectedContacts.@each')
-{% endhighlight %}
+</pre></code>
 
 <p>It wasn't always that way. Once there was this:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
   property('selectedContacts@each')
-{% endhighlight %}
+</pre></code>
 
 <p>
   The difference is subtle. It's hard to see especially when you've spent your life typing email addresses. No
@@ -28,7 +28,7 @@ categories:
   <strong>Don't forget the '.' that goes before '@each'.<strong>
 </p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 var App = Ember.Application.create();
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -78,4 +78,4 @@ App.ContactController = Ember.ObjectController.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>

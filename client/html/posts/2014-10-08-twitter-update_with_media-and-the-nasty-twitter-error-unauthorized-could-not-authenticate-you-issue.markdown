@@ -11,7 +11,7 @@ I've been playing around with the Twitter gem - yes this is what I do for fun. I
 I feel so stuck in the dark ages with just 140 characters. I set out to discover how to regain my hipster cred and since
 I am a lover of Ruby I started with the Twitter gem. The first bit of code that looked like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
 # We're goint to upload an image from a url so we include open-uri
 require 'open-uri'
@@ -34,7 +34,7 @@ class TwitterApi
   end
 
 end
-{% endhighlight %}
+</pre></code>
 
 The problem with that code is that I would occasionally get this error:
 
@@ -70,13 +70,13 @@ That sucks 1. I wasn't sure how long the photo url would be and 2. I'm wordy and
 As of today you'll find support for it in the <a href="https://github.com/sferik/twitter">Twitter gem</a> on github. It's not in the officeal release yet so 
 if you want to play with it you'll have to poing your gemfile to github:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 gem "twitter", :git => 'https://github.com/sferik/twitter.git'
-{% endhighlight %}
+</pre></code>
 
 Now my code looks like this and all is well:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
 require 'open-uri'
 
@@ -105,5 +105,5 @@ class TwitterApi
 
 end
 
-{% endhighlight %}
+</pre></code>
 

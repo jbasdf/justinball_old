@@ -36,7 +36,7 @@ Reactive programming requires thinking functionaly.
 
 <h2>Example</h2>
 <p>(from <a href="https://github.com/Reactive-Extensions/RxJS">https://github.com/Reactive-Extensions/RxJS</a>)</p>
-{% highlight javascript %}
+<pre><code class="javascript">
 /* Only get the value from each key up */
 var keyups = Rx.Observable.fromEvent($input, 'keyup')
   .map(function (e) {
@@ -53,7 +53,7 @@ var throttled = keyups
 /* Now get only distinct values, so we eliminate the arrows and other control characters */
 var distinct = throttled
   .distinctUntilChanged();
-{% endhighlight %}
+</pre></code>
 
 <h3>Resources</h3>
 - <a href="http://reactive-extensions.github.io/RxJS/">Reactive-Extensions for Javascript</a>

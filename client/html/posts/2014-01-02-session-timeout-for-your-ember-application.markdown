@@ -16,7 +16,7 @@ Here's a couple of bits of code that might be helpful.
 
 First capture 401 errors in your REST adapter and send the user to the sign in page if they've been logged out:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 
 var Adapter = DS.RESTAdapter.extend({
 
@@ -31,7 +31,7 @@ var Adapter = DS.RESTAdapter.extend({
   }
 });
 
-{% endhighlight %}
+</pre></code>
 
 We wanted something a bit more user friendly than a redirect so we proactively warn the user and then send keep alives as needed.
 The solution is an Ember component that uses Twitter Bootstrap modals to warn the user. The code assumes
@@ -40,7 +40,7 @@ html in the Handlebars template for whatever framework modal you want to use. Ch
 
 
 <a href="https://gist.github.com/jbasdf/8228953">Gist for Handlebars template</a>
-{% highlight html %}
+<pre><code class="html">
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -54,12 +54,12 @@ html in the Handlebars template for whatever framework modal you want to use. Ch
     </div>
   </div>
 </div>
-{% endhighlight %}
+</pre></code>
 
 
 <a href="https://gist.github.com/jbasdf/8229029">Gist for Ember component javascript</a>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 
 App.InactivityWarningComponent = Ember.Component.extend({
 
@@ -131,4 +131,4 @@ App.InactivityWarningComponent = Ember.Component.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>

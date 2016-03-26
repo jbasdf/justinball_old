@@ -23,24 +23,24 @@ Empower your models.  Include as much data validation and manipulation in the mo
 How to deal with business requirements that span models?  Create a model that spans the logic.
 
 Keep your controllers "skinny".  If your view doesn't require any code do this:
-{% highlight ruby %}
+<pre><code class="ruby">
 def about
   render
 end
-{% endhighlight %}
+</pre></code>
 That lets you sort of self document your code.
 
 Use exceptions.  Nested ifs are ugly and if elsif is bad.  In the code proceed with the assumption that you were successful and catch problems in exceptions.
 
 Extract stuff from views into helpers.  ie The views have long lines that look like this:
 
-{% highlight ruby %}
-  <li <%if @current_tab == "popular" %>class="current"<% end %>><%= link_to("Popular", :action => "index") %></li>
-{% endhighlight %}
+<pre><code class="ruby">
+  &lt;li <%if @current_tab == "popular" %>class="current"<% end %>><%= link_to("Popular", :action => "index") %>&lt;/li&gt;
+</pre></code>
 
 they should look like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   <%= tab 'popular' %>
   def tab(name, options={})
     lang = _(name)
@@ -50,38 +50,38 @@ they should look like this:
     s << link_to(lang, options[:url] || send("#{name.downcase}_path"))
     s << "</li>"
   end
-{% endhighlight %}
+</pre></code>
 
 Instead of this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   <% if @editable %>
   <% end %>
-{% endhighlight %}
+</pre></code>
 
 Do this:
-{% highlight ruby %}
+<pre><code class="ruby">
   <% editable do %>
     stuff
   <% end %>
-{% endhighlight %}
+</pre></code>
 
 In the helper add this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def editable(&block)
   concat(block.call, block.binding) if @editable
 end
-{% endhighlight %}
+</pre></code>
 
 which also lets you do stuff like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def editable(&block)
   concat("<div>Look")
   concat(block.call, block.binding) if @editable
 end
-{% endhighlight %}
+</pre></code>
 
 I talked to Jamis a bit about Rails.  A couple of questions I had:
 

@@ -20,16 +20,16 @@ We are now into the second part of the session.  Black is going over some of the
 
 We have started into REST in Rails.  It is interesting that Black needs to caveat his comments due to changes coming in Edge Rails.  The ';' is being replaced with a '/'.  We are talking about why controllers are plural (your REST operations are performed on a collection.)  Again, not new stuff.  I am hoping to see nested routes or stuff like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
  map.resources :users, :has_many => [:services, :websites], :collection => { :complete => :get, :confirm => :get, :confirm => :post }
-{% endhighlight %}
+</pre></code>
 
 or this
 
-{% highlight ruby %}
+<pre><code class="ruby">
 map.resources :users do |users|
   users.resources :services
 end
-{% endhighlight %}
+</pre></code>
 
 and why one might be better than another.  <a href="http://weblog.jamisbuck.org/2007/2/5/nesting-resources">Jamis Buck wrote that he doesn't nescessarily like the nested routes</a>.  I liked how they make object relations obvious, but he brings up some very good points like why should I have to specify every parent id to get to an object.

@@ -18,20 +18,20 @@ Because everyone else was doing it I decided I would give Ruby on Rails a shot. 
 
 ASP.Net takes control.  Just like Microsoft isn't free (as in beer or freedom) ASP.Net takes away your freedom.  You don't get to controll where your form posts to.  Your Ids are a mess of insane garbage.  Pretty HTML, not just valid XHTML, but really pretty HTML is out of your reach.  Just FYI for the ASP.Net team.  This:
 
-{% highlight html %}
+<pre><code class="html">
 <div>
   <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
   <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
   <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
   <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTcwODczMjYzMg8WKB4ETVhIRGYeBE1YU1FmHgRNTkhEZh4CQ1BmHgJTUWYeA0RJRGYeBE1nQ==" />
 </div>
-{% endhighlight %}
+</pre></code>
 
 isn't pretty.  Neither is this:
 
-{% highlight html %}
+<pre><code class="html">
 &lt;img id="ctl00_ctl00_content_content_RssForXYZ" .....
-{% endhighlight %}
+</pre></code>
 
 That is one nasty id.  I would hate to have to use that id for anything like oh say Javascript or CSS.  (Yes, I know there are server side functions you use to hook up Javascript controls, but why should I have to?)
 

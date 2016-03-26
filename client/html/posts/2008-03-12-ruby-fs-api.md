@@ -29,16 +29,16 @@ require 'family_tree_api/client'
 
 The library will handle turning all the data into objects for you.  This makes access to the API slick.  I love ruby.
 ie
-{% highlight ruby %}
+<pre><code class="ruby">
 person = client.summary_person 'KW3B-2L7', descendants => 2
 mother = person.mother
 grandmother = person.mother.mother
-{% endhighlight %}
+</pre></code>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 search_params = {:givenName => 'Parker', :familyName => 'Flech'}
 results = client.search search_params
-{% endhighlight %}
+</pre></code>
 
 As with all things Ruby this API makes it very easy to talk to FamilySearch.  If you are in the genealogy space and know Ruby give it a try.
 

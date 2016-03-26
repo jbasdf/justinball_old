@@ -10,7 +10,7 @@ categories:
 <p>We ran into a situation where we wanted to be able to close our ember.js view (a modal) when the user pressed the esc key.
 At first I thought the solution was easy and I ended up with some code like this:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ModalView = Ember.View.extend({
 
   didInsertElement: function(){
@@ -29,7 +29,7 @@ App.ModalView = Ember.View.extend({
   }
 
 });
-{% endhighlight %}
+</pre></code>
 
 <p>That code worked great until we ran into a situation where the ember view was removed from the DOM via a transition rather
   than by its own close method. In that situation "this.get('controller')" would be null the next time the user pressed
@@ -37,7 +37,7 @@ App.ModalView = Ember.View.extend({
   gone away along with it's related controller. Since it's always nice/better to do things the ember way
   that led us to investigate the view's eventManager</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ModalView = Ember.View.extend({
 
   didInsertElement: function() {
@@ -53,7 +53,7 @@ App.ModalView = Ember.View.extend({
   })
 
 });
-{% endhighlight %}
+</pre></code>
 
 <p>We could have also just defined a keyUp method directly on the view, but it's always fun to play with new stuff.
 Unfortunately, this didn't work. It looks like it should and it fact it does exactly what you've asked it to do. It
@@ -63,7 +63,7 @@ Those techniques kind of worked, but it still didn't feel right. We found that w
 the keyUp event to make it into our view. For end users that wasn't going to work so back to our original code we went.
 Here's what ended up working:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ModalView = Ember.View.extend({
 
   didInsertElement: function(){
@@ -86,7 +86,7 @@ App.ModalView = Ember.View.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>
 
 <p>All we needed to do was be sure to get rid of our keyup binding in 'willDestroyElement' rather than trying to handle it on
   our own in the close method. Now we can still be bound to the global key events but ember will ensure that our handlers

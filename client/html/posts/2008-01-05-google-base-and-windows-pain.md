@@ -19,12 +19,12 @@ So I wrote a class to handle the Google Base stuff and then I put it into a Wind
 
 The site maps service starts fine.  The Google Base service starts then dies and drops this in the logs:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 EventType clr20r3, P1 r3b0434webwhcosy0o40t3c1xyqmvmpy, P2 1.0.0.0, P3 47803796, P4
 theplancollectionbackgroundservices, P5 1.0.0.0, P6 47803796, P7 16, P8 3e, P9 system.io.filenotfoundexception, P10 NIL.
 
 For more information, see Help and Support Center at http://go.microsoft.com/fwlink/events.asp.
-{% endhighlight %}
+</pre></code>
 
 Since that message is so very helpful the problem is miserable to solve.  A Google search reveals that <a href="http://blogs.msdn.com/elton/archive/2006/03/06/545090.aspx">I am not the only one with this problem</a>.  <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=328111&SiteID=1&mode=1">Here is thread where others are feeling the M$ pain.</a>
 

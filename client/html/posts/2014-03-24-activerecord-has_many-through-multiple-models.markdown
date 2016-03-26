@@ -15,7 +15,7 @@ More than a few times now I've run into a situation where I really need to be ab
 Here's an example set of objects where a user can have many products but to get to the products you have to first go through associations and then through companies.
 'user.companies' is straight forward ActiveRecord but 'user.companies.products' won't give you what you need.
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
 class User < ActiveRecord::Base
   has_many :associations
@@ -37,12 +37,12 @@ class Product < ActiveRecord::Base
   belongs_to :company
 end
 
-{% endhighlight %}
+</pre></code>
 
 What I really want to do is setup an efficient query that bypasses the companies table. The associations table and the products table both have a 'company_id'.
 What if we use those keys to relate the user to products? Doing so yields a bit of code like that below. Have a look at the comments for the details.
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
 class User < ActiveRecord::Base
   has_many :associations
@@ -88,13 +88,13 @@ class Product < ActiveRecord::Base
   has_many :users, through: :associations
 
 end
-{% endhighlight %}
+</pre></code>
 
 There you have it. A has_many relationship through multiple tables (more or less - we bypass the companies table but that's a good thing for performance).
 Now we can do exciting stuff like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
   result = user.products.select("count(associations.id) as total, associations.state, count(products.id) as products_total, products.category_id").group("state, category_id").order('category_id')
 
-{% endhighlight %}
+</pre></code>

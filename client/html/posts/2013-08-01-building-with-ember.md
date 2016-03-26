@@ -12,24 +12,19 @@ categories:
 once you get past a few of the gotchas it's an amazing framework that saves you a lot of time.</p>
 <p>So far programming with ember.js has been a great experience. Here's a few notes/issues that I've run into in case this helps someone else:</p>
 
-
 <h3>Be careful what event names you chose inside of your actions.</h3>
 <p>This one drove me crazy for quite a while. I had the following action setup in a view:</p>
-  {% highlight html %}
-  {% raw %}
-  <a href="#" {{action 'destroy'}} class="btn">Delete</a>
-  {% endraw %}
-  {% endhighlight %}
+  <pre><code class="html">
+    &lt;a href=&quot;#&quot; {{action &#039;destroy&#039;}} class=&quot;btn&quot;&gt;Delete&lt;/a&gt;
+  </pre></code>
 <p>I wanted the action to bubble up to the route. However, when I clicked on the link nothing happened. That was confusing so I added a 'destroy' method to my controller.
   I really wanted to handle the event in the route not the controller so I spent way to much time trying to hack around things to no avail. The really
   strange thing was that ember.js will complain if you don't handle your events. Deleting my event handler from the controller and from the route didn't yield an error. That's when
   I realized the route handles the 'destroy' event. I changed my code to the following and it all worked:
 </p>
-  {% highlight html %}
-  {% raw %}
-  <a href="#" {{action 'destroy_node'}} class="btn">Delete</a>
-  {% endraw %}
-  {% endhighlight %}
+  <pre><code class="html">
+    &lt;a href=&quot;#&quot; {{action &#039;destroy_node&#039;}} class=&quot;btn&quot;&gt;Delete&lt;/a&gt;
+  </pre></code>
 <p>Now I have a destroy_node event handler in my route and everything is happy.</p>
 <p>I remember going through the same struggle years again when I first learned Ruby on Rails. 'destroy' is a great name for an event which is probably why Ember uses it. With any framework
   you have to be careful about naming your events, methods and variables. There might be some documentation on reserved words but I've not come across it. This is one of the gray areas
@@ -39,7 +34,7 @@ once you get past a few of the gotchas it's an amazing framework that saves you 
 <p>Here's another one that should be easy to do, but as it turns out I couldn't find any documentation. Ember does a lot of magical things for you which is great.
   However, sometimes you need to work around the magic. You will feel some pain when that time comes. I ended up reading the code to figure out that you can
   explicity set the controller for your route. This should be simple and it is but it should also be spelled out in the documentation. Here you go:</p>
-{% highlight javascript %}
+<pre><code class="javascript">
 var ThingEditRoute = Ember.Route.extend({
   controllerName: 'thing',
   renderTemplate: function(controller, model){
@@ -47,7 +42,7 @@ var ThingEditRoute = Ember.Route.extend({
     this.render({ controller: controller, into: 'application', outlet: 'modal' });
   }
 });
-{% endhighlight %}
+</pre></code>
 <p>Now you'd think that just setting the controllerName would be enough, but you'd be wrong. If you also call renderTemplate you MUST pass in the controller or else
 ember will build you a new one. Why I don't know, but event handlers my 'thing' controller were never called by actions in the view.</p>
 
@@ -71,14 +66,14 @@ months then you might want to keep looking since things have likely changed.</p>
 <p>The magic that powers ember.js is awesome while it is working. When it fails though you will have a lot of 'fun' debugging it.</p>
 
 <p>We have a number of transitions in the application. At one point we do this:<p>
-{% highlight javascript %}
+<pre><code class="javascript">
 var map = MapModel.createRecord({
   title: 'New Map'
 });
 map.save().then(function(){
   this.transitionTo('map', map);
 }.bind(this));
-{% endhighlight %}
+</pre></code>
 
 That code looks like it should just work but the console would fill with errors like this:
 
@@ -105,11 +100,10 @@ Assertion failed: Emptying a view in the inBuffer state is not allowed and shoul
 <p>This time I thought I was prepared having seen the error before. Turns out that in this case previous knowledge was a hinderance rather than a help. In desperation I started deleting code from my templates since
 I had read that others had run into problems with their handlebars code. I lucked out and that was the solution. I had a link in my main code that looks like this:</p>
 
-{% highlight html %}
-{% raw %}
+<pre><code class="html">
   <li>{{#linkTo 'map.destroy' title="Delete the current map"}}<i class="icon-trash"></i> Delete{{/linkTo}}</li>
-{% endraw %}
-{% endhighlight %}
+
+</pre></code>
 
 <p>That code looks innocent but 'map' isn't always defined which causes the assertion failure above. I realize that I ember isn't to blame for my stupid mistake, but when you are learning a new framework
 errors like the one above are extremely confusing. They don't really point to a specific piece of code so they are difficult to debug. Try asking a question on Stackoverflow or IRC to resolve the problem.
@@ -131,35 +125,32 @@ me some hints as to how/where I was being stupid, but it doesn't. I get an error
 <p>This time around here's the problem (again newb mistake, but give us new guys some hints/helps).</p>
 <p>Had previously built a loop in my handlebars like this and it worked fine:</p>
 
-{% highlight html %}
-{% raw %}
+<pre><code class="html">
   {{#each user.posts}}
     <li>{{#linkTo 'posts.show' title="View post"}}{{name}}{{/linkTo}}</li>
   {{/each}}
-{% endraw %}
-{% endhighlight %}
+
+</pre></code>
 
 <p>I then tried this in a different bit of code and got the error:</p>
 
-{% highlight html %}
-{% raw %}
+<pre><code class="html">
   {{#each post in Posts}}
     {{#linkTo 'posts.show' title="View post"}}{{post.name}}{{/linkTo}}
   {{/each}}
-{% endraw %}
-{% endhighlight %}
+
+</pre></code>
 
 <p>If you've spent much time with ember/handlebars the error isn't hard to spot but it threw me. It would be awesome if the error messages would direct you to the point of stupidity. The only difference in the
 working code below is the addition of 'post' after 'posts.show'. In the first loop above the context is the post. In the second loop the context remains the parent context. In the first case we just link to 'this' since
 we've changed contexts. In the second loop we have to tell the linkTo the correct thing to link to:</p>
 
-{% highlight html %}
-{% raw %}
+<pre><code class="html">
   {{#each post in Posts}}
     {{#linkTo 'posts.show' post title="View post"}}{{post.name}}{{/linkTo}}
   {{/each}}
-{% endraw %}
-{% endhighlight %}
+
+</pre></code>
 
 <p>There's a lot of whine in the list above along with a lot of newbie mistakes. Ember is still pre-release, but don't let that scare you off. If you can work through the intial learning
 curve it's going to save you a lot of time.</p>

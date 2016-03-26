@@ -26,13 +26,13 @@ So I spend some time searching and can't find anything.  I spend some time chatt
 I traced this down into consumer.rb in the ruby-openid gem.
 
 This section of code from around line 562 is where the 'sig mismatch' comes from.
-{% highlight ruby %}
+<pre><code class="ruby">
 _signed, v_sig = OpenID::Util.sign_reply(args, assoc.secret, signed_list)
 
 if v_sig != sig
   return FailureResponse.new(consumer_id, 'sig mismatch')
 end
-{% endhighlight %}
+</pre></code>
 
 To ensure that the response from the OpenID server is not tampered with the response is signed with a shared secret.  When the response is received the reply is checked using the local secret that is stored in the local db as a bytea column.  Because of the change in the postgresql adapter the bytea value returned is different than the one originally sent to the OpenID server.  The result is mismatched hash which returns the 'sig mismatch' error.
 

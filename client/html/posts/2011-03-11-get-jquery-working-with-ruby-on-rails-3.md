@@ -15,26 +15,26 @@ I thought I had fixed everything and made ready for Rails 3 in my applications. 
 
 I have bits of code that look like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 <%= link_to 'Delete Thing', @thing, :confirm => 'Are you sure?', :method => :delete %>
-{% endhighlight %}
+</pre></code>
 
 I know the argument that you shouldn't use links for delete. In this case the generated anchor tag won't cause you problems so I don't want to hear any whining:
 
-{% highlight html %}
+<pre><code class="html">
 <a href="/courses/algebra" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete Course</a>
-{% endhighlight %}
+</pre></code>
 
 I included rails.js which will turn those links into DELETE requests for the server. However, I started seeing this error in Firebug on Firefox:
-{% highlight ruby %}
+<pre><code class="ruby">
 document.on is not a function
-{% endhighlight %}
+</pre></code>
 
 I also got this in Google Chrome:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 Uncaught TypeError: Object #<HTMLDocument> has no method 'on'
-{% endhighlight %}
+</pre></code>
 
 Turns out that since I use jQuery I needed to get the rails.js file for jQuery. There's a gem that wraps it up:
 https://github.com/rails/jquery-ujs

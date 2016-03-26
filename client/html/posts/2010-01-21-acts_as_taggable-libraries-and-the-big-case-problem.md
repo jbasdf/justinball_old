@@ -19,14 +19,14 @@ Over the years I've had a chance to use the three tagging libraries available fo
 I think the original acts as taggable is now defunct.  The other libraries are derivatives of that library.  In using tags on various sites the problem I always seem to run across is how to deal with tag case.  For example, to some blue is the same as Blue.  However, is god the same as God?  It depends on who you ask.  It seems that acts-as-taggable-on handles the case problem properly.  I noticed that if I add the tag 'blue' to an object I cannot add another tag called 'Blue'.  However, if I delete 'blue' and then add the tag 'Blue' it works as expected and the upper case tag becomes associated with the object.
 
  acts_as_taggable_on_steroids doesn't handle the case problem especially well and I frequently run across this error:
-{% highlight ruby %}
+<pre><code class="ruby">
   ActiveRecord::RecordInvalid (Validation failed: Tag has already been taken):
-{% endhighlight %}
+</pre></code>
 
 It turns out that that the key difference between the two libraries is in how they setup the tag relationship.
 
 acts-as-taggable-on does this:
-{% highlight ruby %}
+<pre><code class="ruby">
 def save_tags
           (custom_contexts + self.class.tag_types.map(&:to_s)).each do |tag_type|
             next unless instance_variable_get("@#{tag_type.singularize}_list")
@@ -46,10 +46,10 @@ def save_tags
 
           true
         end
-{% endhighlight %}
+</pre></code>
 
 while acts_as_taggable_on_steroids does it this way:
-{% highlight ruby %}
+<pre><code class="ruby">
         def save_tags
           return unless @tag_list
 
@@ -69,53 +69,53 @@ while acts_as_taggable_on_steroids does it this way:
 
           true
         end
-{% endhighlight %}
+</pre></code>
 
 
 The key difference is in this:
-{% highlight ruby %}
+<pre><code class="ruby">
 Tagging.create(:tag_id => new_tag.id, :context => tag_type,
                                :taggable => self, :tagger => owner)
-{% endhighlight %}
+</pre></code>
 
 versus:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 tags << Tag.find_or_create_with_like_by_name(new_tag_name)
-{% endhighlight %}
+</pre></code>
 
 The first will return false and on go on it's way.  The second throws an exception.  Which is the right way of dealing with the problem?  I guess it depends.  I don't feel like either is a great solution.  Both libraries assume that 'blue' == 'Blue'.  If that assumption is correct then a different bit of code should change in each library.  Tag.rb should lower case the names in the comparison:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   def ==(object)
     super || (object.is_a?(Tag) && name == object.name)
   end
-{% endhighlight %}
+</pre></code>
 
 changes to:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   def ==(object)
     super || (object.is_a?(Tag) && name.downcase == object.name.downcase)
   end
-{% endhighlight %}
+</pre></code>
 
 However, if you want to leave each tag as the user specified rather than change the case then a different line needs to be changed in tag.rb
 
-{% highlight ruby %}
+<pre><code class="ruby">
   # LIKE is used for cross-database case-insensitivity
   def self.find_or_create_with_like_by_name(name)
     find(:first, :conditions => ["name LIKE ?", name]) || create(:name => name)
   end
-{% endhighlight %}
+</pre></code>
 
 will need to change to
-{% highlight ruby %}
+<pre><code class="ruby">
   # = is used for to ensure tags are case sensitive
   def self.find_or_create_with_like_by_name(name)
     find(:first, :conditions => ["name =", name]) || create(:name => name)
   end
-{% endhighlight %}
+</pre></code>
 
 Of course the second change will result in the duplication of tags in your site - you will end up with tags 'Blue' and 'blue', but that is the intent.  Your searches might need to be adjusted accordingly.
 

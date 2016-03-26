@@ -9,28 +9,28 @@ categories:
 ---
 
 I've been upgrading some old code and noticed that my unit tests started spitting out a lot of errors like this:
-{% highlight ruby %}
+<pre><code class="ruby">
 undefined method `assert_no_difference'
-{% endhighlight %}
+</pre></code>
 
 and
 
-{% highlight ruby %}
+<pre><code class="ruby">
 undefined method `assert_difference'
-{% endhighlight %}
+</pre></code>
 
 It turns out that I needed to change my base classes from <strong>Test::Unit::TestCase</strong> to <strong>ActiveSupport::TestCase</strong>:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class UserTest < Test::Unit::TestCase
   # stuff
 end
-{% endhighlight %}
+</pre></code>
 
 <p>changes to:</p>
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class UserTest < ActiveSupport::TestCase
   # stuff
 end
-{% endhighlight %}
+</pre></code>

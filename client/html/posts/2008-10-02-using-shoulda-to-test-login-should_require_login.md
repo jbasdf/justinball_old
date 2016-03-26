@@ -13,7 +13,7 @@ tags:
 I've had my problems with shoulda, but one very powerful component of the testing framework is the ability to create macros.
 Here's one that checks to make sure a user has to be logged in to access an action.  Put it into test/shoulda_macros/authentication.rb.
 (You can name the file anything you want I just thought authentication.rb made sense)
-{% highlight ruby %}
+<pre><code class="ruby">
 Test::Unit::TestCase.class_eval do
   def self.should_require_login(*actions)
     actions.each do |action|
@@ -24,12 +24,12 @@ Test::Unit::TestCase.class_eval do
     end
   end
 end
-{% endhighlight %}
+</pre></code>
 
 Then inside your controller test do something like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class UserControllerTest < ActionController::TestCase
   should_require_login :edit, :update, :destroy
 end
-{% endhighlight %}
+</pre></code>

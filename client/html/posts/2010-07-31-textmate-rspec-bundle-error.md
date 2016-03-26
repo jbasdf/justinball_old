@@ -19,6 +19,6 @@ After installing the <a href="http://github.com/rspec/rspec-tmbundle">Textmate R
 
 The solution is pretty simple. Just add this to spec_helper.rb:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 $:.reject! { |e| e.include? 'TextMate' }
-{% endhighlight %}
+</pre></code>

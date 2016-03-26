@@ -17,7 +17,7 @@ work for you or that it won't delete some of your code or start a nuclear war. E
 (<a href="https://gist.github.com/jbasdf/6786849" title="Generate Ember.js models using your Rails Schema">Updated for Ember Data 1.0.0 beta.</a>)
 
 
-{% highlight ruby %}
+<pre><code class="ruby">
 namespace :ember do
 
   desc "Build ember models from schema"
@@ -98,4 +98,4 @@ namespace :ember do
 
 end
 
-{% endhighlight %}
+</pre></code>

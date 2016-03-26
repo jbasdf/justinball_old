@@ -13,9 +13,9 @@ tags:
 
 This problem may not be specific to rFacebook, but when I added acts_as_facebook_user to my user model and then made a call like:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 my_user.first_name
-{% endhighlight %}
+</pre></code>
 
 I would get an 500 internal server error.  I checked the log and saw this:
 <i>CGI::Session::CookieStore::CookieOverflow</i>
@@ -23,8 +23,8 @@ I would get an 500 internal server error.  I checked the log and saw this:
 I found that if I changed the app so that it uses db sessions everything started working.
 
 Uncomment this line in environment.rb:
-{% highlight ruby %}
+<pre><code class="ruby">
 config.action_controller.session_store = :active_record_store
-{% endhighlight %}
+</pre></code>
 
 Make sure to add the session tables to your db by using the rake task and you should be good to go.  Note that I am running edge rails so keep that in mind if you use this advice.

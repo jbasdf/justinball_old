@@ -12,18 +12,18 @@ ActiveRecord::StatementInvalid: Mysql::Error: Lock wait timeout exceeded; try re
 
 I traced the error back to a call in the user model:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 update_attribute(:start_time, DateTime.now)
 increment!(:counter)
-{% endhighlight %}
+</pre></code>
 
 increment! is an ActiveRecord call. It looks convenient, but for some reason it leaves you with some SQL issues (or at least it gave me problems in my specific instance. The odd thing is that if it was a general problem I would expect to see the update error occur in other parts of the application where I do an update. However, in this application all the errors occurred at the same spot. It's possible that running two updates back to back could have caused the problem.
 
 I changed the code to this which is more efficient anyway since there is only one call:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 update_attributes(:counter => self.counter += 1, :start_time => DateTime.now)
-{% endhighlight %}
+</pre></code>
 
 and all is well again.
 

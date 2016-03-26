@@ -15,7 +15,7 @@ It turns out Chapter 3 from the book describes creating a custom template resolv
 
 However, I was still left with one really big issue - how do I get information from the controller into the custom view resolver? Specifically, I needed to pass information about the current domain into the resolver so that I could scope the views to the current account.
 Here's the specific snippet responsible for retrieving template from the database:
-{% highlight ruby %}
+<pre><code class="ruby">
     def find_templates(name, prefix, partial, details)
       conditions = {
         :path    => normalize_path(name, prefix, partial),
@@ -28,23 +28,23 @@ Here's the specific snippet responsible for retrieving template from the databas
         initialize_template(record)
       end
     end
-{% endhighlight %}
+</pre></code>
 
 The problem is that in the book the resolver is a singleton and so there is no opportunity to pass in the an account and setup an @account value since the resolver is setup in the application controller like this:
-{% highlight ruby %}
+<pre><code class="ruby">
 class ApplicationController < ActionController::Base
   prepend_view_path SqlTemplate::Resolver.instance
 end
-{% endhighlight %}
+</pre></code>
 
 At first I decided to just use a global on the current thread:
-{% highlight ruby %}
+<pre><code class="ruby">
 Thread[:account] = current_account
-{% endhighlight %}
+</pre></code>
 
 Then inside the resolver I could recover the account from the global:
 
-{% highlight ruby %}
+<pre><code class="ruby">
     def find_templates(name, prefix, partial, details)
       conditions = {
         :path    => normalize_path(name, prefix, partial),
@@ -57,11 +57,11 @@ Then inside the resolver I could recover the account from the global:
         initialize_template(record)
       end
     end
-{% endhighlight %}
+</pre></code>
 
 That works but setting a global on the current thread felt like a big hack. (<a href="http://coderrr.wordpress.com/2008/04/10/lets-stop-polluting-the-threadcurrent-hash/" title="Stop polluting the Thread.current hash">Here's a good article on Thread.current</a>  ) Lucky for me Jose was willing to spend a little time working with me and the resulting code works without globals. Instead of passing a global around we removed the Singleton code from the resolver and create an instance of the resolver per each account:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class ApplicationController < ActionController::Base
   before_filter :set_resolver
 
@@ -83,10 +83,10 @@ class ApplicationController < ActionController::Base
   end
 
 end
-{% endhighlight %}
+</pre></code>
 
 In the resolver we take the account as a parameter. The trick is that the account also has a counter called 'custom_view_cache_count' that increments anytime a view is changed thus allowing us to expire the cache across all instances and servers. Since I have to recover the account model from the database on each request anyway this doesn't require any more database hits than I was making before adding this solution:
-{% highlight ruby %}
+<pre><code class="ruby">
   class Resolver < ActionView::Resolver
 
     def initialize(account)
@@ -100,7 +100,7 @@ In the resolver we take the account as a parameter. The trick is that the accoun
     end
   end
 
-{% endhighlight %}
+</pre></code>
 
 This has a couple of benefits. The biggest is that you no longer have to pass around a global, but another is that the cache is specific to each account so you don't end up expire the cache for all accounts unnecessarily.
 

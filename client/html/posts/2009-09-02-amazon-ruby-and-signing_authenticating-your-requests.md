@@ -17,7 +17,7 @@ I've been playing with the <a href="http://docs.amazonwebservices.com/AWSECommer
 
 OK so you don't actually care about all the crap you just want the guts.  I took the basic structure from <a href="http://www.caliban.org/ruby/ruby-aws/">ruby-aaws</a>.  Look there if you want a complete library.  Here's how to sign your Amazon requests using ruby code.
 
-{% highlight ruby %}
+<pre><code class="ruby">
 
 require 'rubygems'
 require 'openssl'
@@ -69,10 +69,10 @@ class Amazon
 
 end
 
-{% endhighlight %}
+</pre></code>
 
 I put together another class to make the requests:
-{% highlight ruby %}
+<pre><code class="ruby">
 require 'rubygems'
 require 'httparty'
 class AmazonRequest
@@ -158,11 +158,11 @@ class AmazonRequest
       query << "&Version=2009-07-01"
     end
 end
-{% endhighlight %}
+</pre></code>
 
 And finally make the calls:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 amazon_associate_tag = 'jbasdf-20' # feel free to use my associate tag :-)
 amazon_secret_access_key = 'your secret key'
 amazon_access_key_id = 'your access key'
@@ -170,7 +170,7 @@ email = 'testguy@example.com' # put a valid Amazon email here
 
 am = AmazonRequest.new(amazon_access_key_id, amazon_secret_access_key, amazon_associate_tag)
 puts am.get_amazon_feeds(email)
-{% endhighlight %}
+</pre></code>
 
 This will give you a list of wishlist RSS feeds.
 

@@ -13,18 +13,18 @@ tags:
 
 One of the models in a project I am working on right now ends in 'status'.  Rails handles that just find but in my tests I started noticing an odd error:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 test: Lookup should belong_to lookup_status. (LookupTest):
 NameError: uninitialized constant LookupStatu
-{% endhighlight %}
+</pre></code>
 
 The Shoulda test looks like this:
-{% highlight ruby %}
+<pre><code class="ruby">
    should_belong_to :lookup_status
-{% endhighlight %}
+</pre></code>
 
 Nothing to complicated there.  Should recognizes the relationship just find but when it tries to find a class it goes looking for LookupStatu.  I fixed this by adding the the class name to the relationship thus:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 belongs_to :lookup_status, :class_name => 'LookupStatus'
-{% endhighlight %}
+</pre></code>

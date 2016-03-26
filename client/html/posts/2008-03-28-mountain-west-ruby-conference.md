@@ -51,13 +51,13 @@ Used to use mongrel only but they added 'Rack Webserver Abstraction Layer' which
 
 merb app by default looks like this in config/rack.rb
 
-{% highlight ruby %}
+<pre><code class="ruby">
 run Merb::Rack::Application.new
-{% endhighlight %}
+</pre></code>
 
 but because merb uses rack you can add code to intercept the request:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 class ApiHandler
   def inialize(app)
      @app = app
@@ -76,7 +76,7 @@ end
 use ApiHandler
 run Merb::Rack::Application.new
 
-{% endhighlight %}
+</pre></code>
 
 This code prevents a call into the framework making it very fast.
 
@@ -84,7 +84,7 @@ merb does routing like Rails, but also implements a powerful routing system that
 
 Provides API
 
-{% highlight ruby %}
+<pre><code class="ruby">
 Merb.add_mime_type(:yaml, :to_yml, %w[application/x-yaml text/yaml])
 Merb.add_mime_type(:html, :to_html, %w[text/html application/xhtml+xml application/html])
 
@@ -96,7 +96,7 @@ class Posts < Application
     display @post # depending on which content type was requested post will be rendered as html, yml, etc
   end
 end
-{% endhighlight %}
+</pre></code>
 
 <h3>Merb More</h3>
 Can be added in one piece at a time.

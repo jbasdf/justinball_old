@@ -22,7 +22,7 @@ Actually Visual Studio does a nice job of debugging Javascript.  If your problem
 
 To <strong>debug javascript using Visual Studio</strong> simply create a web project and then put the following into default.aspx.  Remember to change 'http://192.168.100.101:3000/' to the url of your application.  'http://192.168.100.101:3000/' just happens to point to a Ruby on Rails application running on my Mac.
 
-{% highlight csharp %}
+<pre><code class="csharp">
 
 <%@ Page Language="C#" AutoEventWireup="true"  CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
@@ -41,7 +41,7 @@ To <strong>debug javascript using Visual Studio</strong> simply create a web pro
 </body>
 </html>
 
-{% endhighlight %}
+</pre></code>
 
 Hit the run button in Visual Studio.  It should fire up Internet Explorer.  You'll notice a bunch of Javascript files magically show up in the Solution Explorer.  Just click on the desired file and add a breakpoint.  When you hit that code you'll have all of Visual Studio's debugging tools available to you.  Pretty cool.
 
@@ -54,17 +54,17 @@ As I stated above Internet Explorer was sending 'POST' requests instead of 'GET'
 At first I was sure there was something wrong with jQuery.  Forgive me my heresy.  It is the one true Javascript library.  I repent.
 
 Turns out I had the following code in one of my Javascript files:
-{% highlight javascript %}
+<pre><code class="javascript">
 jQuery(document).ajaxSend(function(event, request, settings) {
   if (typeof(AUTH_TOKEN) == "undefined") return;
   settings.data = settings.data || "";
   settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 });
-{% endhighlight %}
+</pre></code>
 I pulled this code off the net.  It looked and worked like magic.  Turns out there something dark hidden within.
 
 I found a line in jQuery.js that does this:
-{% highlight javascript %}
+<pre><code class="javascript">
   // If data is available, append data to url for get requests
   if ( s.data && type == "GET" ) {
     s.url += (s.url.match(/\?/) ? "&" : "?") + s.data;
@@ -72,19 +72,19 @@ I found a line in jQuery.js that does this:
     // IE likes to send both get and post data, prevent this
     s.data = null;
   }
-{% endhighlight %}
+</pre></code>
 
 The IE comment is key here.  Later on jQuery gives you a chance to say your piece by doing this:
-{% highlight javascript %}
+<pre><code class="javascript">
   if ( s.global )
     jQuery.event.trigger("ajaxSend", [xhr, s]);
-{% endhighlight %}
+</pre></code>
 Since that code is called after 's.data = null;' it has a chance to put stuff into 's.data' which is exactly what my code did.
 
 Stupid WTF !#@$!@#$ code.  There is a lesson here.  Something about being careful about what you pull off the net.  Be careful about global code.  I'm sure I should learn it but it's late so maybe tomorrow.
 
 Here's the fix to all my effort:
-{% highlight javascript %}
+<pre><code class="javascript">
 jQuery(document).ajaxSend(function(event, request, settings) {
   if (typeof(AUTH_TOKEN) == "undefined") return;
   // This next line is the key!
@@ -92,7 +92,7 @@ jQuery(document).ajaxSend(function(event, request, settings) {
   settings.data = settings.data || "";
   settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
 });
-{% endhighlight %}
+</pre></code>
 
 You don't want to be adding anything to settings.data at this point or Internet Explorer will automatically turn your request into a POST regardless of anything else you have set.
 

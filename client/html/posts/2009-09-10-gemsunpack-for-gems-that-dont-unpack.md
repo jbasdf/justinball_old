@@ -13,7 +13,7 @@ categories:
 I couldn't figure out why my gems wouldn't unpack until I ran across this: <a href="http://metaclass.org/2009/4/13/rake-gems-unpack">http://metaclass.org/2009/4/13/rake-gems-unpack</a>.  My gems have rake tasks and I have to include them in the app's rakefile to make them available so Rails won't unpack them.
 
 I did this instead:
-{% highlight ruby %}
+<pre><code class="ruby">
   def muck_gems
     ['cms-lite', 'disguise', 'uploader', 'muck-solr', 'muck-raker', 'muck-engine',
     'muck-users', 'muck-activities', 'muck-comments', 'muck-profiles', 'muck-friends',
@@ -37,4 +37,4 @@ I did this instead:
     end
   end
 
-{% endhighlight %}
+</pre></code>

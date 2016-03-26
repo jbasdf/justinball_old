@@ -11,7 +11,7 @@ categories:
 of objects for the application route. That request sends parameters that the server uses to filter the results
 which means that ember will give you an immutable object. The code is pretty typical and looks like this:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ApplicationRoute = Ember.Route.extend({
 
   model: function(){
@@ -20,7 +20,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>
 
 
 <p>Note that if you do this and then later on attempt to add new items to the resulting array you might not get any errors -
@@ -29,7 +29,7 @@ App.ApplicationRoute = Ember.Route.extend({
   an ArrayProxy, inserting the items into that and then returning that as the model for the route.
   I don't know if this is the "right way" but it does work:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 App.ApplicationRoute = Ember.Route.extend({
 
   contacts: Ember.ArrayProxy.create({content: []}),
@@ -50,4 +50,4 @@ App.ApplicationRoute = Ember.Route.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>

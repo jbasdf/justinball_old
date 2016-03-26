@@ -34,7 +34,7 @@ Here's what I learned:
 If you can change any of those things or don't need anything outside those parameters then the <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest">XDomainRequest plugin</a> will likely solve your problems.
 
 In IE 8/9 failure to comply with any of the restrictions will likely result in the 'No Transport' error. It's jQuery that generates the error before the ajax request is made and your server is never called. Here's the section of code that does it:
-{% highlight javascript %}
+<pre><code class="javascript">
 		// Get transport
 		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
 
@@ -42,7 +42,7 @@ In IE 8/9 failure to comply with any of the restrictions will likely result in t
 		if ( !transport ) {
 			done( -1, "No Transport" );
 		} else {
-{% endhighlight %}
+</pre></code>
 
 The "No Transport" error means that jQuery has no idea how to contact the remote server. If you are seeing the error then be sure to grab a development version of jQuery and step down into that section of code to find out why you aren't getting a transport. It's likely something from the list above, but I've seen so many different posts that I've come to realize that the error is likely due to something specific with your project.
 

@@ -11,9 +11,9 @@ categories:
 ---
 I ran into another problem trying to get my database to work on 10.6.  The trick is to properly set DB_HOST:
 
-{% highlight php %}
+<pre><code class="php">
 /** MySQL hostname */
 define('DB_HOST', '127.0.0.1:3306');
-{% endhighlight %}
+</pre></code>
 
 For a complete tutorial on how to setup Wordpress on Mac OSX 10.6 see <a href="http://wordpress.org/support/topic/306878?replies=6">http://wordpress.org/support/topic/306878?replies=6</a>.

@@ -28,19 +28,19 @@ We chose [Starling][1] and Workling as our solution. Starling is a message queue
 There are a few blog posts around that describe how to get stuff up and running. Other than that the documentation is a bit sparse. I have to believe that will change over time. I am throwing my own links and experience into the mix so I don't forget how to do this.
 
 First get the gems you need to run starling:
-{% highlight ruby %}
+<pre><code class="ruby">
 sudo gem install starling
 sudo gem install memcache-client
-{% endhighlight %}
+</pre></code>
 
 Get the [working plugin][6]
-{% highlight ruby %}
+<pre><code class="ruby">
 git clone http://github.com/purzelrakete/workling/tree/master/Changes
-{% endhighlight %}
+</pre></code>
 
  [6]: http://github.com/purzelrakete/workling/tree/master/Changes
 
-{% highlight ruby %}
+<pre><code class="ruby">
 # Get starling and working going with:
 #
 # Fire up starling - this isn't in daemon mode. Add a -d for that.
@@ -51,7 +51,7 @@ git clone http://github.com/purzelrakete/workling/tree/master/Changes
 #
 # Get workling going
 # script/workling\_starling\_client start
-{% endhighlight %}
+</pre></code>
 
 A few more resources
 

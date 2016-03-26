@@ -13,10 +13,10 @@ I can't resist new stuff so I'm updating Genlighten to Rails 2.3.2.  This releas
 <ol>
 	<li>Set RAILS_GEM_VERSION = '2.3.2' (easy)</li>
 	<li>Removed stuff like this from my code:
-          {% highlight ruby %}
+          <pre><code class="ruby">
             protect_from_forgery :except => :swfupload
             session :cookie_only => false, :only => :swfupload
-          {% endhighlight %}
+          </pre></code>
           -- 'The :digest and :secret options to protect_from_forgery are deprecated and have no effect.' and sessions are lazy loaded now.</li>
 	<li>I updated shoulda to the latest version.  This resulted in a number of deprecation warnings which took me a while to fix.</li>
 

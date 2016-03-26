@@ -21,7 +21,7 @@ to produce a working view that extends Ember.Select.</p>
 
 <p><a href="https://gist.github.com/jbasdf/6872750">Here's gist of the code</a> and here's the code:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 
 
 App.Chosen = Ember.Select.extend({
@@ -78,7 +78,7 @@ App.Chosen = Ember.Select.extend({
 
 });
 
-{% endhighlight %}
+</pre></code>
 
 <p>UPDATE - The ember script tags will show up in the search which is not something you want. I had to modify the chosen.js source code for a solution.
 Luckily it is pretty simple:</p>
@@ -89,7 +89,7 @@ Luckily it is pretty simple:</p>
   to your own code and then cleanup the search text to be whatever you like ie remove script tags. The method I used is
 cleanSearchText in the code above. Notice that I pass it to chosen with "options.clean_search_text = this.cleanSearchText;"</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
 AbstractChosen.prototype.set_default_values = function() {
   var _this = this;
 
@@ -119,11 +119,11 @@ AbstractChosen.prototype.set_default_values = function() {
   this.display_selected_options = this.options.display_selected_options != null ? this.options.display_selected_options : true;
   return this.display_disabled_options = this.options.display_disabled_options != null ? this.options.display_disabled_options : true;
 };
-{% endhighlight %}
+</pre></code>
 
 <p>In the AbstractChosen.prototype.results_option_build method I had to add a conditional where it says MODIFIED:</p>
 
-{% highlight javascript %}
+<pre><code class="javascript">
   AbstractChosen.prototype.results_option_build = function(options) {
     var content, data, _i, _len, _ref;
 
@@ -150,12 +150,12 @@ AbstractChosen.prototype.set_default_values = function() {
     }
     return content;
   };
-{% endhighlight %}
+</pre></code>
 
 
 <p>Last add the call to clean the search text inside the AbstractChosen.prototype.winnow_results method. Look for MODIFIED in the code
 below for the method call.</p>
-{% highlight javascript %}
+<pre><code class="javascript">
 AbstractChosen.prototype.winnow_results = function() {
   var escapedSearchText, option, regex, regexAnchor, results, results_group, searchText, startpos, text, zregex, _i, _len, _ref;
 
@@ -215,4 +215,4 @@ AbstractChosen.prototype.winnow_results = function() {
   }
 };
 
-{% endhighlight %}
+</pre></code>

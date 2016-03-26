@@ -1,8 +1,17 @@
+---
+layout: post
+author: Justin Ball
+title: "Alexa, Amazon Lambda, NASA and avoiding death"
+date: 2016-02-07 21:14:00 -0700
+categories:
+  - Travel
+---
+
 Both I and my wife reached a certain life milestone this last year that involved the number 4 and determined that it was time we started acting our age. Of the options available we chose a cruise and so it would seem we are at "that" age. 
 
 I have been known at times to require Dramamine and a vomit bag when riding in the rear seat of a car. To mimimize the threat of spending a week unable to stand up and wanting to die I pushed for us to sail on the largest ship in the world - The Oasis of the Seas. As it turns out even the largest of man-made objects are subject to the whims of enourmous bodies of water, but the worst side effect we experienced was the inability to walk a straight line a few times. Most people on board exhibited the same symptom most of the vacation whether the sea was upset or smooth. 21 bars in a contained location has that effect.
 
-##Day 1 at sea. 
+##Day 1 at sea.
 On any normal voyage a day at sea might involve reading a book or, staring at the water, or picking your nose. Not on this ship. Day one on Oasis of the Seas involves exporing a small city - one with a zip line, flow riders, rock climbing walls and an endless supply of calories.
 
 ##Labadee, Haiti

@@ -13,34 +13,34 @@ categories:
 I like jQuery. I use it in all my Rails projects these days. One thing I've struggled with for the longest time is that for some reason all my jQuery ajax requests come through as html not as js.
 
 I thought adding something like this to application.js would fix the problem:
-{% highlight javascript %}
+<pre><code class="javascript">
 // In application.js
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
-{% endhighlight %}
+</pre></code>
 
 That won't save you. This change to Rails prevents the Accept header from being used:
 http://github.com/rails/rails/commit/2f4aaed7b3feb3be787a316fab3144c06bb21a27
 
 The trick to fixing this problem comes from a comment in that commit:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 # Returns true if the request's "X-Requested-With" header contains
 # "XMLHttpRequest". (The Prototype Javascript library sends this header with
 # every Ajax request.)
-{% endhighlight %}
+</pre></code>
 
 jQuery doesn't send that parameter with each request.  I've written before about modifying the request.
 <a href="http://www.justinball.com/2009/07/08/jquery-ajax-get-in-firefox-post-in-internet-explorer/">http://www.justinball.com/2009/07/08/jquery-ajax-get-in-firefox-post-in-internet-explorer/</a>
 
 Taking the code from that post I just add a bit more information. Specifically include this line:
-{% highlight ruby %}
+<pre><code class="ruby">
   request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-{% endhighlight %}
+</pre></code>
 
 Your setup ends up looking something like this.  Drop this code into application.js and the ajax requests made via JQuery should start showing up as javascript format.
-{% highlight ruby %}
+<pre><code class="ruby">
   jQuery(document).ajaxSend(function(event, request, settings) {
     request.setRequestHeader("Accept", "text/javascript");
   	request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
@@ -51,7 +51,7 @@ Your setup ends up looking something like this.  Drop this code into application
    	if (typeof(AUTH_TOKEN) != "undefined")
     	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
   });
-{% endhighlight %}
+</pre></code>
 
 I'm using the jquery.form plugin so my code ends up looking like this:
 

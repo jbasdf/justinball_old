@@ -6,10 +6,7 @@ import assets                   from '../libs/assets';
 class Home extends React.Component {
 
   render(){
-    
-    return<div>
-      <img src={img} />
-    </div>;
+    return <div></div>;
   }
 
 }

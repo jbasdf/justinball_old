@@ -20,9 +20,9 @@ Solr is a layer on top of Lucene.
 <a href="http://wiki.apache.org/solr/Flare">Flare</a> is a plugin he wrote that is a bit of a hack but does "faceted browsing, auto-suggest, folksonomy tagging/annotating."
 Adds caching, replication, faceting, highlighting, spell checking, Http interface.
 You can talk to it via Net::HTTP::Post or use solr-ruby (gem), <a href="http://acts_as_solr.railsfreaks.com/">acts_as_solr</a> (will hopefully use gem soon, Hatcher submitted a patch)
-{% highlight ruby %}
+<pre><code class="ruby">
   gem install solr-ruby
-{% endhighlight %}
+</pre></code>
 
 Look at the code in his slides.
 

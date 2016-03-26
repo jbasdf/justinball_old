@@ -16,12 +16,12 @@ tags:
 jQuery is the hot javascript library and it is small and it is cooler than Prototype, the default library that comes with Ruby on Rails.  Ergo I plugged it in and pulled out everything else.  The ajax calls are very simple and look like this:
 
 
-{% highlight javascript %}
+<pre><code class="javascript">
 $.post("function_name",{ key:value } ,function(data)
 {
   // do stuff with data
 });
-{% endhighlight %}
+</pre></code>
 
 The problem is that you will start seeing 'ActionController::InvalidAuthenticityToken' and your ajax calls will fail.
 

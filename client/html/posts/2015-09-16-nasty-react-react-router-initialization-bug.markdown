@@ -42,40 +42,40 @@ points to the problem - if not the cause of the problem:
 </p>
 
 <p>The big clue is "Root element has been removed". The root element looks like this:
-{% highlight html %}
+<pre><code class="html">
   <div id="thing" data-reactid=".1">
-{% endhighlight %}
+</pre></code>
 React was expecting "data-reactid" to be .0. You know that because of the "Invariant Violation" error. React is looking for ".0.2.0.0.0.0.1.0.0". The .0 at the beginning says the root
 element should have "data-reactid=.0" but it equals .1.
 </p>
 
 <p>
 The application has a bit of code like this that renders directly into document.body:
-{% highlight javascript %}
+<pre><code class="javascript">
 Router.run(Routes, (Handler, state) => {
   React.render(<Handler />, document.body);
 });
-{% endhighlight %}
+</pre></code>
 I've seen that in plenty of examples so it seems harmless. The body is empty except for a couple of script tags for loading the React application.
 <p>
 
 <h3>The Fix</h3>
 <p>
 We added a root div element and tucked it in after some of init scripts but before the react code:
-{% highlight html %}
+<pre><code class="html">
   <script type="text/javascript">
   // Some initialization stuff
   </script>
   <div id="main-app"></div>
   <script src="web_pack_bundle.js" type="text/javascript"></script>
-{% endhighlight %}
+</pre></code>
 
 Change the router initialization:
-{% highlight javascript %}
+<pre><code class="javascript">
 Router.run(Routes, (Handler, state) => {
   React.render(<Handler />, document.getElementById("main-app"));
 });
-{% endhighlight %}
+</pre></code>
 
 Now things work.
 </p>

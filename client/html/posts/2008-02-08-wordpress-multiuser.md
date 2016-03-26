@@ -16,38 +16,38 @@ I have a couple of blogs - this one and some family ones.  Since Wordpress updat
 My search led me to Wordpress Multiuser.  I worried that it might not have all the features as the normal release and that I wouldn't be able to specify a domain name for each blog.  In the end this Wordpress Multiuser is the solution I chose.  Here's what I did.
 
 You can checkout Wordpress MU using svn with this simple command:
-{% highlight ruby %}
+<pre><code class="ruby">
 svn co http://svn.automattic.com/wordpress-mu/trunk/ wpmu
-{% endhighlight %}
+</pre></code>
 
 After you do that direct apache to your wpmu directory.  Here's what my virtual hosts file looks like:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 NameVirtualHost *:80
 
-<VirtualHost *:80>
-    ServerAdmin "example.com"
+&lt;VirtualHost *:80&gt;
+    ServerAdmin &quot;example.com&quot;
     ServerName example
     ServerAlias www.example.com
     MIMEMagicFile /dev/null
-    CustomLog logs/blogs_access_log "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""
+    CustomLog logs/blogs_access_log &quot;%h %l %u %t \&quot;%r\&quot; %&gt;s %b \&quot;%{Referer}i\&quot; \&quot;%{User-agent}i\&quot;&quot;
     ErrorLog logs/blog_error_log
 
-    DocumentRoot "/home/blogs/public_html/wpmu"
-    <Directory "/home/blogs/public_html">
+    DocumentRoot &quot;/home/blogs/public_html/wpmu&quot;
+    &lt;Directory &quot;/home/blogs/public_html&quot;&gt;
         Options +Indexes +FollowSymLinks
         Order allow,deny
         Allow from all
         AllowOverride All
-    </Directory>
+    &lt;/Directory&gt;
 
-    Alias /usage "/home/blogs/public_html/usage"
-    <Location /usage>
+    Alias /usage &quot;/home/blogs/public_html/usage&quot;
+    &lt;Location /usage&gt;
         Order allow,deny
         Allow from all
-    </Location>
-</VirtualHost>
-{% endhighlight %}
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</pre></code>
 
 
 The first time you visit your new blog at example.com you will be presented with a page that indicates you need to change some permissions on your server.  Just copy and paste the chmod command and you should be good.

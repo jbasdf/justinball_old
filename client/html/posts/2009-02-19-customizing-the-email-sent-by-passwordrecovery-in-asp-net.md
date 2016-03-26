@@ -18,12 +18,12 @@ I found out that I was redirecting the user to the wrong page after the password
 It's kind of funny how I slip into old habits when I work in the .Net world.  My immediate reaction was to start searching the web for the Microsoft sanction method of passing parameters to the email text file.  I am sure I would still be searching if I kept pursuing that course.
 
 Instead, I just added this to my email.txt file:
-{% highlight html %}
+<pre><code class="html">
   <%url%>/login.aspx
-{% endhighlight %}
+</pre></code>
 
 then I did this in my code:
-{% highlight csharp %}
+<pre><code class="csharp">
 protected void On_SendingMail(object sender, MailMessageEventArgs e)
 {
   string message = e.Message.Body.Replace("<%url%>", ConfigurationManager.AppSettings["LiveWebsite"]);
@@ -31,7 +31,7 @@ protected void On_SendingMail(object sender, MailMessageEventArgs e)
   //send message logic
   //....
 }
-{% endhighlight %}
+</pre></code>
 
 I know that all the purist out there are calling me a hacker.  You will say that I cheated and just did a string replace instead of figuring out the right way which would involve overriding some method and setting up properties on an obscure object.  I'm guessing the last part.  If I really knew how to do it I would have probably just done it.  Anyway, to all those crying hacker I say so what.  It took me 2 minutes to put this together.  It feels kind of like something I would do in Rails Rails does have 'sanctioned' ways of doing this type of thing.  It doesn't look like what I did, but that's where I stole the idea.
 

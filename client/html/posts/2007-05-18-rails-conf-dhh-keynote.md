@@ -15,12 +15,12 @@ Listening to DHH right now.  Play DHH buzzword bingo here. http://bingdoh.com/ga
 
 Now we are going into <strong>Rails 2.0</strong> information.  DHH is talking about namespaces in routes.  DHH is now building a project.  Pretty cool for a keynote.  DHH showed of some of the new <strong>routing</strong> features.  Some example code looks like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 map.namespace(:admin) do |admin|
    admin.resources :products,
  	:has_many => [ :tags, :images, :variants ]
 end
-{% endhighlight %}
+</pre></code>
 
 Yesterday I couldnâ€™t figure out why <strong>scaffold_resource</strong> wouldnâ€™t work on edge rails anymore.  Today I see why.  The â€˜generate resource_scaffoldâ€™ has been promoted to just â€˜generate <strong>scaffoldâ€™</strong>.  They are also getting rid of the .rhtml and .rxml formats in favor of html.erb and xml.erb.
 
@@ -38,10 +38,10 @@ Breakpoints are bad.  1.8.5 broke them by fixing the bug that breakpoints depend
 
 DHH is addressing the fact that HTTP <strong>performance</strong> matters.  This is good.  You can factor out css and javascript into separate files is good for understanding.  However, in deployment it is better to have one javascript include and one css include.  Then zip it up.  Use the same include tags:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 <%= javascript_include_tag :all, :cache => true %>.
 <%= stylesheet_link_tag :all, :cache => true %>
-{% endhighlight %}
+</pre></code>
 
 They found that http performance made the biggest difference.  This reduces the number of connections made to the server by the browser.
 
@@ -54,23 +54,23 @@ They are adding query caching.  More performance goodness.
 Config/Initializers.  You can move code out of environment.rb and into a series of file that let you configure each item that needs to be configured into separate files.
 
 New migrations look like this:
-{% highlight ruby %}
+<pre><code class="ruby">
 Create_table :people do |t|
   t.integer :account_id, other_int_column
   t.string :stuff
 end
-{% endhighlight %}
+</pre></code>
 They switched the types and names so that you
 
 Added HTTP Authentication in.  This is very nice for machine authentication. Looks Like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 authenticate_or_request_with_http_basic
 
 or
 
 authenticate_with_http_basic
-{% endhighlight %}
+</pre></code>
 
 Rails guys prefer the MIT license.  Plugin generator assumes that you want to use the MIT license now so if you want something else you'll have to change it.
 

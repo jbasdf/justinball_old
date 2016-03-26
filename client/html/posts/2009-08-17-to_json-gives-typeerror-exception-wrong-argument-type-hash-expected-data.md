@@ -9,15 +9,15 @@ categories:
 ---
 
 Tonight for no apparent reason my tests started turning up this error whenever I tried to call to_json:
-{% highlight ruby %}
+<pre><code class="ruby">
 TypeError Exception: wrong argument type Hash (expected Data)
-{% endhighlight %}
+</pre></code>
 Specifically, my to_json call looked like this:
-{% highlight ruby %}
+<pre><code class="ruby">
 respond_to do |format|
   format.js { render :json => @states.to_json(:only => [:id, :name]) }
 end
-{% endhighlight %}
+</pre></code>
 In the debugger .to_json worked but to_json(:only => [:id, :name]) did not.
 
 Needless to say given that since I hadn't touch this code in a while I was not happy and spent some time describing my code with <a href="http://www.foxnews.com/story/0,2933,531977,00.html?test=latestnews">colorful metaphors</a>.  Nothing makes me crazy like code that magically stops working.

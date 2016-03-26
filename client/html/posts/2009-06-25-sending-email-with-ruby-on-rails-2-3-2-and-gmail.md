@@ -15,7 +15,7 @@ If you need an easy way to setup email for your company or for a client it's har
 
 It is very likely that at some point you will need to send out emails from your application.  Don't cry.  Gmail can do this for you.  Rails 2.3.2 makes it easier than ever with the addition of 'enable_starttls_auto'.  Put the following code in production.rb, development.rb or environment.rb and you 'should' be able to send out emails:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address        => 'smtp.gmail.com',
@@ -25,7 +25,7 @@ It is very likely that at some point you will need to send out emails from your 
     :user_name      => 'login@your.domain.com',
     :password       => 'some_password'
   }
-{% endhighlight %}
+</pre></code>
 
 If you are one of the lucky ones this will actually work.  It didn't work for me but since I still needed to get email working here's what I did:
 

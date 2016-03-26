@@ -15,7 +15,7 @@ Saleh is talking about using a Daemon to get rails to talk to LDAP.  <a href="ht
 
 Daemons are a bit of a dark art.
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def daemonize
   Kernel.fork and Kernel.exit
   Process.setsid
@@ -27,11 +27,11 @@ def daemonize
   ObjectSpace.each_object(IO) {|io| io.close rescue nil}
   STIN.open('/dev/null')
 end
-{% endhighlight %}
+</pre></code>
 
 or just use a gem
 
-{% highlight ruby %}
+<pre><code class="ruby">
 require daemons
 Daemons.daemonize
 
@@ -40,7 +40,7 @@ loop {
   conn = accept
 }
 
-{% endhighlight %}
+</pre></code>
 
 You can interact directly with your Rails environment.
 include environment file

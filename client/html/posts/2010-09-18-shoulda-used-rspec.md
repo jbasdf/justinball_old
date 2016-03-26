@@ -21,7 +21,7 @@ One of the most difficult issues I've had to deal with is my custom shoulda macr
 
 For example, I have custom scope macros. Here's the shoulda macro:
 
-{% highlight ruby %}
+<pre><code class="ruby">
   # Test for 'by_title' named scope which orders by title:
   # scope :by_title, :order => "title ASC"
   # requires that the class have a shoulda factory
@@ -40,11 +40,11 @@ For example, I have custom scope macros. Here's the shoulda macro:
       end
     end
   end
-{% endhighlight %}
+</pre></code>
 
 And here's the RSpec matcher:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 # Ensures that the model can sort by_title
 # requires that the class have a factory
 #
@@ -88,6 +88,6 @@ class SortingMatcher # :nodoc:
     end
 
 end
-{% endhighlight %}
+</pre></code>
 
 I don't profess to be a master of either but my tests work so hopefully this helps someone if you're making the same transition.

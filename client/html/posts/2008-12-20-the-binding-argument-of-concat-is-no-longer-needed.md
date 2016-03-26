@@ -10,13 +10,13 @@ categories:
 ---
 
 If you upgrade to Rails 2.2.2 and start getting "The binding argument of #concat is no longer needed"  then wherever you do something like this:
-{% highlight ruby %}
+<pre><code class="ruby">
 concat(content, block.binding)
-{% endhighlight %}
+</pre></code>
 
 change it to this:
-{% highlight ruby %}
+<pre><code class="ruby">
 concat(content)
-{% endhighlight %}
+</pre></code>
 
 The 'block.binding' argument is no longer needed which is nice because who really wanted to type that over and over again anyway.

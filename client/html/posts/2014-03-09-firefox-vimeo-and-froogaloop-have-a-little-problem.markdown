@@ -15,7 +15,7 @@ Vimeo even provides the <a href="https://github.com/vimeo/player-api/tree/master
 <h3>What We Need</h3>
 The requirement was to show other content once the video finished playing. That seems easy enough and really it is:
 
-{% highlight javascript %}
+<pre><code class="javascript">
 var VimeoStuff = {
 
   init: function(){
@@ -42,7 +42,7 @@ var VimeoStuff = {
 $(document).ready(function(){
   VimeoStuff.init();
 });
-{% endhighlight %}
+</pre></code>
 
 <h3>The Problem</h3>
 We do most of our development using Chrome and so everything worked great until someone tried to use the application with Firefox. I know, most people will tell you that
@@ -57,7 +57,7 @@ isn't especially performant.
  <h3>A Fix</h3>
 The fix was pretty simple. Instead of setting the 'src' tag on every iframe and loading the video at startup we set a 'data-src' on every iframe and left the src tag empty. We have a helper that looks like this:
 
-{% highlight ruby %}
+<pre><code class="ruby">
 def video_embed(video)
   %Q{<iframe id="#{dom_id(video)}"
           data-modal="moda_#{dom_id(video)}"
@@ -67,10 +67,10 @@ def video_embed(video)
           height="281"
           frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>}
 end
-{% endhighlight %}
+</pre></code>
 
 Then in our javascript we only set the iframe src when we display the modal. After that we watch for the 'ready' event from Froogaloop and everything works like magic again:
-{% highlight javascript %}
+<pre><code class="javascript">
 var VimeoStuff = {
 
   init: function(){
@@ -106,4 +106,4 @@ $(document).ready(function(){
   PikkitUserAds.init();
 });
 
-{% endhighlight %}
+</pre></code>

@@ -19,8 +19,8 @@ Warning: strtotime(): It is not safe to rely on the system's timezone settings. 
 I found <a href="http://wordpress.org/support/topic/308902">this post that talks about setting the time zone in Wordpress</a>.  Unfortunately, just setting a default time zone didn't fix the problem  (it's still a good idea though).
 
 The <a href="http://www.macosxhints.com/article.php?story=20090831101932728">solution was to set a default time zone in my /etc/php.ini file</a>:
-{% highlight php %}
+<pre><code class="php">
 date.timezone = "America/Boise"
-{% endhighlight %}
+</pre></code>
 
 You might not have a php.ini file in /etc.  If you don't then look for a file called 'php.ini.default' and copy that to php.ini.

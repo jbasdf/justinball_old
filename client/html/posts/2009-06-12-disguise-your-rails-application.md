@@ -21,9 +21,9 @@ From all of my research and effort and late night I give you disguise the ruby g
 Disguise makes it possible to generate a theme for your Rails website, set the current 'theme' using an admin interface or change the theme based on the current url.
 
 Install the gem:
-{% highlight ruby %}
+<pre><code class="ruby">
   sudo gem install disguise
-{% endhighlight %}
+</pre></code>
 
 or get the source code at:
 <a href="http://github.com/jbasdf/disguise/tree/master">http://github.com/jbasdf/disguise/tree/master</a>
