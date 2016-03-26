@@ -110,13 +110,13 @@ gulp.task('markdown', function(){
       path.extname = ".html";
       var match = dateRegEx.exec(path.basename);
       if (match){
-        var year = match[1];            
+        var year = match[1];
         var month = match[2];
         var day = match[3];
 
         path.dirname = year + '/' + month + '/' + day;
         path.basename = match[4];
-      }            
+      }
     }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(outputPath));
@@ -196,7 +196,7 @@ gulp.task('build', ['clean'], function(cb){
 
 
 // -----------------------------------------------------------------------------
-// Watch for changes to html files and rebuild as needed. Webpack watches everything else 
+// Watch for changes to html files and rebuild as needed. Webpack watches everything else
 // and serves js, css, etc from memory. Html files are served from the build directory.
 // -----------------------------------------------------------------------------
 gulp.task('watch', ['markdown', 'html'], function() {
@@ -230,9 +230,9 @@ function applyWebpack(){
       var result = String(html.contents);
       _.each(webpackConfig.entry, function(path, entry){
         if(_.has(settings.entries, entry)){
-          result = result.replace(entry + settings.buildSuffix, getHashed(entry, 'js'));  
+          result = result.replace(entry + settings.buildSuffix, getHashed(entry, 'js'));
         } else if(_.has(settings.cssEntries, entry)){
-          result = result.replace(entry + '.css', getHashed(entry, 'css')); 
+          result = result.replace(entry + '.css', getHashed(entry, 'css'));
         }
       });
       html.contents = new Buffer(result);
@@ -247,15 +247,15 @@ function applyWebpack(){
 // Apply layouts to content
 // *****************************************************************************
 function applyLayout(defaultLayout){
-  return through2.obj(function (file, enc, cb) {            
-    
+  return through2.obj(function (file, enc, cb) {
+
     var data = {
       site: site,
       metadata: file.metadata,
       moment: moment,
       "_": _
     };
-    
+
     // Allow ejs code in content
     data.content = ejs.compile(String(file.contents), {
       cache: false,
@@ -282,7 +282,7 @@ function applyLayout(defaultLayout){
       cache: false,
       filename: layout
     });
-    
+
     file.contents = new Buffer(template(data), 'utf8');
     this.push(file);
     cb();
@@ -292,14 +292,14 @@ function applyLayout(defaultLayout){
 
 
 // *****************************************************************************
-// Collects all files with layout "post" and adds the page and it's tags to arrays on the 
+// Collects all files with layout "post" and adds the page and it's tags to arrays on the
 // site object called "posts" and "tags". This can later be used to generate a home page.
 // *****************************************************************************
 function collectMetaData(marker) {
   var posts = [];
   var tags = {};
   return through2.obj(function(file, enc, cb) {
-    
+
     // Only collect files with layout "post"
     if(file.metadata.layout == "post"){
 
@@ -370,12 +370,12 @@ function filename2date() {
 // Generate a file for every tag found. These will later have a template applied
 // and their internal content evaluated by ejs.
 // *****************************************************************************
-function tags(){    
+function tags(){
   var stream = through2.obj(function(file, enc, cb) {
     this.push(file);
     cb();
   });
-    
+
   if(site.tags){
     _.each(site.tags, function(cleanTag, tag) {
       var file = new util.File({
@@ -383,17 +383,17 @@ function tags(){
         contents: new Buffer(tagsTemplate)
       });
       file.metadata = {
-        title: tag, 
+        title: tag,
         tag: tag,
         cleanTag: cleanTag
       };
-      stream.write(file);        
+      stream.write(file);
     });
   }
-  
+
   stream.end();
   stream.emit("end");
-  
+
   return stream;
 }
 
@@ -407,7 +407,7 @@ function posts(basename, count) {
     this.push(file);
     cb();
   });
-    
+
   if(site.posts){
     var c     = 0;
     var page  = 0;
@@ -415,42 +415,42 @@ function posts(basename, count) {
     _.each(site.posts, function(post){
       posts.push(post);
       c++;
-      if (c == count){        
+      if (c == count){
         var file = new util.File({
           path: basename + (page == 0 ? '' : page) + '.html',
           contents: new Buffer('')
         });
         console.log('page=' + page + ' c=' + c + ' posts.length=' + site.posts.length);
         file.metadata = {
-          posts: posts, 
+          posts: posts,
           prevPage: page != 0 ? basename + ((page-1) == 0 ? '' : page-1) + '.html' : null,
           nextPage: (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null,
         };
         stream.write(file);
-        
+
         c = 0;
         posts = [];
         page++;
       }
-    });   
-    
+    });
+
     if (posts.length != 0) {
       var file = new util.File({
         path: basename + (page == 0 ? '' : page) + '.html',
         contents: new Buffer(archiveTemplate)
       });
       file.metadata = {
-        posts: posts, 
+        posts: posts,
         prevPage: page != 0 ? basename + ((page-1) == 0 ? '' : page) + '.html' : null,
         nextPage: null,
       };
       stream.write(file);
     }
   }
-  
+
   stream.end();
   stream.emit("end");
-  
+
   return stream;
 }
 
