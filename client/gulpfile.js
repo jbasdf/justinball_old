@@ -136,6 +136,7 @@ gulp.task('html', ['markdown'], function(){
     .pipe(ignore.exclude('partials/**'))
     .pipe(ignore.exclude('partials'))
     .pipe(ignore.exclude('**/*.md'))
+    .pipe(ignore.exclude('**/*.markdown'))
     .pipe(htmlFilter)
     .pipe(applyLayout(defaultLayout))
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
