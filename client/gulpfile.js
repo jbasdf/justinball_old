@@ -94,7 +94,7 @@ gulp.task('vendor', function(){
 // -----------------------------------------------------------------------------
 gulp.task('markdown', function(){
 
-  return gulp.src('./html/**/*.md')
+  return gulp.src(['./html/**/*.md', './html/**/*.markdown'])
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
     .pipe(markedGulp(markedOptions))
@@ -126,7 +126,7 @@ gulp.task('markdown', function(){
 // -----------------------------------------------------------------------------
 // Process files in the html diretory
 // -----------------------------------------------------------------------------
-gulp.task('html', function(){
+gulp.task('html', ['markdown'], function(){
 
   var htmlFilter = filter('**/*.html', {restore: true});
 
