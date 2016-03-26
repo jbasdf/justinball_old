@@ -41,19 +41,19 @@ html in the Handlebars template for whatever framework modal you want to use. Ch
 
 <a href="https://gist.github.com/jbasdf/8228953">Gist for Handlebars template</a>
 <pre><code class="html">
-<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button {{action 'close'}} type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="tmModalLabel">Inactivity Warning</h4>
-      </div>
-      <div class="modal-body">
-        You will be logged out in 30 seconds.
-      </div>
-    </div>
-  </div>
-</div>
+  &lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot;&gt;
+      &lt;div class=&quot;modal-content&quot;&gt;
+        &lt;div class=&quot;modal-header&quot;&gt;
+          &lt;button {{action &#039;close&#039;}} type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+          &lt;h4 class=&quot;modal-title&quot; id=&quot;tmModalLabel&quot;&gt;Inactivity Warning&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-body&quot;&gt;
+          You will be logged out in 30 seconds.
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 </pre></code>
 
 
