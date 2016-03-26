@@ -251,7 +251,7 @@ function applyLayout(defaultLayout){
 
     var data = {
       site: site,
-      metadata: file.metadata,
+      metadata: file.metadata || {},
       moment: moment,
       "_": _
     };
