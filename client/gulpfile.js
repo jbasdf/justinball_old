@@ -35,8 +35,8 @@ var webpackConfig = require('./config/webpack.config')(stage);
 var webpackStats;
 
 var defaultLayout   = 'application.html';
-var tagsTemplate    = fs.readFileSync(path.join(__dirname, './html/partials/_tag.html'), 'utf8');
-var archiveTemplate = fs.readFileSync(path.join(__dirname, './html/partials/_archive.html'), 'utf8');
+var tagsTemplate    = ejs.compile(fs.readFileSync(path.join(__dirname, './html/partials/_tag.html'), 'utf8'), {cache: false});
+var archiveTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, './html/partials/_archive.html'), 'utf8'), {cache: false});
 
 var dateRegEx     = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/; // Regex used to parse date from file name
 
@@ -97,9 +97,9 @@ gulp.task('markdown', function(){
   return gulp.src(['./html/**/*.md', './html/**/*.markdown'])
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
+    .pipe(filename2date())
     .pipe(markedGulp(markedOptions))
     .pipe(applyLayout(defaultLayout))
-    .pipe(filename2date())
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
     .pipe(!release ? util.noop() : htmlmin({
       removeComments: true,
@@ -164,7 +164,7 @@ gulp.task('tags', ['markdown'], function () {
 // Add paging for old posts
 // -----------------------------------------------------------------------------
 gulp.task('archive', ['markdown'], function () {
-  return posts('page', 10)
+  return posts(10)
       .pipe(applyLayout(defaultLayout))
       .pipe(gulp.dest(outputPath));
 });
@@ -302,7 +302,7 @@ function collectMetaData(marker) {
   return through2.obj(function(file, enc, cb) {
 
     // Only collect files with layout "post"
-    if(file.metadata.layout == "post"){
+    if(file.metadata.layout.toLowerCase() == "post"){
 
       file.metadata.content = file.contents.toString();
       file.metadata.tags = _.reduce(file.metadata.tags, function(acc, tag){ acc[tag] = cleanTag(tag); return acc;}, {});
@@ -327,10 +327,7 @@ function collectMetaData(marker) {
     cb();
   },
   function(cb) {
-    posts.sort(function(a, b) {
-      return b.date - a.date;
-    });
-    site.posts = posts;
+    site.posts = _.sortBy(posts, ['date'], ['desc']);
     site.tags = tags;
     cb();
   });
@@ -359,6 +356,9 @@ function filename2date() {
       var basename = match[4];
       file.metadata.date = moment(month + '-' + day + '-' + year, "MM-DD-YYYY");
       file.metadata.url = '/' + year + '/' + month + '/' + day + '/' + basename + '.html';
+      if(!file.metadata){
+        file.metadata.title = basename.replace(/_/g, ' ');
+      }
     }
 
     this.push(file);
@@ -379,15 +379,18 @@ function tags(){
 
   if(site.tags){
     _.each(site.tags, function(cleanTag, tag) {
+      var data = {
+        site: site,
+        title: tag,
+        currentTag: tag,
+        cleanTag: cleanTag,
+        "_": _
+      };
       var file = new util.File({
         path: path.join(site.tagsPath, cleanTag) + '.html',
-        contents: new Buffer(tagsTemplate)
+        contents: new Buffer(tagsTemplate(data))
       });
-      file.metadata = {
-        title: tag,
-        tag: tag,
-        cleanTag: cleanTag
-      };
+      file.metadata = data;
       stream.write(file);
     });
   }
@@ -402,7 +405,7 @@ function tags(){
 // *****************************************************************************
 // Generate files for paging through all posts
 // *****************************************************************************
-function posts(basename, count) {
+function posts(count) {
 
   var stream = through2.obj(function(file, enc, cb) {
     this.push(file);
@@ -413,39 +416,43 @@ function posts(basename, count) {
     var c     = 0;
     var page  = 0;
     var posts = [];
+    var basename = 'index';
+
+    function addPage(prevPage, nextPage){
+
+      var data = {
+        site: site,
+        posts: posts,
+        prevPage: prevPage,
+        nextPage: nextPage,
+        "_": _
+      };
+
+      var file = new util.File({
+        path: basename + (page == 0 ? '' : page) + '.html',
+        contents: new Buffer(archiveTemplate(data), 'utf8')
+      });
+      file.metadata = data;
+      stream.write(file);
+    }
+
     _.each(site.posts, function(post){
       posts.push(post);
       c++;
       if (c == count){
-        var file = new util.File({
-          path: basename + (page == 0 ? '' : page) + '.html',
-          contents: new Buffer('')
-        });
-        console.log('page=' + page + ' c=' + c + ' posts.length=' + site.posts.length);
-        file.metadata = {
-          posts: posts,
-          prevPage: page != 0 ? basename + ((page-1) == 0 ? '' : page-1) + '.html' : null,
-          nextPage: (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null,
-        };
-        stream.write(file);
-
+        var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page-1) + '.html' : null;
+        var nextPage = (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null;
+        addPage(prevPage, nextPage);
         c = 0;
         posts = [];
         page++;
+        basename = 'page';
       }
     });
 
     if (posts.length != 0) {
-      var file = new util.File({
-        path: basename + (page == 0 ? '' : page) + '.html',
-        contents: new Buffer(archiveTemplate)
-      });
-      file.metadata = {
-        posts: posts,
-        prevPage: page != 0 ? basename + ((page-1) == 0 ? '' : page) + '.html' : null,
-        nextPage: null,
-      };
-      stream.write(file);
+      var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page) + '.html' : null;
+      addPage(prevPage, null);
     }
   }
 
