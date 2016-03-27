@@ -327,7 +327,13 @@ function collectMetaData(marker) {
     cb();
   },
   function(cb) {
-    site.posts = _.sortBy(posts, ['date'], ['desc']);
+    // Compare dates to sort
+    function compareMilli(a,b) {
+      if(a.milli < b.milli) return -1;
+      if(a.milli > b.milli) return 1;
+      return 0;
+    }
+    site.posts = posts.sort(compareMilli);
     site.tags = tags;
     cb();
   });

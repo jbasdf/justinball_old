@@ -1,6 +1,6 @@
 <% _.each(site.posts, function(post){ -%>
   <% _.each(post.tags, function(cleanTag, tag){ -%>
-    <% if(tag == metadata.tag){ -%>
+    <% if(tag == currentTag){ -%>
       <div class="post-summary">
         <h2><a href="<%- post.url %>"><%-post.title%></a></h2>
         <p class="pull-right">
