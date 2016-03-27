@@ -96,8 +96,8 @@ gulp.task('markdown', function(){
 
   return gulp.src(['./html/**/*.md', './html/**/*.markdown'])
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
+    .pipe(filename2date())                                    // Figures out data and other meta data based on file name
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
-    .pipe(filename2date())
     .pipe(markedGulp(markedOptions))
     .pipe(applyLayout(defaultLayout))
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
@@ -328,12 +328,12 @@ function collectMetaData(marker) {
   },
   function(cb) {
     // Compare dates to sort
-    function compareMilli(a,b) {
-      if(a.milli < b.milli) return -1;
-      if(a.milli > b.milli) return 1;
+    function compare(a,b) {
+      if(a.date.unix() > b.date.unix()) return -1;
+      if(a.date.unix() < b.date.unix()) return 1;
       return 0;
     }
-    site.posts = posts.sort(compareMilli);
+    site.posts = posts.sort(compare);
     site.tags = tags;
     cb();
   });
@@ -362,7 +362,7 @@ function filename2date() {
       var basename = match[4];
       file.metadata.date = moment(month + '-' + day + '-' + year, "MM-DD-YYYY");
       file.metadata.url = '/' + year + '/' + month + '/' + day + '/' + basename + '.html';
-      if(!file.metadata){
+      if(!file.metadata.title){
         file.metadata.title = basename.replace(/_/g, ' ');
       }
     }
