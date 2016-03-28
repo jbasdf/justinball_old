@@ -189,10 +189,16 @@ gulp.task('javascript', function(cb){
 
 
 // -----------------------------------------------------------------------------
+// List of tasks involved in building html files
+// -----------------------------------------------------------------------------
+var htmlTasks = ['markdown', 'html', 'archive', 'tags'];
+
+
+// -----------------------------------------------------------------------------
 // Build the app from source code
 // -----------------------------------------------------------------------------
 gulp.task('build', ['clean'], function(cb){
-  runSequence('javascript', ['markdown', 'html', 'archive', 'tags'], cb);
+  runSequence('javascript', htmlTasks, cb);
 });
 
 
@@ -200,8 +206,8 @@ gulp.task('build', ['clean'], function(cb){
 // Watch for changes to html files and rebuild as needed. Webpack watches everything else
 // and serves js, css, etc from memory. Html files are served from the build directory.
 // -----------------------------------------------------------------------------
-gulp.task('watch', ['markdown', 'html', 'archive', 'tags'], function() {
-  gulp.watch(['html/**/*'], ['markdown', 'html']);
+gulp.task('watch', htmlTasks, function() {
+  gulp.watch(['html/**/*'], htmlTasks);
 });
 
 
