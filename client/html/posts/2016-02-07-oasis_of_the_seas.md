@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Justin Ball
-title: "Alexa, Amazon Lambda, NASA and avoiding death"
+title: "Oasis of the Seas"
 date: 2016-02-07 21:14:00 -0700
 categories:
   - Travel
