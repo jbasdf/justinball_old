@@ -200,7 +200,7 @@ gulp.task('build', ['clean'], function(cb){
 // Watch for changes to html files and rebuild as needed. Webpack watches everything else
 // and serves js, css, etc from memory. Html files are served from the build directory.
 // -----------------------------------------------------------------------------
-gulp.task('watch', ['markdown', 'html'], function() {
+gulp.task('watch', ['markdown', 'html', 'archive', 'tags'], function() {
   gulp.watch(['html/**/*'], ['markdown', 'html']);
 });
 
