@@ -37,7 +37,7 @@ module.exports = {
 
   entries: {
     app: clientAppPath + 'js/app.jsx',
-    reveal: clientAppPath + 'js/reveal.jsx'
+    reveal: clientAppPath + 'js/reveal.js'
   },
 
   cssEntries: {
