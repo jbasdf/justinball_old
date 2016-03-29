@@ -1,7 +1,14 @@
 {
-  "title": "Justin Ball",
-  "url": "http://www.justinball.com",
-  "author": "Justin Ball",
-  "email": "justinball@gmail.com",
-  "tagsPath": "tags"
+  "title"                    : "Nobody Listens Anyway",
+  "subtitle"                 : "Life is an optimization issue",
+  "domain"                   : "www.justinball.com",
+  "author"                   : "Justin Ball",
+  "email"                    : "justinball@example.com",
+  "tagsPath"                 : "tags",
+  "paginate"                 : 10,
+  "google_analytics_account" : "UA-73651-1",
+  "github_username"          : "jbasf",
+  "twitter_username"         : "jbasf",
+  "strava_profile"           : "justin_ball",
+  "disqus_id"                : "jbasf"
 }
