@@ -1,9 +1,6 @@
 import Reveal  from 'reveal.js';
 
 var type = window.location.search.match( /print-pdf/gi );
-
-require("reveal.js/css/reveal.scss");
-require("reveal.js/css/theme/white.css");
 require(`reveal.js/css/print/${type}.css`);
 
 // Full list of configuration options available here:
