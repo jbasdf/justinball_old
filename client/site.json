@@ -1,7 +1,13 @@
 {
-  "title": "Jots",
-  "url": "http://www.jots.com",
-  "author": "Jots Team",
-  "email": "jots@example.com",
-  "tagsPath": "tags"
+  "title"                    : "Speak Easy",
+  "subtitle"                 : "Speaking should be easy",
+  "domain"                   : "www.speakeasy.com",
+  "author"                   : "Speak Easy Team",
+  "email"                    : "speakeasy@example.com",
+  "tagsPath"                 : "tags",
+  "paginate"                 : 10,
+  "google_analytics_account" : "UA-73651-1",
+  "github_username"          : "speakeasy",
+  "twitter_username"         : "speakeasy",
+  "disqus_id"                : "speakeasy"
 }
