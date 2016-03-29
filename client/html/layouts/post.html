@@ -5,8 +5,37 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <%- include('../partials/_header.html') %>
-    <%- content %>
+    <div class="container text-center">
+      <script type="text/javascript" src="//www.avantlink.com/link.php?ml=307905&amp;p=28861&amp;pw=36893&amp;ctc=jbmaker&amp;open=_blank"></script>
+    </div>
+    <div class="full-story">
+      <article>
+        <header class="col-sm-12 post-header">
+          <div class="container">
+            <h1>
+              <a href="<%- metadata.url %>" rel="bookmark" title="Permanent link to <%- metadata.title %>"><%- metadata.title %></a>
+            </h1>
+            <div class="post-meta">
+              <div class="date">Published: <time><%- metadata.date.format('MMMM Do, YYYY') %></time></div>
+              <div class="metadata">Tagged:
+                <% _.each(metadata.tags, function(cleanTag, tag){ -%>
+                  <a href="/<%-site.tagsPath%>/<%-cleanTag%>.html" title="View all posts in <%- tag %>" rel="tag"><%-tag%></a>
+                <% }) -%>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <%- content %>
+        </div>
+      </article>
+      <div class="container text-center">
+        <script type="text/javascript" src="//www.avantlink.com/link.php?ml=376517&amp;p=28861&amp;pw=36893&amp;ctc=jbmaker&amp;open=_blank"></script>
+        <script type="text/javascript" src="//www.avantlink.com/link.php?ml=390669&amp;p=28861&amp;pw=36893&amp;ctc=jbmaker&amp;open=_blank"></script>
+        <script type="text/javascript" src="//www.avantlink.com/link.php?ml=392485&amp;p=28861&amp;pw=36893&amp;ctc=jbmaker&amp;open=_blank"></script>
+      </div>
+      <%- include('../partials/_google_analytics.html') %>
+    </div>
     <%- include('../partials/_google_analytics.html') %>
   </body>
 </html>
