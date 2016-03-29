@@ -61,7 +61,7 @@ module.exports = function(stage){
       pathinfo: !release // http://webpack.github.io/docs/configuration.html#output-pathinfo
     },
     resolve: {
-      extensions: ['', '.js', '.json', '.jsx'],
+      extensions: ['', '.js', '.json', '.jsx', '.scss', '.less', '.css'],
       modulesDirectories: ['node_modules', 'vendor']
     },
     cache: true,
