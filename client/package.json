@@ -25,6 +25,7 @@
     "immutable": "3.7.6",
     "lodash": "4.3.0",
     "moment": "^2.11.2",
+    "purecss-sass": "^0.6.0",
     "react": "0.14.7",
     "react-dom": "0.14.7",
     "react-proxy-loader": "0.3.4",
