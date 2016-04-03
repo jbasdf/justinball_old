@@ -26,6 +26,7 @@ var ejs           = require('ejs');
 var moment        = require('moment');
 var marked        = require('marked');
 var highlight     = require('highlight.js');
+var truncate      = require('truncate-html');
 
 // Settings
 var release       = argv.release;
@@ -311,10 +312,7 @@ function collectMetaData(marker) {
       if(_.includes(file.metadata.content, marker)){
         summary = file.metadata.content.split(marker)[0];
       } else {
-        summary = _.truncate(file.metadata.content, {
-          'length': 1000,
-          'separator': ' '
-        });
+        summary = truncate(file.metadata.content, 1000);
       }
 
       file.metadata.summary = marked(summary);
@@ -422,7 +420,8 @@ function posts(count) {
     var c     = 0;
     var page  = 0;
     var posts = [];
-    var basename = 'index';
+    var home  = 'index';
+    var basename = 'page';
 
     function addPage(prevPage, nextPage){
 
@@ -435,7 +434,7 @@ function posts(count) {
       };
 
       var file = new util.File({
-        path: basename + (page == 0 ? '' : page) + '.html',
+        path:  (page == 0 ? home : basename + page) + '.html',
         contents: new Buffer(archiveTemplate(data), 'utf8')
       });
       file.metadata = data;
@@ -446,18 +445,17 @@ function posts(count) {
       posts.push(post);
       c++;
       if (c == count){
-        var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page-1) + '.html' : null;
+        var prevPage = page != 0 ? ((page-1) == 0 ? home : basename + page-1) + '.html' : null;
         var nextPage = (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null;
         addPage(prevPage, nextPage);
         c = 0;
         posts = [];
         page++;
-        basename = 'page';
       }
     });
 
     if (posts.length != 0) {
-      var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page) + '.html' : null;
+      var prevPage = page != 0 ? basename + ((page-1) == 0 ? home : basename + page) + '.html' : null;
       addPage(prevPage, null);
     }
   }
