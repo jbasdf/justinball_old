@@ -43,7 +43,7 @@ module.exports = {
   },
 
   cssEntries: {
-    styles: clientAppPath + 'styles/styles.js'
+    styles: clientAppPath + theme + '/styles.js'
   }
 
 };
