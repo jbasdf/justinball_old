@@ -35,8 +35,8 @@ var webpackConfig = require('./config/webpack.config')(stage);
 var webpackStats;
 
 var defaultLayout   = 'application.html';
-var tagsTemplate    = ejs.compile(fs.readFileSync(path.join(__dirname, './html/partials/_tag.html'), 'utf8'), {cache: false});
-var archiveTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, './html/partials/_archive.html'), 'utf8'), {cache: false});
+var tagsTemplate    = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/_tag.html'), 'utf8'), {cache: false});
+var archiveTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/_archive.html'), 'utf8'), {cache: false});
 
 var dateRegEx     = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/; // Regex used to parse date from file name
 
@@ -94,7 +94,7 @@ gulp.task('vendor', function(){
 // -----------------------------------------------------------------------------
 gulp.task('markdown', function(){
 
-  return gulp.src(['./html/**/*.md', './html/**/*.markdown'])
+  return gulp.src(['./content/**/*.md', './content/**/*.markdown'])
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
     .pipe(filename2date())                                    // Figures out data and other meta data based on file name
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
@@ -124,19 +124,13 @@ gulp.task('markdown', function(){
 
 
 // -----------------------------------------------------------------------------
-// Process files in the html diretory
+// Process files in the content diretory
 // -----------------------------------------------------------------------------
 gulp.task('html', ['markdown'], function(){
 
   var htmlFilter = filter('**/*.html', {restore: true});
 
-  return gulp.src('./html/**/*')
-    .pipe(ignore.exclude('layouts/**'))
-    .pipe(ignore.exclude('layouts'))
-    .pipe(ignore.exclude('partials/**'))
-    .pipe(ignore.exclude('partials'))
-    .pipe(ignore.exclude('**/*.md'))
-    .pipe(ignore.exclude('**/*.markdown'))
+  return gulp.src('./content/**/*')
     .pipe(htmlFilter)
     .pipe(applyLayout(defaultLayout))
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
@@ -283,7 +277,7 @@ function applyLayout(defaultLayout){
     }
 
     layout = path.extname(layout) ? layout : layout + '.html';
-    layout = path.join(__dirname, './html/layouts/' + layout);
+    layout = path.join(__dirname, './themes/' + settings.theme + '/' + layout);
 
     var template = ejs.compile(fs.readFileSync(layout, 'utf8'), {
       cache: false,
