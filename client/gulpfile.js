@@ -91,11 +91,12 @@ gulp.task('vendor', function(){
 
 
 // -----------------------------------------------------------------------------
-// Build markdown files
+// Build markdown files in the content directory
 // -----------------------------------------------------------------------------
 gulp.task('markdown', function(){
 
-  return gulp.src(['./content/**/*.md', './content/**/*.markdown'])
+  var srcDirs = ['../content/**/*.md', '../content/**/*.markdown', './html/**/*.md', './html/**/*.markdown'];
+  return gulp.src(srcDirs)
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
     .pipe(filename2date())                                    // Figures out data and other meta data based on file name
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
@@ -125,14 +126,12 @@ gulp.task('markdown', function(){
 
 
 // -----------------------------------------------------------------------------
-// Process files in the content diretory
+// Process html files in the content and html directories
 // -----------------------------------------------------------------------------
 gulp.task('html', ['markdown'], function(){
 
-  var htmlFilter = filter('**/*.html', {restore: true});
-
-  return gulp.src('./content/**/*')
-    .pipe(htmlFilter)
+  var srcDirs = ['../content/**/*.html', '../content/**/*.html', './html/**/*.html', './html/**/*.html'];
+  return gulp.src(srcDirs)
     .pipe(applyLayout(defaultLayout))
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
     .pipe(!release ? util.noop() : htmlmin({
@@ -140,7 +139,6 @@ gulp.task('html', ['markdown'], function(){
       collapseWhitespace: true,
       minifyJS: true
     }))
-    .pipe(htmlFilter.restore)
     .pipe(gulp.dest(outputPath));
 });
 
