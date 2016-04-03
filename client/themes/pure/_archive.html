@@ -1,0 +1,27 @@
+<% _.each(posts, function(post){ -%>
+  <section class="post">
+    <header class="post-header">
+      <% if(post.image){ %>
+        <img class="post-avatar" alt="" height="48" width="48" src="<%-post.image%>">
+      <% } %>
+      <h2 class="post-title"><a href="<%- post.url %>"><%-post.title%></a></h2>
+      <p class="post-meta">
+        Posted <%- post.date.format("dddd, MMMM Do YYYY") %>
+        <% if(post.tags && post.tags.length){ %>
+          under
+          <% _.each(post.tags, function(cleanTag, tag){ -%>
+            <a class="post-category post-category-<%-cleanTag%>" href="/<%-site.tagsPath%>/<%-cleanTag%>.html"><%-tag%></a>
+          <% }) -%>
+        <% } %>
+      </p>
+    </header>
+    <div class="post-description">
+      <p><%- post.summary %></p>
+      <a href="<%- post.url %>">read more</a>
+    </div>
+  </section>
+<% }) -%>
+<div class="navigation">
+  <a href="<%- prevPage %>">Previous</a>
+  <a href="<%- nextPage %>">Next</a>
+</div>

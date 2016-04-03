@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('./_head.html') %>
+  <%- include('./_blog_head.html') %>
+</head>
+<body>
+<div id="layout" class="pure-g">
+  <%- include('./_header.html') %>
+  <div class="content pure-u-1 pure-u-md-3-4">
+    <div>
+      <!-- A wrapper for all the blog posts -->
+      <div class="posts">
+        <%- content %>
+      </div>
+      <%- include('./_footer.html') %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+

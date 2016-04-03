@@ -1,0 +1,18 @@
+<div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul>
+      <li class="pure-menu-item"><a class="pure-menu-link" href="/about.html">About</a></li>
+      <% if(site.twitter_username){ %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="http://twitter.com/<%- site.twitter_username %>" target="_blank">Twitter</a></li>
+      <% } %>
+      <% if(site.strava_profile){ %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="http://www.strava.com/athletes/<%- site.strava_profile %>" target="_blank">Strava</a></li>
+      <% } %>
+      <% if(site.github_username){ %>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="http://github.com/<%- site.github_username %>" target="_blank">Github</a></li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+<%- include('./_google_analytics.html') %>
+<script src="./application_bundle.js"></script>

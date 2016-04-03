@@ -1,0 +1,22 @@
+@import '_defines';
+@import '../node_modules/purecss-sass/vendor/assets/stylesheets/_purecss.scss';
+@import '_blog_common';
+@import '_tags';
+@import '_menu';
+
+@media (min-width: 48em) {
+  .content {
+    padding: 2em 3em 0;
+  }
+
+  .header {
+    margin: 80% 2em 0;
+    text-align: right;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+}
