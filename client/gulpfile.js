@@ -266,24 +266,16 @@ function applyLayout(defaultLayout){
 
     // If the user has specified a layout in the front matter user that.
     // Otherwise use the default
-    var layout = defaultLayout;
-
-    if(file.metadata && file.metadata.layout){
-      layout = file.metadata.layout;
-    }
+    var layoutFile = defaultLayout;
 
     // Home page is a special case
     if(file.path == "index.html"){
-      layout = "home";
+      layoutFile = "home";
+    } else if(file.metadata && file.metadata.layout){
+      layoutFile = file.metadata.layout;
     }
 
-    layout = path.extname(layout) ? layout : layout + '.html';
-    layout = path.join(__dirname, './themes/' + settings.theme + '/' + layout);
-
-    var template = ejs.compile(fs.readFileSync(layout, 'utf8'), {
-      cache: false,
-      filename: layout
-    });
+    var template = ejs.compile(loadTemplate(layoutFile));
 
     file.contents = new Buffer(template(data), 'utf8');
     this.push(file);
@@ -292,6 +284,33 @@ function applyLayout(defaultLayout){
   });
 }
 
+function safeReadLayout(file){
+  try{
+    return fs.readFileSync(file, 'utf8'), {
+      cache: false,
+      filename: file
+    };
+  } catch(e){
+    return false;
+  }
+}
+
+function firstValid(func, collection){
+  _.each(collection, function(location){
+    var val = func(location, arguments);
+    if(val){ return val; }
+  });
+}
+
+function loadTemplate(file){
+  file = path.extname(file) ? file : file + '.html';
+  return _(['./themes/' + settings.theme, './themes/default', './html'])
+    .map(function(location){
+      return path.join(__dirname, location + '/' + file);
+    })
+    .uniq()
+    .find(safeReadLayout);
+}
 
 // *****************************************************************************
 // Collects all files with layout "post" and adds the page and it's tags to arrays on the
@@ -303,7 +322,7 @@ function collectMetaData(marker) {
   return through2.obj(function(file, enc, cb) {
 
     // Only collect files with layout "post"
-    if(file.metadata.layout.toLowerCase() == "post"){
+    if(file.metadata.layout && file.metadata.layout.toLowerCase() == "post"){
 
       file.metadata.content = file.contents.toString();
       file.metadata.tags = _.reduce(file.metadata.tags, function(acc, tag){ acc[tag] = cleanTag(tag); return acc;}, {});
