@@ -1,5 +1,6 @@
 var info      = require('../package.json');
 var path      = require('path');
+var _         = require('lodash');
 
 var clientAppPath = path.join(__dirname, '../');
 
@@ -16,8 +17,9 @@ require('dotenv').load({path: path.join(__dirname, '../../.env')});
 
 var hotPort = process.env.ASSETS_PORT || 8080;
 var theme = process.env.THEME || 'default';
+var themeSettings = require('../themes/' + theme + '/settings.js');
 
-module.exports = {
+var settings = {
   title: info.title,
   author: info.author,
   version: info.versions,
@@ -47,3 +49,5 @@ module.exports = {
   }
 
 };
+
+module.exports = _.merge(settings, themeSettings);
