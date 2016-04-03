@@ -13,7 +13,7 @@ I am a lover of Ruby I started with the Twitter gem. The first bit of code that 
 
 <pre><code class="ruby">
 
-# We're goint to upload an image from a url so we include open-uri
+# We're going to upload an image from a url so we include open-uri
 require 'open-uri'
 
 class TwitterApi

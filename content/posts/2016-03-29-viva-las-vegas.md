@@ -1,0 +1,4 @@
+Dam Day.
+
+Our first day was a Dam day because we decided to take the Dam tour. Hoover is a really big Dam
+I frequently hear how the Internet and the various devices that attach to the Internet ruin a child's ability to socialize and interact with other people. We were standing in line to order food yesterday a Chilly Jillys in Boulder City Nevada when I notice my son playing Minecraft on his iPod. (I know you are on your phone while waiting in line to buy groceries. He's not the only one.) Then I hear the boy behind him say "Is that the level where you...". Instant friend. Instant socialization. No alchol needed to meet new people. Pretty cool that tech can bring poeple together.

@@ -1,5 +1,5 @@
-$icon-font-path: '../fonts/bootstrap';
-$fa-font-path:   '../fonts';
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,400italic);
+$font-family-sans-serif: 'Roboto', sans-serif;
 
 $white: #fff;
 $black: #000;
@@ -38,24 +38,5 @@ $nephritis: #27ae60;
 $amethyst: #9b59b6;
 $wisteria: #8e44ad;
 
-$text_color: $midnight_blue;
-$background_color: $white;
-
-$navbar_inverse_bg: $midnight_blue;
-$navbar_inverse_link_active_bg: $midnight_blue;
-
-$width: 960px;
-$label_width: 122px;
-$border_color: $silver;
-$border_radius: 5px;
-$message_width: 86%;
-$font_family: "Lucida Grande",Tahoma,Arial,Verdana,sans-serif;
-$font_size_error: 18px;
-
-
-$btn_color: $white;
-$input_border: $silver;
-$border_color: $silver;
-
-$btn_background_color: $midnight_blue;
-$btn_background_color_highlight: $wet_asphalt;
+$blue: rgb(61, 79, 93);
+$grey-transparent: rgba(0, 0, 0, 0.5);
