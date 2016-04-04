@@ -1,0 +1,10 @@
+@import "../../common/styles/_flat.scss";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,400italic);
+
+$font-family: 'Roboto', sans-serif;
+
+$blue: rgb(61, 79, 93);
+$grey-transparent: rgba(0, 0, 0, 0.5);
+
+$home_post_title_vertical_padding: 65px;
+$home_post_content_vertical_padding: $home_post_title_vertical_padding + 5px;

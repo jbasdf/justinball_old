@@ -1,0 +1,19 @@
+<div class="footer content">
+  <div class="pure-menu pure-menu-horizontal">
+    <h2 class="brand-tagline"><%- site.subtitle %></h2>
+    <ul>
+      <li class="pure-menu-item"><a href="/about.html">About</a></li>
+      <% if(site.twitter_username){ %>
+        <li class="pure-menu-item"><a href="http://twitter.com/<%- site.twitter_username %>" target="_blank">Twitter</a></li>
+      <% } %>
+      <% if(site.strava_profile){ %>
+        <li class="pure-menu-item"><a href="http://www.strava.com/athletes/<%- site.strava_profile %>" target="_blank">Strava</a></li>
+      <% } %>
+      <% if(site.github_username){ %>
+        <li class="pure-menu-item"><a href="http://github.com/<%- site.github_username %>" target="_blank">Github</a></li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+<script src="./application_bundle.js"></script>
+<%- include('../../common/_google_analytics.html') %>
