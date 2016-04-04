@@ -47,6 +47,7 @@ var settings = {
 
   cssEntries: {
     styles: clientAppPath + theme + '/styles.js'
+    reveal: clientAppPath + 'styles/reveal.scss'
   }
 
 };
