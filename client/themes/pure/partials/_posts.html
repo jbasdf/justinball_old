@@ -1,3 +1,4 @@
+<h1 class="content-subhead">Recent Posts</h1>
 <% _.each(posts, function(post){ -%>
   <section class="post">
     <header class="post-header">
@@ -22,6 +23,6 @@
   </section>
 <% }) -%>
 <div class="navigation">
-  <a href="<%- prevPage %>">Previous</a>
-  <a href="<%- nextPage %>">Next</a>
+  <a href="<%- prevPage %>" class="pure-button button-prev">Previous</a>
+  <a href="<%- nextPage %>" class="pure-button button-next">Next</a>
 </div>

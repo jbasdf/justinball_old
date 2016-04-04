@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <%- include('./_head.html') %>
-  <%- include('./_blog_head.html') %>
+  <%- include('./partials/_head.html') %>
 </head>
 <body>
 <div id="layout" class="pure-g">
-  <%- include('./_header.html') %>
+  <%- include('./partials/_header.html') %>
   <div class="content pure-u-1 pure-u-md-3-4">
     <div>
       <div class="posts">
@@ -19,7 +18,7 @@
         </div>
         <%- content %>
       </div>
-      <%- include('./_footer.html') %>
+      <%- include('./partials/_footer.html') %>
     </div>
   </div>
 </div>

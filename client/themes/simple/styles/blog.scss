@@ -1,8 +1,4 @@
-@import '_defines';
-@import '../node_modules/purecss-sass/vendor/assets/stylesheets/_purecss.scss';
-@import '_blog_common';
-@import '_tags';
-@import '_menu';
+@import './_common';
 
 @media (min-width: 48em) {
   .content {

@@ -16,8 +16,8 @@ var prodOutput    = path.join(__dirname, '../../build/prod', prodRelativeOutput)
 require('dotenv').load({path: path.join(__dirname, '../../.env')});
 
 var hotPort = process.env.ASSETS_PORT || 8080;
-var theme = process.env.THEME || 'pure';
-var themeSettings = require('../themes/' + theme + '/settings.js');
+var theme = process.env.THEME || 'simple';
+var themeSettings = require('../themes/' + theme + '/js/settings.js');
 
 var settings = {
   title: info.title,
@@ -46,7 +46,6 @@ var settings = {
   },
 
   cssEntries: {
-    styles: clientAppPath + theme + '/styles.js'
     reveal: clientAppPath + 'styles/reveal.scss'
   }
 
