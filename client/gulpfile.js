@@ -26,6 +26,7 @@ var ejs           = require('ejs');
 var moment        = require('moment');
 var marked        = require('marked');
 var highlight     = require('highlight.js');
+var truncate      = require('truncate-html');
 
 // Settings
 var release       = argv.release;
@@ -35,8 +36,8 @@ var webpackConfig = require('./config/webpack.config')(stage);
 var webpackStats;
 
 var defaultLayout   = 'application.html';
-var tagsTemplate    = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/_tag.html'), 'utf8'), {cache: false});
-var archiveTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/_archive.html'), 'utf8'), {cache: false});
+var tagsTemplate    = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/partials/_tag.html'), 'utf8'), {cache: false});
+var archiveTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, './themes/' + settings.theme + '/partials/_posts.html'), 'utf8'), {cache: false});
 
 var dateRegEx     = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/; // Regex used to parse date from file name
 
@@ -90,11 +91,12 @@ gulp.task('vendor', function(){
 
 
 // -----------------------------------------------------------------------------
-// Build markdown files
+// Build markdown files in the content directory
 // -----------------------------------------------------------------------------
 gulp.task('markdown', function(){
 
-  return gulp.src(['./content/**/*.md', './content/**/*.markdown'])
+  var srcDirs = ['../content/**/*.md', '../content/**/*.markdown', './html/**/*.md', './html/**/*.markdown'];
+  return gulp.src(srcDirs)
     .pipe(frontMatter({property: 'metadata', remove: true}))  // Strips front matter and adds it to the metadata object
     .pipe(filename2date())                                    // Figures out data and other meta data based on file name
     .pipe(collectMetaData('<!--more-->'))                     // Finds all files with the layout "post" and adds 'summary' to metadata object. Summarize posts by adding <!--more--> to the html
@@ -124,14 +126,12 @@ gulp.task('markdown', function(){
 
 
 // -----------------------------------------------------------------------------
-// Process files in the content diretory
+// Process html files in the content and html directories
 // -----------------------------------------------------------------------------
 gulp.task('html', ['markdown'], function(){
 
-  var htmlFilter = filter('**/*.html', {restore: true});
-
-  return gulp.src('./content/**/*')
-    .pipe(htmlFilter)
+  var srcDirs = ['../content/**/*.html', './html/**/*.html'];
+  return gulp.src(srcDirs)
     .pipe(applyLayout(defaultLayout))
     .pipe(applyWebpack()) // Change to webpack hashed file names in release
     .pipe(!release ? util.noop() : htmlmin({
@@ -139,7 +139,6 @@ gulp.task('html', ['markdown'], function(){
       collapseWhitespace: true,
       minifyJS: true
     }))
-    .pipe(htmlFilter.restore)
     .pipe(gulp.dest(outputPath));
 });
 
@@ -155,12 +154,12 @@ gulp.task('tags', ['markdown'], function () {
 
 
 // -----------------------------------------------------------------------------
-// Add paging for old posts
+// Add paging for posts
 // -----------------------------------------------------------------------------
 gulp.task('archive', ['markdown'], function () {
   return posts(10)
-      .pipe(applyLayout(defaultLayout))
-      .pipe(gulp.dest(outputPath));
+    .pipe(applyLayout(defaultLayout))
+    .pipe(gulp.dest(outputPath));
 });
 
 
@@ -197,11 +196,11 @@ gulp.task('build', ['clean'], function(cb){
 
 
 // -----------------------------------------------------------------------------
-// Watch for changes to html files and rebuild as needed. Webpack watches everything else
+// Watch for changes to html and content files and rebuild as needed. Webpack watches everything else
 // and serves js, css, etc from memory. Html files are served from the build directory.
 // -----------------------------------------------------------------------------
 gulp.task('watch', htmlTasks, function() {
-  gulp.watch(['html/**/*'], htmlTasks);
+  gulp.watch(['html/**/*', 'themes/**/*', '../content/**/*'], htmlTasks);
 });
 
 
@@ -265,23 +264,18 @@ function applyLayout(defaultLayout){
 
     // If the user has specified a layout in the front matter user that.
     // Otherwise use the default
-    var layout = defaultLayout;
-
-    if(file.metadata && file.metadata.layout){
-      layout = file.metadata.layout;
-    }
-
+    var layoutFile = defaultLayout;
     // Home page is a special case
     if(file.path == "index.html"){
-      layout = "home";
+      layoutFile = "home";
+    } else if(file.metadata && file.metadata.layout){
+      layoutFile = file.metadata.layout;
     }
 
-    layout = path.extname(layout) ? layout : layout + '.html';
-    layout = path.join(__dirname, './themes/' + settings.theme + '/' + layout);
-
-    var template = ejs.compile(fs.readFileSync(layout, 'utf8'), {
+    var result = loadTemplate(layoutFile);
+    var template = ejs.compile(result.value, {
       cache: false,
-      filename: layout
+      filename: result.item
     });
 
     file.contents = new Buffer(template(data), 'utf8');
@@ -291,6 +285,40 @@ function applyLayout(defaultLayout){
   });
 }
 
+function safeReadLayout(file){
+  try{
+    return fs.readFileSync(file, 'utf8');
+  } catch(e){
+    return false;
+  }
+}
+
+function firstValid(func, collection){
+  for(var i=0; i<collection.length; i++){
+    var val = func(collection[i]);
+    if(val){ return { value: val, item: collection[i]}; }
+  }
+  return false;
+}
+
+function loadTemplate(file){
+  file = path.extname(file) ? file : file + '.html';
+
+  var layouts = _(['./themes/' + settings.theme, './themes/default', './html'])
+    .map(function(location){
+      return path.join(__dirname, location + '/' + file);
+    })
+    .uniq()
+    .value();
+
+  var result = firstValid(safeReadLayout, layouts);
+
+  if(!result){
+    throw "No template found matching " + file;
+  }
+
+  return result;
+}
 
 // *****************************************************************************
 // Collects all files with layout "post" and adds the page and it's tags to arrays on the
@@ -302,7 +330,7 @@ function collectMetaData(marker) {
   return through2.obj(function(file, enc, cb) {
 
     // Only collect files with layout "post"
-    if(file.metadata.layout.toLowerCase() == "post"){
+    if(file.metadata.layout && file.metadata.layout.toLowerCase() == "post"){
 
       file.metadata.content = file.contents.toString();
       file.metadata.tags = _.reduce(file.metadata.tags, function(acc, tag){ acc[tag] = cleanTag(tag); return acc;}, {});
@@ -311,10 +339,7 @@ function collectMetaData(marker) {
       if(_.includes(file.metadata.content, marker)){
         summary = file.metadata.content.split(marker)[0];
       } else {
-        summary = _.truncate(file.metadata.content, {
-          'length': 1000,
-          'separator': ' '
-        });
+        summary = truncate(file.metadata.content, 1000);
       }
 
       file.metadata.summary = marked(summary);
@@ -418,48 +443,57 @@ function posts(count) {
     cb();
   });
 
-  if(site.posts){
-    var c     = 0;
-    var page  = 0;
-    var posts = [];
-    var basename = 'index';
+  if(site.posts.length == 0){
+    var msg = "No posts yet. Start posting by adding markdown files to the /content directory";
+    site.posts = [{
+      content: msg,
+      summary: msg,
+      layout: "post",
+      date: moment()
+    }];
+  }
 
-    function addPage(prevPage, nextPage){
+  var c     = 0;
+  var page  = 0;
+  var posts = [];
+  var home  = 'index';
+  var basename = 'page';
 
-      var data = {
-        site: site,
-        posts: posts,
-        prevPage: prevPage,
-        nextPage: nextPage,
-        "_": _
-      };
+  function addPage(prevPage, nextPage){
 
-      var file = new util.File({
-        path: basename + (page == 0 ? '' : page) + '.html',
-        contents: new Buffer(archiveTemplate(data), 'utf8')
-      });
-      file.metadata = data;
-      stream.write(file);
-    }
+    var data = {
+      site: site,
+      posts: posts,
+      prevPage: prevPage,
+      nextPage: nextPage,
+      "_": _
+    };
 
-    _.each(site.posts, function(post){
-      posts.push(post);
-      c++;
-      if (c == count){
-        var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page-1) + '.html' : null;
-        var nextPage = (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null;
-        addPage(prevPage, nextPage);
-        c = 0;
-        posts = [];
-        page++;
-        basename = 'page';
-      }
+    var file = new util.File({
+      path:  (page == 0 ? home : basename + page) + '.html',
+      contents: new Buffer(archiveTemplate(data), 'utf8')
     });
 
-    if (posts.length != 0) {
-      var prevPage = page != 0 ? basename + ((page-1) == 0 ? '' : page) + '.html' : null;
-      addPage(prevPage, null);
+    file.metadata = data;
+    stream.write(file);
+  }
+
+  _.each(site.posts, function(post){
+    posts.push(post);
+    c++;
+    if (c == count){
+      var prevPage = page != 0 ? ((page-1) == 0 ? home : basename + page-1) + '.html' : null;
+      var nextPage = (page+1) * count < site.posts.length ? basename + (page+1) + '.html' : null;
+      addPage(prevPage, nextPage);
+      c = 0;
+      posts = [];
+      page++;
     }
+  });
+
+  if (posts.length != 0) {
+    var prevPage = page != 0 ? basename + ((page-1) == 0 ? home : basename + page) + '.html' : null;
+    addPage(prevPage, null);
   }
 
   stream.end();
