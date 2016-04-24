@@ -200,7 +200,7 @@ gulp.task('build', ['clean'], function(cb){
 // and serves js, css, etc from memory. Html files are served from the build directory.
 // -----------------------------------------------------------------------------
 gulp.task('watch', htmlTasks, function() {
-  gulp.watch(['html/**/*', 'themes/**/*', '../content/**/*'], htmlTasks);
+  gulp.watch(['html/**/*', 'themes/**/*', '../content/**/*'], ['markdown', 'html', 'archive']);
 });
 
 
