@@ -1,10 +1,10 @@
 {
-  "name": "jots",
-  "version": "0.0.2",
-  "description": "Journal your life in one spot.",
+  "name": "SpeakEasy",
+  "version": "0.0.3",
+  "description": "Speak freely.",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:justinball/jots.git"
+    "url": ""
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start",
@@ -17,7 +17,7 @@
   },
   "author": "atomicjolt, jbasdf",
   "license": "MIT",
-  "homepage": "https://www.geojots.com",
+  "homepage": "https://www.example.com",
   "dependencies": {
     "babel": "6.5.2",
     "babel-polyfill": "^6.7.4",
