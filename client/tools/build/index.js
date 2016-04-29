@@ -3,6 +3,7 @@ var _             = require("lodash");
 var fs            = require("fs");
 var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
+var del           = require("del");
 
 var buildContent  = require("./content");
 var templates     = require("./templates");
@@ -42,14 +43,6 @@ var options              = {
   templateDirs:    templateDirs,          // Directories to look in for template
   summaryMarker:   "<!--more-->"
 };
-
-// -----------------------------------------------------------------------------
-// Delete everything
-// -----------------------------------------------------------------------------
-function clean(outputPath, cb){
-  var rimraf = require("rimraf");
-  rimraf(outputPath, cb);
-}
 
 // -----------------------------------------------------------------------------
 // run webpack to build entry points
@@ -139,7 +132,7 @@ function write(inputPath, outputPath, fileName, content, options){
 // -----------------------------------------------------------------------------
 function build(cb){
   console.log("Building files in: " + inputPath);
-  clean(outputPath, function(){
+  del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
     buildWebpackEntries(webpackConfigBuilder(stage), function(webpackConfig, webpackStats){
       results = buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage, options);
       buildTagPages(results, options);
@@ -160,7 +153,10 @@ function watch(cb){
       var page = buildContent(filePath, webpackConfig, webpackStats, stage, options);
       page.outputFilePath = write(inputPath, outputPath, path.basename(filePath), page.html, options);
     });
-    if(cb){ cb(); }
+    // HACK delete the js files from the dev directory. The static js files mess up hot reload.
+    del(path.join(outputPath, "/*.js"), {force: true}).then(function(){
+      if(cb){ cb(); }
+    });
   });
 }
 
