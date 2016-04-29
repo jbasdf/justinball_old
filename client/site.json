@@ -9,5 +9,6 @@
   "google_analytics_account" : "UA-73651-1",
   "github_username"          : "speakeasy",
   "twitter_username"         : "speakeasy",
-  "disqus_id"                : "speakeasy"
+  "disqus_id"                : "speakeasy",
+  "theme"                    : "pure"
 }

@@ -5,6 +5,7 @@ var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
 
 var buildContent  = require("./content");
+var templates     = require("./templates");
 
 // Settings
 var webpackConfigBuilder = require("../../config/webpack.config");
@@ -13,20 +14,33 @@ var argv                 = require("minimist")(process.argv.slice(2));
 var release              = argv.release;
 var stage                = release ? "production" : "development";
 
-var inputPath            = path.join(__dirname, "../../html");
+var site                 = require("../../site.json");
+var inputPath            = path.join(__dirname, "../../../content");
 var templateDirs         = [path.join(inputPath, "layouts")];
 var outputPath           = stage == "production" ? settings.prodOutput : settings.devOutput;
 
 var ignoreFiles          = [".DS_Store"];
+
+var themePath            = path.join(__dirname, "../../themes");
+var templateDirs = [
+  path.join(themePath, site.theme),
+  path.join(themePath, "default")
+];
 
 var options              = {
   rootInputPath:   inputPath,            // Original input path
   entries:         settings.entries,     // Webpack entry points
   cssEntries:      settings.cssEntries,  // Webpack css entry points
   buildSuffix:     settings.buildSuffix, // Webpack build suffix. ie _bundle.js
-  templateData:    {},                   // Object that will be passed to every page as it is rendered
-  templateMap:     {},                   // Used to specify specific templates on a per file basis
-  templateDirs:    templateDirs          // Directories to look in for template
+  templateData:    {                     // Object that will be passed to every page as it is rendered
+    site: site,
+    time: new Date()
+  },
+  templateMap:     {                     // Used to specify specific templates on a per file basis
+    "index.html": "home"
+  },
+  templateDirs:    templateDirs,          // Directories to look in for template
+  summaryMarker:   "<!--more-->"
 };
 
 // -----------------------------------------------------------------------------
@@ -64,7 +78,7 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
                   !_.includes(ignoreFiles, fileName);
     if(doOutput){
       if(fs.statSync(fullInputPath).isDirectory()){
-        results = _.concat(results, buildContents(fullInputPath, outputPath, webpackConfig, webpackStats, stage, options));
+        results = _.concat(results, buildContents(inputPath, fullInputPath, webpackConfig, webpackStats, stage, options));
       } else {
         var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
         page.outputFilePath = write(options.rootInputPath, outputPath, fileName, page.html, options);
@@ -73,6 +87,39 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
     }
   });
   return results;
+}
+
+// -----------------------------------------------------------------------------
+// Build pages based on tags
+// -----------------------------------------------------------------------------
+function buildTagPages(results, options){
+
+  var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
+
+  _(results)
+    .map(function(page){
+      return page.metadata.tags;
+    })
+    .flatten()
+    .uniq()
+    .each(function(tag){
+      var data = {
+        site: options.site,
+        title: tag,
+        currentTag: tag,
+        cleanTag: utils.cleanTag(tag),
+        "_": _
+      };
+      var content = tagsTemplate(data);
+      write("", site.tagsPath, cleanTag + ".html", content, options);
+    });
+}
+
+// -----------------------------------------------------------------------------
+// Build blog archive pages
+// -----------------------------------------------------------------------------
+function buildPostPages(results, options){
+  var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
 }
 
 // -----------------------------------------------------------------------------
@@ -95,6 +142,8 @@ function build(cb){
   clean(outputPath, function(){
     buildWebpackEntries(webpackConfigBuilder(stage), function(webpackConfig, webpackStats){
       results = buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage, options);
+      buildTagPages(results, options);
+      buildPostPages(results, options);
       if(cb){
         cb(results, inputPath, outputPath, webpackConfig, webpackStats, stage, options);
       }

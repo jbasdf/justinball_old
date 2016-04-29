@@ -2,6 +2,7 @@ var fs            = require("fs");
 var path          = require("path");
 var _             = require("lodash");
 var ejs           = require("ejs");
+var moment        = require("moment");
 
 // -----------------------------------------------------------------------------
 // Apply layouts to content
@@ -9,7 +10,8 @@ var ejs           = require("ejs");
 function apply(content, fullPath, metadata, templateMap, templateData, templateDirs){
   var data = _.merge({
     metadata: metadata || {},
-    "_": _
+    "_": _,
+    moment: moment
   }, templateData);
 
   // Allow ejs code in content
@@ -22,11 +24,7 @@ function apply(content, fullPath, metadata, templateMap, templateData, templateD
   // Then try the layout map and finally default to application.html
   var layoutFile = metadata.layout || templateMap[fullPath] || "application.html";
 
-  var result = loadTemplate(layoutFile, templateDirs);
-  var template = ejs.compile(result.value, {
-    cache: false,
-    filename: result.item
-  });
+  var template = loadTemplate(layoutFile, templateDirs);
 
   data.content = content;
 
@@ -65,10 +63,15 @@ function loadTemplate(file, templateDirs){
     throw "No template found matching " + file;
   }
 
-  return result;
+  return ejs.compile(result.value, {
+    cache: false,
+    filename: result.item
+  });
+
 }
 
 module.exports = {
-  apply: apply
+  apply: apply,
+  loadTemplate: loadTemplate
 };
 
