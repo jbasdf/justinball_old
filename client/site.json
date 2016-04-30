@@ -10,5 +10,6 @@
   "github_username"          : "jbasdf",
   "twitter_username"         : "jbasdf",
   "strava_profile"           : "justin_ball",
-  "disqus_id"                : "jbasdf"
+  "disqus_id"                : "jbasdf",
+  "theme"                    : "pure"
 }
