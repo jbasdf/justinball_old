@@ -14,7 +14,6 @@ function apply(content, fullPath, metadata, templateMap, templateData, templateD
   var layoutFile = metadata.layout || templateMap[fullPath] || "application.html";
 
   var template = loadTemplate(layoutFile, templateDirs);
-
   var data = buildData(metadata, templateData, { content: content});
 
   return template(data);
