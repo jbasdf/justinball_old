@@ -5,6 +5,7 @@ var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
 var del           = require("del");
 
+var file          = require("./file");
 var buildContent  = require("./content");
 var templates     = require("./templates");
 
@@ -29,6 +30,8 @@ var templateDirs = [
 ];
 
 var options              = {
+  truncateSummaryAt : 1000,
+  buildExtensions   : ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
   rootInputPath:   inputPath,            // Original input path
   entries:         settings.entries,     // Webpack entry points
   cssEntries:      settings.cssEntries,  // Webpack css entry points
@@ -47,16 +50,27 @@ var options              = {
 // -----------------------------------------------------------------------------
 // run webpack to build entry points
 // -----------------------------------------------------------------------------
-function buildWebpackEntries(webpackConfig, cb){
-  var bundler = webpack(webpackConfig);
-  function bundle(err, stats){
-    if (err){
-      throw new util.PluginError("webpack", err);
+function buildWebpackEntries(isHot){
+  return new Promise(function(resolve, reject){
+    var webpackConfig = webpackConfigBuilder(stage);
+    if(!isHot){
+      var bundler = webpack(webpackConfig);
+      function bundle(err, stats){
+        if(err){
+          console.log("webpack error", err);
+          reject(err);
+        }
+        //console.log("webpack", stats.toString({colors: true}));
+        resolve({
+          webpackConfig: webpackConfig,
+          webpackStats: stats.toJson()
+        });
+      }
+      bundler.run(bundle);
+    } else {
+      resolve(webpackConfig, null);
     }
-    //console.log("[webpack]", stats.toString({colors: true}));
-    cb(webpackConfig, stats.toJson());
-  }
-  bundler.run(bundle);
+  });
 }
 
 // -----------------------------------------------------------------------------
@@ -71,11 +85,16 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
                   !_.includes(ignoreFiles, fileName);
     if(doOutput){
       if(fs.statSync(fullInputPath).isDirectory()){
-        results = _.concat(results, buildContents(inputPath, fullInputPath, webpackConfig, webpackStats, stage, options));
+        results = _.concat(results, buildContents(fullInputPath, outputPath, webpackConfig, webpackStats, stage, options));
       } else {
-        var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
-        page.outputFilePath = write(options.rootInputPath, outputPath, fileName, page.html, options);
-        results.push(page);
+        var ext = path.extname(fullInputPath);
+        if(_.includes(options.buildExtensions, ext)){
+          var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
+          page.outputFilePath = file.write(inputPath, outputPath, fileName, page.html, options);
+          results.push(page);
+        } else {
+          file.copy(inputPath, outputPath, fileName, options);
+        }
       }
     }
   });
@@ -83,63 +102,24 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
 }
 
 // -----------------------------------------------------------------------------
-// Build pages based on tags
-// -----------------------------------------------------------------------------
-function buildTagPages(results, options){
-
-  var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
-
-  _(results)
-    .map(function(page){
-      return page.metadata.tags;
-    })
-    .flatten()
-    .uniq()
-    .each(function(tag){
-      var data = {
-        site: options.site,
-        title: tag,
-        currentTag: tag,
-        cleanTag: utils.cleanTag(tag),
-        "_": _
-      };
-      var content = tagsTemplate(data);
-      write("", site.tagsPath, cleanTag + ".html", content, options);
-    });
-}
-
-// -----------------------------------------------------------------------------
-// Build blog archive pages
-// -----------------------------------------------------------------------------
-function buildPostPages(results, options){
-  var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
-}
-
-// -----------------------------------------------------------------------------
-// write file
-// -----------------------------------------------------------------------------
-function write(inputPath, outputPath, fileName, content, options){
-  var relPath = inputPath.replace(options.rootInputPath, ""); // build relative path for output file
-  var out = path.join(outputPath, relPath, fileName);
-  fs.writeFile(out, content, function(err){
-    if(err){ return console.log(err); }
-  });
-  return out;
-}
-
-// -----------------------------------------------------------------------------
 // main build
 // -----------------------------------------------------------------------------
-function build(cb){
-  console.log("Building files in: " + inputPath);
-  del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
-    buildWebpackEntries(webpackConfigBuilder(stage), function(webpackConfig, webpackStats){
-      results = buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage, options);
-      buildTagPages(results, options);
-      buildPostPages(results, options);
-      if(cb){
-        cb(results, inputPath, outputPath, webpackConfig, webpackStats, stage, options);
-      }
+function build(isHot){
+  return new Promise(function(resolve, reject){
+    console.log("Building files in: " + inputPath);
+    del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
+      buildWebpackEntries(isHot).then(function(packResults){
+        var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
+        resolve({
+          pages         : pages,
+          inputPath     : inputPath,
+          outputPath    : outputPath,
+          webpackConfig : packResults.webpackConfig,
+          webpackStats  : packResults.webpackStats,
+          stage         : stage,
+          options       : options
+        });
+      });
     });
   });
 };
@@ -147,15 +127,14 @@ function build(cb){
 // -----------------------------------------------------------------------------
 // watch
 // -----------------------------------------------------------------------------
-function watch(cb){
-  build(function(results, inputPath, outputPath, webpackConfig, webpackStats, stage, options){
-    nodeWatch(inputPath, function(filePath){
-      var page = buildContent(filePath, webpackConfig, webpackStats, stage, options);
-      page.outputFilePath = write(inputPath, outputPath, path.basename(filePath), page.html, options);
-    });
-    // HACK delete the js files from the dev directory. The static js files mess up hot reload.
-    del(path.join(outputPath, "/*.js"), {force: true}).then(function(){
-      if(cb){ cb(); }
+function watch(){
+  return new Promise(function(resolve, reject){
+    build(true).then(function(buildResults){
+      nodeWatch(buildResults.inputPath, function(filePath){
+        var page = buildContent(filePath, buildResults.webpackConfig, buildResults.webpackStats, buildResults.stage, buildResults.options);
+        page.outputFilePath = file.write(buildResults.inputPath, buildResults.outputPath, path.basename(filePath), page.html, buildResults.options);
+      });
+      resolve();
     });
   });
 }

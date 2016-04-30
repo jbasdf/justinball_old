@@ -5,6 +5,7 @@ var frontMatter   = require("front-matter");
 var minify        = require('html-minifier').minify;
 var truncate      = require("html-truncate");
 var moment        = require("moment");
+var ejs           = require("ejs");
 
 var webpackUtils  = require("./webpack_utils");
 var utils         = require("./utils");
@@ -17,15 +18,26 @@ var templates     = require("./templates");
 // -----------------------------------------------------------------------------
 module.exports = function(fullPath, webpackConfig, webpackStats, stage, options){
   var content  = fs.readFileSync(fullPath, "utf8");
-  var ext      = path.extname(fullPath);
   var parsed   = frontMatter(content);
-  var html     = marked(parsed.body);
   var metadata = parsed.attributes;
-  var summary  = _.includes(content, options.summaryMarker) ? content.split(options.summaryMarker)[0] : truncate(content, 1000, { keepImageTag: true });
+  var data     = templates.buildData(metadata, options.templateData);
 
-  summary = marked(summary);
+  // Allow ejs code in content
+  var html = ejs.compile(parsed.body, {
+    cache: false,
+    filename: fullPath
+  })(data);
 
-  html = templates.apply(content, fullPath, metadata, options.templateMap, options.templateData, options.templateDirs);
+  // Parse any markdown in the resulting html
+  var html = marked(html);
+
+  // Generate summary of content
+  var summary  = _.includes(html, options.summaryMarker) ?
+    html.split(options.summaryMarker)[0] :
+    truncate(html, options.truncateSummaryAt, { keepImageTag: true });
+
+  // Apply template
+  html = templates.apply(html, fullPath, metadata, options.templateMap, options.templateData, options.templateDirs);
 
   if(stage == "production"){
     html = webpackUtils.apply(html, webpackStats, webpackConfig, options.entries, options.cssEntries, options.buildSuffix);
