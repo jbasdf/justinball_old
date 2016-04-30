@@ -56,7 +56,6 @@ function loadTemplate(file, templateDirs){
     cache: false,
     filename: result.item
   });
-
 }
 
 function buildData(){
