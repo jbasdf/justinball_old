@@ -6,12 +6,12 @@ var minify        = require('html-minifier').minify;
 var truncate      = require("html-truncate");
 var moment        = require("moment");
 var ejs           = require("ejs");
+var highlight     = require('highlight.js');
 
 var webpackUtils  = require("./webpack_utils");
 var utils         = require("./utils");
 var marked        = require("./markdown");
 var templates     = require("./templates");
-
 
 // -----------------------------------------------------------------------------
 // build a single file
@@ -22,8 +22,13 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
   var metadata = parsed.attributes;
   var data     = templates.buildData(metadata, options.templateData);
 
+  var html = parsed.body;
+
+  // Highlight code
+  html = highlight.highlightAuto(html);
+
   // Allow ejs code in content
-  var html = ejs.compile(parsed.body, {
+  html = ejs.compile(html, {
     cache: false,
     filename: fullPath
   })(data);
