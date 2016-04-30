@@ -25,7 +25,7 @@ function filename2date(filePath){
     var month = match[2];
     var day = match[3];
     var basename = match[4];
-    result.date = moment(month + '-' + day + '-' + year, "MM-DD-YYYY");
+    result.date = month + '-' + day + '-' + year, "MM-DD-YYYY";
     result.url = '/' + year + '/' + month + '/' + day + '/' + basename + '.html';
     if(!result.title){
       result.title = basename.replace(/_/g, ' ');
