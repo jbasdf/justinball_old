@@ -4,6 +4,7 @@ var fs            = require("fs");
 var frontMatter   = require("front-matter");
 var minify        = require('html-minifier').minify;
 var truncate      = require("html-truncate");
+var moment        = require("moment");
 
 var webpackUtils  = require("./webpack_utils");
 var utils         = require("./utils");
@@ -39,7 +40,7 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
 
   return {
     title:       metadata.title || result.title,
-    date:        result.date,
+    date:        moment(result.date || fs.statSync(fullPath).ctime),
     metadata:    metadata,
     summary:     summary,
     source:      fullPath,
