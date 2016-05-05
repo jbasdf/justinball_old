@@ -6,7 +6,6 @@ var minify        = require('html-minifier').minify;
 var truncate      = require("html-truncate");
 var moment        = require("moment");
 var ejs           = require("ejs");
-var highlight     = require('highlight.js');
 
 var webpackUtils  = require("./webpack_utils");
 var utils         = require("./utils");
@@ -23,9 +22,6 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
   var data     = templates.buildData(metadata, options.templateData);
 
   var html = parsed.body;
-
-  // Highlight code
-  html = highlight.highlightAuto(html);
 
   // Allow ejs code in content
   html = ejs.compile(html, {
