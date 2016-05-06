@@ -130,7 +130,7 @@ function buildTagPages(results, options){
     });
     return tags;
   }, {});
-
+debugger;
   _.each(tags, function(tag, posts){
     var data = {
       site       : options.site,
@@ -170,6 +170,7 @@ function build(isHot){
         }
 
         results = results.sort(compare);
+
         buildTagPages(results, options);
         //buildPostPages(results, options);
 
