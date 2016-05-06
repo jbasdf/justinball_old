@@ -117,9 +117,12 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
   return results;
 }
 
-// -----------------------------------------------------------------------------
-// Build pages based on tags
-// -----------------------------------------------------------------------------
+/** -----------------------------------------------------------------------------
+ * Build pages based on tags
+ * @param {array} results, this is all of the blog posts, with all of their stuff
+ * @param {object} options, info being passed between functions. Declared at top of file
+ *  -----------------------------------------------------------------------------
+ */
 function buildTagPages(results, options){
 
   var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
