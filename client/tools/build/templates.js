@@ -16,7 +16,16 @@ function apply(content, fullPath, metadata, templateMap, templateData, templateD
   var template = loadTemplate(layoutFile, templateDirs);
   var data = buildData({ metadata: metadata }, templateData, { content: content});
 
-  return template(data);
+  var html = "";
+
+  try{
+    html = template(data);
+  } catch(err){
+    console.log(err);
+    console.log("Unable to build file: " + fullPath + " Data: " + data);
+  }
+
+  return html;
 }
 
 function safeReadLayout(file){
