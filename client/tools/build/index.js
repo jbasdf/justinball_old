@@ -8,6 +8,7 @@ var del           = require("del");
 var file          = require("./file");
 var buildContent  = require("./content");
 var templates     = require("./templates");
+var utils         = require("./utils");
 
 // Settings
 var webpackConfigBuilder = require("../../config/webpack.config");
@@ -90,7 +91,22 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
         var ext = path.extname(fullInputPath);
         if(_.includes(options.buildExtensions, ext)){
           var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
-          page.outputFilePath = file.write(inputPath, outputPath, fileName, page.html, options);
+          var outFile = fileName;
+          var outPath = outputPath;
+          if(page.destination && page.destination.length > 0){
+            if(_.endsWith(page.destination, "/")){
+              outPath = path.join(outPath, page.destination);
+              outFile = "index.html";
+            } else {
+              outFile = page.destination;
+            }
+          }
+          // Use .html for file extension
+          var ext = path.extname(outFile);
+          if(ext != ".html"){
+            outFile = outFile.replace(ext, ".html");
+          }
+          page.outputFilePath = file.write(inputPath, outPath, outFile, page.html, options);
           results.push(page);
         } else {
           file.copy(inputPath, outputPath, fileName, options);
@@ -102,6 +118,41 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
 }
 
 // -----------------------------------------------------------------------------
+// Build pages based on tags
+// -----------------------------------------------------------------------------
+function buildTagPages(results, options){
+
+  var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
+
+  var tags = _.reduce(results, function(tags, page){
+    _.each(page.metadata.tags, function(tag){
+      (tags[tag] || (tags[tag] = [])).push(page);
+    });
+    return tags;
+  }, {});
+
+  _.each(tags, function(tag, posts){
+    var data = {
+      site       : options.site,
+      title      : tag,
+      currentTag : tag,
+      cleanTag   : utils.cleanTag(tag),
+      posts      : posts,
+      "_"        : _
+    };
+    var content = tagsTemplate(data);
+    file.write("", site.tagsPath, cleanTag + ".html", content, options);
+  });
+}
+
+// -----------------------------------------------------------------------------
+// Build blog archive pages
+// -----------------------------------------------------------------------------
+function buildPostPages(results, options){
+  var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
+}
+
+// -----------------------------------------------------------------------------
 // main build
 // -----------------------------------------------------------------------------
 function build(isHot){
@@ -110,6 +161,18 @@ function build(isHot){
     del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
       buildWebpackEntries(isHot).then(function(packResults){
         var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
+
+        // Sort results by date
+        function compare(a,b) {
+          if(a.date.unix() > b.date.unix()) return -1;
+          if(a.date.unix() < b.date.unix()) return 1;
+          return 0;
+        }
+
+        results = results.sort(compare);
+        buildTagPages(results, options);
+        //buildPostPages(results, options);
+
         resolve({
           pages         : pages,
           inputPath     : inputPath,
