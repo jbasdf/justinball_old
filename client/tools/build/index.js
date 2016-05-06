@@ -8,6 +8,7 @@ var del           = require("del");
 var file          = require("./file");
 var buildContent  = require("./content");
 var templates     = require("./templates");
+var utils         = require("./utils");
 
 // Settings
 var webpackConfigBuilder = require("../../config/webpack.config");
@@ -117,6 +118,53 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
 }
 
 // -----------------------------------------------------------------------------
+// Build pages based on tags
+// -----------------------------------------------------------------------------
+function buildTagPages(results, options){
+
+  var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
+
+  var tags = _.reduce(results, function(tags, page){
+    _.each(page.metadata.tags, function(tag){
+      (tags[tag] || (tags[tag] = [])).push(page);
+    });
+    return tags;
+  }, {});
+
+  _.each(tags, function(tag, posts){
+    var data = {
+      site       : options.site,
+      title      : tag,
+      currentTag : tag,
+      cleanTag   : utils.cleanTag(tag),
+      posts      : posts,
+      "_"        : _
+    };
+    var content = tagsTemplate(data);
+    write("", site.tagsPath, cleanTag + ".html", content, options);
+  });
+}
+
+// -----------------------------------------------------------------------------
+// Build blog archive pages
+// -----------------------------------------------------------------------------
+function buildPostPages(results, options){
+  var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
+}
+
+// -----------------------------------------------------------------------------
+// write file
+// -----------------------------------------------------------------------------
+function write(inputPath, outputPath, fileName, content, options){
+  var relPath = inputPath.replace(options.rootInputPath, ""); // build relative path for output file
+  var out = path.join(outputPath, relPath, fileName);
+  fs.writeFile(out, content, function(err){
+    if(err){ return console.log(err); }
+  });
+  return out;
+}
+
+// -----------------------------------------------------------------------------
 // main build
 // -----------------------------------------------------------------------------
 function build(isHot){
@@ -125,6 +173,15 @@ function build(isHot){
     del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
       buildWebpackEntries(isHot).then(function(packResults){
         var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
+// Sort results by date
+      function compare(a,b) {
+        if(a.date.unix() > b.date.unix()) return -1;
+        if(a.date.unix() < b.date.unix()) return 1;
+        return 0;
+      }
+      results = results.sort(compare);
+      buildTagPages(results, options);
+      //buildPostPages(results, options);
         resolve({
           pages         : pages,
           inputPath     : inputPath,
