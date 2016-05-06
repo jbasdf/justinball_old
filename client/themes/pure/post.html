@@ -10,7 +10,7 @@
     <div>
       <div class="posts">
         <a href="<%- metadata.url %>" rel="bookmark" title="Permanent link to <%- metadata.title %>"><%- metadata.title %></a>
-        <div class="date">Published: <time><%- metadata.date.format('MMMM Do, YYYY') %></time></div>
+        <div class="date">Published: <time><%- date.format('MMMM Do, YYYY') %></time></div>
         <div class="metadata">Tagged:
           <% _.each(metadata.tags, function(cleanTag, tag){ -%>
             <a href="/<%-site.tagsPath%>/<%-cleanTag%>.html" title="View all posts in <%- tag %>" rel="tag"><%-tag%></a>
