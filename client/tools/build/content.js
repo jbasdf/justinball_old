@@ -16,10 +16,17 @@ var templates     = require("./templates");
 // build a single file
 // -----------------------------------------------------------------------------
 module.exports = function(fullPath, webpackConfig, webpackStats, stage, options){
-  var content  = fs.readFileSync(fullPath, "utf8");
-  var parsed   = frontMatter(content);
-  var metadata = parsed.attributes;
-  var data     = templates.buildData(metadata, options.templateData);
+  var content    = fs.readFileSync(fullPath, "utf8");
+  var parsed     = frontMatter(content);
+  var metadata   = parsed.attributes;
+  var pathResult = utils.filename2date(fullPath);
+  var date       = moment(pathResult.date || fs.statSync(fullPath).ctime);
+  var data       = _.merge({
+    "_": _,
+    date: date,
+    moment: moment,
+    metadata: metadata
+  }, options.templateData);
 
   var html = parsed.body;
 
@@ -38,7 +45,8 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
     truncate(html, options.truncateSummaryAt, { keepImageTag: true });
 
   // Apply template
-  html = templates.apply(html, fullPath, metadata, options.templateMap, options.templateData, options.templateDirs);
+  data.content = html; // Pass in generated html
+  html = templates.apply(data, fullPath, options.templateMap, options.templateDirs);
 
   if(stage == "production"){
     html = webpackUtils.apply(html, webpackStats, webpackConfig, options.entries, options.cssEntries, options.buildSuffix);
@@ -49,15 +57,15 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
     });
   }
 
-  var result = utils.filename2date(fullPath);
+  
 
   return {
-    title:       metadata.title || result.title,
-    date:        moment(result.date || fs.statSync(fullPath).ctime),
+    title:       metadata.title || pathResult.title,
+    date:        date,
     metadata:    metadata,
     summary:     summary,
     source:      fullPath,
-    destination: metadata.permalink || result.url,
+    destination: metadata.permalink || pathResult.url,
     html:        html
   };
 

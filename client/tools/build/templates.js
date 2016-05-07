@@ -7,14 +7,12 @@ var moment        = require("moment");
 // -----------------------------------------------------------------------------
 // Apply layouts to content
 // -----------------------------------------------------------------------------
-function apply(content, fullPath, metadata, templateMap, templateData, templateDirs){
+function apply(data, fullPath, templateMap, templateDirs){
 
   // If the user has specified a layout in the front matter use that.
   // Then try the layout map and finally default to application.html
-  var layoutFile = metadata.layout || templateMap[fullPath] || "application.html";
-
+  var layoutFile = data.metadata.layout || templateMap[fullPath] || "application.html";
   var template = loadTemplate(layoutFile, templateDirs);
-  var data = buildData({ metadata: metadata }, templateData, { content: content});
 
   var html = "";
 
@@ -23,6 +21,8 @@ function apply(content, fullPath, metadata, templateMap, templateData, templateD
   } catch(err){
     console.log(err);
     console.log("Unable to build file: " + fullPath + " Data: " + data);
+    console.log("Stack Trace:");
+    console.log(err.trace);
   }
 
   return html;
@@ -66,13 +66,8 @@ function loadTemplate(file, templateDirs){
   });
 }
 
-function buildData(){
-  return _.merge({ "_": _, moment: moment }, ...arguments);
-}
-
 module.exports = {
   apply: apply,
-  loadTemplate: loadTemplate,
-  buildData: buildData
+  loadTemplate: loadTemplate
 };
 
