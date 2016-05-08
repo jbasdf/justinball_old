@@ -135,11 +135,12 @@ function buildTagPages(pages, options){
   }, {});
 
   _.each(tags, function(tag, posts){
+    var cleanTag = utils.cleanTag(tag);
     var data = {
       site       : options.site,
       title      : tag,
       currentTag : tag,
-      cleanTag   : utils.cleanTag(tag),
+      cleanTag   : cleanTag,
       posts      : posts,
       "_"        : _
     };
