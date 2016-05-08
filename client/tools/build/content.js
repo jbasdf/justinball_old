@@ -16,16 +16,19 @@ var templates     = require("./templates");
 // build a single file
 // -----------------------------------------------------------------------------
 module.exports = function(fullPath, webpackConfig, webpackStats, stage, options){
-  var content    = fs.readFileSync(fullPath, "utf8");
-  var parsed     = frontMatter(content);
-  var metadata   = parsed.attributes;
-  var pathResult = utils.filename2date(fullPath);
-  var date       = moment(pathResult.date || fs.statSync(fullPath).ctime);
-  var data       = _.merge({
-    "_": _,
-    date: date,
-    moment: moment,
-    metadata: metadata
+  var content     = fs.readFileSync(fullPath, "utf8");
+  var parsed      = frontMatter(content);
+  var metadata    = parsed.attributes;
+  var pathResult  = utils.filename2date(fullPath);
+  var date        = moment(pathResult.date || fs.statSync(fullPath).ctime);
+  var title       = metadata.title || pathResult.title;
+  var destination = metadata.permalink || pathResult.url;
+  var data        = _.merge({
+    "_"      : _,
+    date     : date,
+    title    : title,
+    moment   : moment,
+    metadata : metadata
   }, options.templateData);
 
   var html = parsed.body;
@@ -57,15 +60,13 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
     });
   }
 
-  
-
   return {
-    title:       metadata.title || pathResult.title,
+    title:       title,
     date:        date,
     metadata:    metadata,
     summary:     summary,
     source:      fullPath,
-    destination: metadata.permalink || pathResult.url,
+    destination: destination,
     html:        html
   };
 
