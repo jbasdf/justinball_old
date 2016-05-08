@@ -123,17 +123,17 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
  * @param {object} options, info being passed between functions. Declared at top of file
  *  -----------------------------------------------------------------------------
  */
-function buildTagPages(results, options){
+function buildTagPages(pages, options){
 
   var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
 
-  var tags = _.reduce(results, function(tags, page){
+  var tags = _.reduce(pages, function(tags, page){
     _.each(page.metadata.tags, function(tag){
       (tags[tag] || (tags[tag] = [])).push(page);
     });
     return tags;
   }, {});
-debugger;
+
   _.each(tags, function(tag, posts){
     var data = {
       site       : options.site,
@@ -151,7 +151,7 @@ debugger;
 // -----------------------------------------------------------------------------
 // Build blog archive pages
 // -----------------------------------------------------------------------------
-function buildPostPages(results, options){
+function buildPostPages(pages, options){
   var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
 }
 
@@ -165,17 +165,17 @@ function build(isHot){
       buildWebpackEntries(isHot).then(function(packResults){
         var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
 
-        // Sort results by date
+        // Sort pages by date
         function compare(a,b) {
           if(a.date.unix() > b.date.unix()) return -1;
           if(a.date.unix() < b.date.unix()) return 1;
           return 0;
         }
 
-        results = results.sort(compare);
+        pages = pages.sort(compare);
 
-        buildTagPages(results, options);
-        //buildPostPages(results, options);
+        buildTagPages(pages, options);
+        //buildPostPages(pages, options);
 
         resolve({
           pages         : pages,
