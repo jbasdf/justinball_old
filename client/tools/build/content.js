@@ -33,11 +33,18 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
 
   var html = parsed.body;
 
-  // Allow ejs code in content
-  html = ejs.compile(html, {
-    cache: false,
-    filename: fullPath
-  })(data);
+  try{
+    // Allow ejs code in content
+    html = ejs.compile(html, {
+      cache: false,
+      filename: fullPath
+    })(data);
+  } catch(err){
+    console.log("Unable to compile html from " + fullPath);
+    console.log(err);
+    console.log("Call stack");
+    console.log(err.stack);
+  }
 
   // Parse any markdown in the resulting html
   var html = marked(html);
