@@ -134,7 +134,7 @@ function buildTagPages(pages, options){
     return tags;
   }, {});
 
-  _.each(tags, function(tag, posts){
+  _.each(tags, function(posts, tag){
     var cleanTag = utils.cleanTag(tag);
     var data = {
       site       : options.site,
