@@ -123,7 +123,7 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
  * @param {object} options, info being passed between functions. Declared at top of file
  *  -----------------------------------------------------------------------------
  */
-function buildTagPages(pages, options){
+function buildTagPages(pages, outputPath, options){
 
   var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
 
@@ -145,14 +145,14 @@ function buildTagPages(pages, options){
       "_"        : _
     };
     var content = tagsTemplate(data);
-    file.write("", site.tagsPath, cleanTag + ".html", content, options);
+    file.write("", path.join(outputPath, site.tagsPath), cleanTag + ".html", content, options);
   });
 }
 
 // -----------------------------------------------------------------------------
 // Build blog archive pages
 // -----------------------------------------------------------------------------
-function buildPostPages(pages, options){
+function buildPostPages(pages, outputPath, options){
   var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
 }
 
@@ -175,8 +175,8 @@ function build(isHot){
 
         pages = pages.sort(compare);
 
-        buildTagPages(pages, options);
-        //buildPostPages(pages, options);
+        buildTagPages(pages, outputPath, options);
+        //buildPostPages(pages, outputPath, options);
 
         resolve({
           pages         : pages,
