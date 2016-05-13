@@ -93,6 +93,7 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
           var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
           var outFile = fileName;
           var outPath = outputPath;
+          var inPath = inputPath;
           if(page.destination && page.destination.length > 0){
             if(_.endsWith(page.destination, "/")){
               outPath = path.join(outPath, page.destination);
@@ -100,13 +101,14 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
             } else {
               outFile = page.destination;
             }
+            inPath = "";
           }
           // Use .html for file extension
           var ext = path.extname(outFile);
           if(ext != ".html"){
             outFile = outFile.replace(ext, ".html");
           }
-          page.outputFilePath = file.write(inputPath, outPath, outFile, page.html, options);
+          page.outputFilePath = file.write(inPath, outPath, outFile, page.html, options);
           results.push(page);
         } else {
           file.copy(inputPath, outputPath, fileName, options);
@@ -135,17 +137,23 @@ function buildTagPages(pages, outputPath, options){
   }, {});
 
   _.each(tags, function(posts, tag){
-    var cleanTag = utils.cleanTag(tag);
     var data = {
-      site       : options.site,
+      site       : options.templateData.site,
+      metadata   : { layout: "application.html" },
       title      : tag,
       currentTag : tag,
-      cleanTag   : cleanTag,
+      cleanTag   : utils.cleanTag,
       posts      : posts,
       "_"        : _
     };
-    var content = tagsTemplate(data);
-    file.write("", path.join(outputPath, site.tagsPath), cleanTag + ".html", content, options);
+
+    // Build the tag content
+    data.content = tagsTemplate(data);
+
+    // Apply template
+    var fileName = utils.cleanTag(tag) + ".html";
+    var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    file.write("", path.join(outputPath, site.tagsPath), fileName, html, options);
   });
 }
 
