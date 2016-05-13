@@ -18,7 +18,8 @@ var dateRegEx = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
 // -----------------------------------------------------------------------------
 function filename2date(filePath){
   var result = {};
-  var basename = path.basename(filePath, '.md');
+  var ext = path.extname(filePath);
+  var basename = path.basename(filePath, ext);
   var match = dateRegEx.exec(basename);
   if(match) {
     var year = match[1];
