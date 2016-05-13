@@ -103,11 +103,6 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
             }
             inPath = "";
           }
-          // Use .html for file extension
-          var ext = path.extname(outFile);
-          if(ext != ".html"){
-            outFile = outFile.replace(ext, ".html");
-          }
           page.outputFilePath = file.write(inPath, outPath, outFile, page.html, options);
           results.push(page);
         } else {
