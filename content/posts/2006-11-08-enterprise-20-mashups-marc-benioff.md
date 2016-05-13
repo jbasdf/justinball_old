@@ -3,7 +3,7 @@ title: 'Enterprise 2.0 Mashups  Marc Benioff'
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/enterprise-20-mashups-marc-benioff/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

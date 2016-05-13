@@ -3,9 +3,8 @@ title: A Gazillion House Plans on ThePlanCollection.com
 author: Justin Ball
 layout: post
 permalink: /2008/01/23/a-late-night-updating-house-plans-on-theplancollectioncom/
-categories:
-  - The Plan Collection
 tags:
+  - The Plan Collection
   - ASP.Net
   - house plans
   - image processing

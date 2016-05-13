@@ -3,7 +3,7 @@ title: Learning is more about assembling raw materials than about objects
 author: Justin Ball
 layout: post
 permalink: /2005/11/04/learning-is-more-about-assembling-raw-materials-than-about-objects/
-categories:
+tags:
   - School
 ---
 

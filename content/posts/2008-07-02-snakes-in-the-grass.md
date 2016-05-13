@@ -3,9 +3,8 @@ title: Snakes in the Grass
 author: Justin Ball
 layout: post
 permalink: /2008/07/02/snakes-in-the-grass/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - garden
   - garter snake
   - snakes

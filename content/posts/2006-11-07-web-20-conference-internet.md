@@ -3,7 +3,7 @@ title: 'web 2.0 conference &#8211; internet'
 author: Justin Ball
 layout: post
 permalink: /2006/11/07/web-20-conference-internet/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

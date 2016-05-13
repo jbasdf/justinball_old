@@ -3,9 +3,8 @@ title: 2008 Trek Madonne Disappoints Big Time
 author: Justin Ball
 layout: post
 permalink: /2008/02/13/2008-trek-madonne-disappoints-big-time/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 madonne
   - Cycling
   - trek

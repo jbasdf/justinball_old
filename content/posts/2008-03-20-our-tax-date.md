@@ -3,10 +3,9 @@ title: Our Tax Date
 author: Justin Ball
 layout: post
 permalink: /2008/03/20/our-tax-date/
-categories:
+tags:
   - Family
   - Funny
-tags:
   - date
   - Funny
   - romantic

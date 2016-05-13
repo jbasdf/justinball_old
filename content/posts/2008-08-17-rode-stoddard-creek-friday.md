@@ -3,10 +3,9 @@ title: Rode Stoddard Creek Friday (A few Fridays ago)
 author: Justin Ball
 layout: post
 permalink: /2008/08/17/rode-stoddard-creek-friday/
-categories:
+tags:
   - Family
   - Interesting
-tags:
   - Family
   - motorcycle
   - outdoors

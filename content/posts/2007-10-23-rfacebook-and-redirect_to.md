@@ -3,9 +3,8 @@ title: rFacebook and redirect_to
 author: Justin Ball
 layout: post
 permalink: /2007/10/23/rfacebook-and-redirect_to/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - redirect_to
   - rFacebook
   - ruby_on_rails

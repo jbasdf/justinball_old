@@ -3,7 +3,7 @@ title: What I Got for Christmas This Year
 author: Justin Ball
 layout: post
 permalink: /2009/12/28/what-i-got-for-christmas-this-year/
-categories:
+tags:
   - friends
   - Christmas
   - Family

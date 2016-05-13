@@ -3,9 +3,8 @@ title: 'ActiveSalesforce and Ruby on Rails > 2.1'
 author: Justin Ball
 layout: post
 permalink: /2008/07/09/activesalesforce-and-ruby-on-rails-21/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - activesalesforce
   - bugs
   - helps

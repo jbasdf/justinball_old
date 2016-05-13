@@ -3,9 +3,8 @@ title: Count is broken in Rails 2.3.2
 author: Justin Ball
 layout: post
 permalink: /2009/03/18/count-is-broken-in-rails-232/
-categories:
-  - Funny
 tags:
+  - Funny
   - bug
   - count
   - Ruby On Rails

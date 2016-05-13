@@ -3,9 +3,8 @@ title: Want to lose weight?
 author: Justin Ball
 layout: post
 permalink: /2007/05/30/want-to-lose-weight/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - lazy
   - weight loss

@@ -3,10 +3,9 @@ title: 'secret given to the #protect_from_forgery call'
 author: Justin Ball
 layout: post
 permalink: /2008/02/07/secret-given-to-the-protect_from_forgery-call/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - protect_from_forgery
   - Ruby On Rails
   - sessions

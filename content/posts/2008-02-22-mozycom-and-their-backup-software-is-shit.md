@@ -3,10 +3,9 @@ title: 'Mozy.com&#8217;s Backup Software is Shit'
 author: Justin Ball
 layout: post
 permalink: /2008/02/22/mozycom-and-their-backup-software-is-shit/
-categories:
+tags:
   - Computers
   - Programming
-tags:
   - backup software
   - mozy
   - servers

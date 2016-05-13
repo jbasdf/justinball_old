@@ -3,9 +3,8 @@ title: Framework Problems Will Ruin Your Day
 author: Justin Ball
 layout: post
 permalink: /2008/01/23/framework-problems-will-ruin-your-day/
-categories:
-  - The Plan Collection
 tags:
+  - The Plan Collection
   - code generation
   - Programming
   - theplancollection

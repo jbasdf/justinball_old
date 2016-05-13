@@ -3,6 +3,7 @@ title: Add Theming Engine to Your Rails Application
 author: Justin Ball
 layout: post
 permalink: /2010/01/23/add-theming-engine-to-your-rails-application/
+tags:
   - disguise
   - Ruby On Rails
   - templates

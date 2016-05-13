@@ -3,9 +3,8 @@ title: Godaddy EPP Code
 author: Justin Ball
 layout: post
 permalink: /2008/01/31/godaddy-epp-code/
-categories:
-  - internet
 tags:
+  - internet
   - domain name
   - epp
   - godaddy

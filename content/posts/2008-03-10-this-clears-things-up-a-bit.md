@@ -3,12 +3,11 @@ title: This Clears Things Up a Bit
 author: Justin Ball
 layout: post
 permalink: /2008/03/10/this-clears-things-up-a-bit/
-categories:
+tags:
   - Neat Stuff
   - Programming
   - The Web
   - Wordpress
-tags:
   - facebook
   - social graph
   - Social Software

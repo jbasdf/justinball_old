@@ -3,7 +3,7 @@ title: Photos From Obama Rally in Grant Park
 author: Justin Ball
 layout: post
 permalink: /2008/11/04/photos-from-obama-rally-in-grant-park/
-categories:
+tags:
   - Chicago
   - Obama
   - politics

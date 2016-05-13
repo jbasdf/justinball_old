@@ -3,7 +3,7 @@ title: jurlp and Internet Explorer 8
 author: Justin Ball
 layout: post
 permalink: /2012/10/30/jurlp-and-internet-explorer-8/
-categories:
+tags:
   - Javascript
   - jQuery
   - jurlp

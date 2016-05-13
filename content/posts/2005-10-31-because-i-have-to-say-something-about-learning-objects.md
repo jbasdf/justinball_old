@@ -3,7 +3,7 @@ title: Because I have to say something about learning objects.
 author: Justin Ball
 layout: post
 permalink: /2005/10/31/because-i-have-to-say-something-about-learning-objects/
-categories:
+tags:
   - School
 ---
 

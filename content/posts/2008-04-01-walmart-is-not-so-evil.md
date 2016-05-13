@@ -3,10 +3,9 @@ title: Walmart is Not so Evil
 author: Justin Ball
 layout: post
 permalink: /2008/04/01/walmart-is-not-so-evil/
-categories:
+tags:
   - business
   - economy
-tags:
   - business
   - economy
   - government

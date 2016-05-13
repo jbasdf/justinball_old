@@ -3,11 +3,10 @@ title: 'For the People Who Don&#8217;t Live Here'
 author: Justin Ball
 layout: post
 permalink: /2007/07/10/for-the-people-who-dont-live-here/
-categories:
+tags:
   - Cycling
   - Fun Stuff
   - Interesting
-tags:
   - Cycling
   - logan
   - mountain biking

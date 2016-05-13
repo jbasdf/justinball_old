@@ -3,9 +3,8 @@ title: Why the medical industry sucks
 author: Justin Ball
 layout: post
 permalink: /2007/09/12/why-the-medical-industry-sucks/
-categories:
-  - Uncategorized
 tags:
+  - Uncategorized
   - Cycling
   - medicine
   - rant

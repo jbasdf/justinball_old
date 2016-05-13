@@ -3,9 +3,8 @@ title: More on my new Madone 6.9
 author: Justin Ball
 layout: post
 permalink: /2008/04/23/more-on-my-new-madone-69/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008
   - 2008 Trek Madone
   - 6.9

@@ -3,9 +3,8 @@ title: Daily Commute
 author: Justin Ball
 layout: post
 permalink: /2007/08/10/daily-commute/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - cache valley
   - Cycling
 ---

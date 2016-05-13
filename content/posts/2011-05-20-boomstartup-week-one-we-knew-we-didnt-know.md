@@ -3,7 +3,7 @@ title: 'BoomStartup Week One &#8211; We Knew We didn&#8217;t Know'
 author: Justin Ball
 layout: post
 permalink: /2011/05/20/boomstartup-week-one-we-knew-we-didnt-know/
-categories:
+tags:
   - BoomStartup
   - startups
 ---

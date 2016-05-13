@@ -3,7 +3,7 @@ title: 'GearSnyper &#8211; Be As Broke As Me'
 author: Justin Ball
 layout: post
 permalink: /2011/01/24/gearsnyper-be-as-broke-as-me/
-categories:
+tags:
   - Cycling
   - gearsynper
 ---

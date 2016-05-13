@@ -3,13 +3,12 @@ title: Elastic Cloud Computing
 author: Justin Ball
 layout: post
 permalink: /2008/04/08/elastic-cloud-computing/
-categories:
+tags:
   - hosting
   - internet
   - Programming
   - Projects
   - Ruby On Rails
-tags:
   - 3tera
   - cloud computing
   - ec2

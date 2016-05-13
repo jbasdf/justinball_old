@@ -3,9 +3,8 @@ title: 'Quick Note: use rake to install Rails 2.0'
 author: Justin Ball
 layout: post
 permalink: /2007/12/09/quick-note-use-rake-to-install-rails-20/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - rails 2.0
   - rake
   - Ruby On Rails

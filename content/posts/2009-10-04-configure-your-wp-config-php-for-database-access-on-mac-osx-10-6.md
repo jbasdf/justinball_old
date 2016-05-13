@@ -3,7 +3,7 @@ title: Configure Your wp-config.php for Database Access on Mac OSX 10.6
 author: Justin Ball
 layout: post
 permalink: /2009/10/04/configure-your-wp-config-php-for-database-access-on-mac-osx-10-6/
-categories:
+tags:
   - database
   - Mac OSX 10.6
   - mysql

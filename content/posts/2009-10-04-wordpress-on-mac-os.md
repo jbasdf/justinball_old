@@ -3,7 +3,7 @@ title: WordPress on Mac OSX 10.6
 author: Justin Ball
 layout: post
 permalink: /2009/10/04/wordpress-on-mac-os/
-categories:
+tags:
   - configuration
   - Mac OSX 10.6
   - php

@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Refactoring and Making Promises"
 date: 2014-03-16 21:48:17 -0600
-categories:
+tags:
   - Javascript
   - Ember
   - Programming

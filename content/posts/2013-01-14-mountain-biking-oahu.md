@@ -3,7 +3,7 @@ title: Mountain Biking Oahu
 author: Justin Ball
 layout: post
 permalink: /2013/01/14/mountain-biking-oahu/
-categories:
+tags:
   - Cycling
   - Oahu
   - Hawaii

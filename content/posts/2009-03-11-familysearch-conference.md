@@ -3,7 +3,7 @@ title: FamilySearch conference
 author: Justin Ball
 layout: post
 permalink: /2009/03/11/familysearch-conference/
-categories:
+tags:
   - familysearch
   - genealogy
   - Phil Windley

@@ -3,9 +3,8 @@ title: Sarah Sample
 author: Justin Ball
 layout: post
 permalink: /2007/08/07/sarah-sample/
-categories:
-  - Fun Stuff
 tags:
+  - Fun Stuff
   - cache valley
   - music
   - sarah sample

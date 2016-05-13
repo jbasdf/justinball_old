@@ -3,9 +3,8 @@ title: Chocolate
 author: Justin Ball
 layout: post
 permalink: /2008/03/30/chocolate/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - chocolate
   - food
 ---

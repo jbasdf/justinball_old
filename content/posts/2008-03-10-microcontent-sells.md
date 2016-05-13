@@ -3,10 +3,9 @@ title: Microcontent Sells
 author: callie
 layout: post
 permalink: /2008/03/10/microcontent-sells/
-categories:
+tags:
   - business
   - ideas
-tags:
   - microcontent
   - music
   - OpenContent

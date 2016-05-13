@@ -2,8 +2,8 @@
 title: Huntsman Awards for Excellence in Education
 author: Justin Ball
 layout: post
-permalink: /2013/05/10/huntsman-awards-for-excellence-in-education
-categories:
+permalink: /2013/05/10/huntsman-awards-for-excellence-in-education/
+tags:
   - Family
   - Education
 ---

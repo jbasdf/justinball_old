@@ -3,9 +3,8 @@ title: 'No I Won&#8217;t Fix Your @!#$!@#$ Computer'
 author: Justin Ball
 layout: post
 permalink: /2007/10/08/no-i-wont-fix-your-computer/
-categories:
-  - Computers
 tags:
+  - Computers
   - Computers
   - fix
   - geek

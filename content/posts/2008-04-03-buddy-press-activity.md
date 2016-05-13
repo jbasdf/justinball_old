@@ -3,9 +3,8 @@ title: Buddy Press Activity
 author: Justin Ball
 layout: post
 permalink: /2008/04/03/buddy-press-activity/
-categories:
-  - Wordpress
 tags:
+  - Wordpress
   - buddypress
   - microformats
   - Wordpress

@@ -3,7 +3,7 @@ title: So ya I am like busy
 author: Justin Ball
 layout: post
 permalink: /2006/03/14/so-ya-i-am-like-busy/
-categories:
+tags:
   - Projects
 ---
 

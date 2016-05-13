@@ -3,7 +3,7 @@ title: I thought I paid a lot for internet
 author: Justin Ball
 layout: post
 permalink: /2006/06/01/i-thought-i-paid-a-lot-for-internet/
-categories:
+tags:
   - The Web
 ---
 

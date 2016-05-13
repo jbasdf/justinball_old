@@ -3,7 +3,7 @@ title: ASP.net tips and tricks
 author: Justin Ball
 layout: post
 permalink: /2006/08/02/aspnet-tips-and-tricks/
-categories:
+tags:
   - ASP.Net
 ---
 

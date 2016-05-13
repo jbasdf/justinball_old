@@ -3,7 +3,7 @@ title: WOW, The Internet Archive
 author: Justin Ball
 layout: post
 permalink: /2005/10/01/wow-the-internet-archive/
-categories:
+tags:
   - The Web
 ---
 

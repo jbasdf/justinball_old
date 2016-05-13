@@ -3,9 +3,8 @@ title: Big Companies Using Ruby on Rails
 author: Justin Ball
 layout: post
 permalink: /2008/03/19/big-companies-using-ruby-on-rails/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - big companies
   - Obie Fernandez
   - Ruby On Rails

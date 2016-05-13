@@ -3,7 +3,7 @@ title: 'Authorize.net &#8211; User authentication failed due to invalid authenti
 author: Justin Ball
 layout: post
 permalink: /2009/05/12/authorizenet-user-authentication-failed-due-to-invalid-authentication-values/
-categories:
+tags:
   - Programming
   - Ruby On Rails
   - API

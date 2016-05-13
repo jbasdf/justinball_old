@@ -3,7 +3,7 @@ title: 'Note to Facebook, Myspace and Other Social Silos: DIE'
 author: Justin Ball
 layout: post
 permalink: /2008/03/04/note-to-facebook-myspace-and-other-social-silos-die/
-categories:
+tags:
   - COSL
   - Interesting
   - internet
@@ -12,7 +12,6 @@ categories:
   - rant
   - Social Software
   - Web2.0
-tags:
   - communities
   - Education
   - open source

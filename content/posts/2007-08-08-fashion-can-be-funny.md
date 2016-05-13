@@ -3,11 +3,10 @@ title: Fashion can be Funny
 author: Justin Ball
 layout: post
 permalink: /2007/08/08/fashion-can-be-funny/
-categories:
+tags:
   - Fun Stuff
   - Funny
   - Uncategorized
-tags:
   - fashion
 ---
 

@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Omniauth, Devise and Facebook Client Login Don't Play Nice"
 date: 2014-02-27 15:43:41 -0700
-categories:
+tags:
   - javascript
   - facebook
   - omniauth

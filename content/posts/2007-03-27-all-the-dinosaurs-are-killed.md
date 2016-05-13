@@ -3,9 +3,8 @@ title: All the Dinosaurs are Killed
 author: Justin Ball
 layout: post
 permalink: /2007/03/27/all-the-dinosaurs-are-killed/
-categories:
-  - Jenna
 tags:
+  - Jenna
   - Funny
   - kids
 ---

@@ -3,7 +3,7 @@ title: What is in my Pants?
 author: Justin Ball
 layout: post
 permalink: /2010/06/04/what-is-in-my-pants/
-categories:
+tags:
   - Devin
   - Funny
 ---

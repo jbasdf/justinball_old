@@ -3,9 +3,8 @@ title: Make Facebook Butt Out
 author: Justin Ball
 layout: post
 permalink: /2008/04/02/make-facebook-butt-out/
-categories:
-  - Social Software
 tags:
+  - Social Software
   - advertising
   - facebook
   - privacy

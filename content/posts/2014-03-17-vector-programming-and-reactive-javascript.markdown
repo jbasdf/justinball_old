@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Vector Programming and Reactive Javascript"
 date: 2014-03-17 11:09:47 -0600
-categories:
+tags:
   - Mountain West Javascript
   - mwjs
   - Javascript

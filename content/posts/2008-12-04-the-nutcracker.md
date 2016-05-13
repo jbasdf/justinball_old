@@ -3,9 +3,8 @@ title: The Nutcracker
 author: Justin Ball
 layout: post
 permalink: /2008/12/04/the-nutcracker/
-categories:
-  - Funny
 tags:
+  - Funny
   - Family
   - nutcracker
 ---

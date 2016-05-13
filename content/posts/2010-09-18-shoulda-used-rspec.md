@@ -3,7 +3,7 @@ title: Shoulda used RSpec
 author: Justin Ball
 layout: post
 permalink: /2010/09/18/shoulda-used-rspec/
-categories:
+tags:
   - Ruby On Rails
   - cucumber
   - rails

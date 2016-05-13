@@ -3,7 +3,7 @@ title: Jeff Jonas Cops and Robbers Las Vegas Style
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/jeff-jonas-cops-and-robbers-las-vegas-style/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

@@ -3,10 +3,9 @@ title: Ajax calls using jQuery in Ruby on Rails
 author: Justin Ball
 layout: post
 permalink: /2008/06/07/ajax-calls-using-jquery-in-ruby-on-rails/
-categories:
+tags:
   - Funny
   - Ruby On Rails
-tags:
   - ajax
   - InvalidAuthenticityToken
   - jQuery

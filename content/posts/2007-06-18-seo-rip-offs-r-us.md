@@ -3,9 +3,8 @@ title: 'SEO &#8211; rip offs-R-us'
 author: Justin Ball
 layout: post
 permalink: /2007/06/18/seo-rip-offs-r-us/
-categories:
-  - The Web
 tags:
+  - The Web
   - SEO
 ---
 

@@ -3,7 +3,7 @@ title: ozmozr is out there
 author: Justin Ball
 layout: post
 permalink: /2007/01/20/ozmozr-is-out-there/
-categories:
+tags:
   - COSL
   - ozmozr
   - Web2.0

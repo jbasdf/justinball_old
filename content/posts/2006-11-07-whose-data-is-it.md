@@ -3,7 +3,7 @@ title: Whose Data is It?
 author: Justin Ball
 layout: post
 permalink: /2006/11/07/whose-data-is-it/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

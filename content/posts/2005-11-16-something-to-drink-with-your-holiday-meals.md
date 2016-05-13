@@ -3,7 +3,7 @@ title: Something to drink with your holiday meals
 author: Justin Ball
 layout: post
 permalink: /2005/11/16/something-to-drink-with-your-holiday-meals/
-categories:
+tags:
   - Neat Stuff
 ---
 

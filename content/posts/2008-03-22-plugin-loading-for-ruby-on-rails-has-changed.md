@@ -3,10 +3,9 @@ title: Plugin Loading for Ruby on Rails has Changed.
 author: Justin Ball
 layout: post
 permalink: /2008/03/22/plugin-loading-for-ruby-on-rails-has-changed/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - Authentication
   - errors
   - OpenID

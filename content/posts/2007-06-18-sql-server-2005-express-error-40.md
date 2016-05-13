@@ -3,9 +3,8 @@ title: 'SQL Server 2005 Express error: 40'
 author: Justin Ball
 layout: post
 permalink: /2007/06/18/sql-server-2005-express-error-40/
-categories:
-  - Programming
 tags:
+  - Programming
   - database
   - error
   - SQL Server 2005 Express

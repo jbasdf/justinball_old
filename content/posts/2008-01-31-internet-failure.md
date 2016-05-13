@@ -3,9 +3,8 @@ title: Internet Failure
 author: Justin Ball
 layout: post
 permalink: /2008/01/31/internet-failure/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - failure
   - internet
 ---

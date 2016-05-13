@@ -3,9 +3,8 @@ title: Code Review of Ozmozr by Jamis Buck and Marcel Molina
 author: Justin Ball
 layout: post
 permalink: /2007/03/17/code-review-of-ozmozr-by-jamis-buck-and-marcel-molina/
-categories:
-  - mtnwestrubyconf
 tags:
+  - mtnwestrubyconf
   - jamis buck
   - mtnwestrubyconf
   - ozmozr

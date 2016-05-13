@@ -3,9 +3,8 @@ title: Google Base and Windows Pain
 author: Justin Ball
 layout: post
 permalink: /2008/01/05/google-base-and-windows-pain/
-categories:
-  - Programming
 tags:
+  - Programming
   - Programming
   - The Plan Collection
   - windows

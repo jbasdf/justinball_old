@@ -3,9 +3,8 @@ title: 'acts_as_state_machine &#8211; state is always nil'
 author: Justin Ball
 layout: post
 permalink: /2008/07/26/acts_as_state_machine-state-is-always-nil/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - acts_as_state_machine
   - bugs
   - Ruby On Rails

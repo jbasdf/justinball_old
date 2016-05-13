@@ -3,9 +3,8 @@ title: WordPress Multiuser
 author: Justin Ball
 layout: post
 permalink: /2008/02/08/wordpress-multiuser/
-categories:
-  - Programming
 tags:
+  - Programming
   - install
   - multi-user
   - Wordpress

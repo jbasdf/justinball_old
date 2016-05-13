@@ -3,7 +3,7 @@ title: OER Glue goes Boom
 author: Justin Ball
 layout: post
 permalink: /2011/05/06/oer-glue-goes-boom/
-categories:
+tags:
   - business
   - OER
 ---

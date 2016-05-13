@@ -3,9 +3,8 @@ title: Riding to Work Again
 author: Justin Ball
 layout: post
 permalink: /2008/07/02/riding-to-work-again/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - commuting
   - Cycling
 ---

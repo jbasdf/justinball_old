@@ -3,9 +3,8 @@ title: Shelley Found her Google Bomb
 author: Justin Ball
 layout: post
 permalink: /2007/06/22/shelley-found-her-google-bomb/
-categories:
-  - COSL
 tags:
+  - COSL
   - COSL
   - google bomb
 ---

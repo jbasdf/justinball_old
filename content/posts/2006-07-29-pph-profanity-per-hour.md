@@ -3,7 +3,7 @@ title: 'PPH &#8211; Profanity per Hour'
 author: Justin Ball
 layout: post
 permalink: /2006/07/29/pph-profanity-per-hour/
-categories:
+tags:
   - Programming
 ---
 

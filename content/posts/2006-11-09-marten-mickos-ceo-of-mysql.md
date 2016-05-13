@@ -3,7 +3,7 @@ title: Mårten Mickos CEO of MySQL
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/marten-mickos-ceo-of-mysql/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

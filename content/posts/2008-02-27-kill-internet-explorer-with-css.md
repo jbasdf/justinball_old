@@ -3,11 +3,10 @@ title: Kill Internet Explorer With CSS
 author: Justin Ball
 layout: post
 permalink: /2008/02/27/kill-internet-explorer-with-css/
-categories:
+tags:
   - House Stuff
   - internet
   - Programming
-tags:
   - bugs
   - enterprise
   - Internet Explorer

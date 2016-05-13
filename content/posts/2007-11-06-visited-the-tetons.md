@@ -3,10 +3,9 @@ title: Visited the Tetons
 author: Justin Ball
 layout: post
 permalink: /2007/11/06/visited-the-tetons/
-categories:
+tags:
   - Family
   - Fun Stuff
-tags:
   - grand-teton-national-park
   - jackson-hole
   - realestate

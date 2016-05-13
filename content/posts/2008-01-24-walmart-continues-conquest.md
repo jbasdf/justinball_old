@@ -3,9 +3,8 @@ title: Walmart Continues Conquest
 author: Justin Ball
 layout: post
 permalink: /2008/01/24/walmart-continues-conquest/
-categories:
-  - business
 tags:
+  - business
   - SEO
   - walmart
 ---

@@ -3,7 +3,7 @@ title: 'Backbone.js &#8211; Clean up your views'
 author: Justin Ball
 layout: post
 permalink: /2011/09/14/backbone-js-clean-up-your-views/
-categories:
+tags:
   - Javascript
 ---
 

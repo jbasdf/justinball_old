@@ -3,7 +3,7 @@ title: Cool Magnets that can break your arm
 author: Justin Ball
 layout: post
 permalink: /2005/12/13/cool-magnets-that-can-break-your-arm/
-categories:
+tags:
   - Neat Stuff
   - Science
 ---

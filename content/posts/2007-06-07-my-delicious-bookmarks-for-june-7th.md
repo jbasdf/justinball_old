@@ -3,7 +3,7 @@ title: My del.icio.us bookmarks for June 7th
 author: Justin Ball
 layout: post
 permalink: /2007/06/07/my-delicious-bookmarks-for-june-7th/
-categories:
+tags:
   - Cycling
 ---
 

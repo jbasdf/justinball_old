@@ -3,7 +3,7 @@ title: Bruce Chizen
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/bruce-chizen/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

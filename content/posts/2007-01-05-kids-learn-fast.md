@@ -3,7 +3,7 @@ title: Kids learn fast
 author: Justin Ball
 layout: post
 permalink: /2007/01/05/kids-learn-fast/
-categories:
+tags:
   - Alyssa
   - Funny
 ---

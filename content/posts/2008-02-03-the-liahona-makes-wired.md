@@ -3,9 +3,8 @@ title: The Liahona Makes Wired
 author: Justin Ball
 layout: post
 permalink: /2008/02/03/the-liahona-makes-wired/
-categories:
-  - gadgets
 tags:
+  - gadgets
   - gadgets
   - lds
   - Liahona

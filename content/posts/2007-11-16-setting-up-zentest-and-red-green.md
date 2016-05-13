@@ -3,10 +3,9 @@ title: Setting up ZenTest and Red Green
 author: Justin Ball
 layout: post
 permalink: /2007/11/16/setting-up-zentest-and-red-green/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - red green
   - Ruby On Rails
   - testing

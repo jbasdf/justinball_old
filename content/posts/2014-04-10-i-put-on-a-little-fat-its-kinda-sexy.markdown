@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "I put on a little fat. It's kinda sexy"
 date: 2014-04-10 17:47:56 -0600
-categories:
+tags:
   - Cycling
 ---
 

@@ -3,7 +3,7 @@ title: 'increment! and Mysql::Error: Lock'
 author: Justin Ball
 layout: post
 permalink: /2010/08/05/increment-mysql-error/
-categories:
+tags:
   - Ruby on Rails
 ---
 On a site I'm working on I started noticed a lot of production errors like this:

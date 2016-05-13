@@ -3,9 +3,8 @@ title: First Real Ride on the New Trek Madone 6.9
 author: Justin Ball
 layout: post
 permalink: /2008/04/29/first-real-ride-on-the-new-trek-madone-69/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 trek madone 6.9
   - 6.9
   - BlackSmith Fork Canyon

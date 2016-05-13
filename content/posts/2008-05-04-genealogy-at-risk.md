@@ -3,9 +3,8 @@ title: Genealogy at Risk?
 author: Justin Ball
 layout: post
 permalink: /2008/05/04/genealogy-at-risk/
-categories:
-  - genealogy
 tags:
+  - genealogy
   - ancestry
   - Catholic Church
   - genealogy

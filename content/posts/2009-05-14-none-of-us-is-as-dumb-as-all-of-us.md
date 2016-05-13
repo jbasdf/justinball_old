@@ -3,7 +3,7 @@ title: None Of Us Is As Dumb As All Of Us
 author: Justin Ball
 layout: post
 permalink: /2009/05/14/none-of-us-is-as-dumb-as-all-of-us/
-categories:
+tags:
   - Interesting
   - rant
   - group work

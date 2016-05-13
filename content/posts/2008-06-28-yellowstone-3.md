@@ -3,9 +3,8 @@ title: Yellowstone 3
 author: Justin Ball
 layout: post
 permalink: /2008/06/28/yellowstone-3/
-categories:
-  - Family
 tags:
+  - Family
   - family trip
   - yellowstone
 ---

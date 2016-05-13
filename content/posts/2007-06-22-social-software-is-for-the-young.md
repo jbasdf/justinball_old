@@ -3,10 +3,9 @@ title: Social Software is for the Young
 author: Justin Ball
 layout: post
 permalink: /2007/06/22/social-software-is-for-the-young/
-categories:
+tags:
   - Social Software
   - Web2.0
-tags:
   - Social Software
   - Web2.0
 ---

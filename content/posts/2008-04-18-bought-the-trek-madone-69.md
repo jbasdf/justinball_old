@@ -3,9 +3,8 @@ title: Bought the Trek Madone 6.9
 author: Justin Ball
 layout: post
 permalink: /2008/04/18/bought-the-trek-madone-69/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - 6.9
   - Cycling

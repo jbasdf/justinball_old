@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Secure ElasticSearch behind Nginx using Docker on Digital Ocean"
 date: 2014-05-02 14:34:24 -0600
-categories:
+tags:
   - Programming
   - ElasticSearch
   - Docker

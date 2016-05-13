@@ -3,7 +3,7 @@ title: This will kill me
 author: Justin Ball
 layout: post
 permalink: /2005/09/15/fried-stuff/
-categories:
+tags:
   - Life
 ---
 

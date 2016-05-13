@@ -3,11 +3,10 @@ title: Outsourcing My Religion
 author: Justin Ball
 layout: post
 permalink: /2008/07/27/outsourcing-my-religion/
-categories:
+tags:
   - Funny
   - Interesting
   - Neat Stuff
-tags:
   - outsourcing
   - religion
 ---

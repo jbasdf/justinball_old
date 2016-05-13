@@ -3,10 +3,9 @@ title: 'jQuery.ajax &#8211; Get in Firefox, Post in Internet Explorer'
 author: Justin Ball
 layout: post
 permalink: /2009/07/08/jquery-ajax-get-in-firefox-post-in-internet-explorer/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - ajax
   - jQuery
   - Ruby On Rails

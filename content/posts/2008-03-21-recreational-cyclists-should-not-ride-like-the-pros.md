@@ -3,9 +3,8 @@ title: Recreational Cyclists Should Not Ride Like the Pros
 author: Justin Ball
 layout: post
 permalink: /2008/03/21/recreational-cyclists-should-not-ride-like-the-pros/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
 ---
 

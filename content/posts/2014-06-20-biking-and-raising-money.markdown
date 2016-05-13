@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Biking and Raising Money"
 date: 2014-06-20 10:40:41 -0600
-categories:
+tags:
   - Cycling
 ---
 

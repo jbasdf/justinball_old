@@ -3,10 +3,9 @@ title: 'Using Amazon&#8217;s Web Services from Ruby &#8211; Jonathan Younger'
 author: Justin Ball
 layout: post
 permalink: /2008/03/28/using-amazons-web-services-from-ruby-jonathan-younger/
-categories:
+tags:
   - mtnwestrubyconf
   - Ruby On Rails
-tags:
   - amazon
   - ec2
   - mountainwestrubyconf

@@ -3,9 +3,8 @@ title: Family Tree Read
 author: Justin Ball
 layout: post
 permalink: /2008/03/12/family-tree-read/
-categories:
-  - genealogy
 tags:
+  - genealogy
   - API
   - family search
   - genealogy

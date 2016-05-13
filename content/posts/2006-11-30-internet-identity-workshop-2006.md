@@ -3,7 +3,7 @@ title: Internet Identity Workshop 2006
 author: Justin Ball
 layout: post
 permalink: /2006/11/30/internet-identity-workshop-2006/
-categories:
+tags:
   - iiw2006b
 ---
 

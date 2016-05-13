@@ -3,7 +3,7 @@ title: Not because I want to
 author: Justin Ball
 layout: post
 permalink: /2006/06/14/not-because-i-want-to/
-categories:
+tags:
   - ASP.Net
   - Ruby On Rails
 ---

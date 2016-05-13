@@ -3,10 +3,9 @@ title: Rails Conf DHH keynote
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/rails-conf-dhh-keynote/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---
@@ -36,8 +35,7 @@ I like this.  We are moving all of our apps to OpenID.  I have a plugin that doe
 
 Breakpoints are bad.  1.8.5 broke them by fixing the bug that breakpoints depended on.  ruby-debug replaces it.  This is not new, but is good to see.  Ken
 
-DHH is addressing the fact that HTTP <strong>performance</strong> matters.  This is good.  You can factor out css and javascript into separate files is good for understanding.  However, in deployment it is better to have one javascript include and one css include.  Then zip it up.  Use the same include tags:
-
+DHH is addressing the fact that HTTP <strong>performance</strong> matters.  This is good.  You can factor out css and javascript into separate files is good for understanding.  However, in deployment it is better to have one javascript include and one css include.  Then zip it up.  Use the same include 
 <pre><code class="ruby">
 <%= javascript_include_tag :all, :cache => true %>.
 <%= stylesheet_link_tag :all, :cache => true %>

@@ -3,10 +3,9 @@ title: The Spawn of Satan
 author: Justin Ball
 layout: post
 permalink: /2007/10/17/the-spawn-of-satan/
-categories:
+tags:
   - Family
   - Friends
-tags:
   - friends
   - kids
 ---

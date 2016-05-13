@@ -3,10 +3,9 @@ title: First ride on the new Madone
 author: Justin Ball
 layout: post
 permalink: /2008/04/26/first-ride-on-the-new-madone/
-categories:
+tags:
   - COSL
   - Funny
-tags:
   - Cycling
   - madone
   - trek

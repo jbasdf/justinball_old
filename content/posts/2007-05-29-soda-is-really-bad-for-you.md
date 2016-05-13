@@ -3,9 +3,8 @@ title: Soda Is Really Bad for You
 author: Justin Ball
 layout: post
 permalink: /2007/05/29/soda-is-really-bad-for-you/
-categories:
-  - Science
 tags:
+  - Science
   - diet
   - disease
   - health

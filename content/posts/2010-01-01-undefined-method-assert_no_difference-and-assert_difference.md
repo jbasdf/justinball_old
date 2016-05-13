@@ -3,7 +3,7 @@ title: 'undefined method `assert_no_difference&#8217; and `assert_difference&#82
 author: Justin Ball
 layout: post
 permalink: /2010/01/01/undefined-method-assert_no_difference-and-assert_difference/
-categories:
+tags:
   - Ruby On Rails
   - tests
 ---

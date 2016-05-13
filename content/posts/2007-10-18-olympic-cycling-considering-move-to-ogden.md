@@ -3,9 +3,8 @@ title: Olympic Cycling Considering Move to Ogden
 author: Justin Ball
 layout: post
 permalink: /2007/10/18/olympic-cycling-considering-move-to-ogden/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
 ---
 

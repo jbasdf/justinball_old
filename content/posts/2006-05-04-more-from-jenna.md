@@ -3,7 +3,7 @@ title: More From Jenna
 author: Justin Ball
 layout: post
 permalink: /2006/05/04/more-from-jenna/
-categories:
+tags:
   - Jenna
   - The Kids
 ---

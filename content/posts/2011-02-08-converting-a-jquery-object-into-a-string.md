@@ -3,7 +3,7 @@ title: Converting a jQuery Object into a String
 author: Justin Ball
 layout: post
 permalink: /2011/02/08/converting-a-jquery-object-into-a-string/
-categories:
+tags:
   - Javascript
   - jQuery
 ---

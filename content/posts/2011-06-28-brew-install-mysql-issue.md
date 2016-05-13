@@ -3,7 +3,7 @@ title: Brew Install MySQL Issue
 author: Justin Ball
 layout: post
 permalink: /2011/06/28/brew-install-mysql-issue/
-categories:
+tags:
   - homebrew
   - mysql
   - ruby

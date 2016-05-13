@@ -3,10 +3,9 @@ title: More Ruby Conference
 author: Justin Ball
 layout: post
 permalink: /2008/03/29/more-ruby-conference/
-categories:
+tags:
   - mtnwestrubyconf
   - Ruby On Rails
-tags:
   - engineyard
   - mtnwestrubyconf
   - ruby

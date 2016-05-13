@@ -3,7 +3,7 @@ title: 'Russian climbing.  This is amazing'
 author: Justin Ball
 layout: post
 permalink: /2005/12/11/russian-climbing-this-is-amazing/
-categories:
+tags:
   - Neat Stuff
 ---
 

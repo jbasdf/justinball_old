@@ -3,7 +3,7 @@ title: New Uploader Gem
 author: Justin Ball
 layout: post
 permalink: /2009/06/20/new-uploader-gem/
-categories:
+tags:
   - gems
   - Ruby On Rails
   - uploads

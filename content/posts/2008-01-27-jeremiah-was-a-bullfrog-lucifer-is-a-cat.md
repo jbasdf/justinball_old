@@ -3,9 +3,8 @@ title: Jeremiah was a Bullfrog, Lucifer is a Cat
 author: Justin Ball
 layout: post
 permalink: /2008/01/27/jeremiah-was-a-bullfrog-lucifer-is-a-cat/
-categories:
-  - Funny
 tags:
+  - Funny
   - Cinderella
   - disney
   - kids

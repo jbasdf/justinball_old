@@ -3,10 +3,9 @@ title: Professionals and The Enterprise
 author: Justin Ball
 layout: post
 permalink: /2008/01/30/professionals-and-the-enterprise/
-categories:
+tags:
   - Interesting
   - Programming
-tags:
   - Christmas
   - enterprise
   - professional

@@ -3,7 +3,7 @@ title: 'Haulin&#8217; Balls'
 author: Justin Ball
 layout: post
 permalink: /2012/06/02/haulin-balls/
-categories:
+tags:
   - Family
 ---
 We're driving across the California desert right now. The thermometer says it's 110 degrees Fahrenheit. Every time we have to stop and get out of the car the kids tell me the heat is "hurting them". Pioneer children they are not. The biggest dilemma facing us as we cross the long, arid, punishing desert is the lack of 3G coverage, not being able to figure out the entertainment system in the car and the missing states in the license plate game. We have a lot of 1st world problems.

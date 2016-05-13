@@ -3,10 +3,9 @@ title: FamilySearch Developer Webinar
 author: Justin Ball
 layout: post
 permalink: /2008/03/30/familysearch-developer-webinar/
-categories:
+tags:
   - family history
   - genealogy
-tags:
   - API
   - familysearch
   - genealogy

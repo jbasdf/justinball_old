@@ -3,7 +3,7 @@ title: Major Holiday With the Wife and Kids
 author: Justin Ball
 layout: post
 permalink: /2012/06/17/major-holiday-with-the-wife-and-kids/
-categories:
+tags:
   - Family
 ---
 It's not often that the stars align and two big events coincide. Today is Father's day, but it's also our anniversary.

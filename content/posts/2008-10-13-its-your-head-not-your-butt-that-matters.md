@@ -3,12 +3,11 @@ title: 'It&#8217;s Your Head Not Your Butt That Matters'
 author: Justin Ball
 layout: post
 permalink: /2008/10/13/its-your-head-not-your-butt-that-matters/
-categories:
+tags:
   - Interesting
   - internet
   - Programming
   - Projects
-tags:
   - knowledge workers
   - Programming
   - software design

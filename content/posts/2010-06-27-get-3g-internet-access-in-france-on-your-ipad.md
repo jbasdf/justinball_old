@@ -3,7 +3,7 @@ title: Get 3G internet access in Paris, France on your iPad
 author: Justin Ball
 layout: post
 permalink: /2010/06/27/get-3g-internet-access-in-france-on-your-ipad/
-categories:
+tags:
   - Computers
   - 3g
   - France iPad Internet access

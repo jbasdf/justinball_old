@@ -3,7 +3,7 @@ title: Conversations With Devin
 author: Justin Ball
 layout: post
 permalink: /2009/04/23/conversations-with-devin/
-categories:
+tags:
   - Funny
   - Devin
   - Family

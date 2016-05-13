@@ -3,7 +3,7 @@ title: 'Upgrade to MySQL 5.5.12 and now MySQL won&#8217;t start'
 author: Justin Ball
 layout: post
 permalink: /2011/07/05/upgrade-to-mysql-5-5-12-and-now-mysql-wont-start/
-categories:
+tags:
   - Programming
   - mysql
 ---

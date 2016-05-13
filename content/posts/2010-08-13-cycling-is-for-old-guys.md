@@ -3,7 +3,7 @@ title: Cycling is for Old Guys
 author: Justin Ball
 layout: post
 permalink: /2010/08/13/cycling-is-for-old-guys/
-categories:
+tags:
   - Cycling
 ---
 I rode out to Porcupine this morning. I spent the first half the ride cussing at my Polar CS600 since it 'couldn't find the sensors' and the screen kept going out. You'd think that changing a battery wouldn't be such a dramatic experience.

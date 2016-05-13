@@ -3,9 +3,8 @@ title: 'Stupid WTF! ActionView::MissingTemplate Exception: Missing template user
 author: Justin Ball
 layout: post
 permalink: /2009/06/05/stupid-wtf-actionviewmissingtemplate-exception-missing-template-users_usererb/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - ActionView::MissingTemplate
   - errors
   - Ruby On Rails

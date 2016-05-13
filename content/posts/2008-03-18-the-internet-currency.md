@@ -3,10 +3,9 @@ title: The Internet Currency
 author: Justin Ball
 layout: post
 permalink: /2008/03/18/the-internet-currency/
-categories:
+tags:
   - Interesting
   - internet
-tags:
   - currency
   - economics
   - internet

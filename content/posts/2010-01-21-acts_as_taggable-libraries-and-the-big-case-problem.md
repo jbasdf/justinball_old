@@ -3,7 +3,7 @@ title: acts_as_taggable libraries and the big case problem.
 author: Justin Ball
 layout: post
 permalink: /2010/01/21/acts_as_taggable-libraries-and-the-big-case-problem/
-categories:
+tags:
   - acts as taggable
   - folksonomy
   - Ruby On Rails

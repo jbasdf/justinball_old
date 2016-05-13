@@ -3,9 +3,8 @@ title: Gave up on Road Bike, Going off Road with Santa Cruz Blur XC
 author: Justin Ball
 layout: post
 permalink: /2007/06/18/gave-up-on-road-bike-going-off-road-with-santa-cruz-blur-xc/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - mountain bike
   - santa cruz blur xc

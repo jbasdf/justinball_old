@@ -3,10 +3,9 @@ title: Taking Care of Rails Support Tasks Through Custom Daemons Tammer Saleh
 author: Justin Ball
 layout: post
 permalink: /2007/05/19/taking-care-of-rails-support-tasks-through-custom-daemons-tammer-saleh/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

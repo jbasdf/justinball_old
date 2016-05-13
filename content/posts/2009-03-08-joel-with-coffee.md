@@ -3,7 +3,7 @@ title: Joel With Coffee
 author: Justin Ball
 layout: post
 permalink: /2009/03/08/joel-with-coffee/
-categories:
+tags:
   - Funny
 ---
 Don't let him fool ya. Here's Joel with a cup of coffee at the last OCW conference:

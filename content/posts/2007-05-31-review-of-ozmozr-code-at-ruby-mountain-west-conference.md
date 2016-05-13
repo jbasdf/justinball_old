@@ -3,10 +3,9 @@ title: Review of Ozmozr code at Ruby Mountain West Conference
 author: Justin Ball
 layout: post
 permalink: /2007/05/31/review-of-ozmozr-code-at-ruby-mountain-west-conference/
-categories:
+tags:
   - COSL
   - Ruby On Rails
-tags:
   - mountain west ruby conference
   - ozmozr
   - ruby

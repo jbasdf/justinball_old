@@ -2,7 +2,7 @@
 title: Handle Keyboard events in an Ember.js view
 author: Justin Ball
 layout: post
-categories:
+tags:
   - Javscript
   - Ember.js
 ---

@@ -3,7 +3,7 @@ title: 'In javascript string replace doesn&#8217;t do what you think it does'
 author: Justin Ball
 layout: post
 permalink: /2011/01/20/in-javascript-string-replace-doesnt-do-what-you-think-it-does/
-categories:
+tags:
   - Javascript
   - global
   - regular expressions

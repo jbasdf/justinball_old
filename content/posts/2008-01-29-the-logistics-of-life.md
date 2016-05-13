@@ -3,9 +3,8 @@ title: The Logistics of Life
 author: Justin Ball
 layout: post
 permalink: /2008/01/29/the-logistics-of-life/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - life
   - logistics
 ---

@@ -3,7 +3,7 @@ title: Cervelo eRide Came to Logan
 author: Justin Ball
 layout: post
 permalink: /2010/07/25/cervelo-eride-came-to-logan/
-categories:
+tags:
   - cervelo
   - Cycling
   - eride

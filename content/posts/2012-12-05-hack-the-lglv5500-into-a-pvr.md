@@ -3,7 +3,7 @@ title: Hack the LGLV5500 into a PVR
 author: Justin Ball
 layout: post
 permalink: /2012/12/05/hack-the-lglv5500-into-a-pvr/
-categories:
+tags:
   - Hacks
 ---
 I've had this TV for a while. Turns out that accessing the services menu isn't to terribly hard if you have a programmable remote. (In my case a Logitech Harmony). The TV supports DVR functionality if you add a USB Hard drive and turn it on in the service menu.

@@ -3,9 +3,8 @@ title: WordPress Makes Me Happy
 author: Justin Ball
 layout: post
 permalink: /2008/02/11/wordpress-makes-me-happy/
-categories:
-  - Programming
 tags:
+  - Programming
   - Wordpress
 ---
 

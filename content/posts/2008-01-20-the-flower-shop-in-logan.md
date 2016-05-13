@@ -3,10 +3,9 @@ title: The Flower Shop In Logan
 author: Justin Ball
 layout: post
 permalink: /2008/01/20/the-flower-shop-in-logan/
-categories:
+tags:
   - business
   - Family
-tags:
   - flowers
   - small business
 ---

@@ -3,7 +3,7 @@ title: Providence Canyon
 author: Justin Ball
 layout: post
 permalink: /2012/10/04/providence-canyon/
-categories:
+tags:
   - Autumn
   - Providence Canyon
 ---

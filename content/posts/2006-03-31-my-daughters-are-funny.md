@@ -3,7 +3,7 @@ title: My daughters are funny
 author: Justin Ball
 layout: post
 permalink: /2006/03/31/my-daughters-are-funny/
-categories:
+tags:
   - The Kids
 ---
 

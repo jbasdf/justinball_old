@@ -3,7 +3,7 @@ title: 'Don Tapscott &#8211; wikinomics'
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/don-tapscott-wikinomics/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

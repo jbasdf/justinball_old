@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Session timeout for your Ember application"
 date: 2014-01-02 15:58:19 -0700
-categories:
+tags:
   - Ember
   - Javascript
   - Programming

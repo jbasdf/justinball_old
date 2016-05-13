@@ -3,9 +3,8 @@ title: Project One Goes Live With the New Madones
 author: Justin Ball
 layout: post
 permalink: /2008/03/19/project-one-goes-live-with-the-new-madones/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - madone
   - project one
   - trek

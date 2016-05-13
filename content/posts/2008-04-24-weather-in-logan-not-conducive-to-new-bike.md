@@ -3,9 +3,8 @@ title: Weather in Logan Not Conducive to New Bike
 author: Justin Ball
 layout: post
 permalink: /2008/04/24/weather-in-logan-not-conducive-to-new-bike/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - logan
   - new bike

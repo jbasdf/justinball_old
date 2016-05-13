@@ -3,10 +3,9 @@ title: Flickr as Web 2.0, bla, The Soviets were like Nuke 2.0 way back in the 70
 author: Justin Ball
 layout: post
 permalink: /2007/09/17/flickr-as-web-20-bla-the-soviets-were-like-nuke-20-way-back-in-the-70s/
-categories:
+tags:
   - Interesting
   - Neat Stuff
-tags:
   - doom
   - dr strangelove
   - nuclear weapons

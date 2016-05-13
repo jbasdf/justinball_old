@@ -3,7 +3,7 @@ title: Doggie Shed
 author: Justin Ball
 layout: post
 permalink: /2010/03/20/doggie-shed/
-categories:
+tags:
   - Devin
   - Family
   - Funny

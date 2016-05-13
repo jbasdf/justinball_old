@@ -2,7 +2,7 @@
 title: Building with Ember
 author: Justin Ball
 layout: post
-categories:
+tags:
   - Javscript
   - Ember.js
 ---

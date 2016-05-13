@@ -3,9 +3,8 @@ title: I can feel the fat finding its way back to my waste
 author: Justin Ball
 layout: post
 permalink: /2007/06/06/i-can-feel-the-fat-finding-its-way-back-to-my-waste/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - fat
   - health

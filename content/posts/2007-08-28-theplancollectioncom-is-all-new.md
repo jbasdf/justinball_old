@@ -3,9 +3,8 @@ title: ThePlancollection.com is all new
 author: Justin Ball
 layout: post
 permalink: /2007/08/28/theplancollectioncom-is-all-new/
-categories:
-  - The Plan Collection
 tags:
+  - The Plan Collection
   - development
   - house plans
   - small business

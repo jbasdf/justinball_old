@@ -3,9 +3,8 @@ title: At the Mountain West Ruby Conference
 author: Justin Ball
 layout: post
 permalink: /2007/03/17/at-the-mountain-west-ruby-conference/
-categories:
-  - mtnwestrubyconf
 tags:
+  - mtnwestrubyconf
   - mtnwestrubyconf
 ---
 

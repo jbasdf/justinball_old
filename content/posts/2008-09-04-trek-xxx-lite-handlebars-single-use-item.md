@@ -3,9 +3,8 @@ title: 'Trek XXX Lite Handlebars &#8211; Single Use Item'
 author: Justin Ball
 layout: post
 permalink: /2008/09/04/trek-xxx-lite-handlebars-single-use-item/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - trek madone 6.9
   - trek xxx race lite

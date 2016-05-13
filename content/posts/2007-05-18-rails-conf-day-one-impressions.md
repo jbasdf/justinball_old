@@ -3,11 +3,10 @@ title: Rails Conf Day One Impressions
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/rails-conf-day-one-impressions/
-categories:
+tags:
   - Cycling
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

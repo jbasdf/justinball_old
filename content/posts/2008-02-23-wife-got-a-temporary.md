@@ -3,7 +3,7 @@ title: Wife Got a Temporary
 author: Justin Ball
 layout: post
 permalink: /2008/02/23/wife-got-a-temporary/
-categories:
+tags:
   - Funny
 ---
 

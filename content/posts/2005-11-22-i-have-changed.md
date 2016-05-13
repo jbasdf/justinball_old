@@ -3,7 +3,7 @@ title: I have changed
 author: Justin Ball
 layout: post
 permalink: /2005/11/22/i-have-changed/
-categories:
+tags:
   - School
 ---
 

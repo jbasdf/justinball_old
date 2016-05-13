@@ -3,10 +3,9 @@ title: A Modern Prophet
 author: Justin Ball
 layout: post
 permalink: /2008/01/29/a-modern-prophet/
-categories:
+tags:
   - Community
   - Interesting
-tags:
   - Gorden B Hinckley
   - lds
   - prophet

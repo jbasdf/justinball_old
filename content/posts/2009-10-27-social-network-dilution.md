@@ -3,7 +3,7 @@ title: Social Network Dilution
 author: Justin Ball
 layout: post
 permalink: /2009/10/27/social-network-dilution/
-categories:
+tags:
   - Social Software
   - facebook
   - social network dilution

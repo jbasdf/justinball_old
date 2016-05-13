@@ -3,7 +3,7 @@ title: Pushing my luck with jQuery. Scope matters.
 author: Justin Ball
 layout: post
 permalink: /2011/08/26/pushing-my-luck-with-jquery-scope-matters/
-categories:
+tags:
   - Javascript
   - jQuery
 ---

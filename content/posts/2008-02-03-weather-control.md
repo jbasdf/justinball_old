@@ -3,9 +3,8 @@ title: Weather Control
 author: Justin Ball
 layout: post
 permalink: /2008/02/03/weather-control/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - olympics
   - weather
 ---

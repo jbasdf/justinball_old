@@ -3,11 +3,10 @@ title: Weddings So Totally Suck
 author: Justin Ball
 layout: post
 permalink: /2008/02/25/weddings-so-totally-suck/
-categories:
+tags:
   - Family
   - Funny
   - rant
-tags:
   - marriage
   - rant
   - weddings

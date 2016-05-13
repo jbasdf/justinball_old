@@ -3,7 +3,7 @@ title: Loving Goliath. Watch Out for Stones
 author: Justin Ball
 layout: post
 permalink: /2011/07/19/loving-goliath-watch-out-for-stones/
-categories:
+tags:
   - OER
   - OER Glue
   - Ruby

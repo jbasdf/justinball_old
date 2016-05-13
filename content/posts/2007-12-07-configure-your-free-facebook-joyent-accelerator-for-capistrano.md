@@ -3,10 +3,9 @@ title: Configure your Free Facebook Joyent Accelerator for Capistrano
 author: Justin Ball
 layout: post
 permalink: /2007/12/07/configure-your-free-facebook-joyent-accelerator-for-capistrano/
-categories:
+tags:
   - Ruby On Rails
   - Web2.0
-tags:
   - capistrano
   - deployment
   - facebook

@@ -3,9 +3,8 @@ title: Battlestar Galactica
 author: Justin Ball
 layout: post
 permalink: /2008/04/01/battlestar-galactica/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - Battlestar Galactica
   - tv
 ---

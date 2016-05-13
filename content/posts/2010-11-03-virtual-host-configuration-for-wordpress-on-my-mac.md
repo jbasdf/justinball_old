@@ -3,7 +3,7 @@ title: Virtual Host Configuration for WordPress on my Mac
 author: Justin Ball
 layout: post
 permalink: /2010/11/03/virtual-host-configuration-for-wordpress-on-my-mac/
-categories:
+tags:
   - apache
   - configuration
   - virtual hosts

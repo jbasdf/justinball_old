@@ -3,9 +3,8 @@ title: Logan Utah Technical Jobs
 author: Justin Ball
 layout: post
 permalink: /2008/08/06/logan-utah-technical-jobs/
-categories:
-  - jobs
 tags:
+  - jobs
   - jobs
   - logan
   - tech

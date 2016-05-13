@@ -3,7 +3,7 @@ title: Uninspired
 author: Justin Ball
 layout: post
 permalink: /2009/02/08/uninspired/
-categories:
+tags:
   - Community
   - air quality
   - cache valley

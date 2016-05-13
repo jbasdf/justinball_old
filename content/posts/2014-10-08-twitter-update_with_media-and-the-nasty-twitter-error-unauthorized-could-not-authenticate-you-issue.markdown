@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Twitter, update_with_media, and the nasty Twitter::Error::Unauthorized (Could not authenticate you) issue"
 date: 2014-10-08 23:54:32 -0600
-categories:
+tags:
   - Programming
 ---
 

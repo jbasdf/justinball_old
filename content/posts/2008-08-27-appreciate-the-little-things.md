@@ -3,9 +3,8 @@ title: Appreciate the Little Things
 author: Justin Ball
 layout: post
 permalink: /2008/08/27/appreciate-the-little-things/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - appreciation
   - healing
   - health

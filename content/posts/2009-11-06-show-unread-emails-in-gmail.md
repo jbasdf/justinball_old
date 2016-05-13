@@ -3,7 +3,7 @@ title: Show unread emails in gmail
 author: Justin Ball
 layout: post
 permalink: /2009/11/06/show-unread-emails-in-gmail/
-categories:
+tags:
   - email
   - gmail
   - inbox

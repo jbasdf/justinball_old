@@ -2,7 +2,7 @@
 title: Help with Ember.js
 author: Justin Ball
 layout: post
-categories:
+tags:
   - Javscript
   - Ember.js
 ---

@@ -3,7 +3,7 @@ title: David Ball
 author: Justin Ball
 layout: post
 permalink: /2006/10/20/david-ball/
-categories:
+tags:
   - Family
 ---
 

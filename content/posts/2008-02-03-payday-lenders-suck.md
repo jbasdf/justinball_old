@@ -3,9 +3,8 @@ title: Payday Lenders Suck
 author: Justin Ball
 layout: post
 permalink: /2008/02/03/payday-lenders-suck/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - courts
   - loans
   - payday lenders

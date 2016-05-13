@@ -3,7 +3,7 @@ title: Textmate RSpec Bundle Error
 author: Justin Ball
 layout: post
 permalink: /2010/07/31/textmate-rspec-bundle-error/
-categories:
+tags:
   - Programming
   - Ruby On Rails
   - rpsec

@@ -3,11 +3,10 @@ title: 'Ways to Not Make Use of Your Health Insurance &#8211; Cyclist vs. Rattle
 author: Justin Ball
 layout: post
 permalink: /2008/08/22/ways-to-not-make-use-of-your-health-insurance-cyclist-vs-rattlesnake/
-categories:
+tags:
   - Cycling
   - Funny
   - Interesting
-tags:
   - accidents
   - Cycling
   - rattle snake

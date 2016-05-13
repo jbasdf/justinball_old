@@ -4,7 +4,7 @@ author: Justin Ball
 excerpt: ruby on rails, nested forms, custom form builder
 layout: post
 permalink: /2009/04/16/rails-23-nested-forms-and-wrong-constant-name-userbillingattributes/
-categories:
+tags:
   - Ruby On Rails
 ---
 

@@ -3,7 +3,7 @@ title: Customizing Views for a Multi-Tenant Application Using Ruby on Rails Cust
 author: Justin Ball
 layout: post
 permalink: /2011/09/27/customizing-views-for-a-multi-tenant-application-using-ruby-on-rails-custom-resolvers/
-categories:
+tags:
   - Ruby On Rails
 ---
 

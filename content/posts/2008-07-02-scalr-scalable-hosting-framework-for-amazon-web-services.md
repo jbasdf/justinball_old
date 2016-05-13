@@ -3,10 +3,9 @@ title: 'Scalr &#8211; Scalable Hosting Framework for Amazon Web Services'
 author: Justin Ball
 layout: post
 permalink: /2008/07/02/scalr-scalable-hosting-framework-for-amazon-web-services/
-categories:
+tags:
   - hosting
   - internet
-tags:
   - cloud computing
   - hosting
 ---

@@ -3,9 +3,8 @@ title: STM Bags Suck?
 author: Justin Ball
 layout: post
 permalink: /2008/11/09/stm-bags-suck/
-categories:
-  - Funny
 tags:
+  - Funny
   - laptop case
   - stm bags
   - stm medium alley

@@ -3,7 +3,7 @@ title: 'Fireeagle and PortableContacts Don&#8217;t Get Along. That Makes Daddy M
 author: Justin Ball
 layout: post
 permalink: /2010/06/02/fireeagle-and-portablecontacts-dont-get-along-that-makes-daddy-mad/
-categories:
+tags:
   - fireeagle
   - gems
   - Oauth

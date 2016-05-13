@@ -3,9 +3,8 @@ title: My Wife is Better Than Your Wife
 author: Justin Ball
 layout: post
 permalink: /2007/11/10/my-wife-is-better-than-your-wife/
-categories:
-  - Neat Stuff
 tags:
+  - Neat Stuff
   - Funny
   - panasonic plasma
   - tv

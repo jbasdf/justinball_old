@@ -3,7 +3,7 @@ title: Jenna-isms Again
 author: Justin Ball
 layout: post
 permalink: /2007/02/26/jenna-isms-again/
-categories:
+tags:
   - Jenna
 ---
 

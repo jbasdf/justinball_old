@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "My Morning Coffee"
 date: 2014-01-01 13:16:54 -0700
-categories:
+tags:
   - Funny
 ---
 

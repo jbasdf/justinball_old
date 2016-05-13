@@ -3,7 +3,7 @@ title: Mountain West Ruby Conference
 author: Justin Ball
 layout: post
 permalink: /2010/03/15/mountain-west-ruby-conference-3/
-categories:
+tags:
   - mtnwestrubyconf
   - mwrc
   - ruby

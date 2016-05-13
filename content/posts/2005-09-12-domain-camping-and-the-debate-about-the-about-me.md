@@ -3,9 +3,8 @@ title: Domain camping and the debate about the about me
 author: Justin Ball
 layout: post
 permalink: /2005/09/12/domain-camping-and-the-debate-about-the-about-me/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - domains
   - justin ball
   - me

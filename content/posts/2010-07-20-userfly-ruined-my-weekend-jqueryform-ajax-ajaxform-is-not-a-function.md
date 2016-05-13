@@ -3,7 +3,7 @@ title: 'Userfly Ruined My Weekend &#8211; &#8220;jQuery(&#8220;form.ajax&#8221;)
 author: Justin Ball
 layout: post
 permalink: /2010/07/20/userfly-ruined-my-weekend-jqueryform-ajax-ajaxform-is-not-a-function/
-categories:
+tags:
   - Programming
   - ajax
   - debugging

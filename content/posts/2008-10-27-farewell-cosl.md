@@ -3,9 +3,8 @@ title: Farewell COSL
 author: Justin Ball
 layout: post
 permalink: /2008/10/27/farewell-cosl/
-categories:
-  - COSL
 tags:
+  - COSL
   - COSL
   - friends
   - gamenight

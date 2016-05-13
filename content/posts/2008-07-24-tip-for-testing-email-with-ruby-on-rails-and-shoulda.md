@@ -3,9 +3,8 @@ title: Tip for Testing Email with Ruby on Rails and Shoulda
 author: Justin Ball
 layout: post
 permalink: /2008/07/24/tip-for-testing-email-with-ruby-on-rails-and-shoulda/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - assert_sent_email
   - email
   - Ruby On Rails

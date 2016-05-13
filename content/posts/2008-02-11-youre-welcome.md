@@ -3,10 +3,9 @@ title: 'You&#8217;re Welcome'
 author: Justin Ball
 layout: post
 permalink: /2008/02/11/youre-welcome/
-categories:
+tags:
   - Aubrey
   - Family
-tags:
   - funny kids
 ---
 

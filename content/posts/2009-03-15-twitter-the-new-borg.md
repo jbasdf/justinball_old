@@ -3,11 +3,10 @@ title: 'Twitter &#8211; The New Borg'
 author: Justin Ball
 layout: post
 permalink: /2009/03/15/twitter-the-new-borg/
-categories:
+tags:
   - Interesting
   - Social Software
   - twitter
-tags:
   - micro-blogging
   - social media
   - twitter

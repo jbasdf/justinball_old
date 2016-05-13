@@ -3,7 +3,7 @@ title: Merry Christmas to All
 author: Justin Ball
 layout: post
 permalink: /2005/12/25/merry-christmas-to-all/
-categories:
+tags:
   - Alyssa
   - Aubrey
   - The Kids

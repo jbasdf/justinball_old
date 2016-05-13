@@ -3,9 +3,8 @@ title: The Roomba Ends Christmas
 author: Justin Ball
 layout: post
 permalink: /2008/01/20/the-roomba-ends-christmas/
-categories:
-  - Fun Stuff
 tags:
+  - Fun Stuff
   - Christmas
   - poinsettia
   - roomba

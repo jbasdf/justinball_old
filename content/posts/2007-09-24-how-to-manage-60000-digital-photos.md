@@ -3,10 +3,9 @@ title: How to manage 60,000 digital photos
 author: Justin Ball
 layout: post
 permalink: /2007/09/24/how-to-manage-60000-digital-photos/
-categories:
+tags:
   - Computers
   - Projects
-tags:
   - backups
   - digital-photography
   - manage

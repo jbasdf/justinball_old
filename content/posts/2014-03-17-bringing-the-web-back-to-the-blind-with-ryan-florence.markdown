@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Bringing the Web Back to the Blind with Ryan Florence"
 date: 2014-03-17 15:49:58 -0600
-categories:
+tags:
   - Mountain West Javascript
   - mwjs
   - Programming

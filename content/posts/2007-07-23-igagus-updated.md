@@ -3,10 +3,9 @@ title: igag.us updated
 author: Justin Ball
 layout: post
 permalink: /2007/07/23/igagus-updated/
-categories:
+tags:
   - iPhone
   - Web2.0
-tags:
   - iPhone
   - Web2.0
 ---

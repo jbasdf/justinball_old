@@ -3,7 +3,7 @@ title: Something Scrumdidilyumptious
 author: Justin Ball
 layout: post
 permalink: /2006/12/05/something-scrumdidilyumptious/
-categories:
+tags:
   - Programming
   - Ruby On Rails
   - Web2.0

@@ -3,7 +3,7 @@ title: Identity Introduction
 author: Justin Ball
 layout: post
 permalink: /2006/12/04/identity-introduction/
-categories:
+tags:
   - iiw2006b
 ---
 

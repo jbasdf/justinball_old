@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Firefox, Vimeo and Froogaloop Have a Little Problem"
 date: 2014-03-09 11:21:56 -0600
-categories:
+tags:
   - Programming
   - Javascript
   - Ruby

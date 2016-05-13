@@ -3,9 +3,8 @@ title: What I Do for a Living
 author: Justin Ball
 layout: post
 permalink: /2008/01/28/what-i-do-for-a-living/
-categories:
-  - COSL
 tags:
+  - COSL
   - Cisco
   - COSL
   - Middle East

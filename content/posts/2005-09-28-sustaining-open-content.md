@@ -3,7 +3,7 @@ title: Sustaining Open Content
 author: Justin Ball
 layout: post
 permalink: /2005/09/28/
-categories:
+tags:
   - Education
 ---
 

@@ -3,7 +3,7 @@ title: Delete button != Back button
 author: Justin Ball
 layout: post
 permalink: /2013/02/21/delete-button-back-button/
-categories:
+tags:
   - Internet
 ---
 

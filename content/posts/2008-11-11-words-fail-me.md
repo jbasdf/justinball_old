@@ -3,7 +3,7 @@ title: Words Fail Me
 author: Justin Ball
 layout: post
 permalink: /2008/11/11/words-fail-me/
-categories:
+tags:
   - Funny
   - Interesting
 ---

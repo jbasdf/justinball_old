@@ -3,7 +3,7 @@ title: I Have One Quadrillion Dollars
 author: Justin Ball
 layout: post
 permalink: /2010/12/16/i-have-one-quadrillion-dollars/
-categories:
+tags:
   - Funny
 ---
 Zimbabwe was the first country to issue a 100 Trillion dollar bill. I have ten which makes me a Quadrillionaire:

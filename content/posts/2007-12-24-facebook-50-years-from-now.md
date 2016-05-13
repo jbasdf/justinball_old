@@ -3,9 +3,8 @@ title: Facebook 50 Years From Now
 author: Justin Ball
 layout: post
 permalink: /2007/12/24/facebook-50-years-from-now/
-categories:
-  - Uncategorized
 tags:
+  - Uncategorized
   - Funny
 ---
 

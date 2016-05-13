@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Open Assessments Code Sprint with OERPub, MIT and Lumen"
 date: 2014-02-10 18:00:26 -0700
-categories:
+tags:
   - Programming
   - OER
   - Open Assessments

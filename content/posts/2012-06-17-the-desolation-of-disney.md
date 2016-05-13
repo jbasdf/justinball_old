@@ -3,7 +3,7 @@ title: The Desolation of Disney
 author: Justin Ball
 layout: post
 permalink: /2012/06/17/the-desolation-of-disney/
-categories:
+tags:
   - Disney
   - Family Vacation
 ---

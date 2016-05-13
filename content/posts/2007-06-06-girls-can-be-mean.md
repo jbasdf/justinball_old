@@ -3,10 +3,9 @@ title: Girls can be mean
 author: Justin Ball
 layout: post
 permalink: /2007/06/06/girls-can-be-mean/
-categories:
+tags:
   - Alyssa
   - Aubrey
-tags:
   - kids
 ---
 

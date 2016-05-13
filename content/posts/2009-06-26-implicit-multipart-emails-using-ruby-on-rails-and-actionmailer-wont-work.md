@@ -3,9 +3,8 @@ title: 'Implicit multipart emails using Ruby on Rails and ActionMailer won&#8217
 author: Justin Ball
 layout: post
 permalink: /2009/06/26/implicit-multipart-emails-using-ruby-on-rails-and-actionmailer-wont-work/
-categories:
-  - Funny
 tags:
+  - Funny
   - email
   - Ruby On Rails
 ---

@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Ember Conf 2014 Wrap Up"
 date: 2014-03-27 08:41:40 -0700
-categories:
+tags:
   - Ember.js
   - Javascript
   - Programming

@@ -3,11 +3,10 @@ title: Email Sucks
 author: Justin Ball
 layout: post
 permalink: /2008/02/01/email-sucks/
-categories:
+tags:
   - Computers
   - internet
   - Waste of Time
-tags:
   - email
 ---
 

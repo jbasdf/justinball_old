@@ -3,9 +3,8 @@ title: 'Why Cyclists Shave Their Legs.  The Most Disgusting Post I Will Ever Mak
 author: Justin Ball
 layout: post
 permalink: /2008/09/08/why-cyclists-shave-their-legs-the-most-disgusting-post-i-will-ever-make/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - accident
   - Cycling
   - gross

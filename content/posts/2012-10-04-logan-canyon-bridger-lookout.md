@@ -3,7 +3,7 @@ title: Logan Canyon Bridger Lookout
 author: Justin Ball
 layout: post
 permalink: /2012/10/04/logan-canyon-bridger-lookout/
-categories:
+tags:
   - Autumn
   - Cycling
   - Logan Canyon

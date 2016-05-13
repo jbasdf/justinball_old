@@ -3,7 +3,7 @@ title: 'Everything you didn&#8217;t want to know'
 author: Justin Ball
 layout: post
 permalink: /2006/09/02/everything-you-didnt-want-to-know/
-categories:
+tags:
   - Science
 ---
 

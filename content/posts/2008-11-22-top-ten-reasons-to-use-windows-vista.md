@@ -3,7 +3,7 @@ title: Top Ten Reasons to Use Windows Vista
 author: Justin Ball
 layout: post
 permalink: /2008/11/22/top-ten-reasons-to-use-windows-vista/
-categories:
+tags:
   - Funny
 ---
 I have a mac. I love my mac. I run VMWare so that I can use Windows as needed like when I need to test Internet Explorer because apparently a lot of people out there are still using it. Who knew?

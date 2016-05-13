@@ -3,11 +3,10 @@ title: New Website for Academic Types
 author: Justin Ball
 layout: post
 permalink: /2007/06/21/new-website-for-academic-types/
-categories:
+tags:
   - COSL
   - Social Software
   - Web2.0
-tags:
   - COSL
   - gistr
   - Web2.0

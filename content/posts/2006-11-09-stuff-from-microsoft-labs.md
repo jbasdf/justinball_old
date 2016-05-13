@@ -3,7 +3,7 @@ title: Stuff from Microsoft labs
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/stuff-from-microsoft-labs/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

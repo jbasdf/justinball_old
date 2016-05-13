@@ -3,7 +3,7 @@ title: 'It&#8217;s Not Child Rearing It&#8217;s Crowd Control'
 author: Justin Ball
 layout: post
 permalink: /2010/03/19/its-not-child-rearing-its-crowd-control/
-categories:
+tags:
   - Alyssa
   - Aubrey
   - Devin

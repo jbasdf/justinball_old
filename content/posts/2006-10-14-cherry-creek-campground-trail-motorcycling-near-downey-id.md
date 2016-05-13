@@ -3,7 +3,7 @@ title: 'Cherry Creek Campground trail &#8211; Motorcycling near Downey, ID'
 author: Justin Ball
 layout: post
 permalink: /2006/10/14/cherry-creek-campground-trail-motorcycling-near-downey-id/
-categories:
+tags:
   - Fun Stuff
 ---
 

@@ -3,7 +3,7 @@ title: 'Getting this: SSL_connect returned=1 errno=0 state=SSLv3 read server cer
 author: Justin Ball
 layout: post
 permalink: /2012/09/12/getting-this-ssl_connect-returned1-errno0-statesslv3-read-server-certificate-b-certificate-verify-failed/
-categories:
+tags:
   - Ruby
   - Ruby On Rails
 ---

@@ -3,10 +3,9 @@ title: 'We&#8217;re All Gonna Die'
 author: Justin Ball
 layout: post
 permalink: /2008/03/04/were-all-gonna-die/
-categories:
+tags:
   - Interesting
   - Science
-tags:
   - cosmos
   - death
   - death ray

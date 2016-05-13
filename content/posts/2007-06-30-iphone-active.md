@@ -3,9 +3,8 @@ title: iPhone Active
 author: Justin Ball
 layout: post
 permalink: /2007/06/30/iphone-active/
-categories:
-  - Waste of Time
 tags:
+  - Waste of Time
   - iPhone
 ---
 

@@ -3,9 +3,8 @@ title: Why Trek Why?
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/why-trek-why/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - Cycling
 ---

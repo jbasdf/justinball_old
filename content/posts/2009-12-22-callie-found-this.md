@@ -3,7 +3,7 @@ title: 'Callie Found This&#8230;'
 author: Justin Ball
 layout: post
 permalink: /2009/12/22/callie-found-this/
-categories:
+tags:
   - Funny
 ---
 We're using this to teach our kids Chinese. Kind of funny how a word in one language sounds so much like words in another language:

@@ -3,9 +3,8 @@ title: Black Cherry Vanilla Coke
 author: Justin Ball
 layout: post
 permalink: /2009/03/01/black-cherry-vanilla-coke/
-categories:
-  - Waste of Time
 tags:
+  - Waste of Time
   - black cherry vanilla coke
   - coke
 ---

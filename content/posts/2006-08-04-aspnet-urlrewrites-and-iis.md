@@ -3,7 +3,7 @@ title: asp.net url rewrites and IIS
 author: Justin Ball
 layout: post
 permalink: /2006/08/04/aspnet-urlrewrites-and-iis/
-categories:
+tags:
   - ASP.Net
 ---
 

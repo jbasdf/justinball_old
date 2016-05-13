@@ -3,10 +3,9 @@ title: Require.js, Backbone.js and Almond.js Example Application
 author: Justin Ball
 layout: post
 permalink: /2011/12/22/require-js-backbone-js-and-almond-js-example-application/
-categories:
+tags:
   - Javascript
   - jQuery
-tags:
   - backbone.js
   - jQuery
   - require.js

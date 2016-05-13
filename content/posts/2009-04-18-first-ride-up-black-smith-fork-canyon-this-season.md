@@ -3,7 +3,7 @@ title: First ride up Black Smith Fork canyon this season
 author: Justin Ball
 layout: post
 permalink: /2009/04/18/first-ride-up-black-smith-fork-canyon-this-season/
-categories:
+tags:
   - Cycling
   - Black Smith Fork Canyon
 ---

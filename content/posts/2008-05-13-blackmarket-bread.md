@@ -3,11 +3,10 @@ title: Blackmarket Bread
 author: Justin Ball
 layout: post
 permalink: /2008/05/13/blackmarket-bread/
-categories:
+tags:
   - economy
   - Interesting
   - Political
-tags:
   - Egypt
   - energy
   - fuel

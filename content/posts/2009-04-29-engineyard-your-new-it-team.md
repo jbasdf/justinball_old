@@ -3,7 +3,7 @@ title: EngineYard -Your new IT Team
 author: Justin Ball
 layout: post
 permalink: /2009/04/29/engineyard-your-new-it-team/
-categories:
+tags:
   - engineyard
   - hosting
 ---

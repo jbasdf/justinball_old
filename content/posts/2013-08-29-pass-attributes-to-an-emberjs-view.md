@@ -2,7 +2,7 @@
 title: Passing a value to ember.js view from handlebars template
 author: Justin Ball
 layout: post
-categories:
+tags:
   - Javscript
   - Ember.js
 ---

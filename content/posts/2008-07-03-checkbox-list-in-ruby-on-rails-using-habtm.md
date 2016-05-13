@@ -3,9 +3,8 @@ title: Checkbox list in Ruby on Rails using HABTM
 author: Justin Ball
 layout: post
 permalink: /2008/07/03/checkbox-list-in-ruby-on-rails-using-habtm/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - checkbox list
   - checkboxes
   - HABTM

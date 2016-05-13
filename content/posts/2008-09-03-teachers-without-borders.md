@@ -3,11 +3,10 @@ title: Teachers Without Borders
 author: Justin Ball
 layout: post
 permalink: /2008/09/03/teachers-without-borders/
-categories:
+tags:
   - internet
   - Programming
   - Ruby On Rails
-tags:
   - luvfoo
   - Ruby On Rails
   - Teachers Without Borders

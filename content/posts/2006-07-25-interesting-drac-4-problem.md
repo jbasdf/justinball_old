@@ -3,7 +3,7 @@ title: Interesting DRAC 4 problem
 author: Justin Ball
 layout: post
 permalink: /2006/07/25/interesting-drac-4-problem/
-categories:
+tags:
   - The Plan Collection
 ---
 

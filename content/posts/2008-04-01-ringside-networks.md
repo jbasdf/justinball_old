@@ -3,9 +3,8 @@ title: Ringside Networks
 author: Justin Ball
 layout: post
 permalink: /2008/04/01/ringside-networks/
-categories:
-  - Social Software
 tags:
+  - Social Software
   - open source
   - ringside networks
   - Social Software

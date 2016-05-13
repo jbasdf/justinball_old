@@ -3,11 +3,10 @@ title: 'Rails Day One &#8211; Rails Routing'
 author: Justin Ball
 layout: post
 permalink: /2007/05/17/rails-day-one-rails-routing/
-categories:
+tags:
   - RailsConf
   - RailsConf07
   - Ruby On Rails
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

@@ -3,7 +3,7 @@ title: Family Trip Day One
 author: Justin Ball
 layout: post
 permalink: /2009/08/17/family-trip-day-one/
-categories:
+tags:
   - Family
   - family trip
 ---

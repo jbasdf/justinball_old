@@ -3,9 +3,8 @@ title: 'no <processor_id> configured for <Any>'
 author: Justin Ball
 layout: post
 permalink: /2009/10/16/no-configured-for/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - gems ruby on rails
   - jeweler
   - ruby

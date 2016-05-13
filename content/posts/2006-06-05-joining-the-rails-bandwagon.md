@@ -3,7 +3,7 @@ title: Joining the Rails bandwagon
 author: Justin Ball
 layout: post
 permalink: /2006/06/05/joining-the-rails-bandwagon/
-categories:
+tags:
   - ASP.Net
   - Ruby On Rails
 ---

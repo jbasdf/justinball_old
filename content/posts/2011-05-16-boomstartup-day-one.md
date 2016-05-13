@@ -3,7 +3,7 @@ title: BoomStartup Day One
 author: Justin Ball
 layout: post
 permalink: /2011/05/16/boomstartup-day-one/
-categories:
+tags:
   - boomstartup
   - startups
 ---

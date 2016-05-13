@@ -3,7 +3,7 @@ title: 'The binding argument of #concat is no longer needed'
 author: Justin Ball
 layout: post
 permalink: /2008/12/20/the-binding-argument-of-concat-is-no-longer-needed/
-categories:
+tags:
   - Funny
   - Ruby On Rails
   - upgrades

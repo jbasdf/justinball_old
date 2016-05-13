@@ -3,9 +3,8 @@ title: Eat and Ride
 author: Justin Ball
 layout: post
 permalink: /2008/06/15/eat-and-ride/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - BlackSmith Fork Canyon
   - Cycling
 ---

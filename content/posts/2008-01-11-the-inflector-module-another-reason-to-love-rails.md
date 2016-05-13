@@ -3,10 +3,9 @@ title: 'The Inflector Module &#8211; Another Reason to Love Rails'
 author: Justin Ball
 layout: post
 permalink: /2008/01/11/the-inflector-module-another-reason-to-love-rails/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - Ruby On Rails
 ---
 

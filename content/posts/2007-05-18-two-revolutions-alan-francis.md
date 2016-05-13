@@ -3,10 +3,9 @@ title: Two Revolutions Alan Francis
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/two-revolutions-alan-francis/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

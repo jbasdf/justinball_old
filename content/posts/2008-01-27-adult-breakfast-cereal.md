@@ -3,9 +3,8 @@ title: Adult Breakfast Cereal
 author: Justin Ball
 layout: post
 permalink: /2008/01/27/adult-breakfast-cereal/
-categories:
-  - Funny
 tags:
+  - Funny
   - cereal
   - diet
 ---

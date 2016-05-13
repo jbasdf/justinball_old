@@ -3,7 +3,7 @@ title: 'Rubyforge and no <processor_id> configured for <Any>'
 author: Justin Ball
 layout: post
 permalink: /2009/08/17/rubyforge-and-no-configured-for/
-categories:
+tags:
   - gems
 ---
 I've been using [jeweler][1] to setup a new gem. I followed the instructions provided, but started getting "  configured for " when I tried to do release my gem with "rake rubyforge:release". It turns out that the rubyforge gem doesn't quite configure everything for you. I added the following to ~/.rubyforge/autoconfig.yml and it started working:

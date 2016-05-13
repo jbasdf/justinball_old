@@ -3,9 +3,8 @@ title: My Wife the Blog Stalker
 author: Justin Ball
 layout: post
 permalink: /2008/03/16/my-wife-the-blog-stalker/
-categories:
-  - blogging
 tags:
+  - blogging
   - blogging
   - friends
   - identity

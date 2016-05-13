@@ -3,7 +3,7 @@ title: Kids these days
 author: Justin Ball
 layout: post
 permalink: /2013/02/10/kids-these-days/
-categories:
+tags:
   - Family
   - Funny
 ---

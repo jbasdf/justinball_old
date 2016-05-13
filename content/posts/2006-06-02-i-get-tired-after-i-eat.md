@@ -3,7 +3,7 @@ title: I get tired after I eat
 author: Justin Ball
 layout: post
 permalink: /2006/06/02/i-get-tired-after-i-eat/
-categories:
+tags:
   - Interesting
 ---
 

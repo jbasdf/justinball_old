@@ -3,7 +3,7 @@ title: 'Babelphish &#8211; yml Translation Made Simple'
 author: Justin Ball
 layout: post
 permalink: /2009/05/19/babelphish-yml-translation-made-simple/
-categories:
+tags:
   - Ruby On Rails
   - babelphish
   - gem

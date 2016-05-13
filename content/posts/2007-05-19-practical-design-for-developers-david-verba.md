@@ -3,10 +3,9 @@ title: Practical Design for Developers David Verba
 author: Justin Ball
 layout: post
 permalink: /2007/05/19/practical-design-for-developers-david-verba/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

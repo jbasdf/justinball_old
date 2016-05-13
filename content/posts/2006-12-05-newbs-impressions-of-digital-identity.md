@@ -3,7 +3,7 @@ title: Newbs Impressions of Digital Identity
 author: Justin Ball
 layout: post
 permalink: /2006/12/05/newbs-impressions-of-digital-identity/
-categories:
+tags:
   - iiw2006b
 ---
 

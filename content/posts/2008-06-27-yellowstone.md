@@ -3,11 +3,10 @@ title: Yellowstone
 author: Justin Ball
 layout: post
 permalink: /2008/06/27/yellowstone/
-categories:
+tags:
   - Family
   - Fun Stuff
   - Jenna
-tags:
   - family trip
   - Jenna
   - yellowstone

@@ -3,9 +3,8 @@ title: Logan Cycling Psychopaths
 author: Justin Ball
 layout: post
 permalink: /2008/03/05/login-cycling-psychopaths/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - logan
   - racing

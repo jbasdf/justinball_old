@@ -3,9 +3,8 @@ title: Disguise your Rails Application
 author: Justin Ball
 layout: post
 permalink: /2009/06/12/disguise-your-rails-application/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - disguise
   - gem
   - Ruby On Rails

@@ -3,9 +3,8 @@ title: 2008 Trek Madone Weight
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/2008-trek-madone-weight/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - Cycling
 ---

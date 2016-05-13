@@ -3,9 +3,8 @@ title: Cache Valley Century
 author: Justin Ball
 layout: post
 permalink: /2007/08/25/cache-valley-century/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - cache valley
   - century
   - Cycling

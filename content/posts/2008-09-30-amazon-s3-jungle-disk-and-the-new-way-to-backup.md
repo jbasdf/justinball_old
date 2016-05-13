@@ -3,9 +3,8 @@ title: Amazon S3, Jungle Disk and the new way to backup
 author: Justin Ball
 layout: post
 permalink: /2008/09/30/amazon-s3-jungle-disk-and-the-new-way-to-backup/
-categories:
-  - Computers
 tags:
+  - Computers
   - amazon s3
   - backups
   - jungle disk

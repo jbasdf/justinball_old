@@ -3,11 +3,10 @@ title: Connected Communities
 author: Justin Ball
 layout: post
 permalink: /2008/03/05/connected-communities/
-categories:
+tags:
   - Community
   - Web2.0
   - Wordpress
-tags:
   - Community
   - digg
   - Social Software

@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Oasis of the Seas"
 date: 2016-02-07 21:14:00 -0700
-categories:
+tags:
   - Travel
 ---
 

@@ -3,9 +3,8 @@ title: 'Install Native MySQL Gem &#8211; Edge Rails Stopped Including It'
 author: Justin Ball
 layout: post
 permalink: /2008/07/28/install-native-mysql-gem-edge-rails-stopped-including-it/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - gems
   - mysql
   - Ruby On Rails

@@ -3,10 +3,9 @@ title: My wife is pretty cool
 author: Justin Ball
 layout: post
 permalink: /2007/06/06/my-wife-is-pretty-cool/
-categories:
+tags:
   - Interesting
   - Waste of Time
-tags:
   - plasma tv
   - wife
 ---

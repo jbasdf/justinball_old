@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Using Chosen with Ember.js"
 date: 2013-10-07 12:35:47 -0600
-categories:
+tags:
   - Ember.js
   - Javascript
   - Programming

@@ -3,7 +3,7 @@ layout: reveal
 author: Justin Ball
 title: "Ember.js Lessons Learned So Far"
 date: 2014-03-11 21:44:32 -0600
-categories:
+tags:
 - Ember.js
 - Javascript
 ---

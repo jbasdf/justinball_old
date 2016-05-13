@@ -3,10 +3,9 @@ title: Watching for Signs
 author: Justin Ball
 layout: post
 permalink: /2008/05/23/watching-for-signs/
-categories:
+tags:
   - Family
   - Funny
-tags:
   - Family
   - Funny
   - gardens

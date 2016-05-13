@@ -3,9 +3,8 @@ title: Happy Smiley Guy
 author: Justin Ball
 layout: post
 permalink: /2008/04/09/happy-smiley-guy/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - democray
   - happy

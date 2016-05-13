@@ -3,9 +3,8 @@ title: Winter Was Hard on us Both
 author: Justin Ball
 layout: post
 permalink: /2008/04/26/winter-was-hard-on-us-both/
-categories:
-  - Funny
 tags:
+  - Funny
   - Funny
   - office chair
 ---

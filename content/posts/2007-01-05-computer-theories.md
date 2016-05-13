@@ -3,7 +3,7 @@ title: Computer Theories
 author: Justin Ball
 layout: post
 permalink: /2007/01/05/computer-theories/
-categories:
+tags:
   - Computers
 ---
 

@@ -3,7 +3,7 @@ title: 43 Social Profiles
 author: Justin Ball
 layout: post
 permalink: /2009/11/11/43-social-profiles/
-categories:
+tags:
   - Interesting
   - Programming
   - Projects

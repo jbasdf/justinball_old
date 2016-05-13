@@ -3,9 +3,8 @@ title: Shoulda Craps out on Rails 2.2.2
 author: Justin Ball
 layout: post
 permalink: /2008/12/20/shoulda-craps-out-on-rails-222/
-categories:
-  - Funny
 tags:
+  - Funny
   - Ruby On Rails
   - shoulda
 ---

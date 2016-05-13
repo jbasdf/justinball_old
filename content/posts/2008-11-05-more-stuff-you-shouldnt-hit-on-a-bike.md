@@ -3,9 +3,8 @@ title: 'More Stuff You Shouldn&#8217;t Hit on a Bike'
 author: Justin Ball
 layout: post
 permalink: /2008/11/05/more-stuff-you-shouldnt-hit-on-a-bike/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - bear
   - Cycling
   - wreck

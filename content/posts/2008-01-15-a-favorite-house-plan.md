@@ -3,10 +3,9 @@ title: A Favorite House Plan
 author: Justin Ball
 layout: post
 permalink: /2008/01/15/a-favorite-house-plan/
-categories:
+tags:
   - House Stuff
   - The Plan Collection
-tags:
   - house plans
 ---
 

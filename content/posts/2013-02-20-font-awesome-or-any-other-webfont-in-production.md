@@ -3,7 +3,7 @@ title: Font Awesome (or any other webfont in production)
 author: Justin Ball
 layout: post
 permalink: /2013/02/20/font-awesome-or-any-other-webfont-in-production/
-categories:
+tags:
   - Programming
 ---
 

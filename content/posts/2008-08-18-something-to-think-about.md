@@ -3,9 +3,8 @@ title: Something to Think About
 author: Justin Ball
 layout: post
 permalink: /2008/08/18/something-to-think-about/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - driving
   - sign language
 ---

@@ -3,9 +3,8 @@ title: Creative Commons Opens Legal Documents
 author: Justin Ball
 layout: post
 permalink: /2008/02/12/creative-commons-opens-legal-documents/
-categories:
-  - Programming
 tags:
+  - Programming
   - API
   - creative commons
   - EFF

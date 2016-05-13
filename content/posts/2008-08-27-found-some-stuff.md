@@ -3,9 +3,8 @@ title: Found Some Stuff
 author: Justin Ball
 layout: post
 permalink: /2008/08/27/found-some-stuff/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - stuff
 ---
 

@@ -3,7 +3,7 @@ title: First ride of the season
 author: Justin Ball
 layout: post
 permalink: /2009/03/17/first-ride-of-the-season/
-categories:
+tags:
   - Cycling
 ---
 I finally managed to get out and ride today. That is significant because it's the first time I've been outside on a bike since August 22, 2008 - the day I ran over a rattlesnake and trashed my knee. So yea for me.

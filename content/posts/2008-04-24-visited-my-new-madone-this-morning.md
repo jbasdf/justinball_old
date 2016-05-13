@@ -3,9 +3,8 @@ title: Visited My New Madone This Morning
 author: Justin Ball
 layout: post
 permalink: /2008/04/24/visited-my-new-madone-this-morning/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - madone
   - my bike

@@ -3,10 +3,9 @@ title: Mountain West Ruby Conference
 author: Justin Ball
 layout: post
 permalink: /2008/03/28/mountain-west-ruby-conference/
-categories:
+tags:
   - mtnwestrubyconf
   - Ruby On Rails
-tags:
   - merb
   - mtnwestrubyconf
   - Ruby On Rails

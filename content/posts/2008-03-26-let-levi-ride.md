@@ -3,9 +3,8 @@ title: Let Levi Ride
 author: Justin Ball
 layout: post
 permalink: /2008/03/26/let-levi-ride/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - Levi Leipheimer
   - Tour de France

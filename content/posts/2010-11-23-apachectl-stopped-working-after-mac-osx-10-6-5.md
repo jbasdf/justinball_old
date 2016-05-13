@@ -3,7 +3,7 @@ title: apachectl stopped working after Mac OSX 10.6.5
 author: Justin Ball
 layout: post
 permalink: /2010/11/23/apachectl-stopped-working-after-mac-osx-10-6-5/
-categories:
+tags:
   - apache
   - error
   - mac

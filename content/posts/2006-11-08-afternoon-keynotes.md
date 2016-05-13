@@ -3,7 +3,7 @@ title: Afternoon keynotes
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/afternoon-keynotes/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

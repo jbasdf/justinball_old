@@ -3,10 +3,9 @@ title: Working on Second Facebook Application
 author: Justin Ball
 layout: post
 permalink: /2007/11/10/working-on-second-facebook-application/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - application
   - facebook
 ---

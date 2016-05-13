@@ -3,10 +3,9 @@ title: 'Well you&#8217;re a genius'
 author: Justin Ball
 layout: post
 permalink: /2005/09/22/well-youre-a-genius/
-categories:
+tags:
   - Funny
   - Interesting
-tags:
   - genius
 ---
 

@@ -3,9 +3,8 @@ title: A Very Sexy Madone
 author: Justin Ball
 layout: post
 permalink: /2009/01/18/a-very-sexy-madone/
-categories:
-  - Funny
 tags:
+  - Funny
   - Cycling
   - Lance Armstrong
   - madone

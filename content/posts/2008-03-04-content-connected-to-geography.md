@@ -3,11 +3,10 @@ title: Content Connected to Geography
 author: Justin Ball
 layout: post
 permalink: /2008/03/04/content-connected-to-geography/
-categories:
+tags:
   - Interesting
   - Programming
   - Web2.0
-tags:
   - geocaching
   - gps
   - whereigo

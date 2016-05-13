@@ -3,7 +3,7 @@ title: My Macbook Pro, the Single Link DVI cable and the Not so Genius Apple Bar
 author: Justin Ball
 layout: post
 permalink: /2009/03/01/my-macbook-pro-the-single-link-dvi-cable-and-the-not-so-genius-apple-bar/
-categories:
+tags:
   - Computers
   - Apple Store
   - DVI

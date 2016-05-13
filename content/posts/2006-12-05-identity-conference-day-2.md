@@ -3,7 +3,7 @@ title: Identity Conference Day 2
 author: Justin Ball
 layout: post
 permalink: /2006/12/05/identity-conference-day-2/
-categories:
+tags:
   - iiw2006b
 ---
 

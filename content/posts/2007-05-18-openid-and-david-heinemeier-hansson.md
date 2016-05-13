@@ -3,10 +3,9 @@ title: OpenID and David Heinemeier Hansson
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/openid-and-david-heinemeier-hansson/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - OpenID
   - RailsConf07
   - Ruby On Rails

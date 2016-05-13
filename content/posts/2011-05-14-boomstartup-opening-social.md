@@ -3,7 +3,7 @@ title: BoomStartup Opening Social
 author: Justin Ball
 layout: post
 permalink: /2011/05/14/boomstartup-opening-social/
-categories:
+tags:
   - BoomStartup
 ---
 Just getting back from the Boomstartup Opening social. A big thanks to [John Pestana][1] for hosting the first party of the BoomStartup program. I can imagine it's a bit stressful to invite 20-30 strangers to your very nice home.

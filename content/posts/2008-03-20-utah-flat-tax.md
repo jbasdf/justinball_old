@@ -3,10 +3,9 @@ title: Utah Flat Tax
 author: Justin Ball
 layout: post
 permalink: /2008/03/20/utah-flat-tax/
-categories:
+tags:
   - Interesting
   - Political
-tags:
   - flat tax
   - tax
   - utah

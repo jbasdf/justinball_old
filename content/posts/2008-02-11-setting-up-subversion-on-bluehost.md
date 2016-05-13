@@ -3,9 +3,8 @@ title: Setting up Subversion on Bluehost
 author: Justin Ball
 layout: post
 permalink: /2008/02/11/setting-up-subversion-on-bluehost/
-categories:
-  - Programming
 tags:
+  - Programming
   - 64bit
   - bluehost
   - subversion

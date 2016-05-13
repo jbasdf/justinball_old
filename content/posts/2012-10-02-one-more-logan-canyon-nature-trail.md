@@ -3,7 +3,7 @@ title: 'One more &#8211; Logan Canyon Nature Trail'
 author: Justin Ball
 layout: post
 permalink: /2012/10/02/one-more-logan-canyon-nature-trail/
-categories:
+tags:
   - Autumn
   - Logan Canyon
 ---

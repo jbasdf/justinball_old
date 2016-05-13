@@ -3,9 +3,8 @@ title: The Uninsured
 author: Justin Ball
 layout: post
 permalink: /2008/02/12/the-uninsured/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - ama
   - health insurance
   - politics

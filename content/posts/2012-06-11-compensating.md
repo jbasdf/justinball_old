@@ -3,7 +3,7 @@ title: Compensating
 author: Justin Ball
 layout: post
 permalink: /2012/06/11/compensating/
-categories:
+tags:
   - Fun Stuff
   - Funny
   - California

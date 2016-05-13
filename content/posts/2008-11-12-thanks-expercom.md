@@ -3,7 +3,7 @@ title: Thanks Expercom
 author: Justin Ball
 layout: post
 permalink: /2008/11/12/thanks-expercom/
-categories:
+tags:
   - Funny
   - apple
   - expercom

@@ -3,9 +3,8 @@ title: Testing Rails Engine Gems
 author: Justin Ball
 layout: post
 permalink: /2009/06/16/testing-rails-engine-gems/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - engines testing
   - gems
   - Ruby On Rails

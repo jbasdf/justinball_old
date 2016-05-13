@@ -3,10 +3,9 @@ title: Cycling Reduces Your Risk of Cancer
 author: Justin Ball
 layout: post
 permalink: /2008/09/01/cycling-reduces-your-risk-of-cancer/
-categories:
+tags:
   - Cycling
   - Funny
-tags:
   - cancer
   - Cycling
   - health

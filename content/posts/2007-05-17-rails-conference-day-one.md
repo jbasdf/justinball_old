@@ -3,12 +3,11 @@ title: Rails Conference Day One
 author: Justin Ball
 layout: post
 permalink: /2007/05/17/rails-conference-day-one/
-categories:
+tags:
   - Programming
   - RailsConf
   - RailsConf07
   - Ruby On Rails
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

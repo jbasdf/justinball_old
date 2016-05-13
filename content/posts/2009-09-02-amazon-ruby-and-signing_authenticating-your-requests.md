@@ -3,7 +3,7 @@ title: Amazon Wishlist RSS, Ruby and Signing/Authenticating your Requests
 author: Justin Ball
 layout: post
 permalink: /2009/09/02/amazon-ruby-and-signing_authenticating-your-requests/
-categories:
+tags:
   - amazon
   - Authentication
   - rss

@@ -3,10 +3,9 @@ title: What Do You Want to be When You Grow Up?
 author: Justin Ball
 layout: post
 permalink: /2008/02/29/what-do-you-want-to-be-when-you-grow-up/
-categories:
+tags:
   - Funny
   - kids
-tags:
   - field trip
   - Funny
   - kids

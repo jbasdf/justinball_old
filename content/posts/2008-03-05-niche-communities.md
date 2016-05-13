@@ -3,10 +3,9 @@ title: Niche Communities
 author: Justin Ball
 layout: post
 permalink: /2008/03/05/niche-communities/
-categories:
+tags:
   - Community
   - Web2.0
-tags:
   - communities
   - Social Software
   - Web2.0

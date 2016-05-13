@@ -3,7 +3,7 @@ title: Mac OSX and the Samsung ML1740 on a network
 author: Justin Ball
 layout: post
 permalink: /2009/09/08/mac-osx-and-the-samsung-ml1740-on-a-network/
-categories:
+tags:
   - Computers
   - mac
   - osx

@@ -3,9 +3,8 @@ title: Really Neat Photography
 author: Justin Ball
 layout: post
 permalink: /2008/02/26/really-neat-photography/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - art
   - photography
 ---

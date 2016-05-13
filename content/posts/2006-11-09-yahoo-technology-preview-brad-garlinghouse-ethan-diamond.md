@@ -3,7 +3,7 @@ title: 'Yahoo! Technology Preview &#8211; Brad Garlinghouse , Ethan Diamond'
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/yahoo-technology-preview-brad-garlinghouse-ethan-diamond/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

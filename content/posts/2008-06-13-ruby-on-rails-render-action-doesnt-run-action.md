@@ -3,9 +3,8 @@ title: 'Ruby on Rails &#8211; render :action doesn&#8217;t run action'
 author: Justin Ball
 layout: post
 permalink: /2008/06/13/ruby-on-rails-render-action-doesnt-run-action/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - render
   - Ruby On Rails
 ---

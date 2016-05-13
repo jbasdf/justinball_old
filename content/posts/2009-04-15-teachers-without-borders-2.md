@@ -3,7 +3,7 @@ title: Teachers Without Borders
 author: Justin Ball
 layout: post
 permalink: /2009/04/15/teachers-without-borders-2/
-categories:
+tags:
   - Ruby On Rails
   - Teachers Without Borders
   - website

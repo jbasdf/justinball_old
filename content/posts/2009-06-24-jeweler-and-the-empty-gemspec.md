@@ -3,7 +3,7 @@ title: jeweler and the empty gemspec
 author: Justin Ball
 layout: post
 permalink: /2009/06/24/jeweler-and-the-empty-gemspec/
-categories:
+tags:
   - gems
   - jeweler
   - Ruby On Rails

@@ -3,10 +3,9 @@ title: Family Search Conference
 author: Justin Ball
 layout: post
 permalink: /2008/03/12/family-search-conference/
-categories:
+tags:
   - Family
   - Funny
-tags:
   - family search
   - familysearch.org
   - genealogy

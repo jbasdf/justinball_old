@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Don't miss the '.' - Computed Property that depends on Ember.ArrayController contents"
 date: 2013-08-30 17:19:32 -0600
-categories:
+tags:
   - Javascript
   - Ember.js
 ---

@@ -3,9 +3,8 @@ title: 2008 Madone Seatpost, and Trek love/hate
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/2008-madone-seatpost-and-trek-lovehate/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - Cycling
 ---

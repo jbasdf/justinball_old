@@ -3,9 +3,8 @@ title: Trek Project One Launched?
 author: Justin Ball
 layout: post
 permalink: /2008/09/20/trek-project-one-launched/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - madonne
   - trek project one

@@ -3,7 +3,7 @@ title: Blacksmith Fork Canyon
 author: Justin Ball
 layout: post
 permalink: /2012/10/01/blacksmith-fork-canyon/
-categories:
+tags:
   - Autumn
   - Cycling
 ---

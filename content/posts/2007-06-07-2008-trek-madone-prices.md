@@ -3,9 +3,8 @@ title: 2008 Trek Madone prices
 author: Justin Ball
 layout: post
 permalink: /2007/06/07/2008-trek-madone-prices/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - Cycling
 ---

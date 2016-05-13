@@ -3,7 +3,7 @@ title: Maybe I Should be a Computer Tech
 author: Justin Ball
 layout: post
 permalink: /2008/12/04/maybe-i-should-be-a-computer-tech/
-categories:
+tags:
   - Funny
   - Computers
   - dell dimension 8400

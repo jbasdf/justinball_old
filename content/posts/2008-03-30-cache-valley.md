@@ -3,9 +3,8 @@ title: Cache Valley
 author: Justin Ball
 layout: post
 permalink: /2008/03/30/cache-valley/
-categories:
-  - Community
 tags:
+  - Community
   - cache valley
   - logan
   - utah

@@ -3,7 +3,7 @@ title: asp.net is fun again
 author: Justin Ball
 layout: post
 permalink: /2006/07/17/aspnet-is-fun-again/
-categories:
+tags:
   - ASP.Net
   - Ruby On Rails
 ---

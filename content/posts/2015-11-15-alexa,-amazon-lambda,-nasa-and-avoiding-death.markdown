@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Alexa, Amazon Lambda, NASA and avoiding death"
 date: 2015-11-15 18:13:46 -0700
-categories:
+tags:
   - Programming
 ---
 

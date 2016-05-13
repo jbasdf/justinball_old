@@ -3,12 +3,11 @@ title: PicLens on ThePlanCollection.com
 author: Justin Ball
 layout: post
 permalink: /2008/04/19/piclens-on-theplancollectioncom/
-categories:
+tags:
   - Interesting
   - internet
   - photography
   - The Plan Collection
-tags:
   - house plans
   - photos
   - piclens

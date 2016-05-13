@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Beautiful day. Had to blow off work for a ride"
 date: 2014-03-14 22:23:51 -0600
-categories:
+tags:
   - Cycling
 ---
 

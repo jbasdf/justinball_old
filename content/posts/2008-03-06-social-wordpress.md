@@ -3,13 +3,12 @@ title: Turn WordPress Into Social Butterfly
 author: Justin Ball
 layout: post
 permalink: /2008/03/06/social-wordpress/
-categories:
+tags:
   - Interesting
   - internet
   - Programming
   - Social Software
   - Wordpress
-tags:
   - DiSo
   - Oauth
   - OpenID

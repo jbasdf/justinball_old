@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "The Balls Bouncying Around DisneyLand"
 date: 2015-09-25 08:46:11 -0700
-categories:
+tags:
   - Travel, Disneyland, LA
 ---
 

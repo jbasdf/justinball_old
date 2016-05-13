@@ -3,10 +3,9 @@ title: Interesting Things From Today
 author: Justin Ball
 layout: post
 permalink: /2008/04/02/interesting-things-from-today/
-categories:
+tags:
   - Devin
   - Interesting
-tags:
   - Interesting
   - pickle soup
 ---

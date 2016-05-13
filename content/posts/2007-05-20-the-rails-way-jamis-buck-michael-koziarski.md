@@ -3,10 +3,9 @@ title: The Rails Way Jamis Buck, Michael Koziarski
 author: Justin Ball
 layout: post
 permalink: /2007/05/20/the-rails-way-jamis-buck-michael-koziarski/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - jamis buck
   - RailsConf07
   - Ruby On Rails

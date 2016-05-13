@@ -3,9 +3,8 @@ title: 'Shoulda Doesn&#8217;t like &#8216;Status&#8217;'
 author: Justin Ball
 layout: post
 permalink: /2008/07/25/shoulda-doesnt-like-status/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - bugs
   - Ruby On Rails
   - shoulda

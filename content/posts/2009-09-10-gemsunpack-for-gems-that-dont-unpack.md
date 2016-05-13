@@ -3,7 +3,7 @@ title: 'gems:unpack for gems that don&#8217;t unpack'
 author: Justin Ball
 layout: post
 permalink: /2009/09/10/gemsunpack-for-gems-that-dont-unpack/
-categories:
+tags:
   - gems
   - muck
   - rake

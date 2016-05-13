@@ -3,9 +3,8 @@ title: My Junkfood Goeth Quietly Into the Night
 author: Justin Ball
 layout: post
 permalink: /2008/10/17/my-junkfood-goeth-quietly-into-the-night/
-categories:
-  - economy
 tags:
+  - economy
   - animal cookies
   - "business. mother's animal cookies"
   - cookies

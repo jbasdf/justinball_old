@@ -3,7 +3,7 @@ title: Ruby made me fatter so I had to do something
 author: Justin Ball
 layout: post
 permalink: /2006/07/21/ruby-made-me-fatter-so-i-had-to-do-something/
-categories:
+tags:
   - Cycling
   - Interesting
   - Ruby On Rails

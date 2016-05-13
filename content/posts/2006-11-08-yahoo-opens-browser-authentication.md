@@ -3,7 +3,7 @@ title: Yahoo opens browser authentication
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/yahoo-opens-browser-authentication/
-categories:
+tags:
   - Social Software
   - The Web
   - Web2.0

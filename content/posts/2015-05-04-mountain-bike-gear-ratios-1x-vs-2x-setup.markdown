@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Mountain Bike Gear Ratios 1x vs 2x setup"
 date: 2015-05-04 00:26:40 -0600
-categories:
+tags:
   - Cycling
 ---
 

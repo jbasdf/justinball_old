@@ -3,9 +3,8 @@ title: People for the Ethical Treatment of Yeast (PETY)
 author: Justin Ball
 layout: post
 permalink: /2008/04/27/people-for-the-ethical-treatment-of-yeast-pety/
-categories:
-  - Funny
 tags:
+  - Funny
   - bread
   - pety
   - yeast

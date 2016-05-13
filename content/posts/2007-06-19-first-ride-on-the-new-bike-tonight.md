@@ -3,9 +3,8 @@ title: First Ride on the New Bike tonight
 author: Justin Ball
 layout: post
 permalink: /2007/06/19/first-ride-on-the-new-bike-tonight/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - mountain bike
   - santa cruz blur xc

@@ -3,9 +3,8 @@ title: Trek Project One Delayed
 author: Justin Ball
 layout: post
 permalink: /2008/01/14/trek-project-one-delayed/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - project one
   - trek

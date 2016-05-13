@@ -3,10 +3,9 @@ title: Morph Exchange Review
 author: Justin Ball
 layout: post
 permalink: /2008/04/11/morph-exchange-review/
-categories:
+tags:
   - internet
   - Programming
-tags:
   - cloud computing
   - engine yard
   - hosting

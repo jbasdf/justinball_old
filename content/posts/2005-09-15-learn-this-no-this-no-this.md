@@ -3,10 +3,9 @@ title: Learn this, no this, no this
 author: Justin Ball
 layout: post
 permalink: /2005/09/15/learn-this-no-this-no-this/
-categories:
+tags:
   - Education
   - Programming
-tags:
   - learning
   - Microsoft
   - Programming

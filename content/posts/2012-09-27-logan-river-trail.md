@@ -3,7 +3,7 @@ title: Logan River Trail
 author: Justin Ball
 layout: post
 permalink: /2012/09/27/logan-river-trail/
-categories:
+tags:
   - Autumn
   - Cycling
   - Cyclocross

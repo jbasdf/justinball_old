@@ -3,7 +3,7 @@ title: Jenna talks herself to sleep
 author: Justin Ball
 layout: post
 permalink: /2006/04/11/jenna-talks-herself-to-sleep/
-categories:
+tags:
   - Jenna
   - The Kids
 ---

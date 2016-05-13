@@ -3,9 +3,8 @@ title: More on my bike dilema
 author: Justin Ball
 layout: post
 permalink: /2007/05/29/more-on-my-bike-dilema/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - calfee
   - Cycling
   - santa cruz

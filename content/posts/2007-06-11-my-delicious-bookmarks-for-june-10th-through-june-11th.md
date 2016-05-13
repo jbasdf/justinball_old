@@ -3,7 +3,7 @@ title: My del.icio.us bookmarks for June 10th through June 11th
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/my-delicious-bookmarks-for-june-10th-through-june-11th/
-categories:
+tags:
   - Links
   - Cycling
 ---

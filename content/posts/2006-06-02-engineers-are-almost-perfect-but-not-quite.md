@@ -3,7 +3,7 @@ title: Engineers are almost perfect but not quite.
 author: Justin Ball
 layout: post
 permalink: /2006/06/02/engineers-are-almost-perfect-but-not-quite/
-categories:
+tags:
   - Interesting
 ---
 

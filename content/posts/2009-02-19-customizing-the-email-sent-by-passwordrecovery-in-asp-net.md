@@ -3,7 +3,7 @@ title: Customizing the email sent by PasswordRecovery in ASP.Net
 author: Justin Ball
 layout: post
 permalink: /2009/02/19/customizing-the-email-sent-by-passwordrecovery-in-asp-net/
-categories:
+tags:
   - ASP.Net
   - Ruby On Rails
   - ASP.Net

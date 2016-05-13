@@ -3,9 +3,8 @@ title: Trek Project One Update
 author: Justin Ball
 layout: post
 permalink: /2008/03/20/trek-project-one-update/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Madone
   - Cycling
   - madone

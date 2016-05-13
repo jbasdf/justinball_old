@@ -3,9 +3,8 @@ title: Lifetime Marriage
 author: Justin Ball
 layout: post
 permalink: /2008/03/30/lifetime-marriage/
-categories:
-  - Funny
 tags:
+  - Funny
   - marriage
 ---
 

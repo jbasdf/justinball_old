@@ -3,7 +3,7 @@ title: WordPress Multiuser Extensions
 author: Justin Ball
 layout: post
 permalink: /2008/02/08/wordpress-multiuser-extensions/
-categories:
+tags:
   - internet
   - Programming
 ---

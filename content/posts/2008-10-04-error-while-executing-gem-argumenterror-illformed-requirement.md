@@ -3,9 +3,8 @@ title: 'ERROR:  While executing gem (ArgumentError)  Illformed requirement'
 author: Justin Ball
 layout: post
 permalink: /2008/10/04/error-while-executing-gem-argumenterror-illformed-requirement/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - bugs
   - errors
   - gems

@@ -3,10 +3,9 @@ title: Get jQuery Working With Ruby on Rails 3
 author: Justin Ball
 layout: post
 permalink: /2011/03/11/get-jquery-working-with-ruby-on-rails-3/
-categories:
+tags:
   - jQuery
   - Ruby On Rails
-tags:
   - jQuery
   - Ruby On Rails
 ---

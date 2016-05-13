@@ -3,7 +3,7 @@ title: 'Uploadify onComplete Wouldn&#8217;t Fire Until I Swore &#8211; A Lot'
 author: Justin Ball
 layout: post
 permalink: /2010/09/03/uploadify-oncomplete-wouldnt-fire-until-i-swore-a-lot/
-categories:
+tags:
   - jQuery
   - Ruby On Rails
 ---

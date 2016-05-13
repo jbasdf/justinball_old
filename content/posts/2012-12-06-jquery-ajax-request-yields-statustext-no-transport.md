@@ -3,7 +3,7 @@ title: "jQuery ajax request yields statusText: No Transport"
 author: Justin Ball
 layout: post
 permalink: /2012/12/06/jquery-ajax-request-yields-statustext-no-transport/
-categories:
+tags:
   - Javascript
   - jQuery
   - Programming

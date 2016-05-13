@@ -3,9 +3,8 @@ title: First Facebook Application is Running
 author: Justin Ball
 layout: post
 permalink: /2007/11/01/first-facebook-application-is-running/
-categories:
-  - The Plan Collection
 tags:
+  - The Plan Collection
   - application
   - business
   - facebook

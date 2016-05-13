@@ -3,13 +3,12 @@ title: Journal Writing Sucks, Blogging is Cool
 author: Justin Ball
 layout: post
 permalink: /2008/03/16/journal-writing-sucks-blogging-is-cool/
-categories:
+tags:
   - blogging
   - Community
   - family history
   - genealogy
   - Interesting
-tags:
   - blogging
   - family history
   - friendfeed

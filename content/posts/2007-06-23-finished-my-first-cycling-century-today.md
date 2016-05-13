@@ -3,10 +3,9 @@ title: Finished My First Cycling Century Today
 author: Justin Ball
 layout: post
 permalink: /2007/06/23/finished-my-first-cycling-century-today/
-categories:
+tags:
   - COSL
   - Cycling
-tags:
   - cache valley
   - Cycling
   - MS150

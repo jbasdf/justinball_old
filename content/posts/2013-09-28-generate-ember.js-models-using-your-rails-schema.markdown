@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Generate Ember.js models using your Rails Schema"
 date: 2013-09-28 11:48:22 -0600
-categories:
+tags:
   - Ruby on Rails
   - Ember.js
 ---

@@ -3,7 +3,7 @@ title: The Princess and the Pea
 author: Justin Ball
 layout: post
 permalink: /2009/11/08/the-princess-and-the-pea/
-categories:
+tags:
   - Alyssa
   - Family
 ---

@@ -3,7 +3,7 @@ title: Cycling in Teton Valley (Driggs, ID)
 author: Justin Ball
 layout: post
 permalink: /2011/07/10/cycling-in-teton-valley-driggs-id/
-categories:
+tags:
   - Cycling
 ---
 Just spent the week with my family in Teton Valley and Grand Teton National Park. After four days of kids, mosquitoes and me biking every day my wife is not going to divorce me so it's been a great vacation. Of course as I type this Callie is giving me grief that of all the things I write about it's the biking so stay tuned on the divorce front.

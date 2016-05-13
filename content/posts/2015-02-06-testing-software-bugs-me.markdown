@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Testing Software Bugs Me"
 date: 2015-02-06 15:27:26 -0700
-categories:
+tags:
   - Software
   - Testing
 ---

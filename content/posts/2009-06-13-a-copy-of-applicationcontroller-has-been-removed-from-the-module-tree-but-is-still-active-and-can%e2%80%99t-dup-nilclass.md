@@ -3,7 +3,7 @@ title: A copy of ApplicationController has been removed from the module tree but
 author: Justin Ball
 layout: post
 permalink: /2009/06/13/a-copy-of-applicationcontroller-has-been-removed-from-the-module-tree-but-is-still-active-and-can%e2%80%99t-dup-nilclass/
-categories:
+tags:
   - Ruby On Rails
   - errors
 ---

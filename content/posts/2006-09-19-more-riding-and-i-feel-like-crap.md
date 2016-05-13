@@ -3,7 +3,7 @@ title: More riding and I feel like crap
 author: Justin Ball
 layout: post
 permalink: /2006/09/19/more-riding-and-i-feel-like-crap/
-categories:
+tags:
   - Cycling
 ---
 

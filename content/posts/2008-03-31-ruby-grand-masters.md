@@ -3,11 +3,10 @@ title: Ruby Grand Masters
 author: Justin Ball
 layout: post
 permalink: /2008/03/31/ruby-grand-masters/
-categories:
+tags:
   - mtnwestrubyconf
   - Programming
   - Ruby On Rails
-tags:
   - chess
   - grand master
   - mtnwestrubyconf

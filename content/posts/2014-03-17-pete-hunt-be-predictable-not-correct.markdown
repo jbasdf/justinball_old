@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Pete Hunt - Be predictable, not correct."
 date: 2014-03-17 09:21:45 -0600
-categories:
+tags:
   - Mountain West Javascript
   - mwjs
   - Javascript

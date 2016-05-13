@@ -3,7 +3,7 @@ title: 'Justin and Joel&#8217;s Epic Mountain Bike Adventure'
 author: Justin Ball
 layout: post
 permalink: /2009/10/15/justin-and-joels-epic-mountain-bike-adventure/
-categories:
+tags:
   - Cycling
   - cache valley
   - mountain biking

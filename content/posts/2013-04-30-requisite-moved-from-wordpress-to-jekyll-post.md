@@ -3,7 +3,7 @@ title: Requisite Moved From Wordpress to Jekyll Post
 author: Justin Ball
 layout: post
 permalink: /2013/04/30/requisite-moved-from-wordpress-to-jekyll-post/
-categories:
+tags:
   - Software Development
 ---
 

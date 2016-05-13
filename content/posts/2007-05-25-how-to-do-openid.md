@@ -3,9 +3,8 @@ title: How to do OpenID
 author: Justin Ball
 layout: post
 permalink: /2007/05/25/how-to-do-openid/
-categories:
-  - OpenID
 tags:
+  - OpenID
   - OpenID
 ---
 

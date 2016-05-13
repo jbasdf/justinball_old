@@ -3,9 +3,8 @@ title: I love Calfee, Strong, and Time bikes
 author: Justin Ball
 layout: post
 permalink: /2007/05/21/i-love-calfee-bikes/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - calfee
   - carl strong
   - colnago

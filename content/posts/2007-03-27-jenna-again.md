@@ -3,9 +3,8 @@ title: Jenna Again
 author: Justin Ball
 layout: post
 permalink: /2007/03/27/jenna-again/
-categories:
-  - Jenna
 tags:
+  - Jenna
   - Funny
   - kids
 ---

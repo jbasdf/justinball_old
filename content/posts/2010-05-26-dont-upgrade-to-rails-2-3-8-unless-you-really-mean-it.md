@@ -3,7 +3,7 @@ title: 'Don&#8217;t Upgrade to Rails 2.3.8 Unless You Really Mean It'
 author: Justin Ball
 layout: post
 permalink: /2010/05/26/dont-upgrade-to-rails-2-3-8-unless-you-really-mean-it/
-categories:
+tags:
   - ruby
   - Ruby On Rails
 ---

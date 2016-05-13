@@ -3,9 +3,8 @@ title: Family Search API
 author: Justin Ball
 layout: post
 permalink: /2008/03/12/family-search-api/
-categories:
-  - genealogy
 tags:
+  - genealogy
   - API
   - family search
   - genealogy

@@ -3,7 +3,7 @@ title: Men in Tights
 author: Justin Ball
 layout: post
 permalink: /2010/05/07/men-in-tights/
-categories:
+tags:
   - Funny
   - Cycling
 ---

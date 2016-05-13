@@ -3,9 +3,8 @@ title: Complaning About Perspective
 author: Justin Ball
 layout: post
 permalink: /2007/11/08/complaning-about-perspective/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - life
 ---
 

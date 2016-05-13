@@ -3,7 +3,7 @@ title: 'Tired&#8230; again'
 author: Justin Ball
 layout: post
 permalink: /2006/08/29/tired-again/
-categories:
+tags:
   - Cycling
   - The Plan Collection
 ---

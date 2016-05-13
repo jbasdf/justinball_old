@@ -3,9 +3,8 @@ title: Evil Wrapped in Chocolate
 author: Justin Ball
 layout: post
 permalink: /2008/04/09/evil-wrapped-in-chocolate/
-categories:
-  - food
 tags:
+  - food
   - oreos
   - recipe
   - truffles

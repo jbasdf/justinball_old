@@ -3,9 +3,8 @@ title: Marginal Improvements Make People Happy
 author: Justin Ball
 layout: post
 permalink: /2008/10/11/marginal-improvements-make-people-happy/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - marginal changes
 ---
 I saw a recent post on Slashdot that got my attention - [What Google Engineers do for Fun: Computerized Lego Art Project][1]. I have to admit I am a total Lego nut so whenever I see Lego in the headline I have to read the article. 

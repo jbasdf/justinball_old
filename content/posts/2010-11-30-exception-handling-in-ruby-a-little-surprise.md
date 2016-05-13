@@ -3,7 +3,7 @@ title: 'Exception Handling in Ruby &#8211; a Little Surprise'
 author: Justin Ball
 layout: post
 permalink: /2010/11/30/exception-handling-in-ruby-a-little-surprise/
-categories:
+tags:
   - Programming
   - Ruby On Rails
 ---

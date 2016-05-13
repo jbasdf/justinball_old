@@ -3,7 +3,7 @@ title: Amazon Wishlist RSS
 author: Justin Ball
 layout: post
 permalink: /2009/10/26/amazon-wishlist-rss/
-categories:
+tags:
   - Programming
   - amazon.com
   - rss

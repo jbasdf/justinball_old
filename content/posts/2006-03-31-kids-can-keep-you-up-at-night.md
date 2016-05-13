@@ -3,7 +3,7 @@ title: Kids can keep you up at night
 author: Justin Ball
 layout: post
 permalink: /2006/03/31/kids-can-keep-you-up-at-night/
-categories:
+tags:
   - Jenna
   - The Kids
 ---

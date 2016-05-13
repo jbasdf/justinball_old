@@ -3,9 +3,8 @@ title: hexadecimal value 0x1A, is an invalid character
 author: Justin Ball
 layout: post
 permalink: /2008/03/03/hexadecimal-value-0x1a-is-an-invalid-character/
-categories:
-  - Programming
 tags:
+  - Programming
   - ASP.Net
   - encoding
   - xml

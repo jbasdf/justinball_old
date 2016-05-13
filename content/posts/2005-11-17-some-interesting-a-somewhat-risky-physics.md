@@ -3,7 +3,7 @@ title: Some interesting a somewhat risky physics
 author: Justin Ball
 layout: post
 permalink: /2005/11/17/some-interesting-a-somewhat-risky-physics/
-categories:
+tags:
   - Neat Stuff
 ---
 

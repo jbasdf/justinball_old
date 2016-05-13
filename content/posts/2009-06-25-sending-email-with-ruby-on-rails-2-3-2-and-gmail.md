@@ -3,7 +3,7 @@ title: Sending email with Ruby on Rails 2.3.2 and gmail
 author: Justin Ball
 layout: post
 permalink: /2009/06/25/sending-email-with-ruby-on-rails-2-3-2-and-gmail/
-categories:
+tags:
   - 2.3.2
   - configuration
   - email

@@ -3,9 +3,8 @@ title: Snelgrove Dies Away
 author: Justin Ball
 layout: post
 permalink: /2008/02/24/snelgrove-dies-away/
-categories:
-  - food
 tags:
+  - food
   - business
   - Dryers
   - ice cream

@@ -3,9 +3,8 @@ title: I Love Our Facebook Application
 author: Justin Ball
 layout: post
 permalink: /2008/01/24/i-love-our-facebook-application/
-categories:
-  - The Plan Collection
 tags:
+  - The Plan Collection
   - facebook
   - house plans
   - theplancollection

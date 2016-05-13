@@ -3,12 +3,11 @@ title: Open Any Document in Google Docs Via a Url
 author: Justin Ball
 layout: post
 permalink: /2008/08/28/open-any-document-in-google-docs-via-a-url/
-categories:
+tags:
   - Interesting
   - Programming
   - Projects
   - Ruby On Rails
-tags:
   - google docs
   - google hacks
 ---

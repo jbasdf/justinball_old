@@ -3,9 +3,8 @@ title: Do We Need Help With Elections
 author: Justin Ball
 layout: post
 permalink: /2008/01/10/do-we-need-help-with-elections/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - elections
   - politics
 ---

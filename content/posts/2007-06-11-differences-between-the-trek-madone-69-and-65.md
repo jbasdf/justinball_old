@@ -3,9 +3,8 @@ title: Differences Between the Trek Madone 6.9 and 6.5
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/differences-between-the-trek-madone-69-and-65/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Trek Madone
   - Cycling
 ---

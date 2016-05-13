@@ -3,10 +3,9 @@ title: Use Mac Ports on Leopard to get Ruby on Rails Running
 author: Justin Ball
 layout: post
 permalink: /2008/01/17/use-mac-ports-on-leopard-to-get-ruby-on-rails-running/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - leopard
   - Mac Ports
   - Ruby On Rails

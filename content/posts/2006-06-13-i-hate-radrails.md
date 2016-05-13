@@ -3,7 +3,7 @@ title: I hate RadRails
 author: Justin Ball
 layout: post
 permalink: /2006/06/13/i-hate-radrails/
-categories:
+tags:
   - Ruby On Rails
 ---
 

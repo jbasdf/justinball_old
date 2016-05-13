@@ -3,7 +3,7 @@ title: Impressive Lego Art
 author: Justin Ball
 layout: post
 permalink: /2005/12/12/impressive-lego-art/
-categories:
+tags:
   - Neat Stuff
 ---
 

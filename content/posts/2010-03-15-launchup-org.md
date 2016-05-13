@@ -3,7 +3,7 @@ title: LaunchUp.org
 author: Justin Ball
 layout: post
 permalink: /2010/03/15/launchup-org/
-categories:
+tags:
   - business
   - launchup.org
 ---

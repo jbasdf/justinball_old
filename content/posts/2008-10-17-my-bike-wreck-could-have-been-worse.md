@@ -3,9 +3,8 @@ title: My Bike Wreck Could Have Been Worse
 author: Justin Ball
 layout: post
 permalink: /2008/10/17/my-bike-wreck-could-have-been-worse/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - gross
 ---

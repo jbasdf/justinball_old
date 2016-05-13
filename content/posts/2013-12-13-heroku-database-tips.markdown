@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Heroku Database Tips"
 date: 2013-12-13 18:44:50 -0700
-categories:
+tags:
   - Heroku
   - PostGreSQL
 ---

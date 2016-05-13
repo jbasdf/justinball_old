@@ -3,7 +3,7 @@ title: Alumni from last years Launch Pad
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/alumni-from-last-years-launch-pad/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

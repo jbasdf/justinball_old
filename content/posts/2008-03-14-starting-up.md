@@ -3,9 +3,8 @@ title: Starting Up
 author: Justin Ball
 layout: post
 permalink: /2008/03/14/starting-up/
-categories:
-  - business
 tags:
+  - business
   - business
   - start ups
 ---

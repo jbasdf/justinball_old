@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Crossed 4000 miles for the year tonight"
 date: 2014-07-08 21:28:49 -0600
-categories:
+tags:
   - Cycling
 ---
 

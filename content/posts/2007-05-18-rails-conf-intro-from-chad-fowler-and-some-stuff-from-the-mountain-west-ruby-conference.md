@@ -5,11 +5,10 @@ title: >
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/rails-conf-intro-from-chad-fowler-and-some-stuff-from-the-mountain-west-ruby-conference/
-categories:
+tags:
   - mtnwestrubyconf
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

@@ -3,9 +3,8 @@ title: Teeth Whitening = Pain
 author: Justin Ball
 layout: post
 permalink: /2008/08/14/teeth-whitening-pain/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - pain
   - teeth whitening
 ---

@@ -3,7 +3,7 @@ title: The coolest new toy is bubbles
 author: Justin Ball
 layout: post
 permalink: /2005/11/18/the-coolest-new-toy-is-bubbles/
-categories:
+tags:
   - Neat Stuff
 ---
 

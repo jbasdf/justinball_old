@@ -3,7 +3,7 @@ title: Things that go boom
 author: Justin Ball
 layout: post
 permalink: /2006/06/02/things-that-go-boom/
-categories:
+tags:
   - Interesting
 ---
 

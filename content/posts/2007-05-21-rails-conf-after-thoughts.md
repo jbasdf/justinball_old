@@ -3,11 +3,10 @@ title: Rails Conf after thoughts
 author: Justin Ball
 layout: post
 permalink: /2007/05/21/rails-conf-after-thoughts/
-categories:
+tags:
   - RailsConf
   - RailsConf07
   - Ruby On Rails
-tags:
   - RailsConf
   - Ruby On Rails
 ---

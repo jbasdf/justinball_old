@@ -3,10 +3,9 @@ title: 'New Apple Laptops &#8211; I&#8217;m so Excited'
 author: Justin Ball
 layout: post
 permalink: /2008/10/09/new-apple-laptops-im-so-excited/
-categories:
+tags:
   - Computers
   - Funny
-tags:
   - apple
   - macbook
   - macbook pro

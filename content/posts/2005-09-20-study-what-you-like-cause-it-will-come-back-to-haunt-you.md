@@ -3,7 +3,7 @@ title: study what you like cause it will come back to haunt you.
 author: Justin Ball
 layout: post
 permalink: /2005/09/20/
-categories:
+tags:
   - Education
 ---
 

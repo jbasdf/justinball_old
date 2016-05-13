@@ -3,9 +3,8 @@ title: Family Search Write
 author: Justin Ball
 layout: post
 permalink: /2008/03/12/family-search-write/
-categories:
-  - genealogy
 tags:
+  - genealogy
   - API
   - family search
   - genealogy

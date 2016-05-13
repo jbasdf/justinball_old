@@ -3,10 +3,9 @@ title: 51Weeks at ICLS
 author: Justin Ball
 layout: post
 permalink: /2008/06/24/51weeks-at-icls/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - 51weeks
   - icls2008
   - Ruby On Rails

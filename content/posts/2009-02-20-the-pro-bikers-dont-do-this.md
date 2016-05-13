@@ -3,9 +3,8 @@ title: 'The Pro Bikers Don&#8217;t do This'
 author: Justin Ball
 layout: post
 permalink: /2009/02/20/the-pro-bikers-dont-do-this/
-categories:
-  - Funny
 tags:
+  - Funny
   - Funny
   - madone
   - trek

@@ -3,9 +3,8 @@ title: 2008 Trek Madone Dilema
 author: Justin Ball
 layout: post
 permalink: /2008/04/17/2008-trek-madone-dilema/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008
   - 6.9
   - madone

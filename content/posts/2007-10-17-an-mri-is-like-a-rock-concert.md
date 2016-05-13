@@ -3,9 +3,8 @@ title: An MRI is Like a Rock Concert
 author: Justin Ball
 layout: post
 permalink: /2007/10/17/an-mri-is-like-a-rock-concert/
-categories:
-  - Uncategorized
 tags:
+  - Uncategorized
   - back problems
   - medicine
   - MRI

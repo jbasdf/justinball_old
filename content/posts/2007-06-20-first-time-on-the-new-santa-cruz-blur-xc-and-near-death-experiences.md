@@ -3,9 +3,8 @@ title: First Time on the new Santa Cruz Blur XC, and Near Death Experiences
 author: Justin Ball
 layout: post
 permalink: /2007/06/20/first-time-on-the-new-santa-cruz-blur-xc-and-near-death-experiences/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - mountain bike
   - santa cruz blur xc

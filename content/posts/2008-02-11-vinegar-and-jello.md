@@ -3,9 +3,8 @@ title: Vinegar and Jello
 author: Justin Ball
 layout: post
 permalink: /2008/02/11/vinegar-and-jello/
-categories:
-  - food
 tags:
+  - food
   - cows
   - food
   - gelatin

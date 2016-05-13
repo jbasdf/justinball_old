@@ -3,11 +3,10 @@ title: How Mortgages and Housing Hurt the Economy
 author: Justin Ball
 layout: post
 permalink: /2008/03/20/how-mortgages-and-housing-hurt-the-economy/
-categories:
+tags:
   - economy
   - House Stuff
   - Interesting
-tags:
   - economy
   - house plans
   - housing

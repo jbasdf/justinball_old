@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Course Setup Using Google Docs and the Canvas API"
 date: 2015-06-17 08:25:48 -0600
-categories:
+tags:
   - Atomic Jolt
   - Canvas
   - Programming

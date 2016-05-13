@@ -3,7 +3,7 @@ title: Change your WordPress Gallery Settings
 author: Justin Ball
 layout: post
 permalink: /2009/11/10/change-your-wordpress-gallery-settings/
-categories:
+tags:
   - galleries
   - photoJAR
   - photos

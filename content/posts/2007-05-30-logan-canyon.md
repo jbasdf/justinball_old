@@ -3,9 +3,8 @@ title: Logan Canyon
 author: Justin Ball
 layout: post
 permalink: /2007/05/30/logan-canyon/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - canyon
   - Cycling
   - logan

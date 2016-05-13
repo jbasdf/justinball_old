@@ -3,7 +3,7 @@ title: Super Cheese
 author: Justin Ball
 layout: post
 permalink: /2009/03/08/super-cheese/
-categories:
+tags:
   - Funny
 ---
 This is the most impressive cheese ever:

@@ -3,7 +3,7 @@ title: 'to_json gives TypeError Exception: wrong argument type Hash (expected Da
 author: Justin Ball
 layout: post
 permalink: /2009/08/17/to_json-gives-typeerror-exception-wrong-argument-type-hash-expected-data/
-categories:
+tags:
   - Ruby On Rails
   - to_json
 ---

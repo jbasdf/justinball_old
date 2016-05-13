@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Rails on Heroku Notes - some Asset Pipeline and a Frame issue"
 date: 2013-10-23 08:36:56 -0600
-categories:
+tags:
   - Rails
   - Heroku
 ---

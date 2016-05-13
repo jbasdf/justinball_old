@@ -3,7 +3,7 @@ title: Pearl Harbor
 author: Justin Ball
 layout: post
 permalink: /2013/01/16/pearl-harbor/
-categories:
+tags:
   - Travel
   - Oahu
   - Hawaii

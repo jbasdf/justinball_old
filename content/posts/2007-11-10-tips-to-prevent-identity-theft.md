@@ -3,9 +3,8 @@ title: Tips to Prevent Identity Theft
 author: Justin Ball
 layout: post
 permalink: /2007/11/10/tips-to-prevent-identity-theft/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - identity_theft
 ---
 

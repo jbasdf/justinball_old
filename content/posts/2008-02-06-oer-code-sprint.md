@@ -3,9 +3,8 @@ title: OER Code Sprint
 author: Justin Ball
 layout: post
 permalink: /2008/02/06/oer-code-sprint/
-categories:
-  - Programming
 tags:
+  - Programming
   - code sprint
   - OER
   - Programming

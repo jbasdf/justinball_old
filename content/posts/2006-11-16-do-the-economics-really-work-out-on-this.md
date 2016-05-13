@@ -3,7 +3,7 @@ title: Do the economics really work out on this?
 author: Justin Ball
 layout: post
 permalink: /2006/11/16/do-the-economics-really-work-out-on-this/
-categories:
+tags:
   - Waste of Time
 ---
 

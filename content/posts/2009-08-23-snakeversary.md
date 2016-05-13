@@ -3,7 +3,7 @@ title: Snakeversary
 author: Justin Ball
 layout: post
 permalink: /2009/08/23/snakeversary/
-categories:
+tags:
   - Cycling
   - knee
   - rattlesnake

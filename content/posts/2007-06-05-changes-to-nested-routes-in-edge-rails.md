@@ -3,9 +3,8 @@ title: Changes to Nested Routes in Edge Rails
 author: Justin Ball
 layout: post
 permalink: /2007/06/05/changes-to-nested-routes-in-edge-rails/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - edge rails
   - Ruby On Rails
 ---

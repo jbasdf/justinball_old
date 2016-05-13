@@ -3,9 +3,8 @@ title: Ride Your Bike to Work and Get PAID!!!
 author: Justin Ball
 layout: post
 permalink: /2007/06/12/ride-your-bike-to-work-and-get-paid/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - commuting
   - Cycling
   - legislation

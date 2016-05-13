@@ -3,7 +3,7 @@ title: Jonathan Miller
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/jonathan-miller/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

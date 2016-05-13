@@ -3,9 +3,8 @@ title: A Killer iPhone App
 author: Justin Ball
 layout: post
 permalink: /2008/03/16/a-killer-iphone-app/
-categories:
-  - Funny
 tags:
+  - Funny
   - ideas
   - iPhone
   - SDK

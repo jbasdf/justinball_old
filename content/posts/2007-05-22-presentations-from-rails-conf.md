@@ -3,10 +3,9 @@ title: Presentations from Rails Conf
 author: Justin Ball
 layout: post
 permalink: /2007/05/22/presentations-from-rails-conf/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - rails conference
   - Ruby On Rails
 ---

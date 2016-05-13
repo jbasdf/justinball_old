@@ -3,9 +3,8 @@ title: iPhone SDK
 author: Justin Ball
 layout: post
 permalink: /2008/03/06/iphone-sdk/
-categories:
-  - iPhone
 tags:
+  - iPhone
   - iPhone
 ---
 

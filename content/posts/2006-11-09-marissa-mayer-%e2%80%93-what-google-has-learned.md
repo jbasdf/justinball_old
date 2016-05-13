@@ -3,7 +3,7 @@ title: Marissa Mayer – What google has learned
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/marissa-mayer-%e2%80%93-what-google-has-learned/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

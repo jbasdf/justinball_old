@@ -3,9 +3,8 @@ title: Salt Lake City Drivers
 author: Justin Ball
 layout: post
 permalink: /2007/06/06/salt-lake-city-drivers/
-categories:
-  - Funny
 tags:
+  - Funny
   - driving
   - Funny
   - gross

@@ -3,10 +3,9 @@ title: 'Edge Rails, OpenID and the Dreaded Sorry, the OpenID verification failed
 author: Justin Ball
 layout: post
 permalink: /2007/09/17/edge-rails-openid-and-the-dreaded-sorry-the-openid-verification-failed-error/
-categories:
+tags:
   - OpenID
   - Ruby On Rails
-tags:
   - edge rails
   - errors
   - OpenID

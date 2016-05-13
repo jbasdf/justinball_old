@@ -3,9 +3,8 @@ title: House plans that look good in the snow
 author: Justin Ball
 layout: post
 permalink: /2009/01/26/house-plans-that-look-good-in-the-snow/
-categories:
-  - Funny
 tags:
+  - Funny
   - home plans
   - house plans
   - theplancollection

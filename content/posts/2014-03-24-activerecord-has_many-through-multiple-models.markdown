@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "ActiveRecord has_many through multiple models"
 date: 2014-03-24 18:06:44 -0600
-categories:
+tags:
   - Rails
   - ActiveRecord
   - has_many

@@ -3,11 +3,10 @@ title: 'Our First &#8216;Phone Call&#8217;'
 author: Justin Ball
 layout: post
 permalink: /2008/04/09/our-first-phone-call/
-categories:
+tags:
   - Aubrey
   - Family
   - Funny
-tags:
   - Funny
   - School
 ---

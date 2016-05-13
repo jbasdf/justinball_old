@@ -3,9 +3,8 @@ title: Watch Your Roomba
 author: Justin Ball
 layout: post
 permalink: /2008/01/27/watch-your-roomba/
-categories:
-  - Funny
 tags:
+  - Funny
   - roomba
 ---
 

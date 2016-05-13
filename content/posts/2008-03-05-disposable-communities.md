@@ -3,10 +3,9 @@ title: Disposable Communities
 author: Justin Ball
 layout: post
 permalink: /2008/03/05/disposable-communities/
-categories:
+tags:
   - Web2.0
   - Wordpress
-tags:
   - communities
   - disposable
   - freedom

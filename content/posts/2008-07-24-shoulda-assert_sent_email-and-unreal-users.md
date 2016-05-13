@@ -3,9 +3,8 @@ title: Shoulda, assert_sent_email and Unreal Users
 author: Justin Ball
 layout: post
 permalink: /2008/07/24/shoulda-assert_sent_email-and-unreal-users/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - assert_sent_email
   - Ruby On Rails
   - shoulda

@@ -3,9 +3,8 @@ title: 'This shouldn&#8217;t be so @#!&amp;amp;! hard'
 author: Justin Ball
 layout: post
 permalink: /2005/09/15/this-shouldnt-be-so-amp-hard/
-categories:
-  - Programming
 tags:
+  - Programming
   - complex
   - home building
   - home improvement

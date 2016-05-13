@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "I Didn't Attend React.js Conf"
 date: 2015-02-02 21:11:40 -0700
-categories:
+tags:
   - Javascript
   - React.js
   - Programming

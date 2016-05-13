@@ -3,9 +3,8 @@ title: Returning to my Mistress
 author: Justin Ball
 layout: post
 permalink: /2007/08/08/returning-to-my-mistress/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
 ---
 

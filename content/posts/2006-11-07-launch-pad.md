@@ -3,7 +3,7 @@ title: Launch Pad
 author: Justin Ball
 layout: post
 permalink: /2006/11/07/launch-pad/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

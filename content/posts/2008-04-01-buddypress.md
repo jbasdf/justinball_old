@@ -3,11 +3,10 @@ title: BuddyPress
 author: Justin Ball
 layout: post
 permalink: /2008/04/01/buddypress/
-categories:
+tags:
   - Social Software
   - Web2.0
   - Wordpress
-tags:
   - buddypress
   - socialsoftware
   - Web2.0

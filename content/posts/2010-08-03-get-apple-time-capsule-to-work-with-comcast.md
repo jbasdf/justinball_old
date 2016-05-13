@@ -3,7 +3,7 @@ title: Get Apple Time Capsule to work with Comcast
 author: Justin Ball
 layout: post
 permalink: /2010/08/03/get-apple-time-capsule-to-work-with-comcast/
-categories:
+tags:
   - Apple Time Capsule
   - Comcast
 ---

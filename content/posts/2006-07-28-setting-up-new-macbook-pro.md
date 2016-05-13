@@ -3,7 +3,7 @@ title: Setting up new Macbook pro
 author: Justin Ball
 layout: post
 permalink: /2006/07/28/setting-up-new-macbook-pro/
-categories:
+tags:
   - Computers
 ---
 

@@ -3,7 +3,7 @@ title: Sleep is critical for learning
 author: Justin Ball
 layout: post
 permalink: /2005/10/19/sleep-is-critical-for-learning/
-categories:
+tags:
   - School
 ---
 

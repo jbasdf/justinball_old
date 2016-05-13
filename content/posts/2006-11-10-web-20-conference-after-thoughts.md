@@ -3,7 +3,7 @@ title: Web 2.0 Conference After Thoughts
 author: Justin Ball
 layout: post
 permalink: /2006/11/10/web-20-conference-after-thoughts/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

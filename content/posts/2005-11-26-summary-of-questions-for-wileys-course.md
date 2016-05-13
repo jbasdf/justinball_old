@@ -3,7 +3,7 @@ title: 'Summary of questions for Wiley&#8217;s course'
 author: Justin Ball
 layout: post
 permalink: /2005/11/26/summary-of-questions-for-wileys-course/
-categories:
+tags:
   - School
 ---
 

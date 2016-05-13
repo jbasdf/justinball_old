@@ -2,7 +2,7 @@
 title: Picture Utilities
 author: Justin Ball
 layout: post
-categories:
+tags:
   - Pictures
 ---
 

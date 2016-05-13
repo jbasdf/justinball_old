@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Hardware Hacking with JS"
 date: 2014-03-18 10:46:29 -0600
-categories:
+tags:
   - Mountain West Javascript
   - mwjs
   - Javascript

@@ -3,7 +3,7 @@ title: The Plan Collection
 author: Justin Ball
 layout: post
 permalink: /2006/06/14/the-plan-collection/
-categories:
+tags:
   - ASP.Net
   - House Stuff
   - Ruby On Rails

@@ -3,7 +3,7 @@ title: Gems on an EngineYard Solo instance
 author: Justin Ball
 layout: post
 permalink: /2009/09/12/gems-on-an-engineyard-solo-instance/
-categories:
+tags:
   - engineyard
   - gems
   - Ruby On Rails

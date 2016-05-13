@@ -3,9 +3,8 @@ title: Ruby on Rails Tutorials
 author: Justin Ball
 layout: post
 permalink: /2007/06/07/ruby-on-rails-tutorials/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - Ruby On Rails
   - tutorials
 ---

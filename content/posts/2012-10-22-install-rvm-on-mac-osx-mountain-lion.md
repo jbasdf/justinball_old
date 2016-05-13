@@ -3,7 +3,7 @@ title: Install RVM on Mac OSX Mountain Lion
 author: Justin Ball
 layout: post
 permalink: /2012/10/22/install-rvm-on-mac-osx-mountain-lion/
-categories:
+tags:
   - Ruby
 ---
 I recently moved over to a new Macbook Pro which is awesome but like every other time I've switched computers there's some serious pain. This time around various changes from Apple including the removal of the command line tools from XCode has [Ruby Version Manager (RVM)][1] a bit more difficult to use. If you aren't using RVM and you work with Ruby you know that it's indispensable and even if it's painful to get things working right it's worth it.

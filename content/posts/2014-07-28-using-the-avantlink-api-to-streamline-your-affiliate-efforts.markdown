@@ -3,7 +3,7 @@ layout: reveal
 author: Justin Ball
 title: "Using The AvantLink API To Streamline Your Affiliate Efforts"
 date: 2014-07-28 16:42:49 -0600
-categories:
+tags:
   - Affiliate Marketing
   - API
 ---

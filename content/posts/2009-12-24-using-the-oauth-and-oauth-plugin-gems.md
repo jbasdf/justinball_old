@@ -3,7 +3,7 @@ title: Using the OAuth and OAuth-Plugin gems
 author: Justin Ball
 layout: post
 permalink: /2009/12/24/using-the-oauth-and-oauth-plugin-gems/
-categories:
+tags:
   - Oauth
   - oauth-plugin
   - Ruby On Rails

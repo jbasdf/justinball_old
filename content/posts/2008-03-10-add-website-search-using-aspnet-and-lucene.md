@@ -3,9 +3,8 @@ title: Add Website Search Using ASP.Net and Lucene
 author: Justin Ball
 layout: post
 permalink: /2008/03/10/add-website-search-using-aspnet-and-lucene/
-categories:
-  - House Stuff
 tags:
+  - House Stuff
   - ASP.Net
   - lucene
   - lucene.net

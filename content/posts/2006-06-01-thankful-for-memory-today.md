@@ -3,7 +3,7 @@ title: Thankful for Memory Today
 author: Justin Ball
 layout: post
 permalink: /2006/06/01/thankful-for-memory-today/
-categories:
+tags:
   - Interesting
 ---
 

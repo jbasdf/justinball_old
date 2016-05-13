@@ -3,7 +3,7 @@ title: Kevin Rose – Digg
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/kevin-rose-%e2%80%93-digg/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

@@ -3,7 +3,7 @@ title: Snow and Rain
 author: Justin Ball
 layout: post
 permalink: /2009/01/08/snow-and-rain/
-categories:
+tags:
   - Funny
   - Family
   - life

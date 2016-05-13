@@ -3,9 +3,8 @@ title: The Master Simulator Made Me do it
 author: Justin Ball
 layout: post
 permalink: /2008/01/24/the-master-simulator-made-me-do-it/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - Interesting
   - robots
   - Science

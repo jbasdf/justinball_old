@@ -4,7 +4,7 @@ author: Justin Ball
 title: "We are amazing. Riding the MS150"
 date: 2014-06-29 16:09:34 -0600
 image: "/images/posts/2014/MS150/2014-06-28.jpg"
-categories:
+tags:
   - Cycling
 ---
 

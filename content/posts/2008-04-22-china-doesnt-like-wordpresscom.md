@@ -3,9 +3,8 @@ title: 'China Doesn&#8217;t Like WordPress.com'
 author: Justin Ball
 layout: post
 permalink: /2008/04/22/china-doesnt-like-wordpresscom/
-categories:
-  - Wordpress
 tags:
+  - Wordpress
   - china
   - great firewall
   - Wordpress

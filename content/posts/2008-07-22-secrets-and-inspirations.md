@@ -3,9 +3,8 @@ title: Secrets and Inspirations
 author: Justin Ball
 layout: post
 permalink: /2008/07/22/secrets-and-inspirations/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - inspiration
   - Tour de France

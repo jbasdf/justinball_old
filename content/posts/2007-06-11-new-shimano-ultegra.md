@@ -3,9 +3,8 @@ title: New Shimano Ultegra
 author: Justin Ball
 layout: post
 permalink: /2007/06/11/new-shimano-ultegra/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - DuraAce
   - Shimano

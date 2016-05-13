@@ -5,7 +5,7 @@ title: >
 author: Justin Ball
 layout: post
 permalink: /2009/11/17/how-new-carpet-and-rattlesnake-turned-me-into-a-consultant-or-what-the-hell-happened/
-categories:
+tags:
   - life
   - Programming
   - consulting

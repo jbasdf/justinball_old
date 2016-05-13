@@ -3,7 +3,7 @@ title: 'BlogHer Presents&#8230;World Domination via Collaboration'
 author: Justin Ball
 layout: post
 permalink: /2006/11/07/blogher-presentsworld-domination-via-collaboration/
-categories:
+tags:
   - The Web
   - Web2.0
   - web2con2006

@@ -3,10 +3,9 @@ title: A Few More Thoughts On Morph Exchange
 author: Justin Ball
 layout: post
 permalink: /2008/04/26/a-few-more-thoughts-on-morph-exchange/
-categories:
+tags:
   - hosting
   - internet
-tags:
   - deployment
   - hosting
   - morphexchange

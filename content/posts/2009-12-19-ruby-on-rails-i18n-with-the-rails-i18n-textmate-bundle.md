@@ -3,7 +3,7 @@ title: Ruby on Rails i18n with the Rails I18n Textmate bundle
 author: Justin Ball
 layout: post
 permalink: /2009/12/19/ruby-on-rails-i18n-with-the-rails-i18n-textmate-bundle/
-categories:
+tags:
   - Ruby On Rails
   - i18n
   - Rails I18n Textmate bundle

@@ -3,10 +3,9 @@ title: Using Starling, Workling with Ruby on Rails
 author: Justin Ball
 layout: post
 permalink: /2008/08/18/using-starling-workling-with-ruby-on-rails/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - asyncronous processing
   - Ruby On Rails
   - starling

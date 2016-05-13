@@ -3,7 +3,7 @@ title: On the last day we did not rest, at all, on the plane
 author: Justin Ball
 layout: post
 permalink: /2013/01/16/on-the-last-day-we-did-not-rest-at-all-on-the-plane/
-categories:
+tags:
   - Travel
   - Oahu
   - Hawaii

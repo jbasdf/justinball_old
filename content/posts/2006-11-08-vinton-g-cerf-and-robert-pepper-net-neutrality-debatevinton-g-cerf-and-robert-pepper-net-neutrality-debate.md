@@ -3,7 +3,7 @@ title: Vinton G. Cerf and Robert Pepper net neutrality debate
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/vinton-g-cerf-and-robert-pepper-net-neutrality-debatevinton-g-cerf-and-robert-pepper-net-neutrality-debate.html
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

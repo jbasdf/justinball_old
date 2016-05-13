@@ -3,7 +3,7 @@ title: 'Disruption Opportunity: Venture Capital &#8211; Roger McNamee , Ram Shri
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/disruption-opportunity-venture-capital-roger-mcnamee-ram-shriram/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

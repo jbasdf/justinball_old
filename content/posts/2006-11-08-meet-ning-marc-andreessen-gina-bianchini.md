@@ -3,7 +3,7 @@ title: 'Meet Ning &#8212; Marc Andreessen , Gina Bianchini'
 author: Justin Ball
 layout: post
 permalink: /2006/11/08/meet-ning-marc-andreessen-gina-bianchini/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

@@ -3,9 +3,8 @@ title: Updating Genlighten from Rails 2.2.2 to Rails 2.3.2
 author: Justin Ball
 layout: post
 permalink: /2009/08/17/updating-genlighten-from-rails-2-2-2-to-rails-2-3-2/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - Ruby On Rails
 ---
 I can't resist new stuff so I'm updating Genlighten to Rails 2.3.2.  This release comes with some pretty sweet additions like Rack.  Here's what I had to do:

@@ -3,7 +3,7 @@ title: Setting Up mysql as utf8 for Ruby on Rails using homebrew
 author: Justin Ball
 layout: post
 permalink: /2010/05/25/setting-up-mysql-as-utf8-for-ruby-on-rails-using-homebrew/
-categories:
+tags:
   - homebrew
   - mysql
   - mysql gem

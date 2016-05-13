@@ -3,7 +3,7 @@ title: 'Disruption: Harnessing the Collective Intelligence'
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/disruption-harnessing-the-collective-intelligence/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

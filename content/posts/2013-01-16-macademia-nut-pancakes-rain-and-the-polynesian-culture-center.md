@@ -3,7 +3,7 @@ title: Macademia Nut Pancakes, Rain and the Polynesian Culture Center
 author: Justin Ball
 layout: post
 permalink: /2013/01/16/macademia-nut-pancakes-rain-and-the-polynesian-culture-center/
-categories:
+tags:
   - Travel
   - Oahu
   - Hawaii

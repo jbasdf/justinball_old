@@ -3,7 +3,7 @@ title: 'Ruby gems and &#8220;Couldn&#8217;t get release_id, upload failed?&#8221
 author: Justin Ball
 layout: post
 permalink: /2009/05/30/ruby-gems-and-couldnt-get-release_id-upload-failed/
-categories:
+tags:
   - Funny
   - gem
   - jeweler

@@ -3,9 +3,8 @@ title: Dump an Existing Database Schema Into a Ruby On Rails Migration Ready For
 author: Justin Ball
 layout: post
 permalink: /2008/05/09/dump-an-existing-database-schema-into-a-ruby-on-rails-migration-ready-format/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - database
   - migrations
   - Ruby On Rails

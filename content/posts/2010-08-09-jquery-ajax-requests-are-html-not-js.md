@@ -3,7 +3,7 @@ title: 'jQuery Ajax requests are &#8216;html&#8217; not &#8216;js&#8217;'
 author: Justin Ball
 layout: post
 permalink: /2010/08/09/jquery-ajax-requests-are-html-not-js/
-categories:
+tags:
   - jQuery
   - ajax
   - jQuery

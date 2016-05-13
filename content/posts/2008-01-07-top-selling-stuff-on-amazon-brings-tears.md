@@ -3,10 +3,9 @@ title: Top Selling Stuff on Amazon Brings Tears
 author: Justin Ball
 layout: post
 permalink: /2008/01/07/top-selling-stuff-on-amazon-brings-tears/
-categories:
+tags:
   - Funny
   - Interesting
-tags:
   - amazon
   - Funny
   - grocery

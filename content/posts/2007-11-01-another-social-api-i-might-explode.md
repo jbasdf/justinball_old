@@ -3,9 +3,8 @@ title: 'Another Social API &#8211; I might explode'
 author: Justin Ball
 layout: post
 permalink: /2007/11/01/another-social-api-i-might-explode/
-categories:
-  - Social Software
 tags:
+  - Social Software
   - facebook
   - google
   - opensocial

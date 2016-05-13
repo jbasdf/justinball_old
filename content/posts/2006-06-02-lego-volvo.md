@@ -3,7 +3,7 @@ title: Lego Volvo
 author: Justin Ball
 layout: post
 permalink: /2006/06/02/lego-volvo/
-categories:
+tags:
   - Lego
 ---
 

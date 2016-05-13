@@ -3,13 +3,12 @@ title: I Got Older
 author: Justin Ball
 layout: post
 permalink: /2009/01/02/i-got-older/
-categories:
+tags:
   - Alyssa
   - Aubrey
   - Devin
   - Family
   - Jenna
-tags:
   - birthday.
   - Family
 ---

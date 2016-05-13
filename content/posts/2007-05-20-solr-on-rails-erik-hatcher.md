@@ -3,10 +3,9 @@ title: Solr on Rails Erik Hatcher
 author: Justin Ball
 layout: post
 permalink: /2007/05/20/solr-on-rails-erik-hatcher/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

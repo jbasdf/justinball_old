@@ -3,9 +3,8 @@ title: Trek Madone Lust
 author: Justin Ball
 layout: post
 permalink: /2008/03/26/trek-madone-lust/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - 2008 Madone
   - madone
   - trek

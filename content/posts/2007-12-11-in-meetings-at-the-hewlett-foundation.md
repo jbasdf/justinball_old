@@ -3,9 +3,8 @@ title: In Meetings at the Hewlett Foundation
 author: Justin Ball
 layout: post
 permalink: /2007/12/11/in-meetings-at-the-hewlett-foundation/
-categories:
-  - Interesting
 tags:
+  - Interesting
   - Meetings
   - OER
   - OpenContent

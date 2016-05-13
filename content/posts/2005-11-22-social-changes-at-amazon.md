@@ -3,7 +3,7 @@ title: Social changes at Amazon
 author: Justin Ball
 layout: post
 permalink: /2005/11/22/social-changes-at-amazon/
-categories:
+tags:
   - Social Software
 ---
 

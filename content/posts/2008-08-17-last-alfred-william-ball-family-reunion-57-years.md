@@ -3,10 +3,9 @@ title: 'Last Alfred William Ball Family Reunion &#8211; 57 Years'
 author: Justin Ball
 layout: post
 permalink: /2008/08/17/last-alfred-william-ball-family-reunion-57-years/
-categories:
+tags:
   - Family
   - family history
-tags:
   - Family
   - family history
   - family reunion

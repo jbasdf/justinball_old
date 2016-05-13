@@ -3,9 +3,8 @@ title: 'Lunch Provided by the Farmer&#8217;s Market'
 author: Justin Ball
 layout: post
 permalink: /2007/08/11/lunch-provided-by-the-farmers-market/
-categories:
-  - Community
 tags:
+  - Community
   - Community
   - farmers market
   - food

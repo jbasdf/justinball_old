@@ -3,7 +3,7 @@ title: Sorry to Anyone that has Been Making Comments
 author: Justin Ball
 layout: post
 permalink: /2007/12/11/sorry-to-anyone-that-has-been-making-comments/
-categories:
+tags:
   - Blogging
 ---
 

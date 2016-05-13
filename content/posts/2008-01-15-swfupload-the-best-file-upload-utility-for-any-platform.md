@@ -3,10 +3,9 @@ title: 'SWFUpload &#8211; the Best File Upload Utility for Any Platform'
 author: Justin Ball
 layout: post
 permalink: /2008/01/15/swfupload-the-best-file-upload-utility-for-any-platform/
-categories:
+tags:
   - Programming
   - Ruby On Rails
-tags:
   - file uploads
   - Ruby On Rails
   - web development

@@ -3,10 +3,9 @@ title: Standing on the Shoulders of Giants Adam Keys
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/standing-on-the-shoulders-of-giants-adam-keys/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

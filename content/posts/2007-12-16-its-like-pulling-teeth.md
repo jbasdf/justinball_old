@@ -3,7 +3,7 @@ title: 'It&#8217;s Like Pulling Teeth'
 author: Justin Ball
 layout: post
 permalink: /2007/12/16/its-like-pulling-teeth/
-categories:
+tags:
   - Alyssa
   - Aubrey
   - Family

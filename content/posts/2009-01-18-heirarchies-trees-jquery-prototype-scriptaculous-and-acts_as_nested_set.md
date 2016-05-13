@@ -3,7 +3,7 @@ title: Hierarchies, trees, jQuery, Prototype, script.aculo.us and acts_as_nested
 author: Justin Ball
 layout: post
 permalink: /2009/01/18/heirarchies-trees-jquery-prototype-scriptaculous-and-acts_as_nested_set/
-categories:
+tags:
   - Ruby On Rails
   - acts_as_nested_set
   - heirachy

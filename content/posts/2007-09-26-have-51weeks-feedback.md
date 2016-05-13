@@ -3,9 +3,8 @@ title: Have 51weeks feedback?
 author: Justin Ball
 layout: post
 permalink: /2007/09/26/have-51weeks-feedback/
-categories:
-  - Community
 tags:
+  - Community
   - conference software
   - opened2007
   - Web2.0

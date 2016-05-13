@@ -3,7 +3,7 @@ title: 'View of the world&#8217;s population'
 author: Justin Ball
 layout: post
 permalink: /2005/12/11/view-of-the-worlds-population/
-categories:
+tags:
   - Neat Stuff
 ---
 

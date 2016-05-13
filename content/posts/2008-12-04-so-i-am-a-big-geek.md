@@ -3,7 +3,7 @@ title: So I am a Big Geek
 author: Justin Ball
 layout: post
 permalink: /2008/12/04/so-i-am-a-big-geek/
-categories:
+tags:
   - Funny
   - Computers
   - geek

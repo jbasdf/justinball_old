@@ -3,7 +3,7 @@ title: Utah WordPress Meetup
 author: Justin Ball
 layout: post
 permalink: /2008/02/03/utah-wordpress-meetup/
-categories:
+tags:
   - Community
   - Interesting
   - internet
@@ -11,7 +11,6 @@ categories:
   - Social Software
   - The Web
   - Web2.0
-tags:
   - Matt Mullenweg
   - utah
   - Wordpress

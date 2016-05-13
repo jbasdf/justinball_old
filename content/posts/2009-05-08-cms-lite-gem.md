@@ -3,9 +3,8 @@ title: CMS Lite Gem
 author: Justin Ball
 layout: post
 permalink: /2009/05/08/cms-lite-gem/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - cms
   - gem
   - Ruby On Rails

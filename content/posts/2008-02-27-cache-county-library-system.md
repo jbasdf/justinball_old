@@ -3,9 +3,8 @@ title: Cache County Library System
 author: Justin Ball
 layout: post
 permalink: /2008/02/27/cache-county-library-system/
-categories:
-  - Community
 tags:
+  - Community
   - cache county
   - library
 ---

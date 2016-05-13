@@ -3,7 +3,7 @@ title: Aloha Stadium Swap Meet and Waikiki Beach
 author: Justin Ball
 layout: post
 permalink: /2013/01/16/aloha-stadium-swap-meet-and-waikiki-beach/
-categories:
+tags:
   - Travel
   - Hawaii
   - Oahu

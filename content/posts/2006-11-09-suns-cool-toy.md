@@ -3,7 +3,7 @@ title: 'Sun&#8217;s Cool Toy'
 author: Justin Ball
 layout: post
 permalink: /2006/11/09/suns-cool-toy/
-categories:
+tags:
   - Web2.0
   - web2con2006
 ---

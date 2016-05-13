@@ -3,9 +3,8 @@ title: '2008 Tour de France &#8211; Don&#8217;t Watch It'
 author: Justin Ball
 layout: post
 permalink: /2008/02/23/2008-tour-de-france-dont-watch-it/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Astana
   - Cycling
   - Tour de France

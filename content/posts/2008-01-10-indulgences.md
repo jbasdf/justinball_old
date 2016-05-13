@@ -3,12 +3,11 @@ title: Indulgenc.es
 author: Justin Ball
 layout: post
 permalink: /2008/01/10/indulgences/
-categories:
+tags:
   - Community
   - Fun Stuff
   - Interesting
   - Programming
-tags:
   - application
   - facebook
   - Funny

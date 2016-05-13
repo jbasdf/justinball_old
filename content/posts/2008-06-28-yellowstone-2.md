@@ -3,9 +3,8 @@ title: Yellowstone 2
 author: Justin Ball
 layout: post
 permalink: /2008/06/28/yellowstone-2/
-categories:
-  - Family
 tags:
+  - Family
   - family trip
   - yellowstone
 ---

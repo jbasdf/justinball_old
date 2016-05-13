@@ -3,10 +3,9 @@ title: Rode Blacksmith Fork Canyon Tonight
 author: Justin Ball
 layout: post
 permalink: /2007/08/08/rode-blacksmith-fork-canyon-tonight/
-categories:
+tags:
   - Cycling
   - Fun Stuff
-tags:
   - Cycling
 ---
 

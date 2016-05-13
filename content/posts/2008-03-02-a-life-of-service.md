@@ -3,9 +3,8 @@ title: A Life Of Service
 author: Justin Ball
 layout: post
 permalink: /2008/03/02/a-life-of-service/
-categories:
-  - Family
 tags:
+  - Family
   - Family
   - funeral
   - Wesley Connell

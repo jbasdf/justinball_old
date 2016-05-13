@@ -3,9 +3,8 @@ title: Ruby fs-api
 author: Justin Ball
 layout: post
 permalink: /2008/03/12/ruby-fs-api/
-categories:
-  - genealogy
 tags:
+  - genealogy
   - API
   - family search
   - genealogy

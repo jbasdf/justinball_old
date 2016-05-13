@@ -3,10 +3,9 @@ title: Some Cool House Plans
 author: Justin Ball
 layout: post
 permalink: /2008/10/25/some-cool-house-plans/
-categories:
+tags:
   - house plans
   - The Plan Collection
-tags:
   - home plans
   - house plans
   - theplancollection.com

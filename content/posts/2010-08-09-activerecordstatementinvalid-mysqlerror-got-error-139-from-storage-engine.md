@@ -3,7 +3,7 @@ title: 'ActiveRecord::StatementInvalid: Mysql::Error: Got error 139 from storage
 author: Justin Ball
 layout: post
 permalink: /2010/08/09/activerecordstatementinvalid-mysqlerror-got-error-139-from-storage-engine/
-categories:
+tags:
   - error
   - mysql
   - Ruby On Rails

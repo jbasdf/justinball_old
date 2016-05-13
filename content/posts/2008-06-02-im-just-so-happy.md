@@ -3,9 +3,8 @@ title: 'I&#8217;m Just so Happy'
 author: Justin Ball
 layout: post
 permalink: /2008/06/02/im-just-so-happy/
-categories:
-  - kids
 tags:
+  - kids
   - disneyland
   - happy
 ---

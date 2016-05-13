@@ -3,9 +3,8 @@ title: More Trek 2008 Madone Love
 author: Justin Ball
 layout: post
 permalink: /2007/06/10/more-trek-2008-madone-love/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
   - trek madone 2008
 ---

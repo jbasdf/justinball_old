@@ -3,7 +3,7 @@ title: I Spent My Day With Hot, Young Girls
 author: Justin Ball
 layout: post
 permalink: /2010/08/11/i-spent-my-day-with-hot-young-girls/
-categories:
+tags:
   - Funny
   - "girl's camp"
 ---

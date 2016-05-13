@@ -3,7 +3,7 @@ title: Logitech Sucks Twice
 author: Justin Ball
 layout: post
 permalink: /2010/02/28/logitech-sucks-twice/
-categories:
+tags:
   - logitech
 ---
 Last Christmas my wife bought me a Logitech Harmony remote. Over the past few months I've noticed that it barely holds a charge and so if I don't leave it on the charger all the time it just dies. Last night I went to use the remote and it burned my hand it was so hot. I figured I would check the battery and found that it had bulged out and deformed. I surfed around and found that a bunch of other people had the same problem. I called tech support. They told me that it was a problem and they I should safely dispose of the battery and buy a new one. I told them I've had it for one year (it was two days out of warranty). They told me tough luck. I complained a lot and they finally relented and sent me a new battery. However, now I'm scared to leave it on the charger. I let it run most of the way down before charging it up again since most of the people on who wrote about the problem indicated that the remote will overcharge the battery causing it to get hot. If you have a Logitech remote check the battery occasionally in case the battery starts bulging. I think BestBuy can recycle them.

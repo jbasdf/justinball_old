@@ -3,9 +3,8 @@ title: My Truck Got Old
 author: Justin Ball
 layout: post
 permalink: /2008/08/14/my-truck-got-old/
-categories:
-  - Funny
 tags:
+  - Funny
   - pickup
   - time
 ---

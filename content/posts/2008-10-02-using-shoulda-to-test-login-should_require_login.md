@@ -3,9 +3,8 @@ title: 'Using Shoulda to test login &#8211; should_require_login'
 author: Justin Ball
 layout: post
 permalink: /2008/10/02/using-shoulda-to-test-login-should_require_login/
-categories:
-  - Ruby On Rails
 tags:
+  - Ruby On Rails
   - Ruby On Rails
   - shoulda
   - testing

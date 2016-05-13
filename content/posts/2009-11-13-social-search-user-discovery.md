@@ -3,7 +3,7 @@ title: Social Search, User Discovery
 author: Justin Ball
 layout: post
 permalink: /2009/11/13/social-search-user-discovery/
-categories:
+tags:
   - Programming
   - Social Software
   - recommender

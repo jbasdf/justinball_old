@@ -3,7 +3,7 @@ title: 'River &#8211; Amazon Wishlist Gem'
 author: Justin Ball
 layout: post
 permalink: /2009/10/30/river-amazon-wishlist-gem/
-categories:
+tags:
   - Programming
   - amazon
   - amazon wishlist

@@ -3,7 +3,7 @@ title: Quick Tip for working with Paypal and ActiveMerchant in your Rails Applic
 author: Justin Ball
 layout: post
 permalink: /2009/02/17/quick-tip-for-working-with-paypal-and-activemerchant-in-your-rails-application/
-categories:
+tags:
   - Ruby On Rails
   - activemerchant
   - paypal

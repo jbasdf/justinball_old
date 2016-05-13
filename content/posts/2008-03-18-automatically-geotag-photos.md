@@ -3,11 +3,10 @@ title: Automatically Geotag Photos
 author: Justin Ball
 layout: post
 permalink: /2008/03/18/automatically-geotag-photos/
-categories:
+tags:
   - Interesting
   - internet
   - photography
-tags:
   - geotagging
   - gps
   - photography

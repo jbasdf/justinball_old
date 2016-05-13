@@ -3,7 +3,7 @@ title: Script Your Development Environment Setup on Your New Mac
 author: Justin Ball
 layout: post
 permalink: /2011/12/03/script-your-development-environment-setup-on-your-new-mac/
-categories:
+tags:
   - Ruby
 ---
 Just in time for Christmas. Every developer who's been good this year is hoping for a new MacBook under the tree. (Actually your better off waiting since Apple is likely to release new machines in 4 or 5 months). Anyway, if you need to setup a development environment in a hurry here are some scripts that will make your life a whole lot sweeter:

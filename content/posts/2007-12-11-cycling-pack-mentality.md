@@ -3,9 +3,8 @@ title: Cycling Pack Mentality
 author: Justin Ball
 layout: post
 permalink: /2007/12/11/cycling-pack-mentality/
-categories:
-  - Cycling
 tags:
+  - Cycling
   - Cycling
 ---
 

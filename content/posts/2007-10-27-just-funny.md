@@ -3,7 +3,7 @@ title: Just Funny
 author: Justin Ball
 layout: post
 permalink: /2007/10/27/just-funny/
-categories:
+tags:
   - Funny
 ---
 

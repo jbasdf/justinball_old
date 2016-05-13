@@ -3,7 +3,7 @@ title: jqXHR Returning Readystate 0 and Status 0?
 author: Justin Ball
 layout: post
 permalink: /2013/02/25/jqxhr-returning-readystate-0-and-status-0/
-categories:
+tags:
   - Programming
   - Javascript
 ---

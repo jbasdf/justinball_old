@@ -3,9 +3,8 @@ title: iPhone Apps, meh..
 author: Justin Ball
 layout: post
 permalink: /2008/07/16/iphone-apps-eh/
-categories:
-  - iPhone
 tags:
+  - iPhone
   - applications
   - iPhone
 ---

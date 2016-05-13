@@ -3,10 +3,9 @@ title: The COSL Guys are Disgusting
 author: Justin Ball
 layout: post
 permalink: /2008/02/26/the-cosl-guys-are-disgusting/
-categories:
+tags:
   - COSL
   - Funny
-tags:
   - bacon
   - chocolate
   - disgusting

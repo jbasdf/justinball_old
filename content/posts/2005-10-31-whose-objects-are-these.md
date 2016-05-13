@@ -3,7 +3,7 @@ title: Whose objects are these?
 author: Justin Ball
 layout: post
 permalink: /2005/10/31/whose-objects-are-these/
-categories:
+tags:
   - School
 ---
 

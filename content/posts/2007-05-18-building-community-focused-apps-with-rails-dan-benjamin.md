@@ -3,10 +3,9 @@ title: Building Community-focused Apps with Rails Dan Benjamin
 author: Justin Ball
 layout: post
 permalink: /2007/05/18/building-community-focused-apps-with-rails-dan-benjamin/
-categories:
+tags:
   - RailsConf
   - RailsConf07
-tags:
   - RailsConf07
   - Ruby On Rails
 ---

@@ -3,7 +3,7 @@ layout: post
 author: Justin Ball
 title: "Nasty React React-Router initialization bug"
 date: 2015-09-16 17:46:24 -0600
-categories:
+tags:
   - Programming
   - React
 ---
