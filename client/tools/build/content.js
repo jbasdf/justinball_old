@@ -33,6 +33,9 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
 
   var html = parsed.body;
 
+  // Parse any markdown in the resulting html
+  html = marked(html);
+
   try{
     // Allow ejs code in content
     html = ejs.compile(html, {
@@ -45,9 +48,6 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
     console.log("Call stack");
     console.log(err.stack);
   }
-
-  // Parse any markdown in the resulting html
-  var html = marked(html);
 
   // Generate summary of content
   var summary  = _.includes(html, options.summaryMarker) ?
