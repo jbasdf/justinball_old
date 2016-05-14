@@ -7,7 +7,8 @@
     color: $clouds;
   }
   .post-header{
-    padding: 0 2px 0 0;
+    padding: 0 5px 0 0;
+    overflow: hidden;
     .post-title{
       margin: 0 0 10px 0;
       a{
@@ -24,18 +25,13 @@
       color: $silver;
     }
   }
-  .post-content{
-    .read-on{
-      font-size: 20px;
-    }
-    img{
-      max-width: 90%;
-    }
+  img{
+    max-width: 90%;
   }
 }
 
 .post-category{
-  background-color: $asbestos;
+  background-color: none;
 }
 
 .post:nth-child(3n){
