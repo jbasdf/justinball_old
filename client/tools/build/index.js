@@ -209,6 +209,8 @@ function build(isHot){
         buildTagPages(pages, outputPath, options);
         buildPostPages(pages, outputPath, options);
 
+        console.log("Done building files");
+
         resolve({
           pages         : pages,
           inputPath     : inputPath,
