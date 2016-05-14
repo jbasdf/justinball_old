@@ -4,6 +4,7 @@
   "domain"                   : "www.speakeasy.com",
   "author"                   : "Speak Easy Team",
   "email"                    : "speakeasy@example.com",
+  "postsSource"              : "/content/posts/"
   "tagsPath"                 : "tags",
   "paginate"                 : 10,
   "google_analytics_account" : "UA-73651-1",
