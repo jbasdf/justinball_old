@@ -4,6 +4,7 @@
   "domain"                   : "www.justinball.com",
   "author"                   : "Justin Ball",
   "email"                    : "justinball@example.com",
+  "postsSource"              : "/content/posts/",
   "tagsPath"                 : "tags",
   "paginate"                 : 10,
   "google_analytics_account" : "UA-73651-1",

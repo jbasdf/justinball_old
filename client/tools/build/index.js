@@ -157,6 +157,34 @@ function buildTagPages(pages, outputPath, options){
 // -----------------------------------------------------------------------------
 function buildPostPages(pages, outputPath, options){
   var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
+  var perPage = options.templateData.site.paginate;
+  var max = _.ceil(pages.length/perPage);
+  _(pages)
+  .filter(function(page){ // Only build archive pages for posts
+    return _.includes(page.source, templateData.site.postsSource);
+  })
+  .chunk(perPage)
+  .each(function(posts, index){
+    var prevPage = (index > 1 ? index-1 : "index") + ".html";
+    var nextPage = index < max ? index+1 + ".html" : "#";
+    var fileName = (index == 0 ? "index" : index) + ".html";
+    var data = {
+      site       : options.templateData.site,
+      metadata   : { layout: "application.html" },
+      posts      : posts,
+      title      : "Recent Posts",
+      "_"        : _,
+      prevPage   : prevPage,
+      nextPage   : nextPage
+    };
+
+    // Build the content
+    data.content = archiveTemplate(data);
+
+    // Apply template
+    var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    file.write("", path.join(outputPath, site.tagsPath), fileName, html, options);
+  });
 }
 
 // -----------------------------------------------------------------------------
@@ -179,7 +207,7 @@ function build(isHot){
         pages = pages.sort(compare);
 
         buildTagPages(pages, outputPath, options);
-        //buildPostPages(pages, outputPath, options);
+        buildPostPages(pages, outputPath, options);
 
         resolve({
           pages         : pages,
