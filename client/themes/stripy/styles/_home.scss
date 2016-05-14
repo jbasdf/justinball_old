@@ -4,69 +4,25 @@
 .blog-masthead{
   background-color: $white;
   color: $concrete;
-  padding: 0px 80px 30px 80px;
-  a{
+  padding: 3em 0 4.6em 4em;
+  h1{
+    float:left;
+    margin: 0 16px 0 0;
     color: $concrete;
-  }
-  .blog-title{
-    h1{
-      float:left;
-      margin: 0 16px 0 0;
-      a{
-        font-weight: 500;
-        &:hover{
-          text-decoration: none;
-          color: $sunflower;
-        }
+    a{
+      font-size: 36px;
+      color: $concrete;
+      font-weight: 500;
+      &:hover{
+        text-decoration: none;
+        color: $sunflower;
       }
     }
-    p{
-      float:left;
-      margin: 18px 0 0 2px;
-      font-weight: 300;
-    }
   }
-}
-
-.post{
-  color: $clouds;
-  a{
-    color: $clouds;
+  p{
+    font-size: 14px;
+    margin-top: 20px;
+    float:left;
+    font-weight: 300;
   }
-  .post-header{
-    .post-title{
-      margin: 0 0 10px 0;
-      a{
-        color: $white;
-        line-height: 40px;
-        &:hover{
-          text-decoration: none;
-          color: $sunflower;
-        }
-      }
-    }
-    .post-meta{
-      margin: 0 0 10px 0;
-    }
-  }
-  .post-content{
-    .read-on{
-      font-size: 20px;
-    }
-    img{
-      max-width: 90%;
-    }
-  }
-}
-
-.post:nth-child(3n){
-  background:$green_sea;
-}
-
-.post:nth-child(3n+1){
-  background:$belize_hole;
-}
-
-.post:nth-child(3n+2){
-  background:$asbestos;
 }

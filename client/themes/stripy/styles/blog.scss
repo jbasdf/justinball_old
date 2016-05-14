@@ -1,5 +1,54 @@
 @import './_common';
 
+.post{
+  border: none;
+  color: $clouds;
+  a{
+    color: $clouds;
+  }
+  .post-header{
+    .post-title{
+      margin: 0 0 10px 0;
+      a{
+        color: $white;
+        line-height: 40px;
+        &:hover{
+          text-decoration: none;
+          color: $sunflower;
+        }
+      }
+    }
+    .post-meta{
+      margin: 0 0 10px 0;
+      color: $silver;
+    }
+  }
+  .post-content{
+    .read-on{
+      font-size: 20px;
+    }
+    img{
+      max-width: 90%;
+    }
+  }
+}
+
+.post-category{
+  background-color: $asbestos;
+}
+
+.post:nth-child(3n){
+  background:$green_sea;
+}
+
+.post:nth-child(3n+1){
+  background:$belize_hole;
+}
+
+.post:nth-child(3n+2){
+  background:$asbestos;
+}
+
 @media (min-width: 48em) {
   .content {
     padding: 0;
@@ -21,9 +70,7 @@
   }
 
   .post{
-    padding: 2em;
-    border: none;
-    color: $white;
+    padding: 2em 0 2em 4em;
   }
 
   .post-description{
