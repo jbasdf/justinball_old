@@ -176,6 +176,7 @@ function buildPostPages(pages, outputPath, options){
       metadata   : { layout: "application.html" },
       posts      : posts,
       title      : title,
+      cleanTag   : utils.cleanTag,
       "_"        : _,
       prevPage   : prevPage,
       nextPage   : nextPage
@@ -210,8 +211,8 @@ function build(isHot){
 
         pages = pages.sort(compare);
 
-        buildTagPages(pages, outputPath, options);
         buildPostPages(pages, outputPath, options);
+        buildTagPages(pages, outputPath, options);
 
         var duration = moment() - start;
         console.log("Done building files in: " + duration/1000 + " seconds");
@@ -237,8 +238,12 @@ function watch(){
   return new Promise(function(resolve, reject){
     build(true).then(function(buildResults){
       nodeWatch(buildResults.inputPath, function(filePath){
+        // Build the page
         var page = buildContent(filePath, buildResults.webpackConfig, buildResults.webpackStats, buildResults.stage, buildResults.options);
         page.outputFilePath = file.write(buildResults.inputPath, buildResults.outputPath, path.basename(filePath), page.html, buildResults.options);
+
+        // Rebuild archive and tag pages
+        build(true);
       });
       resolve();
     });
