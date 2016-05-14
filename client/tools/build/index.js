@@ -135,7 +135,7 @@ function buildTagPages(pages, outputPath, options){
   _.each(tags, function(posts, tag){
     var data = {
       site       : options.templateData.site,
-      metadata   : { layout: "application.html" },
+      metadata   : { },
       title      : tag,
       currentTag : tag,
       cleanTag   : utils.cleanTag,
@@ -173,7 +173,7 @@ function buildPostPages(pages, outputPath, options){
 
     var data = {
       site       : options.templateData.site,
-      metadata   : { layout: "application.html" },
+      metadata   : { },
       posts      : posts,
       title      : title,
       cleanTag   : utils.cleanTag,
