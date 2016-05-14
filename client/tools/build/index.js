@@ -161,7 +161,7 @@ function buildPostPages(pages, outputPath, options){
   var max = _.ceil(pages.length/perPage);
   _(pages)
   .filter(function(page){ // Only build archive pages for posts
-    return _.includes(page.source, templateData.site.postsSource);
+    return _.includes(page.source, options.templateData.site.postsSource);
   })
   .chunk(perPage)
   .each(function(posts, index){
