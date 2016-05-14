@@ -46,10 +46,11 @@
   background:$asbestos;
 }
 
+.content {
+  padding: 0;
+}
+
 @media (min-width: 48em) {
-  .content {
-    padding: 0;
-  }
 
   .custom-menu-top{
     padding-top: 0;
