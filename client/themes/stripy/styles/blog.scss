@@ -5,6 +5,10 @@
     padding: 0;
   }
 
+  .custom-menu-top{
+    padding-top: 0;
+  }
+
   .header {
     margin: 80% 2em 0;
     text-align: right;
@@ -14,5 +18,16 @@
     position: fixed;
     top: 0;
     bottom: 0;
+  }
+
+  .post{
+    padding: 2em;
+    border: none;
+    color: $white;
+  }
+
+  .post-description{
+    color: $white;
+    line-height: 1.3em;
   }
 }
