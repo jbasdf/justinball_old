@@ -4,6 +4,7 @@ var fs            = require("fs");
 var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
 var del           = require("del");
+var moment        = require("moment");
 
 var file          = require("./file");
 var buildContent  = require("./content");
@@ -168,11 +169,13 @@ function buildPostPages(pages, outputPath, options){
     var prevPage = (index > 1 ? index-1 : "index") + ".html";
     var nextPage = index < max ? index+1 + ".html" : "#";
     var fileName = (index == 0 ? "index" : index) + ".html";
+    var title    = index == 0 ? "Recent Posts" : "";
+
     var data = {
       site       : options.templateData.site,
       metadata   : { layout: "application.html" },
       posts      : posts,
-      title      : "Recent Posts",
+      title      : title,
       "_"        : _,
       prevPage   : prevPage,
       nextPage   : nextPage
@@ -183,7 +186,7 @@ function buildPostPages(pages, outputPath, options){
 
     // Apply template
     var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
-    file.write("", path.join(outputPath, site.tagsPath), fileName, html, options);
+    file.write("", outputPath, fileName, html, options);
   });
 }
 
@@ -192,6 +195,7 @@ function buildPostPages(pages, outputPath, options){
 // -----------------------------------------------------------------------------
 function build(isHot){
   return new Promise(function(resolve, reject){
+    var start = moment();
     console.log("Building files in: " + inputPath);
     del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
       buildWebpackEntries(isHot).then(function(packResults){
@@ -209,7 +213,8 @@ function build(isHot){
         buildTagPages(pages, outputPath, options);
         buildPostPages(pages, outputPath, options);
 
-        console.log("Done building files");
+        var duration = moment() - start;
+        console.log("Done building files in: " + duration/1000 + " seconds");
 
         resolve({
           pages         : pages,
