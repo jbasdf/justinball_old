@@ -9,9 +9,8 @@
       <p class="post-meta">
         Posted <%- post.date.format("dddd, MMMM Do YYYY") %>
         <% if(post.metadata.tags && post.metadata.tags.length){ %>
-          under
-          <% _.each(post.metadata.tags, function(cleanTag, tag){ -%>
-            <a class="post-category post-category-<%-cleanTag%>" href="/<%-site.tagsPath%>/<%-cleanTag%>.html"><%-tag%></a>
+          <% _.each(post.metadata.tags, function(tag){ -%>
+            <a class="post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html"><%-tag%></a>
           <% }) -%>
         <% } %>
       </p>
