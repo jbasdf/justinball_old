@@ -20,6 +20,7 @@ var stage                = release ? "production" : "development";
 
 var site                 = require("../../site.json");
 var inputPath            = path.join(__dirname, "../../../content");
+var themesPath            = path.join(__dirname, "../../themes");
 var templateDirs         = [path.join(inputPath, "layouts")];
 var outputPath           = stage == "production" ? settings.prodOutput : settings.devOutput;
 
@@ -237,12 +238,21 @@ function build(isHot){
 function watch(){
   return new Promise(function(resolve, reject){
     build(true).then(function(buildResults){
+
+      // Watch content
       nodeWatch(buildResults.inputPath, function(filePath){
         // Build the page
         var page = buildContent(filePath, buildResults.webpackConfig, buildResults.webpackStats, buildResults.stage, buildResults.options);
         page.outputFilePath = file.write(buildResults.inputPath, buildResults.outputPath, path.basename(filePath), page.html, buildResults.options);
 
         // Rebuild archive and tag pages
+        build(true);
+      });
+
+      // Watch themes
+      nodeWatch(themesPath, function(filePath){
+
+        // Template has changed. Rebuild the site
         build(true);
       });
       resolve();
