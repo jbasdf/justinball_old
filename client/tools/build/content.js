@@ -28,7 +28,8 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
     date     : date,
     title    : title,
     moment   : moment,
-    metadata : metadata
+    metadata : metadata,
+    url      : destination
   }, options.templateData);
 
   var html = parsed.body;
@@ -68,13 +69,14 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
   }
 
   return {
-    title:       title,
-    date:        date,
-    metadata:    metadata,
-    summary:     summary,
-    source:      fullPath,
-    destination: destination,
-    html:        html
+    title       : title,
+    date        : date,
+    metadata    : metadata,
+    summary     : summary,
+    source      : fullPath,
+    destination : destination,
+    html        : html,
+    url         : destination
   };
 
 };
