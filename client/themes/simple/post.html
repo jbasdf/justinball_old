@@ -7,17 +7,17 @@
 <div id="layout" class="pure-g">
   <%- include('./partials/_header.html') %>
   <div class="content pure-u-1">
-    <div>
-      <div class="posts">
-        <a href="<%- metadata.url %>" rel="bookmark" title="Permanent link to <%- metadata.title %>"><%- metadata.title %></a>
-        <div class="date">Published: <time><%- date.format('MMMM Do, YYYY') %></time></div>
-        <div class="metadata">Tagged:
-          <% _.each(metadata.tags, function(cleanTag, tag){ -%>
-            <a href="/<%-site.tagsPath%>/<%-cleanTag%>.html" title="View all posts in <%- tag %>" rel="tag"><%-tag%></a>
-          <% }) -%>
-        </div>
-        <%- content %>
-      </div>
+    <div class="post">
+      <h1><a href="<%- metadata.url %>" rel="bookmark" title="Permanent link to <%- metadata.title %>">
+        <%- metadata.title %></a>
+      </h1>
+      <p class="post-date">Published: <time><%- date.format('MMMM Do, YYYY') %></time></p>
+      <p class="post-meta">Tagged:
+        <% _.each(metadata.tags, function(tag){ -%>
+          <a class="post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html" title="View all posts in <%- tag %>" rel="tag"><%-tag%></a>
+        <% }) -%>
+      </p>
+      <%- content %>
     </div>
   </div>
   <%- include('./partials/_footer.html') %>

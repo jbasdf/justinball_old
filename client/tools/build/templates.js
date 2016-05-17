@@ -4,6 +4,8 @@ var _             = require("lodash");
 var ejs           = require("ejs");
 var moment        = require("moment");
 
+var utils         = require("./utils");
+
 // -----------------------------------------------------------------------------
 // Apply layouts to content
 // -----------------------------------------------------------------------------
@@ -17,7 +19,11 @@ function apply(data, fullPath, templateMap, templateDirs){
   var html = "";
 
   try{
-    html = template(data);
+    html = template(_.merge({
+      cleanTag   : utils.cleanTag,
+      "_"        : _,
+      moment     : moment
+    }, data));
   } catch(err){
     console.log(err);
     console.log("Unable to build file: " + fullPath + " Data: " + data);

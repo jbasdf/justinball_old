@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('./partials/_head.html') %>
+</head>
+<body>
+<div id="layout" class="pure-g">
+  <%- include('./partials/_header.html') %>
+  <div class="content pure-u-1">
+    <div class="post">
+      <h1 class="post-title"><a href="<%- metadata.url %>" rel="bookmark" title="Permanent link to <%- metadata.title %>">
+        <%- metadata.title %></a>
+      </h1>
+      <p class="post-meta">
+        <span class="post-date">Published: <time><%- date.format('MMMM Do, YYYY') %></time></span>
+        <span class="post-categories">Tagged:
+          <% _.each(metadata.tags, function(tag){ -%>
+            <a class="post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html" title="View all posts in <%- tag %>" rel="tag"><%-tag%></a>
+          <% }) -%>
+        </span>
+      </p>
+      <%- content %>
+    </div>
+  </div>
+  <%- include('./partials/_footer.html') %>
+</div>
+</body>
+</html>

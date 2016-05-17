@@ -1,22 +1,22 @@
 <% _.each(posts, function(post){ -%>
-  <section class="post pure-g">
-    <header class="post-header pure-u-1 pure-u-md-1-4">
+  <section class="post home-post pure-g">
+    <header class="post-header home-post-header pure-u-1 pure-u-md-1-4">
       <% if(post.image){ %>
         <img class="post-avatar" alt="" height="48" width="48" src="<%-post.image%>">
       <% } %>
-      <h2 class="post-title"><a href="<%- post.url %>"><%-post.title%></a></h2>
-      <p class="post-meta">
+      <h2 class="post-title home-post-title"><a href="<%- post.url %>"><%-post.title%></a></h2>
+      <p class="post-meta home-post-meta">
         Posted <%- post.date.format("dddd, MMMM Do YYYY") %>
       </p>
       <p class="post-meta">
         <% if(post.metadata.tags && post.metadata.tags.length){ %>
           <% _.each(post.metadata.tags, function(tag){ -%>
-            <a class="post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html"><%-tag%></a>
+            <a class="post-category home-post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html"><%-tag%></a>
           <% }) -%>
         <% } %>
       </p>
     </header>
-    <div class="post-description pure-u-1 pure-u-md-3-4">
+    <div class="post-description home-post-description pure-u-1 pure-u-md-3-4">
       <p><%- post.summary %></p>
       <a href="<%- post.url %>">Continue Reading</a>
     </div>

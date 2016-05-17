@@ -3,8 +3,9 @@
 @import '_tags';
 @import '_menu';
 @import '_syntax_highlight';
-@import '_home';
+@import '_post';
 @import '_utils';
+@import '_home';
 
 * {
   -webkit-box-sizing: border-box;
@@ -45,11 +46,6 @@ h3 {
   margin: 3em auto;
 }
 
-.sidebar {
-  background: $blue;
-  color: #fff;
-}
-
 .brand-title,
 .brand-tagline {
   text-align: center;
@@ -64,6 +60,10 @@ h3 {
 .brand-tagline {
   font-weight: 300;
   color: rgb(176, 202, 219);
+}
+
+.navigation{
+  margin: 10px;
 }
 
 .nav-list {
@@ -105,54 +105,7 @@ h3 {
 }
 
 .content {
-  padding: 2em 1em 0;
-}
-
-.post {
-  border-top: solid 1px $silver;
-  padding-bottom: 2em;
-}
-
-.post-title {
-  font-size: 2em;
-  color: #222;
-  margin-bottom: 0.2em;
-}
-
-.post-avatar {
-  border-radius: 50px;
-  float: right;
-  margin-left: 1em;
-}
-
-.post-description {
-  color: #444;
-  line-height: 1.8em;
-}
-
-.post-meta {
-  color: #999;
-  font-size: 90%;
-  margin: 0;
-}
-
-.post-category {
-  margin: 0 0.1em;
-  padding: 0.3em 1em;
-  color: #fff;
-  background: #999;
-  font-size: 80%;
-}
-
-.post-images {
-  margin: 1em 0;
-}
-
-.post-image-meta {
-  margin-top: -3.5em;
-  margin-left: 1em;
-  color: #fff;
-  text-shadow: 0 1px 1px #333;
+  padding: 0;
 }
 
 .footer {
@@ -174,5 +127,20 @@ h3 {
 
 .button-next{
   float:right;
+}
+
+.button-search{
+  background-color: $green_sea;
+  color: $white;
+  font-weight: bold;
+}
+
+@media (min-width: 48em) {
+
+  .header {
+    margin: 80% 2em 0;
+    text-align: right;
+  }
+
 }
 
