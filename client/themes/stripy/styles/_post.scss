@@ -1,3 +1,6 @@
+//
+// Styling for main post page
+//
 .post{
   padding: 1em;
   color: $black;
@@ -66,6 +69,36 @@
   margin-left: 1em;
   color: #fff;
   text-shadow: 0 1px 1px #333;
+}
+
+
+//
+// Styling for posts on listing pages ie home page, tag pages, archive pages
+//
+.listing-post{
+  color: $clouds;
+}
+
+.listing-post:nth-child(3n){
+  background:$green_sea;
+}
+
+.listing-post:nth-child(3n+1){
+  background:$belize_hole;
+}
+
+.listing-post:nth-child(3n+2){
+  background:$asbestos;
+}
+
+.post-category{
+  background-color: none; // Add a background color if you want tags to show up like buttons
+}
+
+.listing-post-title{
+  a{
+    color: $white;
+  }
 }
 
 @media (min-width: 48em) {
