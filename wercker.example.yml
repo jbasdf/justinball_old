@@ -2,8 +2,7 @@ box: node
 build:
   steps:
     - npm-install
-    - hgen/gulp:
-        tasks: default
+    - npm-run-build
 deploy:
   steps:
     - s3sync:
