@@ -1,27 +1,24 @@
-<h1 class="content-subhead"><%-title%></h1>
 <% _.each(posts, function(post){ -%>
-  <section class="post listing-post">
-    <header class="post-header listing-post-header">
+  <section class="post listing-post pure-g">
+    <header class="post-header listing-post-header pure-u-1 pure-u-md-1-4">
       <% if(post.image){ %>
         <img class="post-avatar" alt="" height="48" width="48" src="<%-post.image%>">
       <% } %>
       <h2 class="post-title listing-post-title"><a href="<%- post.url %>"><%-post.title%></a></h2>
       <p class="post-meta listing-post-meta">
         Posted <%- post.date.format("dddd, MMMM Do YYYY") %>
+      </p>
+      <p class="post-meta listing-post-meta">
         <% if(post.metadata.tags && post.metadata.tags.length){ %>
           <% _.each(post.metadata.tags, function(tag){ -%>
-            <a class="post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html"><%-tag%></a>
+            <a class="post-category listing-post-category post-category-<%-cleanTag(tag)%>" href="/<%-site.tagsPath%>/<%-cleanTag(tag)%>.html"><%-tag%></a>
           <% }) -%>
         <% } %>
       </p>
     </header>
-    <div class="post-description listing-post-description">
+    <div class="post-description listing-post-description pure-u-1 pure-u-md-3-4">
       <p><%- post.summary %></p>
       <a href="<%- post.url %>">Continue Reading</a>
     </div>
   </section>
 <% }) -%>
-<div class="navigation">
-  <a href="<%- prevPage %>" class="pure-button button-prev">Previous</a>
-  <a href="<%- nextPage %>" class="pure-button button-next">Next</a>
-</div>
