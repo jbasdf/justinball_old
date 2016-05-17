@@ -2,7 +2,10 @@ box: node
 build:
   steps:
     - npm-install
-    - npm-run-build
+    - script:
+        name: run build
+        code: |
+          echo "npm run build"
 deploy:
   steps:
     - s3sync:
