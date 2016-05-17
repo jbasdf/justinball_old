@@ -160,7 +160,7 @@ function buildTagPages(pages, outputPath, options){
 function buildPostPages(pages, outputPath, options){
   var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
   var perPage = options.templateData.site.paginate;
-  var max = _.ceil(pages.length/perPage);
+  var max = _.floor(pages.length/perPage);
   _(pages)
   .filter(function(page){ // Only build archive pages for posts
     return _.includes(page.source, options.templateData.site.postsSource);

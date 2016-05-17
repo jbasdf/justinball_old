@@ -1,6 +1,5 @@
 .post{
-  border: none;
-  padding-bottom: 2em;
+  padding: 1em;
   color: $clouds;
   a{
     color: $clouds;
@@ -8,18 +7,6 @@
   img{
     max-width: 90%;
   }
-}
-
-.post:nth-child(3n){
-  background:$green_sea;
-}
-
-.post:nth-child(3n+1){
-  background:$belize_hole;
-}
-
-.post:nth-child(3n+2){
-  background:$asbestos;
 }
 
 .post-header{
