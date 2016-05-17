@@ -47,3 +47,9 @@
 .post-category{
   background-color: none; // Add a background color if you want tags to show up like buttons
 }
+
+.home-post-title{
+  a{
+    color: $white;
+  }
+}
