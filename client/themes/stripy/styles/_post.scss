@@ -1,6 +1,6 @@
 .post{
   padding: 1em;
-  color: $clouds;
+  color: $black;
   a{
     color: $clouds;
   }
@@ -17,9 +17,9 @@
 .post-title{
   margin: 0 0 10px 0;
   font-size: 2em;
-  color: $white;
+  color: $concrete;
   a{
-    color: $white;
+    color: $concrete;
     line-height: 40px;
     &:hover{
       text-decoration: none;
@@ -29,13 +29,17 @@
 }
 
 .post-meta{
-  margin: 0 0 10px 0;
+  margin: 5px 0;
   color: $silver;
-  font-size: 90%;
+  font-size: 65%;
+}
+
+.post-date{
+  margin-right: 10px;
 }
 
 .post-category{
-  background-color: none; // Add a background color if you want tags to show up like buttons
+  background-color: $concrete;
   margin: 0 0.1em;
   padding: 0.3em 1em;
   color: $white;

@@ -34,14 +34,8 @@
         <div class="util-right">
           <form method="get" action="http://www.google.com/search" class="pure-form" role="form">
             <input name="sitesearch" type="hidden" value="<%- site.domain %>">
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" name="q" class="form-control input-sm search-query" placeholder="Search" maxlength="255" value="">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-primary input-sm"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-              </div>
-            </div>
+            <input type="text" name="q" class="form-control input-sm search-query" placeholder="Enter Query" maxlength="255" value="">
+            <button type="submit" class="pure-button button-search">Search</button>
           </form>
         </div>
       </div>
