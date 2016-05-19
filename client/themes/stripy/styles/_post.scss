@@ -79,7 +79,7 @@
 .listing-post{
   color: $clouds;
   a: {
-    color $clouds;
+    color: $clouds;
   }
 }
 
@@ -98,9 +98,10 @@
 .post-category{
   color: $clouds;
   background-color: none; // Add a background color if you want tags to show up like buttons
-  a{
-    color: $clouds;
-  }
+}
+
+a.post-category{
+  color: $clouds;
 }
 
 .listing-post-title{
