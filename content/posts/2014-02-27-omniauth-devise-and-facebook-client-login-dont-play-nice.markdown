@@ -10,7 +10,7 @@ tags:
   - ruby
 ---
 
-I've had to use Facebook login inside an iframe twice now. Combine <a href="https://github.com/plataformatec/devise"Devise</a>
+I've had to use Facebook login inside an iframe twice now. Combine <a href="https://github.com/plataformatec/devise">Devise</a>
 with <a href="https://github.com/intridea/omniauth">omniauth</a> and <a href="https://github.com/mkdynamic/omniauth-facebook">omniauth-facebook</a> and you have a
 pretty great user authentication system. Now try to login via Facebook inside an iframe and nothing will happen. If you check your Javascript console you'll see a error
 that looks something like this:
