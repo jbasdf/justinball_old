@@ -15,7 +15,11 @@ Commuted to Google IO via the Bay Area Bike share program again. Since there's o
 # Firebase Security
 Jacob Wenger (<a href="https://www.twitter.com/_jwngr">_jwngr</a>)
 
-Made it to the Firebase Security talk. Not a lot of people here but so far this is one of my favorite presentation because it is code heavy and because Firebase security can be a bit complicated. Everyone using Firebase needs this. The best way to learn a complex development topic is through lots of examples and this presentation is filled with them.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PUBnlbjZFAI" frameborder="0" allowfullscreen></iframe>
+
+<a href="https://docs.google.com/presentation/d/1rYJN_WR2pErGK7w1cd3zxiJ3n85f5fexGaTZzmBeOvY/pub">Slides</a>
+
+I made it to the Firebase Security talk. Not a lot of people here but so far this is one of my favorite presentation because it is code heavy and because Firebase security can be a bit complicated. Everyone using Firebase needs this. The best way to learn a complex development topic is through lots of examples and this presentation is filled with them.
 
 Firebase security is one of the most difficult features for new Firebase developers to figure out so the Firebase team built rule compilers and the new dashboard provides a UI that makes testing your rules simple. With your typical application that utilizes an ORM the data validation lives in the models or if you're a database guy you've probably built significant data validation in your database. With Firebase there is no ORM so I would say their data validation is more similar to old school validation in the database. That's cool because the rules live close to the data. It also puts all your database rules in one place so it's easy to see get a high level few of all your data rules in one place. Here's an example from Jacob's presentation:
 <pre><code class="javascript">
