@@ -9,5 +9,7 @@ module.exports = function(html, stage, webpackConfig, webpackStats, options){
       collapseWhitespace: true,
       minifyJS: true
     });
+  } else {
+    return html;
   }
 };
