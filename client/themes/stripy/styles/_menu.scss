@@ -1,3 +1,5 @@
+// TODO menu isn't working make sure we have the righ
+// styling and code to make the menu work
 .custom-wrapper {
   background-color: $midnight_blue;
   color: $white;
@@ -71,11 +73,11 @@
 @media (max-width: 47.999em) {
 
   .custom-menu-3 {
-      text-align: left;
+    text-align: left;
   }
 
   .custom-toggle {
-      display: block;
+    display: block;
   }
 
 }
