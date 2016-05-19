@@ -1,10 +1,9 @@
-// TODO menu isn't working make sure we have the righ
-// styling and code to make the menu work
 .custom-wrapper {
   background-color: $midnight_blue;
   color: $white;
   -webkit-font-smoothing: antialiased;
   padding: 6px 0px;
+  height: 50px;
   overflow: hidden;
   -webkit-transition: height 0.5s;
   -moz-transition: height 0.5s;
@@ -13,6 +12,11 @@
   a{
     color: $white;
     font-weight: bold;
+    &:hover{
+      color: $sunflower;
+      background: none;
+      text-decoration: none;
+    }
   }
 }
 
@@ -35,7 +39,7 @@
 }
 
 .custom-toggle .bar {
-  background-color: $white;
+  background-color: #777;
   display: block;
   width: 20px;
   height: 2px;
