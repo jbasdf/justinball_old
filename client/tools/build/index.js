@@ -21,8 +21,6 @@ var stage                = release ? "production" : "development";
 
 var site                 = require("../../site.json");
 var inputPath            = path.join(__dirname, "../../../content");
-var themesPath            = path.join(__dirname, "../../themes");
-var templateDirs         = [path.join(inputPath, "layouts")];
 var outputPath           = stage == "production" ? settings.prodOutput : settings.devOutput;
 
 var ignoreFiles          = [".DS_Store"];
@@ -253,7 +251,7 @@ function watch(){
       });
 
       // Watch themes
-      nodeWatch(themesPath, function(filePath){
+      nodeWatch(themePath, function(filePath){
 
         // Template has changed. Rebuild the site
         build(true);
