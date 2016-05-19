@@ -18,7 +18,7 @@ function getHashed(webpackStats, entryPoint, ext){
 // -----------------------------------------------------------------------------
 // Changes webpack paths as needed.
 // -----------------------------------------------------------------------------
-function apply(html, webpackStats, webpackConfig, entries, cssEntries, buildSuffix){
+function apply(html, webpackConfig, webpackStats, entries, cssEntries, buildSuffix){
   var result = html;
   _.each(webpackConfig.entry, function(path, entry){
     if(_.has(entries, entry)){

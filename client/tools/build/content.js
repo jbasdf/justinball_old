@@ -2,15 +2,14 @@ var path          = require("path");
 var _             = require("lodash");
 var fs            = require("fs");
 var frontMatter   = require("front-matter");
-var minify        = require('html-minifier').minify;
 var truncate      = require("html-truncate");
 var moment        = require("moment");
 var ejs           = require("ejs");
 
-var webpackUtils  = require("./webpack_utils");
-var utils         = require("./utils");
-var marked        = require("./markdown");
-var templates     = require("./templates");
+var utils           = require("./utils");
+var marked          = require("./markdown");
+var templates       = require("./templates");
+var applyProduction = require("./production");
 
 // -----------------------------------------------------------------------------
 // build a single file
@@ -58,15 +57,7 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
   // Apply template
   data.content = html; // Pass in generated html
   html = templates.apply(data, fullPath, options.templateMap, options.templateDirs);
-
-  if(stage == "production"){
-    html = webpackUtils.apply(html, webpackStats, webpackConfig, options.entries, options.cssEntries, options.buildSuffix);
-    html = minify(html, {
-      removeComments: true,
-      collapseWhitespace: true,
-      minifyJS: true
-    });
-  }
+  html = applyProduction(html, stage, webpackConfig, webpackStats, options);
 
   return {
     title       : title,
