@@ -6,10 +6,11 @@ var nodeWatch     = require("node-watch");
 var del           = require("del");
 var moment        = require("moment");
 
-var file          = require("./file");
-var buildContent  = require("./content");
-var templates     = require("./templates");
-var utils         = require("./utils");
+var file            = require("./file");
+var buildContent    = require("./content");
+var templates       = require("./templates");
+var utils           = require("./utils");
+var applyProduction = require("./production");
 
 // Settings
 var webpackConfigBuilder = require("../../config/webpack.config");
@@ -122,7 +123,7 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
  * @param {object} options, info being passed between functions. Declared at top of file
  *  -----------------------------------------------------------------------------
  */
-function buildTagPages(pages, outputPath, options){
+function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, options){
 
   var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
 
@@ -150,6 +151,7 @@ function buildTagPages(pages, outputPath, options){
     // Apply template
     var fileName = utils.cleanTag(tag) + ".html";
     var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    html = applyProduction(html, stage, webpackConfig, webpackStats, options);
     file.write("", path.join(outputPath, site.tagsPath), fileName, html, options);
   });
 }
@@ -157,7 +159,7 @@ function buildTagPages(pages, outputPath, options){
 // -----------------------------------------------------------------------------
 // Build blog archive pages
 // -----------------------------------------------------------------------------
-function buildPostPages(pages, outputPath, options){
+function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, options){
   var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
   var perPage = options.templateData.site.paginate;
   var max = _.floor(pages.length/perPage);
@@ -188,6 +190,7 @@ function buildPostPages(pages, outputPath, options){
 
     // Apply template
     var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    html = applyProduction(html, stage, webpackConfig, webpackStats, options);
     file.write("", outputPath, fileName, html, options);
   });
 }
@@ -212,8 +215,8 @@ function build(isHot){
 
         pages = pages.sort(compare);
 
-        buildPostPages(pages, outputPath, options);
-        buildTagPages(pages, outputPath, options);
+        buildPostPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
+        buildTagPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
 
         var duration = moment() - start;
         console.log("Done building files in: " + duration/1000 + " seconds");
