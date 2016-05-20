@@ -72,14 +72,35 @@
   text-shadow: 0 1px 1px #333;
 }
 
+.post-category{
+  color: $clouds;
+  background-color: none; // Add a background color if you want tags to show up like buttons
+}
+
+a.post-category{
+  color: $clouds;
+}
+
+a.post-continue{
+  color: $silver;
+}
+
 
 //
 // Styling for posts on listing pages ie home page, tag pages, archive pages
 //
 .listing-post{
-  color: $clouds;
-  a: {
+  color: $white;
+  a{
     color: $clouds;
+    text-decoration: underline;
+  }
+}
+
+.listing-post-title{
+  a{
+    color: $white;
+    text-decoration: none;
   }
 }
 
@@ -95,24 +116,6 @@
   background:$asbestos;
 }
 
-.post-category{
-  color: $clouds;
-  background-color: none; // Add a background color if you want tags to show up like buttons
-}
-
-a.post-category{
-  color: $clouds;
-}
-
-.listing-post-title{
-  a{
-    color: $white;
-  }
-}
-
-a.post-continue{
-  color: $silver;
-}
 
 @media (min-width: 48em) {
 
