@@ -21,7 +21,7 @@ The project formerly known as Abacus becomes the Trust API. The purpose is to el
   <a href="/images/posts/2016/05/20/trust_api.jpg"><img src="/images/posts/2016/05/20/trust_api_sm.jpg" alt="trust_api" /></a>
 </div>
 
-Last year they introduced project Jacquard and project Soli. This year they showed them off again with the promise of getting the technology into the hands of customers. Jacquard will find its way into a Levi commuter jacket in spring 2017. That's cool, but I'm hopeful Google will expand its partnerships. I don't bike with a Levi jacket so I'd love to see the tech in a bike glove. Still it's a technology that brings computing closer to a natural interaction and that's exciting.
+Last year they introduced project <a href="http://atap.google.com/jacquard/">Jacquard</a> and project <a href="http://atap.google.com/soli/">Soli</a>. This year they showed them off again with the promise of getting the technology into the hands of customers. Jacquard will find its way into a Levi commuter jacket in spring 2017. That's cool, but I'm hopeful Google will expand its partnerships. I don't bike with a Levi jacket so I'd love to see the tech in a bike glove. Still it's a technology that brings computing closer to a natural interaction and that's exciting.
 <div class="post-images">
   <a href="/images/posts/2016/05/20/Jacquard_Levi_Jacket.jpg"><img src="/images/posts/2016/05/20/Jacquard_Levi_Jacket_sm.jpg" alt="Jacquard Levi Jacket" /></a>
   <a href="/images/posts/2016/05/20/Jacquard_Levi_Bike_Jacket.jpg"><img src="/images/posts/2016/05/20/Jacquard_Levi_Bike_Jacket_sm.jpg" alt="Jacquard_Levi_Bike_Jacket" /></a>
