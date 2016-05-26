@@ -2,6 +2,7 @@
 title: Picture Utilities
 author: Justin Ball
 layout: post
+permalink: /2013/06/23/picture-utilities/
 tags:
   - Pictures
 ---

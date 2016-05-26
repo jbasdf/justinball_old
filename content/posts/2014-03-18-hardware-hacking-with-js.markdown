@@ -8,12 +8,9 @@ tags:
   - mwjs
   - Javascript
 ---
-With the Cache Maker club we're always looking for ways to make it easier for kids to interact with hardware. Traditionally,
-interacting with hardware meant learning assembly or if you picked the right platform you could write embedded C. Today
-things are different.
+With the Cache Maker club we're always looking for ways to make it easier for kids to interact with hardware. Traditionally, interacting with hardware meant learning assembly or if you picked the right platform you could write embedded C. Today things are different.
 
-With Arduino we have an open source hardware platform with libraries in your favorite language. Javascript is an
-approachable language. Put the two together and kids can program hardware.
+With Arduino we have an open source hardware platform with libraries in your favorite language. Javascript is an approachable language. Put the two together and kids can program hardware.
 
 That's why "Hardware Hacking with JS" with <a href="http://jamisondance.com/">Jamison Dance</a> (<a href="https://twitter.com/jergason">@jergason</a>) was so awesome.
 
