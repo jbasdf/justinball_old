@@ -60,4 +60,9 @@ Everyone needs a motorcycle that looks like a dragon:
   <a href="/images/posts/2016/05/21/dragon_cycle.jpg"><img src="/images/posts/2016/05/21/dragon_cycle_sm.jpg" alt="dragon cycle"/></a>
 </div>
 
+EepyBird was on hand to cover the audience in Coke:
+<div class="post-images">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/54-jSaVQABA" frameborder="0" allowfullscreen></iframe>
+</div>
+
 Oh and there was also free Haagen-Dazs ice cream. Any event with free ice cream is a bit of awesome.
