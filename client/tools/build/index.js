@@ -46,7 +46,8 @@ var options              = {
     "index.html": "home"
   },
   templateDirs:    templateDirs,          // Directories to look in for template
-  summaryMarker:   "<!--more-->"
+  summaryMarker:   "<!--more-->",
+  recentPostsTitle: ""
 };
 
 // -----------------------------------------------------------------------------
@@ -170,7 +171,13 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
     var prevPage = (index > 1 ? index-1 : "index") + ".html";
     var nextPage = index < max ? index+1 + ".html" : "#";
     var fileName = (index == 0 ? "index" : index) + ".html";
-    var title    = index == 0 ? "Recent Posts" : "";
+
+    var title;
+    if(_.isEmpty(options.recentPostsTitle)){
+      title = index == 0 ? "Recent Posts" : "";
+    } else {
+      title = options.recentPostsTitle;
+    }
 
     var data = {
       site       : options.templateData.site,
