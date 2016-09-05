@@ -1,6 +1,6 @@
 var path          = require("path");
 var _             = require("lodash");
-var fs            = require("fs");
+var fs            = require("fs-extra");
 var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
 var del           = require("del");
@@ -198,9 +198,23 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
 // -----------------------------------------------------------------------------
 function build(isHot){
   return new Promise(function(resolve, reject){
-    var start = moment();
-    console.log("Building files in: " + inputPath);
-    del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
+	var start = moment();
+	
+    // Delete everything in the output path
+    del(outputPath, {force: true}).then(function(){
+
+      // Copy static files to build directory
+      try {
+        var stats = fs.statSync(settings.staticDir);
+        console.log("Copying static files in " + settings.staticDir);
+        fs.copySync(settings.staticDir, outputPath);
+      }
+      catch(err) {
+        // No static dir. Do nothing
+      }
+
+      // Build files
+      console.log("Building files in: " + inputPath);
       buildWebpackEntries(isHot).then(function(packResults){
         var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
 
