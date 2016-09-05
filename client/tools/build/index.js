@@ -173,10 +173,10 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
     var fileName = (index == 0 ? "index" : index) + ".html";
 
     var title;
-    if(_.isEmpty(options.recentPostsTitle)){
-      title = index == 0 ? "Recent Posts" : "";
-    } else {
+    if(_.isString(options.recentPostsTitle)){
       title = options.recentPostsTitle;
+    } else {
+      title = index == 0 ? "Recent Posts" : "";
     }
 
     var data = {
