@@ -12,22 +12,28 @@ tags:
 <h3>The Problem:</h3>
 While trying to setup <a href="https://docs.docker.com/docker-for-mac/">Docker for Mac</a> I kept getting the following error anytime I tried to spin up a Docker image:
 
-  `Couldn't connect to Docker daemon. You might need to start Docker for Mac.`
+<blockquote>
+  Couldn't connect to Docker daemon. You might need to start Docker for Mac.
+</blockquote>
 
 <h3>All the fixes said do this:</h3>
 
-  eval `docker-machine env default`
+<blockquote>
+  eval "docker-machine env default"
+</blockquote>
 
 I tried but kept getting
 
-  `Host does not exist: "default"`
+<blockquote>
+  Host does not exist: "default"
+<blockquote>
 
 <h3>The fix for me</h3>
 
 I had to run this:
 
 <blockquote>
-  docker-machine create --driver virtualbox default`
+  docker-machine create --driver virtualbox default
 </blockquote>
 
 and then this:
