@@ -26,7 +26,7 @@ I tried but kept getting
 
 <blockquote>
   Host does not exist: "default"
-<blockquote>
+</blockquote>
 
 <h3>The fix for me</h3>
 
