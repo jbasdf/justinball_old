@@ -82,6 +82,7 @@ function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage
   var results = [];
   var files = fs.readdirSync(inputPath);
   files.forEach(function(fileName){
+
     var fullInputPath = path.join(inputPath, fileName);
     var doOutput = options.templateDirs.indexOf(fullInputPath) < 0 && // Ignore template dirs
                   !_.includes(ignoreFiles, fileName);
