@@ -1,6 +1,6 @@
-#React Client Starter App
+#SpeakEasy
 -----------------------
-There are many starter kits that will help you get started with React and Redux. This is the one created by, maintained by and used by [Atomic Jolt](http://www.atomicjolt.com). Atomic Jolt uses this as application as a starting place for our [Ruby on Rails React starter application](https://github.com/atomicjolt/react_starter_app) and our [Firebase React starter appliction](https://github.com/atomicjolt/react_firebase_starter_app).
+SpeakEasy is a simple blogging/content tool built on the [React Client Starter App](https://github.com/atomicjolt/react_client_starter_app), maintained by and used by [Atomic Jolt](http://www.atomicjolt.com).
 
 
 #Getting Started:
@@ -8,7 +8,7 @@ There are many starter kits that will help you get started with React and Redux.
 
 Make sure to install git and npm before you start then:
 
-1. git clone https://github.com/atomicjolt/react_client_starter_app.git my_project_name
+1. git clone https://github.com/jbasdf/speakeasy.git my_project_name
 2. Rename .env.example to .env. This file contains the port the server will use. The default 8080 should be fine, but you can also use a local domain or ngrok if you wish.
 3. npm install
 4. Start server with:
