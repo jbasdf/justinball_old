@@ -23,14 +23,28 @@ then visit http://localhost:8080
 Source code lives in the client directory. Modify html and js files in that directory to build your application.
 
 
+## Posts
+Add new posts to "/content/posts/". Content added to this directory will be added in typical blog fashion with the latest
+10 posts showing on the home page and subsequent pages paged. The number of posts per page can be changed in site.json
+
+
+## Content
+-----------
+Add as many pages as you like to the "/content" directory. The build process will properly process ejs in any html files
+as well as process markdown for files that end in .md. All front matter in .md files will be available to the ejs templates.
+See about.md for an example. Any pages added to the content directory will be reflected in the same directory structure
+in the output directory.
+
+
+## Themes
+-----------
+Add new themes to client/themes. A great way to start is by cloning the 'default' directory.
+
+
 ## React.js
 -----------
 React code can be found in client/js. We use Redux and the React-Router.
 
-
-## Html
------------
-All html files live in client/html. The build process will properly process ejs in any html files as well as process markdown for files that end in .md. All front matter in .md files will be available to the ejs templates. See about.md for an example.
 
 
 ## Assets
