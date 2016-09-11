@@ -25,7 +25,7 @@ Source code lives in the client directory. Modify html and js files in that dire
 
 ## Posts
 Add new posts to "/content/posts/". Content added to this directory will be added in typical blog fashion with the latest
-10 posts showing on the home page and subsequent pages paged. The number of posts per page can be changed in site.json
+10 posts showing on the home page and subsequent pages paged. The number of posts per page can be changed in site.json.
 
 
 ## Content
