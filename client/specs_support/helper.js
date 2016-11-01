@@ -1,7 +1,6 @@
 "use strict";
 
 import _                  from "lodash";
-import Immutable          from 'immutable';
 
 import configureStore     from "../js/store/configure_store";
 
@@ -20,15 +19,14 @@ export default class Helper{
 
   // Create a real store that can be used for testing
   static makeStore(settings){
-    var initialSettings = _.assign({
-      jwt: "jwt_token",
-      csrf: "csrf_token",
-      apiUrl: "http://www.example.com"
-    }, settings);
-
-    return configureStore({
-      settings: Immutable.fromJS(initialSettings)
-    });
+    const initialState = {
+      jwt      : "fake_jwt_token",
+      settings : _.assign({
+                    csrf     : "csrf_token",
+                    apiUrl   : "http://www.example.com"
+                  }, settings)
+    };
+    return configureStore(initialState);
   }
 
   static stubAjax(){

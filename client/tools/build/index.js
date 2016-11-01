@@ -3,7 +3,6 @@ var _             = require("lodash");
 var fs            = require("fs-extra");
 var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
-var del           = require("del");
 var moment        = require("moment");
 
 var file            = require("./file");
@@ -208,7 +207,7 @@ function build(isHot){
 	var start = moment();
 	
     // Delete everything in the output path
-    del(outputPath, {force: true}).then(function(){
+    fs.emptydir(outputPath, function(){
 
       // Copy static files to build directory
       try {
