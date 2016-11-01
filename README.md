@@ -81,6 +81,12 @@ Karma and Jasmine are used for testing. To run tests run:
   `npm run test`
 
 
+#Install packages
+-----------
+Ignore the engines settings as reveal.js and protractor.js are set to older versions of node:
+
+  `yarn --ignore-engines`
+
 #Check for updates
 -----------
 Inside the client directory run:
