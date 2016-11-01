@@ -98,10 +98,7 @@ Inside the client directory run:
 -----------------------
 
   1. Setup credentials. If you've already setup your Amazon credentials in ~/.aws/credentials you will be able to do something similar to the
-  following where atomiclti is one of the AWS profiles found in ~/.aws/credentials:
-
-    export AWS_DEFAULT_PROFILE=atomiclti
-    export AWS_PROFILE=atomiclti
+  following where justin is one of the AWS profiles found in ~/.aws/credentials:
 
   You can also use a .env file. See the [s3-website](https://github.com/klaemo/s3-website) documentation for more options.
 
