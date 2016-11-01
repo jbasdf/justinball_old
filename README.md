@@ -1,6 +1,6 @@
 #Justin Ball
 -----------------------
-My blog
+My blog based on the [React Client Starter App](https://github.com/atomicjolt/react_client_starter_app), maintained by and used by [Atomic Jolt](http://www.atomicjolt.com).
 
 
 #Getting Started:
@@ -8,7 +8,7 @@ My blog
 
 Make sure to install git and npm before you start then:
 
-1. git clone https://github.com/atomicjolt/react_client_starter_app.git my_project_name
+1. git clone https://github.com/jbasdf/speakeasy.git my_project_name
 2. Rename .env.example to .env. This file contains the port the server will use. The default 8080 should be fine, but you can also use a local domain or ngrok if you wish.
 3. npm install
 4. Start server with:
@@ -23,14 +23,55 @@ then visit http://localhost:8080
 Source code lives in the client directory. Modify html and js files in that directory to build your application.
 
 
+## Posts
+Add new posts to "/content/posts/". Content added to this directory will be added in typical blog fashion with the latest
+10 posts showing on the home page and subsequent pages paged. The number of posts per page can be changed in site.json.
+
+
+## Content
+-----------
+Add as many pages as you like to the "/content" directory. The build process will properly process ejs in any html files
+as well as process markdown for files that end in .md. All front matter in .md files will be available to the ejs templates.
+See about.md for an example. Any pages added to the content directory will be reflected in the same directory structure
+in the output directory.
+
+
+## Themes
+-----------
+Add new themes to client/themes. A great way to start is by cloning the 'default' directory.
+
+
 ## React.js
 -----------
 React code can be found in client/js. We use Redux and the React-Router.
 
 
-## Html
+
+## Assets
 -----------
-All html files live in client/html. The build process will properly process ejs in any html files as well as process markdown for files that end in .md. All front matter in .md files will be available to the ejs templates. See about.md for an example.
+Any files added to the assets directory can be used by in code and assigned to a variable. This
+allows for referring to assets using dynamically generated strings. The assets will be built according to
+the rules specified in your webpack configuration. Typically, this means that in production the names will
+be changed to include a SHA.
+
+First importing the assets:
+  `import assets from '../libs/assets';`
+
+Then assign the assest to a variable:
+  `const img = assets("./images/atomicjolt.jpg");`
+
+The value can then be used when rendering:
+  `render(){
+    const img = assets("./images/atomicjolt.jpg");
+    return<div>
+    <img src={img} />
+    </div>;
+  }`
+
+
+## Static
+-----------
+Files added to the static directory will be copied directly into the build. These files will not be renamed.
 
 
 #Tests
@@ -47,58 +88,32 @@ Inside the client directory run:
   `npm-check-updates`
 
 
-#Setup Deploy:
+#Deploy to S3:
 -----------------------
 
-  1. Install the s3_website gem:
+  1. Setup credentials. If you've already setup your Amazon credentials in ~/.aws/credentials you will be able to do something similar to the
+  following where atomiclti is one of the AWS profiles found in ~/.aws/credentials:
 
-    `gem install s3_website`
+    export AWS_DEFAULT_PROFILE=atomiclti
+    export AWS_PROFILE=atomiclti
 
-  2. Create s3_website.yml:
+  You can also use a .env file. See the [s3-website](https://github.com/klaemo/s3-website) documentation for more options.
 
-    `s3_website cfg create`
+  2. Install the s3-website node package globally:
 
-  3. Setup and AWS user:
+    `npm install -g s3-website`
 
-    1. Login to your AWS console
-    2. Find Identity & Access Management (IAM)
-    3. Click 'Users'
-    4. Click 'Create New Users'
-    5. Save the user's credentials
-    6. Click on the user
-    7. Click the permissions tab.
-    8. Under 'Inline Policies' create a new custom policy and paste in the policy below. Be sure to change the domains:
+  3. Edit configuration.
 
-    For more details see the [s3_website gem instructions](https://github.com/laurilehmijoki/s3_website).
+    Open up .s3-website.json and set the desired bucket name
 
-    ###IAM Policy:
-    ```json
+  4. Configure the bucket as a website
 
-      {
-        "Statement": [
-            {
-                "Action": [
-                    "s3:ListBucket"
-                ],
-                "Effect": "Allow",
-                "Resource": "arn:aws:s3:::www.reactclientstarterapp.com"
-            },
-            {
-                "Action": "s3:*",
-                "Effect": "Allow",
-                "Resource": [
-                    "arn:aws:s3:::www.reactclientstarterapp.com",
-                    "arn:aws:s3:::www.reactclientstarterapp.com/*"
-                ]
-            }
-        ]
-      }
-    ```
+    `npm run create`
 
-  4. Configure bucket as website:
+  5. Deploy.
 
-    `s3_website cfg apply`
-
+    `npm run release`
 
 #Production
 -----------------------

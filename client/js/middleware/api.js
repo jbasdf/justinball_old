@@ -2,23 +2,34 @@ import api         from "../libs/api";
 import { DONE }    from "../constants/wrapper";
 
 const API = store => next => action => {
-  var promise;
-  var state = store.getState();
 
-  // send the api request
-  if(action.method){
-    promise = api.execRequest(action.method, action.url, state.settings.get("apiUrl"), state.settings.get("jwt"), state.settings.get("csrfToken"), action.params, action.body);
+  function request(method, url, params, body){
+    const state = store.getState();
+    const promise = api.execRequest(method, url, state.settings.apiUrl, state.jwt, state.settings.csrfToken, params, body);
     if(promise){
-      promise.then((response, error) => {
-        store.dispatch({
-          type:     action.type + DONE,
-          payload:  response.body,
-          original: action,
-          response,
-          error
-        }); // Dispatch the new data
-      });
+      promise.then(
+        (response) => {
+          store.dispatch({
+            type:     action.type + DONE,
+            payload:  response.body,
+            original: action,
+            response
+          }); // Dispatch the new data
+        },
+        (error) => {
+          store.dispatch({
+            type:     action.type + DONE,
+            payload:  {},
+            original: action,
+            error
+          }); // Dispatch the new error
+        }
+      );
     }
+  };
+
+  if(action.method){
+    request(action.method, action.url, action.params, action.body);
   }
 
   // call the next middleWare

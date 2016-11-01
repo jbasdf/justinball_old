@@ -40,6 +40,8 @@ var settings = {
 
   theme: theme,
 
+  staticDir: clientAppPath + 'static',
+
   entries: {
     app: clientAppPath + 'js/app.jsx'
   }

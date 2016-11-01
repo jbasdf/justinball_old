@@ -1,16 +1,14 @@
 "use strict";
 
 import React                    from "react";
-import { connect }              from "react-redux";
 
-@connect((state) => (state), null, null, {withRef: true})
-class Index extends React.Component {
-  
+export default class Index extends React.Component {
+
   constructor(){
     super();
     this.state = {};
   }
-  
+
   render(){
     return<div>
       {this.props.children}
@@ -18,5 +16,3 @@ class Index extends React.Component {
   }
 
 }
-
-export default Index;

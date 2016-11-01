@@ -30,11 +30,10 @@ module.exports = function(stage){
                 ',presets[]=es2015' + // Include all plugins needed to handle es2015 syntax
                 ',presets[]=stage-0'; // Enables experimental ES features.
 
-  if(stage == "development"){
-    presets = presets + ',presets[]=react-hmre'; // Adds react hot module reload
+  if(development){
+    plugins = plugins + ',plugins[]=react-hot-loader/babel';
   } else if (production) {
     plugins = plugins + ',plugins[]=transform-react-constant-elements'; // Hoists static React components to reduce calls to createElement
-    plugins = plugins + ',plugins[]=transform-react-inline-elements';   // Replaces the React.createElement function with a more optimized one for production
     plugins = plugins + ',plugins[]=transform-react-remove-prop-types'; // Removes prop types from code
   }
 
@@ -107,16 +106,16 @@ module.exports = function(stage){
     { test: /\.css$/i ,           loader: extractCSS.extract(cssLoaders) },
     { test: /\.less$/i ,          loader: extractCSS.extract(lessLoaders) },
     { test: /.*\.(gif|png|jpg|jpeg|svg)$/, loaders: ['url?limit=5000&hash=sha512&digest=hex&size=16&name=[name]-[hash].[ext]']}, //'image-webpack-loader?optimizationLevel=7&interlaced=false'
-    { test: /.*\.(eot|woff2|woff|ttf)$/,   loaders: ['url?limit=5000&hash=sha512&digest=hex&size=16&name=cd [name]-[hash].[ext]']}
+    { test: /.*\.(eot|woff2|woff|ttf)$/,   loaders: ['url?limit=5000&hash=sha512&digest=hex&size=16&name=[name]-[hash].[ext]']}
   ];
 
   return {
     context: __dirname,
     entry: entries,
     output: {
-      path: production ? settings.prodOutput : settings.devOutput,                                                // Location where generated files will be output
+      path: production ? settings.prodOutput : settings.devOutput, // Location where generated files will be output
       filename: production ? '[name]-[chunkhash]' + settings.buildSuffix : '[name]' + settings.buildSuffix,
-      chunkFilename: production ? '[id]-[chunkhash]' + settings.buildSuffix : '[id].js',
+      chunkFilename: production ? '[id]-[chunkhash]' + settings.buildSuffix : '[id]' + settings.buildSuffix,
       publicPath: publicPath,
       sourceMapFilename: 'debugging/[file].map',
       pathinfo: !production // http://webpack.github.io/docs/configuration.html#output-pathinfo

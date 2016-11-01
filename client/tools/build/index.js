@@ -1,9 +1,8 @@
 var path          = require("path");
 var _             = require("lodash");
-var fs            = require("fs");
+var fs            = require("fs-extra");
 var webpack       = require("webpack");
 var nodeWatch     = require("node-watch");
-var del           = require("del");
 var moment        = require("moment");
 
 var file            = require("./file");
@@ -46,7 +45,8 @@ var options              = {
     "index.html": "home"
   },
   templateDirs:    templateDirs,          // Directories to look in for template
-  summaryMarker:   "<!--more-->"
+  summaryMarker:   "<!--more-->",
+  recentPostsTitle: ""
 };
 
 // -----------------------------------------------------------------------------
@@ -171,7 +171,13 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
     var prevPage = (index > 1 ? index-1 : "index") + ".html";
     var nextPage = index < max ? index+1 + ".html" : "#";
     var fileName = (index == 0 ? "index" : index) + ".html";
-    var title    = index == 0 ? "Recent Posts" : "";
+
+    var title;
+    if(_.isString(options.recentPostsTitle)){
+      title = options.recentPostsTitle;
+    } else {
+      title = index == 0 ? "Recent Posts" : "";
+    }
 
     var data = {
       site       : options.templateData.site,
@@ -199,9 +205,23 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
 // -----------------------------------------------------------------------------
 function build(isHot){
   return new Promise(function(resolve, reject){
-    var start = moment();
-    console.log("Building files in: " + inputPath);
-    del(outputPath, {force: true}).then(function(){ // Delete everything in the output path
+	var start = moment();
+	
+    // Delete everything in the output path
+    fs.emptydir(outputPath, function(){
+
+      // Copy static files to build directory
+      try {
+        var stats = fs.statSync(settings.staticDir);
+        console.log("Copying static files in " + settings.staticDir);
+        fs.copySync(settings.staticDir, outputPath);
+      }
+      catch(err) {
+        // No static dir. Do nothing
+      }
+
+      // Build files
+      console.log("Building files in: " + inputPath);
       buildWebpackEntries(isHot).then(function(packResults){
         var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
 
