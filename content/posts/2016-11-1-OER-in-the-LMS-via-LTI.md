@@ -15,6 +15,7 @@ tags:
   <li>LTI Starter App: <a href="https://github.com/atomicjolt/lti_starter_app">https://github.com/atomicjolt/lti_starter_app</a></li>
   <li>Open Assessments: <a href="https://github.com/atomicjolt/OpenAssessments">https://github.com/atomicjolt/OpenAssessments</a></li>
   <li>Open Assessments Client: <a href="https://github.com/atomicjolt/OpenAssessmentsClient">https://github.com/atomicjolt/OpenAssessmentsClient</a></li>
+  <li>React Client Starter App: <a href="https://github.com/atomicjolt/react_client_starter_app">https://github.com/atomicjolt/react_client_starter_app</a></li>
   <li>Wordpress as an LTI consumer <a href="https://github.com/Saltbox/wordpress-lti-consumer">https://github.com/Saltbox/wordpress-lti-consumer</a></li>
   <li>Wordpress as an LTI provider <a href="https://github.com/lumenlearning/lti">https://github.com/lumenlearning/lti</a></li>
 </ul>
