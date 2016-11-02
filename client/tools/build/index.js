@@ -133,6 +133,8 @@ function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, op
     return tags;
   }, {});
 
+  var site = options.templateData.site;
+
   _.each(tags, function(posts, tag){
     var data = {
       site       : options.templateData.site,
@@ -141,6 +143,7 @@ function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, op
       currentTag : tag,
       cleanTag   : utils.cleanTag,
       posts      : posts,
+      url        : path.join(site.domain, site.tagsPath),
       "_"        : _
     };
 
@@ -186,6 +189,7 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
       title      : title,
       cleanTag   : utils.cleanTag,
       "_"        : _,
+      url        : site.domain,
       prevPage   : prevPage,
       nextPage   : nextPage
     };
@@ -205,8 +209,8 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
 // -----------------------------------------------------------------------------
 function build(isHot){
   return new Promise(function(resolve, reject){
-	var start = moment();
-	
+    var start = moment();
+  
     // Delete everything in the output path
     fs.emptydir(outputPath, function(){
 
