@@ -1,13 +1,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><%- metadata.title ? metadata.title : site.title %></title>
+<base href="https://<%- url %>" />
+<meta property="og:title" content="<%- metadata.title ? metadata.title : site.title %>" />
 <% if(metadata.description){ %>
   <meta name="description" content="<%- metadata.description %>" />
+<% } %>
+<% if(metadata.image){ %>
+  <meta property="og:image" content="<%- metadata.image %>" />
 <% } %>
 <meta name="author" content="<%- site.author %>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="shortcut icon" href="favicon.ico">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

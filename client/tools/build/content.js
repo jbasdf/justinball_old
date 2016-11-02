@@ -21,14 +21,14 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
   var pathResult  = utils.filename2date(fullPath);
   var date        = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
   var title       = metadata.title || pathResult.title;
-  var destination = metadata.permalink || pathResult.url;
+  var destination = metadata.permalink || pathResult.url || "/";
   var data        = _.merge({
     "_"      : _,
     date     : date,
     title    : title,
     moment   : moment,
     metadata : metadata,
-    url      : destination
+    url      : path.join(options.templateData.site.domain, destination)
   }, options.templateData);
 
   var html = parsed.body;
