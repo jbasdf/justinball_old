@@ -1,25 +1,4 @@
 {
-  "name": "SpeakEasy",
-  "version": "0.0.3",
-  "description": "Speak freely.",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "scripts": {
-    "test": "./node_modules/karma/bin/karma start",
-    "coveralls": "cat coverage/lcov.info | coveralls",
-    "hot": "node webpack.hot.js",
-    "live": "node server.js",
-    "build_dev": "node ./build.js",
-    "build": "node ./build.js --release",
-    "create": "node ./build.js --release && cd .. && s3-website create",
-    "release": "node ./build.js --release && cd .. && s3-website deploy",
-    "lint": "eslint js"
-  },
-  "author": "atomicjolt, jbasdf",
-  "license": "MIT",
-  "homepage": "https://www.example.com",
   "dependencies": {
     "babel": "6.5.2",
     "babel-polyfill": "^6.16.0",
@@ -43,7 +22,7 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
-    "babel-core": "^6.18.0",
+    "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
     "babel-loader": "^6.2.7",
     "babel-plugin-transform-class-properties": "^6.18.0",
@@ -63,7 +42,7 @@
     "ejs": "^2.5.2",
     "eslint": "^3.9.1",
     "eslint-plugin-babel": "^3.3.0",
-    "eslint-plugin-react": "^6.4.1",
+    "eslint-plugin-react": "^6.5.0",
     "event-stream": "3.3.4",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.0",
@@ -93,10 +72,11 @@
     "less-loader": "2.2.3",
     "marked": "^0.3.6",
     "minimist": "1.2.0",
-    "node-sass": "3.10.1",
+    "node-sass": "3.11.1",
     "node-watch": "^0.4.1",
     "npm-shrinkwrap": "6.0.2",
     "null-loader": "0.1.1",
+    "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.13",
     "protractor": "4.0.10",
     "psi": "2.0.4",
