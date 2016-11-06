@@ -97,8 +97,12 @@ Inside the client directory run:
 #Deploy to S3:
 -----------------------
 
-  1. Setup credentials. If you've already setup your Amazon credentials in ~/.aws/credentials you will be able to do something similar to the
-  following where justin is one of the AWS profiles found in ~/.aws/credentials:
+  1. Setup credentials. If you've already setup your Amazon credentials in ~/.aws/credentials
+  you will be able to do something similar to the following where "myprofile" is one of
+  the AWS profiles found in ~/.aws/credentials:
+
+    export AWS_DEFAULT_PROFILE=myprofile
+    export AWS_PROFILE=myprofile
 
   You can also use a .env file. See the [s3-website](https://github.com/klaemo/s3-website) documentation for more options.
 
