@@ -1,4 +1,4 @@
-#SpeakEasy
+#React Client Starter App [![Build Status](https://travis-ci.org/atomicjolt/react_client_starter_app.svg?branch=master)](https://travis-ci.org/atomicjolt/react_client_starter_app) [![Coverage Status](https://coveralls.io/repos/github/atomicjolt/react_client_starter_app/badge.svg?branch=coveralls)](https://coveralls.io/github/atomicjolt/react_client_starter_app?branch=coveralls)
 -----------------------
 SpeakEasy is a simple blogging/content tool built on the [React Client Starter App](https://github.com/atomicjolt/react_client_starter_app), maintained by and used by [Atomic Jolt](http://www.atomicjolt.com).
 
@@ -6,14 +6,18 @@ SpeakEasy is a simple blogging/content tool built on the [React Client Starter A
 #Getting Started:
 -----------------------
 
-Make sure to install git and npm before you start then:
+Make sure to install git, npm and yarn before you start then:
 
 1. git clone https://github.com/jbasdf/speakeasy.git my_project_name
-2. Rename .env.example to .env. This file contains the port the server will use. The default 8080 should be fine, but you can also use a local domain or ngrok if you wish.
-3. npm install
+2. Rename .env.example to .env. This file contains the port the server will use.
+   The default 8080 should be fine, but you can also use a local domain or ngrok if you wish.
+3. Install packages with
+
+    `yarn`
+
 4. Start server with:
 
-  `npm run hot`
+  `yarn hot`
 
 then visit http://localhost:8080
 
@@ -45,6 +49,10 @@ Add new themes to client/themes. A great way to start is by cloning the 'default
 -----------
 React code can be found in client/js. We use Redux and the React-Router.
 
+
+## Html
+-----------
+All html files live in client/html. The build process will properly process ejs in any html files as well as process markdown for files that end in .md. All front matter in .md files will be available to the ejs templates. See about.md for an example.
 
 
 ## Assets
@@ -78,7 +86,7 @@ Files added to the static directory will be copied directly into the build. Thes
 -----------
 Karma and Jasmine are used for testing. To run tests run:
 
-  `npm run test`
+  `yarn test`
 
 
 #Install packages
@@ -91,7 +99,7 @@ Ignore the engines settings as reveal.js and protractor.js are set to older vers
 -----------
 Inside the client directory run:
 
-  `npm-check-updates`
+  `yarn upgrade-interactive`
 
 
 #Deploy to S3:
@@ -106,27 +114,23 @@ Inside the client directory run:
 
   You can also use a .env file. See the [s3-website](https://github.com/klaemo/s3-website) documentation for more options.
 
-  2. Install the s3-website node package globally:
-
-    `npm install -g s3-website`
-
-  3. Edit configuration.
+  2. Edit configuration.
 
     Open up .s3-website.json and set the desired bucket name
 
-  4. Configure the bucket as a website
+  3. Configure the bucket as a website
 
-    `npm run create`
+    `yarn create`
 
-  5. Deploy.
+  4. Deploy.
 
-    `npm run release`
+    `yarn release`
 
 #Production
 -----------------------
 If you want to see what your application will look like in production run
 
-  `npm run live`
+  `yarn live`
 
 This will serve files from the build/prod directory.
 
@@ -136,17 +140,17 @@ This will serve files from the build/prod directory.
 
   Build a development release without deploying:
 
-  `npm run build_dev`
+  `yarn build_dev`
 
 
   Build a release without deploying:
 
-  `npm run build`
+  `yarn build`
 
 
   Build a release and deploy:
 
-  `npm run release`
+  `yarn release`
 
 
 License and attribution

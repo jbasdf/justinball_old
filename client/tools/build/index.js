@@ -1,9 +1,9 @@
-var path          = require("path");
-var _             = require("lodash");
-var fs            = require("fs-extra");
-var webpack       = require("webpack");
-var nodeWatch     = require("node-watch");
-var moment        = require("moment");
+const path          = require("path");
+const _             = require("lodash");
+const fs            = require("fs-extra");
+const webpack       = require("webpack");
+const nodeWatch     = require("node-watch");
+const moment        = require("moment");
 
 var file            = require("./file");
 var buildContent    = require("./content");
@@ -52,22 +52,22 @@ var options              = {
 // -----------------------------------------------------------------------------
 // run webpack to build entry points
 // -----------------------------------------------------------------------------
-function buildWebpackEntries(isHot){
-  return new Promise(function(resolve, reject){
-    var webpackConfig = webpackConfigBuilder(stage);
-    if(!isHot){
-      var bundler = webpack(webpackConfig);
-      function bundle(err, stats){
-        if(err){
-          console.log("webpack error", err);
+function buildWebpackEntries(isHot) {
+  return new Promise((resolve, reject) => {
+    const webpackConfig = webpackConfigBuilder(stage);
+    if (!isHot) {
+      const bundler = webpack(webpackConfig);
+      const bundle = (err, stats) => {
+        if (err) {
+          console.log('webpack error', err);
           reject(err);
         }
-        //console.log("webpack", stats.toString({colors: true}));
+        // console.log("webpack", stats.toString({colors: true}));
         resolve({
-          webpackConfig: webpackConfig,
+          webpackConfig,
           webpackStats: stats.toJson()
         });
-      }
+      };
       bundler.run(bundle);
     } else {
       resolve(webpackConfig, null);
@@ -75,46 +75,6 @@ function buildWebpackEntries(isHot){
   });
 }
 
-// -----------------------------------------------------------------------------
-// build html and markdown files in a given directory
-// -----------------------------------------------------------------------------
-function buildContents(inputPath, outputPath, webpackConfig, webpackStats, stage, options){
-  var results = [];
-  var files = fs.readdirSync(inputPath);
-  files.forEach(function(fileName){
-
-    var fullInputPath = path.join(inputPath, fileName);
-    var doOutput = options.templateDirs.indexOf(fullInputPath) < 0 && // Ignore template dirs
-                  !_.includes(ignoreFiles, fileName);
-    if(doOutput){
-      if(fs.statSync(fullInputPath).isDirectory()){
-        results = _.concat(results, buildContents(fullInputPath, outputPath, webpackConfig, webpackStats, stage, options));
-      } else {
-        var ext = path.extname(fullInputPath);
-        if(_.includes(options.buildExtensions, ext)){
-          var page = buildContent(fullInputPath, webpackConfig, webpackStats, stage, options);
-          var outFile = fileName;
-          var outPath = outputPath;
-          var inPath = inputPath;
-          if(page.destination && page.destination.length > 0){
-            if(_.endsWith(page.destination, "/")){
-              outPath = path.join(outPath, page.destination);
-              outFile = "index.html";
-            } else {
-              outFile = page.destination;
-            }
-            inPath = "";
-          }
-          page.outputFilePath = file.write(inPath, outPath, outFile, page.html, options);
-          results.push(page);
-        } else {
-          file.copy(inputPath, outputPath, fileName, options);
-        }
-      }
-    }
-  });
-  return results;
-}
 
 /** -----------------------------------------------------------------------------
  * Build pages based on tags
@@ -207,27 +167,33 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
 // -----------------------------------------------------------------------------
 // main build
 // -----------------------------------------------------------------------------
-function build(isHot){
-  return new Promise(function(resolve, reject){
-    var start = moment();
+function build(isHot) {
+  return new Promise((resolve, reject) => {
+    const start = moment();
   
     // Delete everything in the output path
-    fs.emptydir(outputPath, function(){
+    fs.emptydir(outputPath, () => {
 
       // Copy static files to build directory
       try {
-        var stats = fs.statSync(settings.staticDir);
-        console.log("Copying static files in " + settings.staticDir);
+        // const stats = fs.statSync(settings.staticDir);
+        console.log(`Copying static files in ${settings.staticDir}`);
         fs.copySync(settings.staticDir, outputPath);
-      }
-      catch(err) {
+      } catch (err) {
         // No static dir. Do nothing
       }
 
       // Build files
-      console.log("Building files in: " + inputPath);
-      buildWebpackEntries(isHot).then(function(packResults){
-        var pages = buildContents(inputPath, outputPath, packResults.webpackConfig, packResults.webpackStats, stage, options);
+      console.log(`Building files in: ${inputPath}`);
+      buildWebpackEntries(isHot).then((packResults) => {
+        const pages = content.buildContents(
+          inputPath,
+          outputPath,
+          packResults.webpackConfig,
+          packResults.webpackStats,
+          stage,
+          options
+        );
 
         // Sort pages by date
         function compare(a,b) {
@@ -245,34 +211,43 @@ function build(isHot){
         console.log("Done building files in: " + duration/1000 + " seconds");
 
         resolve({
-          pages         : pages,
-          inputPath     : inputPath,
-          outputPath    : outputPath,
+          pages,
+          inputPath,
+          outputPath,
           webpackConfig : packResults.webpackConfig,
           webpackStats  : packResults.webpackStats,
-          stage         : stage,
-          options       : options
+          stage,
+          options
         });
       });
     });
   });
-};
+}
 
 // -----------------------------------------------------------------------------
 // watch
 // -----------------------------------------------------------------------------
-function watch(){
-  return new Promise(function(resolve, reject){
-    build(true).then(function(buildResults){
+function watch() {
+  return new Promise((resolve) => {
+    build(true).then((buildResults) => {
 
       // Watch content
-      nodeWatch(buildResults.inputPath, function(filePath){
+      nodeWatch(buildResults.inputPath, (filePath) => {
         // Build the page
-        var page = buildContent(filePath, buildResults.webpackConfig, buildResults.webpackStats, buildResults.stage, buildResults.options);
-        page.outputFilePath = file.write(buildResults.inputPath, buildResults.outputPath, path.basename(filePath), page.html, buildResults.options);
-
-        // Rebuild archive and tag pages
-        build(true);
+        const page = content.buildContent(
+          filePath,
+          buildResults.webpackConfig,
+          buildResults.webpackStats,
+          buildResults.stage,
+          buildResults.options
+        );
+        page.outputFilePath = file.write(
+          buildResults.inputPath,
+          buildResults.outputPath,
+          path.basename(filePath),
+          page.html,
+          buildResults.options
+        );
       });
 
       // Watch themes
@@ -287,19 +262,7 @@ function watch(){
 }
 
 module.exports = {
-  watch               : watch,
-  build               : build
+  watch,
+  build,
+  buildWebpackEntries
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

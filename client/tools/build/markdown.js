@@ -1,7 +1,7 @@
-var marked    = require("marked");
-var highlight = require("highlight.js");
+const marked    = require("marked");
+const highlight = require("highlight.js");
 
-var markedOptions = {
+const markedOptions = {
   gfm: true,
   tables: true,
   breaks: false,
@@ -22,6 +22,7 @@ var markedOptions = {
     }
   }
 };
+
 marked.setOptions(markedOptions);
 
 module.exports = marked;
