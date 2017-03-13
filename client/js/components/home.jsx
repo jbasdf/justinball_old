@@ -1,14 +1,11 @@
-"use strict";
+import React  from 'react';
+import assets from '../libs/assets';
 
-import React                    from 'react';
-import assets                   from '../libs/assets';
+export default function Home() {
+  const img = assets('./images/atomicjolt.jpg');
 
-class Home extends React.Component {
-
-  render(){
-    return <div></div>;
-  }
-
+  return (
+    <div>
+    </div>
+  );
 }
-
-export { Home as default };
