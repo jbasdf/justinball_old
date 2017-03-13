@@ -1,29 +1,30 @@
-const path          = require("path");
-const _             = require("lodash");
-const fs            = require("fs");
-const frontMatter   = require("front-matter");
-const truncate      = require("html-truncate");
-const moment        = require("moment");
-const ejs           = require("ejs");
+const path          = require('path');
+const _             = require('lodash');
+const fs            = require('fs');
+const frontMatter   = require('front-matter');
+const truncate      = require('html-truncate');
+const moment        = require('moment');
+const ejs           = require('ejs');
 
 const marked          = require('./markdown');
 const templates       = require('./templates');
 const applyProduction = require('./production');
 const file            = require('./file');
+const utils           = require('./utils');
 
 const ignoreFiles     = ['.DS_Store'];
 
 // -----------------------------------------------------------------------------
 // build a single file
 // -----------------------------------------------------------------------------
-module.exports = function(fullPath, webpackConfig, webpackStats, stage, options){
+function buildContent(fullPath, webpackConfig, webpackStats, stage, options) {
   const content     = fs.readFileSync(fullPath, 'utf8');
   const parsed      = frontMatter(content);
   const metadata    = parsed.attributes;
   const pathResult  = utils.filename2date(fullPath);
   const date        = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
   const title       = metadata.title || pathResult.title;
-  const destination = metadata.permalink || pathResult.url || "/";
+  const destination = metadata.permalink || pathResult.url || '/';
   const data        = _.merge({
     _,
     date,
@@ -63,7 +64,9 @@ module.exports = function(fullPath, webpackConfig, webpackStats, stage, options)
 
   return {
     title,
+    date,
     metadata,
+    summary,
     destination,
     html,
     source : fullPath,
