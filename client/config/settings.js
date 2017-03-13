@@ -1,6 +1,8 @@
+const path         = require('path');
+const _            = require('lodash');
 const info         = require('../../package.json');
 const deployConfig = require('../../.s3-website.json');
-const path         = require('path');
+
 
 const clientAppPath = path.join(__dirname, '../');
 
@@ -25,7 +27,7 @@ require('dotenv').load({ path: path.join(__dirname, '../../.env') });
 
 const hotPort = process.env.ASSETS_PORT || 8080;
 const theme = process.env.THEME || 'stripy';
-const themeSettings = require('../themes/' + theme + '/js/settings.js');
+const themeSettings = require(`../themes/${theme}/js/settings.js`);
 
 const settings = {
   title              : info.title,
@@ -47,7 +49,7 @@ const settings = {
 
   buildSuffix: '_bundle.js',
 
-  theme: theme,
+  theme,
 
   staticDir: `${clientAppPath}static`,
 
