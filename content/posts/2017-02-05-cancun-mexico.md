@@ -27,6 +27,12 @@ The Hyatt Zilara
 Over our past few hotel stays I've fallen in love with the Hyatt brand of hotels. Their higher level of customer service combined With 2 free nights expiring at any hotel in the world meant the all-inclusive Zilara was an easy choice. The Andaz was a more difficult find. Both proved to be incredible but very different experiences. The Zilara is not crowded by any means, but carries a very definite high energy, free alcohol, party vibe. However, it's not spring break or drunk people everywhere crazy which is great for those of us who don't imbibe.
 
 We did partake in the perfectly groomed, white sand beaches with chair side drink service (water for us), perfect temperatures and 5 foot ocean swells. 50 feet out in the ocean the water would be waste and then shoulder deep as the waves moved in and out. A constant stream of failed attempts at body surfing confirmed that a life spent in the high mountain desert results in a dearth of the appropriate skills required to be anything but a dork at the beach.
+<div class="post-images">
+  <img src="/images/posts/2017/01/Beach.jpg" alt="Beach" />
+</div>
+<div class="post-images">
+  <img src="/images/posts/2017/01/Cancun-Sunrise.jpg" alt="Cancun Sunrise" />
+</div>
 
 I was a happy dork. I would very much liked to have had the chance to try a paddleboard in the waves, but the hotels know better than to provide glowing white tourists with more tools with which to kill themselves. I assured Callie that my life insurance was sufficient should my body never be found but my attempts to drown over and over and over resulted in little more harm than salty boogers and an overwhelming burning sensation throughout every cavity in my skull.
 
@@ -67,10 +73,19 @@ Covered in sunscreen we showed up at the Zilara to collect our bags. Moving betw
 As it turns out Uber provided our next adventure. An older lady called worried about a taxi stand at the hotel. I didn’t understand but assured here that the hotel had no problem with her picking us up. We were surprised and relieved that our enormous bags fit in the trunk of her Civic and jumped into the backseat for our drive to the Riveria Maya. On the way, Maria, our driver, explained that Uber has not quite been accepted in the area and it was not uncommon for the police to pull over and harass people that look like Uber drivers so while speed down the highway Callie climbed into the front seat and we got to know Maria better so that if we were pulled over we could explain that we were good friends and Maria was helping us make our way to the hotel. Note that Uber can’t operate outside the hotel zone.
 
 We arrived at the Andaz Mayakoba after dark and were treated to a unique experience unlike any hotel I’ve ever stayed at. The lobby is a “sanctuary” very modern in design meant to resemble a cenote, a sinkhole common in the area. The bellman takes your bags, which you won’t see again until arriving at your room. In the mean time the receptionist brings you a drink, gets you checked in and then escorts you down a narrow path, through thick vegetation to your room via golf cart.
+<div class="post-images">
+  <img src="/images/posts/2017/01/Andaz-Mayakoba-Lobby-the-cenote.jpg" alt="Andaz Mayakoba Lobby the cenote" />
+</div>
+<div class="post-images">
+  <img src="/images/posts/2017/01/Andaz-Mayakoba-Lobby.jpg" alt="Andaz Mayakoba Lobby" />
+</div>
 
 The rooms are colorful, modern and minimal in a “I’m in a cologne ad” sort of way. The do not disturb sign is a stuffed [coati](https://en.wikipedia.org/wiki/Coati) in a rainbow hammock. If you want someone to come clean up your mess there’s a green strip of fabric that you tie to the door handle. Creative knots are encouraged. Anything non-alcoholic in the minibar is free which is awesome for us non-drinking folks. There was a lychee soda produced by Velvet Soda that I found amazing. Everything is global these days so I assumed Amazon would keep my addiction fed once I got back to the states, but as far as I can tell I’ll need to take another vacation to Mexico to partake in my new, favorite tasty beverage.
 
 Mayakoba
+<div class="post-images">
+  <img src="/images/posts/2017/01/Mayakoba-Sunrise.jpg" alt="Mayakoba Sunrise" />
+</div>
 The area known as Mayakoba is an eco-resort owned by a large construction company. The Andaz sits alongside the Fairmont and the Rosewood all of which are tucked into mangroves along a number of man-made channels. We took a boat tour of the property, which is much more interesting than it sounds. The lagoons are crystal clear and filled with turtles and crocodiles. Swimming is not permitted. The property is very proud of the exotic bird population, which you observe while cruising around in their electric boats.
 <div class="post-images">
   <img src="/images/posts/2017/01/Mayakoba-Lagoons.jpg" alt="Mayakoba Lagoons" />
@@ -119,6 +134,9 @@ Our last full day in Mexico we booked a tour of Tulum and Chichen Itza. Both are
 
 Chichen Itza is awesome and disturbing at the same time. It’s a city built around human sacrifice.
 <div class="post-images">
+  <img src="/images/posts/2017/01/Proof.jpg" alt="Proof" />
+</div>
+<div class="post-images">
   <img src="/images/posts/2017/01/Chichen-Itza-Ball-Court.jpg" alt="Chichen Itza Ball Court" />
 </div>
 <div class="post-images">
@@ -130,6 +148,10 @@ Chichen Itza is awesome and disturbing at the same time. It’s a city built aro
 <div class="post-images">
   <img src="/images/posts/2017/01/Temple-of-a-Thousand-Warriors-Chichen-Itza.jpg" alt="Temple of a Thousand Warriors Chichen Itza" />
 </div>
+<div class="post-images">
+  <img src="/images/posts/2017/01/Mayan-Road.jpg" alt="Mayan Road" />
+</div>
+
 
 
 Our last morning we stole a couple of bikes from the room next to us and set out to explore the property.  There’s a nature trail around Mayakoba that includes a cenote.

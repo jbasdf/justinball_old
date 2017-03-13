@@ -1,0 +1,39 @@
+prose:
+  rooturl: 'content'
+  siteurl: 'http://www.justinball.com'
+  media: 'content/images'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+  metadata:
+    posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "author"
+        field:
+          element: "hidden"
+          value: "Justin Ball"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
+          value: "CURRENT_DATETIME"
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Add Tags"
+          placeholder: "Choose Tags"
+          options:
+            - name: "Vacation"
+              value: "vacation"
+            - name: "Programming"
+              value: "programming"
