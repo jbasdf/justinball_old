@@ -1,52 +1,51 @@
-const path          = require("path");
-const _             = require("lodash");
-const fs            = require("fs-extra");
-const webpack       = require("webpack");
-const nodeWatch     = require("node-watch");
-const moment        = require("moment");
+const path          = require('path');
+const _             = require('lodash');
+const fs            = require('fs-extra');
+const webpack       = require('webpack');
+const nodeWatch     = require('node-watch');
+const moment        = require('moment');
 
-var file            = require("./file");
-var buildContent    = require("./content");
-var templates       = require("./templates");
-var utils           = require("./utils");
-var applyProduction = require("./production");
+const file            = require('./file');
+const content         = require('./content');
+const templates       = require('./templates');
+const utils           = require('./utils');
+const applyProduction = require('./production');
+const site            = require('../../site.json');
 
 // Settings
-var webpackConfigBuilder = require("../../config/webpack.config");
-var settings             = require("../../config/settings");
-var argv                 = require("minimist")(process.argv.slice(2));
-var release              = argv.release;
-var stage                = release ? "production" : "development";
+const webpackConfigBuilder = require('../../config/webpack.config');
+const settings             = require('../../config/settings');
+const argv                 = require('minimist')(process.argv.slice(2));
 
-var site                 = require("../../site.json");
-var inputPath            = path.join(__dirname, "../../../content");
-var outputPath           = stage == "production" ? settings.prodOutput : settings.devOutput;
+const release              = argv.release;
+const stage                = release ? 'production' : 'development';
 
-var ignoreFiles          = [".DS_Store"];
+const inputPath            = path.join(__dirname, '../../../content');
+const outputPath           = stage === 'production' ? settings.prodOutput : settings.devOutput;
 
-var themePath            = path.join(__dirname, "../../themes");
-var templateDirs = [
+const themePath            = path.join(__dirname, '../../themes');
+const templateDirs = [
   path.join(themePath, site.theme),
-  path.join(themePath, "default")
+  path.join(themePath, 'default')
 ];
 
-var options              = {
+const options              = {
   truncateSummaryAt : 1000,
   buildExtensions   : ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
   rootInputPath:   inputPath,            // Original input path
   entries:         settings.entries,     // Webpack entry points
   cssEntries:      settings.cssEntries,  // Webpack css entry points
   buildSuffix:     settings.buildSuffix, // Webpack build suffix. ie _bundle.js
-  templateData:    {                     // Object that will be passed to every page as it is rendered
-    site: site,
+  templateData: {                        // Object passed to every page as it is rendered
+    site,
     time: new Date()
   },
-  templateMap:     {                     // Used to specify specific templates on a per file basis
-    "index.html": "home"
+  templateMap: {                   // Used to specify specific templates on a per file basis
+    'index.html': 'home'
   },
-  templateDirs:    templateDirs,          // Directories to look in for template
-  summaryMarker:   "<!--more-->",
-  recentPostsTitle: ""
+  templateDirs,                    // Directories to look in for template
+  summaryMarker:   '<!--more-->',
+  recentPostsTitle: ''
 };
 
 // -----------------------------------------------------------------------------
@@ -62,7 +61,7 @@ function buildWebpackEntries(isHot) {
           console.log('webpack error', err);
           reject(err);
         }
-        // console.log("webpack", stats.toString({colors: true}));
+        // console.log('webpack', stats.toString({colors: true}));
         resolve({
           webpackConfig,
           webpackStats: stats.toJson()
@@ -84,83 +83,83 @@ function buildWebpackEntries(isHot) {
  */
 function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, options){
 
-  var tagsTemplate = templates.loadTemplate("partials/_tag.html", options.templateDirs);
+  const tagsTemplate = templates.loadTemplate('partials/_tag.html', options.templateDirs);
 
-  var tags = _.reduce(pages, function(tags, page){
-    _.each(page.metadata.tags, function(tag){
+  const tags = _.reduce(pages, (tags, page) => {
+    _.each(page.metadata.tags, (tag) => {
       (tags[tag] || (tags[tag] = [])).push(page);
     });
     return tags;
   }, {});
 
-  var site = options.templateData.site;
+  const site = options.templateData.site;
 
-  _.each(tags, function(posts, tag){
-    var data = {
+  _.each(tags, (posts, tag) => {
+    const data = {
       site       : options.templateData.site,
       metadata   : { },
       title      : tag,
       currentTag : tag,
       cleanTag   : utils.cleanTag,
-      posts      : posts,
       url        : path.join(site.domain, site.tagsPath),
-      "_"        : _
+      posts,
+      _
     };
 
     // Build the tag content
     data.content = tagsTemplate(data);
 
     // Apply template
-    var fileName = utils.cleanTag(tag) + ".html";
-    var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    const fileName = `${utils.cleanTag(tag)}.html`;
+    let html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
     html = applyProduction(html, stage, webpackConfig, webpackStats, options);
-    file.write("", path.join(outputPath, site.tagsPath), fileName, html, options);
+    file.write('', path.join(outputPath, site.tagsPath), fileName, html, options);
   });
 }
 
 // -----------------------------------------------------------------------------
 // Build blog archive pages
 // -----------------------------------------------------------------------------
-function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, options){
-  var archiveTemplate = templates.loadTemplate("partials/_posts.html", options.templateDirs);
-  var perPage = options.templateData.site.paginate;
-  var max = _.floor(pages.length/perPage);
+function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, options) {
+  const archiveTemplate = templates.loadTemplate('partials/_posts.html', options.templateDirs);
+  const perPage = options.templateData.site.paginate;
+  const max = _.floor(pages.length / perPage);
   _(pages)
-  .filter(function(page){ // Only build archive pages for posts
-    return _.includes(page.source, options.templateData.site.postsSource);
-  })
+  .filter(page => // Only build archive pages for posts
+    _.includes(page.source, options.templateData.site.postsSource)
+  )
   .chunk(perPage)
-  .each(function(posts, index){
-    var prevPage = (index > 1 ? index-1 : "index") + ".html";
-    var nextPage = index < max ? index+1 + ".html" : "#";
-    var fileName = (index == 0 ? "index" : index) + ".html";
+  .each((posts, index) => {
+    const prevPage = ( index > 1 ? index - 1 : 'index') + '.html';
+    const nextPage = index < max ? index + 1 + '.html' : '#';
+    const fileName = ( index === 0 ? 'index' : index) + '.html';
 
-    var title;
-    if(_.isString(options.recentPostsTitle)){
+    let title;
+    if (_.isString(options.recentPostsTitle)) {
       title = options.recentPostsTitle;
     } else {
-      title = index == 0 ? "Recent Posts" : "";
+      title = index === 0 ? 'Recent Posts' : '';
     }
 
-    var data = {
+    const data = {
       site       : options.templateData.site,
       metadata   : { },
-      posts      : posts,
-      title      : title,
       cleanTag   : utils.cleanTag,
-      "_"        : _,
       url        : site.domain,
-      prevPage   : prevPage,
-      nextPage   : nextPage
+      posts,
+      title,
+      _,
+      prevPage,
+      nextPage
     };
 
     // Build the content
     data.content = archiveTemplate(data);
 
     // Apply template
-    var html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
+    let html = templates.apply(data, fileName, options.templateMap, options.templateDirs);
     html = applyProduction(html, stage, webpackConfig, webpackStats, options);
-    file.write("", outputPath, fileName, html, options);
+    file.write('', outputPath, fileName, html, options);
   });
 }
 
@@ -170,7 +169,7 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
 function build(isHot) {
   return new Promise((resolve, reject) => {
     const start = moment();
-  
+
     // Delete everything in the output path
     fs.emptydir(outputPath, () => {
 
@@ -196,9 +195,9 @@ function build(isHot) {
         );
 
         // Sort pages by date
-        function compare(a,b) {
-          if(a.date.unix() > b.date.unix()) return -1;
-          if(a.date.unix() < b.date.unix()) return 1;
+        function compare(a, b) {
+          if (a.date.unix() > b.date.unix()) return -1;
+          if (a.date.unix() < b.date.unix()) return 1;
           return 0;
         }
 
@@ -207,8 +206,8 @@ function build(isHot) {
         buildPostPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
         buildTagPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
 
-        var duration = moment() - start;
-        console.log("Done building files in: " + duration/1000 + " seconds");
+        const duration = moment() - start;
+        console.log(`Done building files in: ${duration / 1000} seconds`);
 
         resolve({
           pages,
@@ -251,7 +250,7 @@ function watch() {
       });
 
       // Watch themes
-      nodeWatch(themePath, function(filePath){
+      nodeWatch(themePath, (filePath) => {
 
         // Template has changed. Rebuild the site
         build(true);
