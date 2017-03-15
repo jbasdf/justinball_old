@@ -121,7 +121,7 @@ module.exports = function webpackConfig(stage) {
       pathinfo          : !production
     },
     resolve: {
-      extensions         : ['', '.js', '.json', '.jsx'],
+      extensions         : ['', '.js', '.json', '.jsx', '.scss', '.less', '.css'],
       modulesDirectories : ['node_modules', 'vendor']
     },
     cache          : true,
