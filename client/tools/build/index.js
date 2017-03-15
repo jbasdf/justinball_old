@@ -185,14 +185,6 @@ function build(isHot) {
       // Build files
       console.log(`Building files in: ${inputPath}`);
       buildWebpackEntries(isHot).then((packResults) => {
-        const pages = content.buildContents(
-          inputPath,
-          outputPath,
-          packResults.webpackConfig,
-          packResults.webpackStats,
-          stage,
-          options
-        );
 
         // Sort pages by date
         function compare(a, b) {
@@ -201,10 +193,32 @@ function build(isHot) {
           return 0;
         }
 
-        pages = pages.sort(compare);
+        const pages = content.buildContents(
+          inputPath,
+          outputPath,
+          packResults.webpackConfig,
+          packResults.webpackStats,
+          stage,
+          options
+        ).sort(compare);
 
-        buildPostPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
-        buildTagPages(pages, stage, outputPath, packResults.webpackConfig, packResults.webpackStats, options);
+        buildPostPages(
+          pages,
+          stage,
+          outputPath,
+          packResults.webpackConfig,
+          packResults.webpackStats,
+          options
+        );
+
+        buildTagPages(
+          pages,
+          stage,
+          outputPath,
+          packResults.webpackConfig,
+          packResults.webpackStats,
+          options
+        );
 
         const duration = moment() - start;
         console.log(`Done building files in: ${duration / 1000} seconds`);
