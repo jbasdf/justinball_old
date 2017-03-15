@@ -24,4 +24,4 @@ That's why "Hardware Hacking with JS" with <a href="http://jamisondance.com/">Ja
 
 Here's Jamison flying a parrot drone using an xbox controller via node.js:
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/kWVEjbvx6Tg" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/kWVEjbvx6Tg" frameborder="0" allowfullscreen="true"></iframe>
