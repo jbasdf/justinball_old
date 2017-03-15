@@ -2,6 +2,9 @@
 -----------------------
 SpeakEasy is a simple blogging/content tool built on the [React Client Starter App](https://github.com/atomicjolt/react_client_starter_app), maintained by and used by [Atomic Jolt](http://www.atomicjolt.com).
 
+#Demo:
+-----------------------
+[React Client Starter App Demo](http://reactclientstarterapp.com.s3-website-us-east-1.amazonaws.com)
 
 #Getting Started:
 -----------------------
