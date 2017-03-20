@@ -21,10 +21,10 @@ function apply(html, webpackConfig, webpackStats, entries, cssEntries, buildSuff
   _.each(webpackConfig.entry, (_entryPath, entry) => {
     if (_.has(entries, entry)) {
       const newPath = webpackConfig.output.publicPath + getHashed(webpackStats, entry, 'js');
-      result = result.replace(entry + buildSuffix, newPath);
+      result = result.replace(`/.${entry}${buildSuffix}`, newPath);
     } else if (_.has(cssEntries, entry)) {
       const newPath = webpackConfig.output.publicPath + getHashed(webpackStats, entry, 'css');
-      result = result.replace(`${entry}.css`, newPath);
+      result = result.replace(`/.${entry}.css`, newPath);
     } else {
       console.log(`Error, could not find entry: ${entry}`);
     }
