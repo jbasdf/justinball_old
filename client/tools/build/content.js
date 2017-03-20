@@ -2,7 +2,7 @@ const path          = require('path');
 const _             = require('lodash');
 const fs            = require('fs');
 const frontMatter   = require('front-matter');
-const truncate      = require('html-truncate');
+const truncate      = require('truncate-html');
 const moment        = require('moment');
 const ejs           = require('ejs');
 
@@ -55,7 +55,7 @@ function buildContent(fullPath, webpackConfig, webpackStats, stage, options) {
   // Generate summary of content
   const summary  = _.includes(html, options.summaryMarker) ?
     html.split(options.summaryMarker)[0] :
-    truncate(html, options.truncateSummaryAt, { keepImageTag: true });
+    truncate(html, options.truncateSummaryAt);
 
   // Apply template
   data.content = html; // Pass in generated html
