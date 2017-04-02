@@ -1,10 +1,8 @@
-const path         = require('path');
-const _            = require('lodash');
-const info         = require('../../package.json');
+const fs = require('fs-extra');
+const path = require('path');
+const info = require('../../package.json');
+
 const deployConfig = require('../../.s3-website.json');
-
-
-const clientAppPath = path.join(__dirname, '../');
 
 const devRelativeOutput  = '/';
 const prodRelativeOutput = '/';
@@ -29,11 +27,32 @@ const hotPort = process.env.ASSETS_PORT || 8080;
 const theme = process.env.THEME || 'stripy';
 const themeSettings = require(`../themes/${theme}/js/settings.js`);
 
-const settings = {
-  title              : info.title,
-  author             : info.author,
-  version            : info.versions,
-  build              : Date.now(),
+// Get a list of all directories in the apps directory.
+// These will be used to generate the entries for webpack
+const appsDir = path.join(__dirname, '../apps/');
+
+const names = fs.readdirSync(appsDir)
+  .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory());
+
+const apps = names.reduce(
+  (result, file) => Object.assign({}, result, {
+    [file] : path.join(appsDir, file),
+  })
+, {});
+
+const rootAppsPath = path.join(__dirname, '../../apps');
+
+const themePath = path.join(__dirname, '../../themes');
+const templateDirs = [
+  path.join(themePath, site.theme),
+  path.join(themePath, 'default')
+];
+
+module.exports = {
+  title: info.title,
+  author: info.author,
+  version: info.versions,
+  build: Date.now(),
 
   devRelativeOutput,
   prodRelativeOutput,
@@ -42,23 +61,33 @@ const settings = {
   prodOutput,
 
   // Dev urls
-  devAssetsUrl: process.env.ASSETS_URL || '',
+  devAssetsUrl: process.env.ASSETS_URL,
   prodAssetsUrl,
 
   hotPort,
 
   buildSuffix: '_bundle.js',
 
+  apps,
+
   theme,
 
-  staticDir: `${clientAppPath}static`,
-
-  entries: {
-    app: `${clientAppPath}js/app.jsx`
-  },
-
-  cssEntries: {
-    styles: `${clientAppPath}styles/styles.js`
+  // Options for building html files
+  htmlOptions: {
+    truncateSummaryAt:  1000,
+    buildExtensions:    ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
+    markdownExtensions: ['.md', '.markdown'], // file types to process markdown
+    rootAppsPath,
+    templateData: { // Object passed to every page as it is rendered
+      site,
+      time: new Date()
+    },
+    templateMap: {                   // Used to specify specific templates on a per file basis
+      'index.html': 'home'
+    },
+    templateDirs,                    // Directories to look in for template
+    summaryMarker:   '<!--more-->',
+    recentPostsTitle: ''
   }
 
 };
