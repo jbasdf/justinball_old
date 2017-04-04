@@ -148,6 +148,8 @@ function buildStatic(outputPath, appPath) {
 // -----------------------------------------------------------------------------
 function build(webpackOptions, htmlOptions) {
 
+  const start = moment();
+
   return new Promise((resolve) => {
 
     // Copy static files to build directory
@@ -185,7 +187,7 @@ function build(webpackOptions, htmlOptions) {
 
       buildPostPages(
         pages,
-        stage,
+        webpackOptions.stage,
         outputPath,
         packResults.webpackConfig,
         packResults.webpackStats,
@@ -194,7 +196,7 @@ function build(webpackOptions, htmlOptions) {
 
       buildTagPages(
         pages,
-        stage,
+        webpackOptions.stage,
         outputPath,
         packResults.webpackConfig,
         packResults.webpackStats,
@@ -214,6 +216,7 @@ function build(webpackOptions, htmlOptions) {
   });
 }
 
+
 // -----------------------------------------------------------------------------
 // watch
 // -----------------------------------------------------------------------------
@@ -226,7 +229,6 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
       templateDir => path.join(webpackOptions.app.path, 'html', templateDir)
     );
 
-    const outputPath = path.join(rootBuildPath, webpackOptions.appName);
     const originalInputPath = path.join(webpackOptions.app.path, 'html');
 
     // Build the page
@@ -239,7 +241,11 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
     );
 
     page.outputFilePath = file.write(
-      content.outFilePath(page, outputPath, filePath, originalInputPath),
+      content.outFilePath(
+        page,
+        outputPath(rootBuildPath, webpackOptions.appName),
+        filePath,
+        originalInputPath),
       page.html
     );
 
