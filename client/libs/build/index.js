@@ -1,7 +1,7 @@
-const path = require('path');
-const fs = require('fs-extra');
-const _  = require('lodash');
-const webpack = require('webpack');
+const path      = require('path');
+const fs        = require('fs-extra');
+const _         = require('lodash');
+const webpack   = require('webpack');
 const nodeWatch = require('node-watch');
 const moment = require('moment');
 
@@ -10,13 +10,6 @@ const content = require('./content');
 const templates = require('./templates');
 const utils = require('./utils');
 const applyProduction = require('./production');
-const site = require('../../../site.json');
-
-const themePath = path.join(__dirname, '../../../themes');
-const templateDirs = [
-  path.join(themePath, site.theme),
-  path.join(themePath, 'default')
-];
 
 // Settings
 const webpackConfigBuilder = require('../../config/webpack.config');
@@ -119,7 +112,7 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
       site       : options.templateData.site,
       metadata   : { },
       cleanTag   : utils.cleanTag,
-      url        : site.domain,
+      url        : options.templateData.site.domain,
       posts,
       title,
       _,
@@ -158,7 +151,7 @@ function build(rootBuildPath, webpackOptions, htmlOptions) {
   return new Promise((resolve) => {
 
     // Copy static files to build directory
-    buildStatic(rootBuildPath, webpackOptions.appPath);
+    buildStatic(rootBuildPath, webpackOptions.app.path);
 
     // Webpack build
     console.log(`Webpacking ${webpackOptions.appName}`);
@@ -172,7 +165,7 @@ function build(rootBuildPath, webpackOptions, htmlOptions) {
 
       // Build html
       console.log(`Building html for ${webpackOptions.appName}`);
-      const inputPath = path.join(webpackOptions.appPath, 'html');
+      const inputPath = path.join(webpackOptions.app.path, 'html');
       const templateDirs = _.map(htmlOptions.templateDirs,
         templateDir => path.join(inputPath, templateDir)
       );
@@ -230,14 +223,14 @@ function build(rootBuildPath, webpackOptions, htmlOptions) {
 function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
 
   // Watch for content to change
-  nodeWatch(webpackOptions.appPath, { recursive: true }, (evt, filePath) => {
+  nodeWatch(webpackOptions.app.path, { recursive: true }, (evt, filePath) => {
 
     const templateDirs = _.map(htmlOptions.templateDirs,
-      templateDir => path.join(webpackOptions.appPath, 'html', templateDir)
+      templateDir => path.join(webpackOptions.app.path, 'html', templateDir)
     );
 
     const outputPath = path.join(rootBuildPath, webpackOptions.appName);
-    const originalInputPath = path.join(webpackOptions.appPath, 'html');
+    const originalInputPath = path.join(webpackOptions.app.path, 'html');
 
     // Build the page
     const page = content.buildContent(

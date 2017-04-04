@@ -1,10 +1,10 @@
 {
-  "name": "react_client_starter_app",
-  "version": "0.1.0",
-  "description": "Client only React Starter App",
-  "author": "atomicjolt",
+  "name": "speak_easy",
+  "version": "1.0.0",
+  "description": "Another blogging tool",
+  "author": "Justin Ball",
   "license": "MIT",
-  "homepage": "https://github.com/atomicjolt/react_client_starter_app",
+  "homepage": "https://github.com/jbasdf/speak_easy",
   "scripts": {
     "postinstall": "cd ./client && yarn",
     "test": "cd ./client && ./node_modules/karma/bin/karma start",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomicjolt/react_client_starter_app"
+    "url": "https://github.com/jbasdf/speak_easy"
   },
   "keywords": [
     "react"

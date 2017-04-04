@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const path = require('path');
-const info = require('../../package.json');
 
 const deployConfig = require('../../.s3-website.json');
 
@@ -23,9 +22,28 @@ const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
 // are loaded from the env and not from a file
 require('dotenv').load({ path: path.join(__dirname, '../../.env') });
 
+const site = {
+  title: "Speak Easy",
+  subtitle: "What's on your mind?",
+  author: "Blog Author",
+  domain: "www.speakeasy.com",
+  author: "Speak Easy Team",
+  email: "speakeasy@example.com",
+  google_analytics_account: "UA-73651-1",
+  github_username: "speakeasy",
+  twitter_username: "speakeasy",
+  disqus_id: "speakeasy",
+  postsSource: "/content/posts/",
+  tagsPath: "tags",
+};
+
 const hotPort = process.env.ASSETS_PORT || 8080;
 const theme = process.env.THEME || 'stripy';
-const themeSettings = require(`../themes/${theme}/js/settings.js`);
+const themePath = path.join(__dirname, '../../themes');
+const templateDirs = [
+  path.join(themePath, site.theme),
+  path.join(themePath, 'default')
+];
 
 // Get a list of all directories in the apps directory.
 // These will be used to generate the entries for webpack
@@ -34,25 +52,20 @@ const appsDir = path.join(__dirname, '../apps/');
 const names = fs.readdirSync(appsDir)
   .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory());
 
+const entryFile = 'app.jsx';
 const apps = names.reduce(
   (result, file) => Object.assign({}, result, {
-    [file] : path.join(appsDir, file),
+    [file] : {
+      path: path.join(appsDir, file),
+      file: entryFile,
+    }
   })
 , {});
 
 const rootAppsPath = path.join(__dirname, '../../apps');
 
-const themePath = path.join(__dirname, '../../themes');
-const templateDirs = [
-  path.join(themePath, site.theme),
-  path.join(themePath, 'default')
-];
-
 module.exports = {
-  title: info.title,
-  author: info.author,
-  version: info.versions,
-  build: Date.now(),
+  apps,
 
   devRelativeOutput,
   prodRelativeOutput,
@@ -68,28 +81,25 @@ module.exports = {
 
   buildSuffix: '_bundle.js',
 
-  apps,
-
-  theme,
-
   // Options for building html files
   htmlOptions: {
     truncateSummaryAt:  1000,
     buildExtensions:    ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
     markdownExtensions: ['.md', '.markdown'], // file types to process markdown
-    rootAppsPath,
+    templateDirs, // Directories to look in for template
     templateData: { // Object passed to every page as it is rendered
       site,
       time: new Date()
     },
-    templateMap: {                   // Used to specify specific templates on a per file basis
+    templateMap: { // Used to specify specific templates on a per file basis
       'index.html': 'home'
     },
-    templateDirs,                    // Directories to look in for template
+    rootAppsPath,
     summaryMarker:   '<!--more-->',
-    recentPostsTitle: ''
+    recentPostsTitle: '',
+    paginate: 10,
+    theme,
+    build: Date.now()
   }
 
 };
-
-module.exports = _.merge(settings, themeSettings);

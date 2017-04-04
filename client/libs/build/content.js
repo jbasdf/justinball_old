@@ -2,7 +2,7 @@ const path          = require('path');
 const _             = require('lodash');
 const fs            = require('fs');
 const frontMatter   = require('front-matter');
-const truncate      = require('truncate-html');
+const truncate      = require('html-truncate');
 const moment        = require('moment');
 const ejs           = require('ejs');
 
@@ -10,7 +10,6 @@ const marked          = require('./markdown');
 const templates       = require('./templates');
 const applyProduction = require('./production');
 const file            = require('./file');
-const utils           = require('./utils');
 
 const ignoreFiles     = ['.DS_Store'];
 

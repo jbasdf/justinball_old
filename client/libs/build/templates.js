@@ -2,7 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const _  = require('lodash');
 const ejs = require('ejs');
+<<<<<<< HEAD:client/libs/build/templates.js
 const moment = require("moment");
+=======
+>>>>>>> upstream/master:client/libs/build/templates.js
 
 const utils = require('./utils');
 
