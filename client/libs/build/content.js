@@ -2,8 +2,6 @@ const path          = require('path');
 const _             = require('lodash');
 const fs            = require('fs');
 const frontMatter   = require('front-matter');
-const truncate      = require('html-truncate');
-const moment        = require('moment');
 const ejs           = require('ejs');
 
 const marked          = require('./markdown');
@@ -35,17 +33,13 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
   const content     = fs.readFileSync(fullPath, 'utf8');
   const parsed      = frontMatter(content);
   const metadata    = parsed.attributes;
-  const pathResult  = utils.filename2date(fullPath);
-  const date        = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
-  const title       = metadata.title || pathResult.title;
-  const destination = metadata.permalink || pathResult.url || '/';
+  const title       = metadata.title;
+  const destination = metadata.permalink;
   const data        = _.merge({
     _,
-    date,
     title,
-    moment,
     metadata,
-    url      : path.join(options.templateData.site.domain, destination)
+    url: destination
   }, options.templateData);
 
   let html = parsed.body;
@@ -68,11 +62,6 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
     console.log(err.stack);
   }
 
-  // Generate summary of content
-  const summary  = _.includes(html, options.summaryMarker) ?
-    html.split(options.summaryMarker)[0] :
-    truncate(html, options.truncateSummaryAt);
-
   // Apply template
   data.content = html; // Pass in generated html
   html = templates.apply(data, fullPath, options.templateMap, templateDirs);
@@ -80,9 +69,7 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
 
   return {
     title,
-    date,
     metadata,
-    summary,
     destination,
     html,
     source : fullPath,

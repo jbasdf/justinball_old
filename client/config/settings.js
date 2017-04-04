@@ -62,8 +62,6 @@ const apps = names.reduce(
   })
 , {});
 
-const rootAppsPath = path.join(__dirname, '../../apps');
-
 module.exports = {
   apps,
 

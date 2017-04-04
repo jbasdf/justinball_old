@@ -40,7 +40,6 @@ The starter app is setup to serve multiple isolated client applications each wit
 an example "hello world" application in client/apps/hello_world
 Modify html and js files in that directory to build your application or copy paste that directory to build additional
 applications. The build process will automatically add a new webpack entry point for each folder in that directory.
-<<<<<<< HEAD
 
 
 ## Posts
@@ -59,8 +58,6 @@ in the output directory.
 ## Themes
 -----------
 Add new themes to client/themes. A great way to start is by cloning the 'default' directory.
-=======
->>>>>>> upstream/master
 
 
 ## React.js
