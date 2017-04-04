@@ -33,7 +33,7 @@ function outFilePath(page, outputPath, fullInputPath, originalInputPath) {
 // -----------------------------------------------------------------------------
 // build a single file
 // -----------------------------------------------------------------------------
-function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix, ext, options) {
+function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix, ext, htmlOptions) {
   const content     = fs.readFileSync(fullPath, 'utf8');
   const parsed      = frontMatter(content);
   const metadata    = parsed.attributes;
@@ -49,7 +49,7 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
     moment,
     metadata,
     url: path.join(options.templateData.site.domain, destination)
-  }, options.templateData);
+  }, htmlOptions.templateData);
 
   let html = parsed.body;
 
@@ -61,7 +61,7 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
     })(data);
 
     // Parse any markdown in the resulting html
-    if (_.includes(options.markdownExtensions, ext)) {
+    if (_.includes(htmlOptions.markdownExtensions, ext)) {
       html = marked(html);
     }
   } catch (err) {
@@ -78,7 +78,7 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
 
   // Apply template
   data.content = html; // Pass in generated html
-  html = templates.apply(data, fullPath, options.templateMap, templateDirs);
+  html = templates.apply(data, fullPath, htmlOptions.templateMap, templateDirs);
   html = applyProduction(html, stage, webpackAssets, buildSuffix);
 
   return {
@@ -105,7 +105,7 @@ function buildContents(
   stage,
   buildSuffix,
   templateDirs,
-  options) {
+  htmlOptions) {
 
   let results = [];
   const files = fs.readdirSync(inputPath);
@@ -124,12 +124,12 @@ function buildContents(
           stage,
           buildSuffix,
           templateDirs,
-          options
+          htmlOptions
         ));
       } else {
 
         const ext = path.extname(fullInputPath);
-        if (_.includes(options.buildExtensions, ext)) {
+        if (_.includes(htmlOptions.buildExtensions, ext)) {
           const page = buildContent(
             fullInputPath,
             templateDirs,
@@ -137,9 +137,9 @@ function buildContents(
             stage,
             buildSuffix,
             ext,
-            options);
+            htmlOptions);
           page.outputFilePath = file.write(
-            outFilePath(page, outputPath, fullInputPath, originalInputPath), page.html, options);
+            outFilePath(page, outputPath, fullInputPath, originalInputPath), page.html, htmlOptions);
           results.push(page);
         } else {
           file.copy(fullInputPath, outFilePath(null, outputPath, fullInputPath, originalInputPath));
