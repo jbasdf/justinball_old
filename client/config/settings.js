@@ -22,6 +22,7 @@ const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
 // are loaded from the env and not from a file
 require('dotenv').load({ path: path.join(__dirname, '../../.env') });
 
+const theme = process.env.THEME || 'stripy';
 const site = {
   title: "Speak Easy",
   subtitle: "What's on your mind?",
@@ -35,11 +36,11 @@ const site = {
   disqus_id: "speakeasy",
   postsSource: "/content/posts/",
   tagsPath: "tags",
+  theme
 };
 
 const hotPort = process.env.ASSETS_PORT || 8080;
-const theme = process.env.THEME || 'stripy';
-const themePath = path.join(__dirname, '../../themes');
+const themePath = path.join(__dirname, '../themes');
 const templateDirs = [
   path.join(themePath, site.theme),
   path.join(themePath, 'default')
@@ -92,7 +93,6 @@ module.exports = {
     templateMap: { // Used to specify specific templates on a per file basis
       'index.html': 'home'
     },
-    rootAppsPath,
     summaryMarker:   '<!--more-->',
     recentPostsTitle: '',
     paginate: 10,

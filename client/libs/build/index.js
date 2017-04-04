@@ -166,9 +166,6 @@ function build(rootBuildPath, webpackOptions, htmlOptions) {
       // Build html
       console.log(`Building html for ${webpackOptions.appName}`);
       const inputPath = path.join(webpackOptions.app.path, 'html');
-      const templateDirs = _.map(htmlOptions.templateDirs,
-        templateDir => path.join(inputPath, templateDir)
-      );
 
       const pages = content.buildContents(
         inputPath,
@@ -177,7 +174,7 @@ function build(rootBuildPath, webpackOptions, htmlOptions) {
         webpackAssets,
         webpackOptions.stage,
         webpackOptions.buildSuffix,
-        templateDirs,
+        htmlOptions.templateDirs,
         htmlOptions
       ).sort((a, b) => {
         // Sort pages by date
