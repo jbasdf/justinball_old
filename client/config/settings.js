@@ -97,6 +97,7 @@ module.exports = {
     recentPostsTitle: '',
     paginate: 10,
     theme,
+    themePath,
     build: Date.now()
   }
 
