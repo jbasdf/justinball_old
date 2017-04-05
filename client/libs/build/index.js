@@ -5,11 +5,18 @@ const webpack   = require('webpack');
 const nodeWatch = require('node-watch');
 const moment = require('moment');
 
-const file = require('./file');
-const content = require('./content');
+const file      = require('./file');
+const content   = require('./content');
 
 // Settings
 const webpackConfigBuilder = require('../../config/webpack.config');
+
+// -----------------------------------------------------------------------------
+// Helper function to generate full template paths for the given app
+// -----------------------------------------------------------------------------
+function templateDirs(app){
+  return _.map(app.templateDirs, templateDir => path.join(app.path, app.htmlPath, templateDir));
+}
 
 // -----------------------------------------------------------------------------
 // run webpack to build entries
@@ -86,7 +93,7 @@ function build(webpackOptions, htmlOptions) {
         webpackAssets,
         webpackOptions.stage,
         webpackOptions.buildSuffix,
-        htmlOptions.templateDirs,
+        templateDirs(webpackOptions.app),
         htmlOptions
       ).sort((a, b) => {
         // Sort pages by date
@@ -144,7 +151,7 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
     // Build the page
     const page = content.buildContent(
       filePath,
-      templateDirs,
+      templateDirs(webpackOptions.app),
       buildResults.webpackAssets,
       webpackOptions.stage,
       htmlOptions

@@ -50,18 +50,18 @@ const templateDirs = [
 // These will be used to generate the entries for webpack
 const appsDir = path.join(__dirname, '../apps/');
 
-const names = fs.readdirSync(appsDir)
-  .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory());
-
-const entryFile = 'app.jsx';
-const apps = names.reduce(
-  (result, file) => Object.assign({}, result, {
-    [file] : {
-      path: path.join(appsDir, file),
-      file: entryFile,
-    }
-  })
-, {});
+const apps = fs.readdirSync(appsDir)
+  .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory())
+  .reduce(
+    (result, appName) => Object.assign({}, result, {
+      [appName] : {
+        path: path.join(appsDir, appName),
+        file: 'app.jsx',
+        htmlPath: 'html',
+        templateDirs: ['layouts']
+      }
+    })
+  , {});
 
 module.exports = {
   apps,
@@ -85,7 +85,7 @@ module.exports = {
     truncateSummaryAt:  1000,
     buildExtensions:    ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
     markdownExtensions: ['.md', '.markdown'], // file types to process markdown
-    templateDirs, // Directories to look in for template
+	templateDirs, // Directories to look in for template
     templateData: { // Object passed to every page as it is rendered
       site,
       time: new Date()
@@ -93,6 +93,7 @@ module.exports = {
     templateMap: { // Used to specify specific templates on a per file basis
       'index.html': 'home'
     },
+    appsDir,
     summaryMarker:   '<!--more-->',
     recentPostsTitle: '',
     paginate: 10,
