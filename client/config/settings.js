@@ -82,8 +82,8 @@ module.exports = {
 
   // Options for building html files
   htmlOptions: {
-    truncateSummaryAt:  1000,
-    buildExtensions:    ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
+    truncateSummaryAt: 1000,
+    buildExtensions: ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
     markdownExtensions: ['.md', '.markdown'], // file types to process markdown
 	  templateDirs, // Directories to look in for template
     templateData: { // Object passed to every page as it is rendered

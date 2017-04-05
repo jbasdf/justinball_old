@@ -84,7 +84,7 @@ function build(webpackOptions, htmlOptions) {
 
       // Build html
       console.log(`Building html for ${webpackOptions.appName}`);
-      const inputPath = path.join(webpackOptions.app.path, 'html');
+      const inputPath = path.join(webpackOptions.app.path, webpackOptions.app.htmlPath);
 
       const pages = content.buildContents(
         inputPath,
@@ -159,6 +159,11 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
         webpackOptions.appOutputPath,
         filePath,
         originalInputPath),
+      page.html
+    );
+
+    page.outputFilePath = file.write(
+      content.outFilePath(page, outputPath, filePath, originalInputPath),
       page.html
     );
 
