@@ -85,7 +85,7 @@ module.exports = {
     truncateSummaryAt: 1000,
     buildExtensions: ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
     markdownExtensions: ['.md', '.markdown'], // file types to process markdown
-	  templateDirs, // Directories to look in for template
+	templateDirs, // Directories to look in for template
     templateData: { // Object passed to every page as it is rendered
       site,
       time: new Date()
