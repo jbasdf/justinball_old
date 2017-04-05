@@ -101,7 +101,7 @@ function build(webpackOptions, htmlOptions) {
         webpackOptions.appOutputPath,
         packResults.webpackConfig,
         packResults.webpackStats,
-        options
+        htmlOptions
       );
 
       content.buildTagPages(
@@ -110,7 +110,7 @@ function build(webpackOptions, htmlOptions) {
         webpackOptions.appOutputPath,
         packResults.webpackConfig,
         packResults.webpackStats,
-        options
+        htmlOptions
       );
 
       const duration = moment() - start;
@@ -153,7 +153,7 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
     page.outputFilePath = file.write(
       content.outFilePath(
         page,
-        outputPath(rootBuildPath, webpackOptions.appName),
+        webpackOptions.appOutputPath,
         filePath,
         originalInputPath),
       page.html
@@ -162,7 +162,7 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
   });
 
   // Watch themes
-  nodeWatch(themePath, (filePath) => {
+  nodeWatch(htmlOptions.themePath, (filePath) => {
     // Template has changed. Rebuild the site
     build(true);
   });

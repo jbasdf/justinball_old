@@ -48,7 +48,7 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
     title,
     moment,
     metadata,
-    url: path.join(options.templateData.site.domain, destination)
+    url: path.join(htmlOptions.templateData.site.domain, destination)
   }, htmlOptions.templateData);
 
   let html = parsed.body;
@@ -72,9 +72,9 @@ function buildContent(fullPath, templateDirs, webpackAssets, stage, buildSuffix,
   }
 
   // Generate summary of content
-  const summary  = _.includes(html, options.summaryMarker) ?
-    html.split(options.summaryMarker)[0] :
-    truncate(html, options.truncateSummaryAt, { keepImageTag: true });
+  const summary  = _.includes(html, htmlOptions.summaryMarker) ?
+    html.split(htmlOptions.summaryMarker)[0] :
+    truncate(html, htmlOptions.truncateSummaryAt, { keepImageTag: true });
 
   // Apply template
   data.content = html; // Pass in generated html
@@ -138,8 +138,8 @@ function buildContents(
             buildSuffix,
             ext,
             htmlOptions);
-          page.outputFilePath = file.write(
-            outFilePath(page, outputPath, fullInputPath, originalInputPath), page.html, htmlOptions);
+          const fullOut = outFilePath(page, outputPath, fullInputPath, originalInputPath);
+          page.outputFilePath = file.write(fullOut, page.html, htmlOptions);
           results.push(page);
         } else {
           file.copy(fullInputPath, outFilePath(null, outputPath, fullInputPath, originalInputPath));
@@ -155,15 +155,15 @@ function buildContents(
 // @param {array} results, this is all of the blog posts, with all of their stuff
 // @param {object} options, info being passed between functions. Declared at top of file
 // -----------------------------------------------------------------------------
-function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, options){
+function buildTagPages(pages, stage, outputPath, webpackConfig, webpackStats, options) {
 
   const tagsTemplate = templates.loadTemplate('partials/_tag.html', options.templateDirs);
 
-  const tags = _.reduce(pages, (tags, page) => {
+  const tags = _.reduce(pages, (collect, page) => {
     _.each(page.metadata.tags, (tag) => {
-      (tags[tag] || (tags[tag] = [])).push(page);
+      (collect[tag] || (collect[tag] = [])).push(page);
     });
-    return tags;
+    return collect;
   }, {});
 
   const site = options.templateData.site;
@@ -204,9 +204,9 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
   )
   .chunk(perPage)
   .each((posts, index) => {
-    const prevPage = ( index > 1 ? index - 1 : 'index') + '.html';
-    const nextPage = index < max ? index + 1 + '.html' : '#';
-    const fileName = ( index === 0 ? 'index' : index) + '.html';
+    const prevPage = `${(index > 1 ? index - 1 : 'index')}.html`;
+    const nextPage = index < max ? `${index + 1}.html` : '#';
+    const fileName = `${(index === 0 ? 'index' : index)}.html`;
 
     let title;
     if (_.isString(options.recentPostsTitle)) {
