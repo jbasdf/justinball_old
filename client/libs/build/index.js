@@ -142,11 +142,7 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
   // Watch for content to change
   nodeWatch(webpackOptions.app.path, { recursive: true }, (evt, filePath) => {
 
-    const templateDirs = _.map(htmlOptions.templateDirs,
-      templateDir => path.join(webpackOptions.app.path, 'html', templateDir)
-    );
-
-    const originalInputPath = path.join(webpackOptions.app.path, 'html');
+    const originalInputPath = path.join(webpackOptions.app.path, webpackOptions.app.htmlPath);
 
     // Build the page
     const page = content.buildContent(
