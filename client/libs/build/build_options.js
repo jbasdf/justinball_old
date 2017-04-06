@@ -1,11 +1,19 @@
+const _ = require('lodash');
 const path = require('path');
 
 const settings = require('../../config/settings');
 
 // -----------------------------------------------------------------------------
+// Helper function to generate full template paths for the given app
+// -----------------------------------------------------------------------------
+function templateDirs(app){
+  return _.map(app.templateDirs, templateDir => path.join(app.path, app.htmlPath, templateDir));
+}
+
+// -----------------------------------------------------------------------------
 // Generates webpack options that can be provided to webpackConfigBuilder
 // -----------------------------------------------------------------------------
-module.exports = function buildWebpackOptions(appName, app, port, options) {
+module.exports = function buildOptions(appName, app, port, options) {
   const production = options.stage === 'production' || options.stage === 'staging';
 
   let rootOutputPath = settings.devOutput;
@@ -32,6 +40,8 @@ module.exports = function buildWebpackOptions(appName, app, port, options) {
     production,
     appOutputPath,
     rootOutputPath,
-    publicPath
+    publicPath,
+    templateDirs: templateDirs(app),
+    htmlOptions: settings.htmlOptions
   };
 };

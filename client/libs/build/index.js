@@ -11,19 +11,12 @@ const content   = require('./content');
 const webpackConfigBuilder = require('../../config/webpack.config');
 
 // -----------------------------------------------------------------------------
-// Helper function to generate full template paths for the given app
-// -----------------------------------------------------------------------------
-function templateDirs(app){
-  return _.map(app.templateDirs, templateDir => path.join(app.path, app.htmlPath, templateDir));
-}
-
-// -----------------------------------------------------------------------------
 // run webpack to build entries
 // -----------------------------------------------------------------------------
-function buildWebpackEntries(webpackOptions) {
+function buildWebpackEntries(buildOptions) {
   return new Promise((resolve, reject) => {
-    const webpackConfig = webpackConfigBuilder(webpackOptions);
-    if (webpackOptions.stage !== 'hot') {
+    const webpackConfig = webpackConfigBuilder(buildOptions);
+    if (buildOptions.stage !== 'hot') {
       const bundler = webpack(webpackConfig);
       const bundle = (err, stats) => {
         if (err) {
@@ -49,11 +42,10 @@ function buildWebpackEntries(webpackOptions) {
 // -----------------------------------------------------------------------------
 // copy over static files to build directory
 // -----------------------------------------------------------------------------
-function buildStatic(outputPath, appPath) {
+function buildStatic(staticInputPath, outputPath) {
   try {
-    const staticDir = `${appPath}/static`;
-    console.log(`Copying static files in ${staticDir}`);
-    fs.copySync(staticDir, outputPath);
+    console.log(`Copying static files in ${staticInputPath}`);
+    fs.copy(staticInputPath, outputPath);
   } catch (err) {
     // No static dir. Do nothing
   }
@@ -62,37 +54,40 @@ function buildStatic(outputPath, appPath) {
 // -----------------------------------------------------------------------------
 // main build
 // -----------------------------------------------------------------------------
-function build(webpackOptions, htmlOptions) {
+function build(buildOptions) {
 
   return new Promise((resolve) => {
 
     // Copy static files to build directory
-    buildStatic(webpackOptions.appOutputPath, webpackOptions.app.path);
+    const staticInputPath = path.join(buildOptions.app.path, buildOptions.app.staticPath);
+    buildStatic(staticInputPath, buildOptions.appOutputPath);
 
     // Webpack build
-    console.log(`Webpacking ${webpackOptions.appName}`);
+    console.log(`Webpacking ${buildOptions.appName}`);
 
-    buildWebpackEntries(webpackOptions).then((packResults) => {
+    buildWebpackEntries(buildOptions).then((packResults) => {
       let webpackAssets = null;
-      const webpackAssetsFilePath = `${packResults.webpackConfig.output.path}/${webpackOptions.appName}-webpack-assets.json`;
+      const webpackAssetsFilePath = `${packResults.webpackConfig.output.path}/${buildOptions.appName}-webpack-assets.json`;
       if (fs.existsSync(webpackAssetsFilePath)) {
         webpackAssets = fs.readJsonSync(webpackAssetsFilePath);
       }
 
       // Build html
-      console.log(`Building html for ${webpackOptions.appName}`);
-      const inputPath = path.join(webpackOptions.app.path, webpackOptions.app.htmlPath);
+      console.log(`Building html for ${buildOptions.appName}`);
+      const htmlInputPath = path.join(buildOptions.app.path, buildOptions.app.htmlPath);
 
       const pages = content.buildContents(
-        inputPath,
-        inputPath,
-        webpackOptions.appOutputPath,
-        webpackAssets,
-        webpackOptions.stage,
-        webpackOptions.buildSuffix,
-        templateDirs(webpackOptions.app),
-        htmlOptions
+        htmlInputPath,
+        htmlInputPath,
+        buildOptions,
+        webpackAssets
       );
+
+      if (buildOptions.stage == 'hot') {
+        watchStatic(staticInputPath, buildOptions);
+        watchHtml(htmlInputPath, webpackAssets, buildOptions);
+        // TODO figure out how to watch template files - requires rebuild of all html
+      }
 
       resolve({
         webpackConfig : packResults.webpackConfig,
@@ -105,47 +100,34 @@ function build(webpackOptions, htmlOptions) {
 }
 
 // -----------------------------------------------------------------------------
-// watch
+// watchStatic
+// Used to copy over static files if they change
 // -----------------------------------------------------------------------------
-function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
-
-  // Watch for content to change
-  nodeWatch(webpackOptions.app.path, { recursive: true }, (evt, filePath) => {
-
-    const originalInputPath = path.join(webpackOptions.app.path, webpackOptions.app.htmlPath);
-
-    // Build the page
-    const page = content.buildContent(
-      filePath,
-      templateDirs(webpackOptions.app),
-      buildResults.webpackAssets,
-      webpackOptions.stage,
-      htmlOptions
-    );
-
-    page.outputFilePath = file.write(
-      content.outFilePath(
-        page,
-        webpackOptions.appOutputPath,
-        filePath,
-        originalInputPath),
-      page.html
-    );
-
+function watchStatic(staticInputPath, buildOptions) {
+  console.log(`Watching static files in ${staticInputPath}`);
+  nodeWatch(staticInputPath, { recursive: true }, (evt, filePath) => {
+    console.log(`Change in static file ${filePath}`);
+    fs.copySync(filePath, buildOptions.appOutputPath);
   });
 }
 
-function watch(rootBuildPath, webpackOptions, htmlOptions) {
-  return new Promise((resolve) => {
-    build(rootBuildPath, webpackOptions, htmlOptions).then((buildResults) => {
-      appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults);
-      resolve();
-    });
+// -----------------------------------------------------------------------------
+// watchHtml
+// Used to rebuild html or templates if files change.
+// -----------------------------------------------------------------------------
+function watchHtml(htmlInputPath, webpackAssets, buildOptions) {
+  console.log(`Watching html files in ${htmlInputPath}`);
+  nodeWatch(htmlInputPath, { recursive: true }, (evt, fullInputPath) => {
+    console.log(`Change in html file ${fullInputPath}`);
+    content.writeContent(
+      htmlInputPath,
+      fullInputPath,
+      webpackAssets,
+      buildOptions);
   });
 }
 
 module.exports = {
-  watch,
   build,
   buildWebpackEntries
 };
