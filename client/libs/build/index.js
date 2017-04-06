@@ -3,7 +3,6 @@ const fs        = require('fs-extra');
 const _         = require('lodash');
 const webpack   = require('webpack');
 const nodeWatch = require('node-watch');
-const moment = require('moment');
 
 const file      = require('./file');
 const content   = require('./content');
@@ -65,8 +64,6 @@ function buildStatic(outputPath, appPath) {
 // -----------------------------------------------------------------------------
 function build(webpackOptions, htmlOptions) {
 
-  const start = moment();
-
   return new Promise((resolve) => {
 
     // Copy static files to build directory
@@ -95,33 +92,7 @@ function build(webpackOptions, htmlOptions) {
         webpackOptions.buildSuffix,
         templateDirs(webpackOptions.app),
         htmlOptions
-      ).sort((a, b) => {
-        // Sort pages by date
-        if (a.date.unix() > b.date.unix()) return -1;
-        if (a.date.unix() < b.date.unix()) return 1;
-        return 0;
-      });
-
-      content.buildPostPages(
-        pages,
-        webpackOptions.stage,
-        webpackOptions.appOutputPath,
-        packResults.webpackConfig,
-        packResults.webpackStats,
-        htmlOptions
       );
-
-      content.buildTagPages(
-        pages,
-        webpackOptions.stage,
-        webpackOptions.appOutputPath,
-        packResults.webpackConfig,
-        packResults.webpackStats,
-        htmlOptions
-      );
-
-      const duration = moment() - start;
-      console.log(`Done building files in: ${duration / 1000} seconds`);
 
       resolve({
         webpackConfig : packResults.webpackConfig,
@@ -132,7 +103,6 @@ function build(webpackOptions, htmlOptions) {
 
   });
 }
-
 
 // -----------------------------------------------------------------------------
 // watch
@@ -163,13 +133,6 @@ function appWatch(rootBuildPath, webpackOptions, htmlOptions, buildResults) {
     );
 
   });
-
-  // Watch themes
-  nodeWatch(htmlOptions.themePath, (filePath) => {
-    // Template has changed. Rebuild the site
-    build(true);
-  });
-
 }
 
 function watch(rootBuildPath, webpackOptions, htmlOptions) {
