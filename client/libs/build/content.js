@@ -48,7 +48,7 @@ function buildContent(fullPath, buildOptions, webpackAssets, ext) {
     title,
     moment,
     metadata,
-    url: path.join(htmlOptions.templateData.site.domain, destination)
+    url: path.join(buildOptions.htmlOptions.templateData.site.domain, destination)
   }, buildOptions.htmlOptions.templateData);
 
   let html = parsed.body;
@@ -72,9 +72,9 @@ function buildContent(fullPath, buildOptions, webpackAssets, ext) {
   }
 
   // Generate summary of content
-  const summary  = _.includes(html, htmlOptions.summaryMarker) ?
-    html.split(htmlOptions.summaryMarker)[0] :
-    truncate(html, htmlOptions.truncateSummaryAt, { keepImageTag: true });
+  const summary  = _.includes(html, buildOptions.htmlOptions.summaryMarker) ?
+    html.split(buildOptions.htmlOptions.summaryMarker)[0] :
+    truncate(html, buildOptions.htmlOptions.truncateSummaryAt, { keepImageTag: true });
 
   // Apply template
   data.content = html; // Pass in generated html
