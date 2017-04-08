@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const _ = require('lodash');
 
 const settings = require('../../config/settings');
-const build = require('./index');
+const build = require('./build');
 const buildOptionsGenerator = require('./build_options');
 
 // -----------------------------------------------------------------------------
@@ -50,7 +50,7 @@ function buildApp(appName, options) {
 // -----------------------------------------------------------------------------
 function buildApps(options) {
   return _.map(allAppBuildOptions(options), (buildOptions) => {
-    fs.emptyDirSync(buildOptions.appOutputPath);
+    fs.emptyDirSync(buildOptions.outputPath);
     return {
       buildOptions,
       buildPromise: buildAppParts(buildOptions, options.onlyPack)
