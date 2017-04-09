@@ -148,12 +148,8 @@ function buildPostPages(pages, stage, outputPath, webpackConfig, webpackStats, o
   });
 }
 
-function build() {
-
-}
-
 module.exports = {
-  buildContent,
-  buildContents,
-  outFilePath
+  buildPagingPages,
+  buildTagPages,
+  buildPostPages
 };
