@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const fs = require('fs-extra');
 const path = require('path');
 
@@ -24,18 +25,17 @@ require('dotenv').load({ path: path.join(__dirname, '../../.env') });
 
 const theme = process.env.THEME || 'stripy';
 const site = {
-  title: "Speak Easy",
+  title: 'Speak Easy',
   subtitle: "What's on your mind?",
-  author: "Blog Author",
-  domain: "www.speakeasy.com",
-  author: "Speak Easy Team",
-  email: "speakeasy@example.com",
-  google_analytics_account: "UA-73651-1",
-  github_username: "speakeasy",
-  twitter_username: "speakeasy",
-  disqus_id: "speakeasy",
-  postsSource: "/content/posts/",
-  tagsPath: "tags",
+  domain: 'www.speakeasy.com',
+  author: 'Speak Easy Team',
+  email: 'speakeasy@example.com',
+  google_analytics_account: 'UA-73651-1',
+  github_username: 'speakeasy',
+  twitter_username: 'speakeasy',
+  disqus_id: 'speakeasy',
+  postsSource: '/content/posts/',
+  tagsPath: 'tags',
   theme
 };
 
@@ -59,9 +59,14 @@ const apps = fs.readdirSync(appsDir)
         file: 'app.jsx',
         htmlPath: 'html',
         staticPath: 'static',
-        templateDirs: ['layouts'],
-        templateData: {}, // Object that will be passed to every page as it is rendered
-        templateMap: {}, // Used to specify specific templates on a per file basis
+        templateDirs: _.union(['layouts'], templateDirs),
+        templateData: { // Object passed to every page as it is rendered
+      	  site,
+          time: new Date()
+        },
+        templateMap: { // Used to specify specific templates on a per file basis
+          'index.html': 'home'
+        },
       }
     })
   , {});
