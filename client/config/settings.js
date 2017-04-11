@@ -1,8 +1,10 @@
-const _ = require('lodash');
 const fs = require('fs-extra');
 const path = require('path');
+const _ = require('lodash');
 
 const deployConfig = require('../../.s3-website.json');
+
+const hotPort = parseInt(process.env.ASSETS_PORT, 10) || 8080;
 
 const devRelativeOutput  = '/';
 const prodRelativeOutput = '/';
@@ -17,6 +19,7 @@ const prodOutput = path.join(__dirname, '../../build/prod', prodRelativeOutput);
                           // https://s3.amazonaws.com/' + deployConfig.domain;
 
 const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
+const devAssetsUrl = process.env.ASSETS_URL;
 
 // There is a warning if the .env file is missing
 // This is fine in a production setting, where settings
@@ -39,7 +42,6 @@ const site = {
   theme
 };
 
-const hotPort = process.env.ASSETS_PORT || 8080;
 const themePath = path.join(__dirname, '../themes');
 const templateDirs = [
   path.join(themePath, site.theme),
@@ -50,56 +52,100 @@ const templateDirs = [
 // These will be used to generate the entries for webpack
 const appsDir = path.join(__dirname, '../apps/');
 
-const apps = fs.readdirSync(appsDir)
-  .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory())
-  .reduce(
-    (result, appName) => Object.assign({}, result, {
-      [appName] : {
-        path: path.join(appsDir, appName),
-        file: 'app.jsx',
-        htmlPath: 'html',
-        staticPath: 'static',
-        templateDirs: _.union(['layouts'], templateDirs),
-        templateData: { // Object passed to every page as it is rendered
-      	  site,
-          time: new Date()
-        },
-        templateMap: { // Used to specify specific templates on a per file basis
-          'index.html': 'home'
-        },
-      }
-    })
-  , {});
+const buildSuffix = '_bundle.js';
 
-module.exports = {
-  apps,
+const htmlOptions = { // Options for building html files
+  truncateSummaryAt: 1000,
+  buildExtensions: ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
+  markdownExtensions: ['.md', '.markdown'], // file types to process markdown
+  summaryMarker:   '<!--more-->',
+  recentPostsTitle: '',
+  paginate: 10,
+  theme,
+  build: Date.now()
+};
 
-  devRelativeOutput,
-  prodRelativeOutput,
+// -----------------------------------------------------------------------------
+// Helper function to generate full template paths for the given app
+// -----------------------------------------------------------------------------
+function templateDirs(app, dirs) {
+  return _.map(dirs, templateDir => path.join(app.htmlPath, templateDir));
+}
 
-  devOutput,
-  prodOutput,
+function appSettings(name, port, options) {
 
-  // Dev urls
-  devAssetsUrl: process.env.ASSETS_URL,
-  prodAssetsUrl,
+  const production = options.stage === 'production' || options.stage === 'staging';
+  let rootOutputPath = devOutput;
+  let outputPath = options.onlyPack ?
+    devOutput : path.join(devOutput, name);
+  // Public path indicates where the assets will be served from. In dev this will likely be
+  // localhost or a local domain. In production this could be a CDN. In developerment this will
+  // point to whatever public url is serving dev assets.
+  let publicPath = `${devAssetsUrl}:${port}${devRelativeOutput}`;
 
-  hotPort,
-
-  buildSuffix: '_bundle.js',
-
-  // Options for building html files
-  htmlOptions: {
-    truncateSummaryAt: 1000,
-    buildExtensions: ['.html', '.htm', '.md', '.markdown'], // file types to build (others will just be copied)
-    markdownExtensions: ['.md', '.markdown'], // file types to process markdown
-    appsDir,
-    summaryMarker:   '<!--more-->',
-    recentPostsTitle: '',
-    paginate: 10,
-    theme,
-    themePath,
-    build: Date.now()
+  if (production) {
+    rootOutputPath = prodOutput;
+    outputPath = options.onlyPack ?
+      prodOutput : path.join(prodOutput, name);
+    publicPath = prodAssetsUrl + prodRelativeOutput;
   }
 
+  const appPath = path.join(appsDir, name);
+  const htmlPath = path.join(appPath, 'html');
+  const staticPath = path.join(appPath, 'static');
+
+  const app = {
+    name,
+    path: appPath,
+    file: 'app.jsx',
+    htmlPath,
+    staticPath,
+    templateData: {
+      site,
+      time: new Date()
+    }, // Object that will be passed to every page as it is rendered
+    templateMap: {
+      'index.html': 'home'
+    }, // Used to specify specific templates on a per file basis
+    stage: options.stage,
+    buildSuffix,
+    port,
+    production,
+    outputPath,
+    rootOutputPath,
+    publicPath,
+    htmlOptions,
+  };
+
+  app.templateDirs = templateDirs(app, _.union(['layouts'], templateDirs));
+  return {
+    [name] : app
+  };
+}
+
+const paths = {
+  devRelativeOutput,
+  prodRelativeOutput,
+  devOutput,
+  prodOutput,
+  prodAssetsUrl,
+  devAssetsUrl,
+  appsDir,
+};
+
+function apps(options) {
+  let port = options.port;
+  return fs.readdirSync(appsDir)
+    .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory())
+    .reduce((result, appName) => {
+      const app = appSettings(appName, port, options);
+      port = options.appPerPort ? port + 1 : options.port;
+      return _.merge(result, app);
+    }, {});
+}
+
+module.exports = {
+  paths,
+  hotPort,
+  apps
 };
