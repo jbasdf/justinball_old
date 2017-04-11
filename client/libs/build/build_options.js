@@ -6,7 +6,7 @@ const settings = require('../../config/settings');
 // -----------------------------------------------------------------------------
 // Helper function to generate full template paths for the given app
 // -----------------------------------------------------------------------------
-function templateDirs(app){
+function templateDirs(app) {
   return _.map(app.templateDirs, templateDir => path.join(app.path, app.htmlPath, templateDir));
 }
 
@@ -41,6 +41,8 @@ module.exports = function buildOptions(appName, app, port, options) {
     outputPath,
     rootOutputPath,
     publicPath,
+    templateMap: app.templateMap,
+    templateData: app.templateData,
     templateDirs: templateDirs(app),
     htmlOptions: settings.htmlOptions
   };
