@@ -139,7 +139,6 @@ function buildContents(
     if (doOutput) {
       if (fs.statSync(inputFilePath).isDirectory()) {
         results = _.concat(results, buildContents(
-          app.htmlPath,
           inputFilePath,
           app,
           webpackAssets
