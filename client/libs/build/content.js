@@ -71,9 +71,9 @@ function buildContent(fullPath, app, webpackAssets, ext) {
   }
 
   // Generate summary of content
-  const summary  = _.includes(html, buildOptions.htmlOptions.summaryMarker) ?
-    html.split(buildOptions.htmlOptions.summaryMarker)[0] :
-    truncate(html, buildOptions.htmlOptions.truncateSummaryAt, { keepImageTag: true });
+  const summary  = _.includes(html, app.htmlOptions.summaryMarker) ?
+    html.split(app.htmlOptions.summaryMarker)[0] :
+    truncate(html, app.htmlOptions.truncateSummaryAt, { keepImageTag: true });
 
   // Apply template
   data.content = html; // Pass in generated html
