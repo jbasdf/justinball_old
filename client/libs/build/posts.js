@@ -2,7 +2,6 @@ const moment = require('moment');
 const _ = require('lodash');
 const path = require('path');
 const build = require('./build');
-const buildOptionsGenerator = require('./build_options');
 const settings = require('../../config/settings');
 const templates = require('./templates');
 const applyProduction = require('./production');
@@ -72,9 +71,9 @@ const utils = require('./utils');
 // @param {array} results, this is all of the blog posts, with all of their stuff
 // @param {object} options, info being passed between functions. Declared at top of file
 // -----------------------------------------------------------------------------
-function buildTagPages(pages, stage, outputPath, webpackAssets, options) {
+function buildTagPages(posts, postsApp) {
 
-  const tagsTemplate = templates.loadTemplate('partials/_tag.html', options.templateDirs);
+  const tagsTemplate = templates.loadTemplate('partials/_tag.html', postsApp.templateDirs);
 
   const tags = _.reduce(pages, (collect, page) => {
     _.each(page.metadata.tags, (tag) => {
@@ -111,9 +110,9 @@ function buildTagPages(pages, stage, outputPath, webpackAssets, options) {
 // -----------------------------------------------------------------------------
 // Build blog archive pages
 // -----------------------------------------------------------------------------
-function buildArchive(pages, webpackAssets, buildOptions) {
-  const archiveTemplate = templates.loadTemplate('partials/_posts.html', buildOptions.app.templateDirs);
-  const perPage = buildOptions.htmlOptions.paginate;
+function buildArchive(pages, postsApp, webpackAssets) {
+  const archiveTemplate = templates.loadTemplate('partials/_posts.html', postsApp.app.templateDirs);
+  const perPage = postsApp.htmlOptions.paginate;
   const max = _.floor(pages.length / perPage);
   _(pages)
   .chunk(perPage)
@@ -123,17 +122,17 @@ function buildArchive(pages, webpackAssets, buildOptions) {
     const fileName = `${(index === 0 ? 'index' : index)}.html`;
 
     let title;
-    if (_.isString(buildOptions.htmlOptions.recentPostsTitle)) {
-      title = buildOptions.htmlOptions.recentPostsTitle;
+    if (_.isString(postsApp.htmlOptions.recentPostsTitle)) {
+      title = postsApp.htmlOptions.recentPostsTitle;
     } else {
       title = index === 0 ? 'Recent Posts' : '';
     }
 
     const data = {
-      site: buildOptions.app.templateData.site,
+      site: postsApp.app.templateData.site,
       metadata: { },
       cleanTag: utils.cleanTag,
-      url: buildOptions.app.templateData.site.domain,
+      url: postsApp.app.templateData.site.domain,
       posts,
       title,
       _,
@@ -148,25 +147,23 @@ function buildArchive(pages, webpackAssets, buildOptions) {
     let html = templates.apply(
       data,
       fileName,
-      buildOptions.app.templateMap,
-      buildOptions.app.templateDirs);
-    html = applyProduction(html, buildOptions.stage, webpackAssets, buildOptions.buildSuffix);
-    file.write(path.join(buildOptions.outputPath, fileName), html);
+      postsApp.app.templateMap,
+      postsApp.app.templateDirs);
+    html = applyProduction(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
+    file.write(path.join(postsApp.outputPath, fileName), html);
   });
 }
 
 function buildPosts(options, webpackAssets) {
-
-  const posts = build.buildHtml(settings.postsApp(options), webpackAssets).sort((a, b) => {
+  const postsApp = settings.postsApp(options);
+  const posts = build.buildHtml(postsApp, webpackAssets).sort((a, b) => {
     // Sort pages by date
     if (a.date.unix() > b.date.unix()) return -1;
     if (a.date.unix() < b.date.unix()) return 1;
     return 0;
   });
 
-  // settings.htmlOptions.paginate);
-  buildArchive(posts, buildOptions.stage, buildOptions.outputPath,
-    webpackAssets, buildOptions);
+  buildArchive(posts, postsApp, webpackAssets);
   // buildTagposts(pages, stage, outputPath, webpackConfig, webpackStats, htmlOptions);
 }
 

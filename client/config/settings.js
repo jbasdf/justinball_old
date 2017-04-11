@@ -154,34 +154,33 @@ function appSettings(name, port, options) {
   };
 }
 
-const paths = {
-  devRelativeOutput,
-  prodRelativeOutput,
-  devOutput,
-  prodOutput,
-  prodAssetsUrl,
-  devAssetsUrl,
-  appsDir,
-};
-
+// -----------------------------------------------------------------------------
+// Generate settings for building posts
+// -----------------------------------------------------------------------------
 function postsApp(options) {
   const contentPath = path.join(__dirname, '../../content');
-  const htmlPath = path.join(contentPath, 'posts');
-  const staticPath = path.join(contentPath, 'static');
-  return {
-    appName: 'posts',
-    app: {
-      path: path.join(__dirname, '../../content'),
-      file: null,
-      htmlPath,
-      staticPath,
-      templateDirs,
-      templateData: { // Object passed to every page as it is rendered
-        site,
-        time: new Date()
-      },
-    }
-  };
+  const port = options.port;
+  const name = 'posts';
+  return _.merge({
+    name,
+    path: contentPath,
+    file: null,
+    htmlPath: contentPath,
+    staticPath: null,
+    templateData: {
+      site,
+      time: new Date()
+    }, // Object that will be passed to every page as it is rendered
+    templateMap: {
+      'index.html': 'home'
+    }, // Used to specify specific templates on a per file basis
+    stage: options.stage,
+    buildSuffix,
+    port,
+    production: isProduction(options.stage),
+    htmlOptions,
+    templateDirs: themeTemplateDirs,
+  }, outputPaths(name, port, options));
 }
 
 // -----------------------------------------------------------------------------
