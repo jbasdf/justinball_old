@@ -43,7 +43,7 @@ const site = {
 };
 
 const themePath = path.join(__dirname, '../themes');
-const templateDirs = [
+const themeTemplateDirs = [
   path.join(themePath, site.theme),
   path.join(themePath, 'default')
 ];
@@ -117,7 +117,7 @@ function appSettings(name, port, options) {
     htmlOptions,
   };
 
-  app.templateDirs = templateDirs(app, _.union(['layouts'], templateDirs));
+  app.templateDirs = _.union(templateDirs(app, ['layouts']), themeTemplateDirs);
   return {
     [name] : app
   };
@@ -133,6 +133,26 @@ const paths = {
   appsDir,
 };
 
+function postsApp(options) {
+  const contentPath = path.join(__dirname, '../../content');
+  const htmlPath = path.join(contentPath, 'posts');
+  const staticPath = path.join(contentPath, 'static');
+  return {
+    appName: 'posts',
+    app: {
+      path: path.join(__dirname, '../../content'),
+      file: null,
+      htmlPath,
+      staticPath,
+      templateDirs,
+      templateData: { // Object passed to every page as it is rendered
+        site,
+        time: new Date()
+      },
+    }
+  };
+}
+
 function apps(options) {
   let port = options.port;
   return fs.readdirSync(appsDir)
@@ -147,5 +167,6 @@ function apps(options) {
 module.exports = {
   paths,
   hotPort,
-  apps
+  apps,
+  postsApp
 };
