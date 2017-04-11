@@ -8,8 +8,6 @@ const stage = argv.release ? 'production' : 'development';
 const port = parseInt(process.env.ASSETS_PORT, 10) || 8080;
 const options = { port, stage, onlyPack: argv.onlyPack };
 
-const options = { stage, onlyPack: argv.onlyPack };
-
 const buildPromises = _.map(apps.buildApps(options), result => result.buildPromise);
 
 Promise.all(buildPromises).then((results) => {
