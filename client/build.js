@@ -15,4 +15,5 @@ Promise.all(buildPromises).then((results) => {
     (collection, result) => _.merge(collection, result.webpackAssets),
   {});
   posts.buildPosts(options, webpackAssets);
+  console.log('Finished building posts');
 });
