@@ -9,6 +9,7 @@ const settings = require('./config/settings');
 
 const webpackConfigBuilder = require('./config/webpack.config');
 const clientApps = require('./libs/build/apps');
+const site = require('./libs/build/site');
 
 const serverApp = express();
 
@@ -64,7 +65,7 @@ if (appName) {
   });
   runServer(settings.hotPort, settings.paths.devOutput);
 } else {
-  _.each(clientApps.buildApps(options), (result) => {
+  _.each(site.buildSite(options), (result) => {
     launch(result.app);
   });
 }

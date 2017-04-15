@@ -38,7 +38,6 @@ const site = {
   github_username: 'speakeasy',
   twitter_username: 'speakeasy',
   disqus_id: 'speakeasy',
-  postsSource: '/content/posts/',
   tagsPath: 'tags',
   theme
 };
