@@ -104,7 +104,7 @@ function outputPaths(name, port, options) {
   // Public path indicates where the assets will be served from. In dev this will likely be
   // localhost or a local domain. In production this could be a CDN. In developerment this will
   // point to whatever public url is serving dev assets.
-  let publicPath = `${devAssetsUrl}:${port}${devRelativeOutput}`;
+  let publicPath = `${devAssetsUrl}:${port}${options.hotPack ? `/${name}` : ''}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
