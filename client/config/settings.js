@@ -164,6 +164,16 @@ function appSettings(name, port, options) {
 }
 
 // -----------------------------------------------------------------------------
+// Generate all settings needed for a given theme
+// -----------------------------------------------------------------------------
+function themeSettings(name, port, options) {
+  const appPath = path.join(themesDir, name);
+  return {
+    [name] : webpackSettings('entry.js', appPath, port, options)
+  };
+}
+
+// -----------------------------------------------------------------------------
 // Generate settings for building posts
 // -----------------------------------------------------------------------------
 function postsApp(options) {
@@ -206,12 +216,15 @@ function apps(options) {
     }, {});
 }
 
+// -----------------------------------------------------------------------------
+// Generates an app setting for all applications found in the client directory
+// -----------------------------------------------------------------------------
 function themes(options) {
   let port = options.port;
   return fs.readdirSync(appsDir)
     .filter(file => fs.statSync(path.join(themesDir, file)).isDirectory())
-    .reduce((result, themeName) => {
-      const app = appSettings(themeName, port, options);
+    .reduce((result, appName) => {
+      const app = themeSettings(appName, port, options);
       port = options.appPerPort ? port + 1 : options.port;
       return _.merge(result, app);
     }, {});
