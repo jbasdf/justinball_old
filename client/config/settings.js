@@ -51,6 +51,7 @@ const themeTemplateDirs = [
 // Get a list of all directories in the apps directory.
 // These will be used to generate the entries for webpack
 const appsDir = path.join(__dirname, '../apps/');
+const themesDir = path.join(__dirname, '../themes/');
 
 const buildSuffix = '_bundle.js';
 
@@ -180,7 +181,7 @@ function postsApp(options) {
     production: isProduction(options.stage),
     htmlOptions,
     templateDirs: themeTemplateDirs,
-  }, outputPaths(name, port, options));
+  }, outputPaths('', port, options));
 }
 
 // -----------------------------------------------------------------------------
@@ -197,10 +198,22 @@ function apps(options) {
     }, {});
 }
 
+function themes(options) {
+  let port = options.port;
+  return fs.readdirSync(appsDir)
+    .filter(file => fs.statSync(path.join(themesDir, file)).isDirectory())
+    .reduce((result, themeName) => {
+      const app = appSettings(themeName, port, options);
+      port = options.appPerPort ? port + 1 : options.port;
+      return _.merge(result, app);
+    }, {});
+}
+
 module.exports = {
   paths,
   hotPort,
   outputPaths,
   apps,
+  themes,
   postsApp
 };
