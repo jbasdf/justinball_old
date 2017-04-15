@@ -65,7 +65,10 @@ if (appName) {
   });
   runServer(settings.hotPort, settings.paths.devOutput);
 } else {
+  const postsApp = settings.postsApp(options);
+  options.onlyPack = true;
   _.each(site.buildSite(options), (result) => {
-    launch(result.app);
+    setupMiddleware(result.app);
   });
+  runServer(postsApp.port, postsApp.outputPath);
 }
