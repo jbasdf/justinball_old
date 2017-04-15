@@ -227,14 +227,7 @@ function apps(options) {
 // Generates an app setting for all applications found in the client directory
 // -----------------------------------------------------------------------------
 function themes(options) {
-  let port = options.port;
-  return fs.readdirSync(appsDir)
-    .filter(file => fs.statSync(path.join(themesDir, file)).isDirectory())
-    .reduce((result, appName) => {
-      const app = themeSettings(appName, port, options);
-      port = options.appPerPort ? port + 1 : options.port;
-      return _.merge(result, app);
-    }, {});
+  return iterateDirAndPorts(themesDir, options, themeSettings);
 }
 
 module.exports = {

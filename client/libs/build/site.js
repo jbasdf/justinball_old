@@ -1,6 +1,7 @@
 const _ = require('lodash');
 
 const apps = require('./apps');
+const themes = require('./themes');
 const posts = require('./posts');
 
 // -----------------------------------------------------------------------------
@@ -9,13 +10,15 @@ const posts = require('./posts');
 function buildSite(options) {
 
   // Build apps
-  const buildResults = apps.buildApps(options);
-  const buildPromises = _.map(buildResults, result => result.buildPromise);
+  const appResults = apps.buildApps(options);
 
   // Build themes
-  const themePromises = ;
+  const themeResults = themes.buildThemes(options);
 
-  Promise.all(_.union(buildPromises, themePromises)).then((results) => {
+  const buildResults = _.union(appResults, themeResults);
+  const buildPromises = _.map(buildResults, result => result.buildPromise);
+
+  Promise.all(buildPromises).then((results) => {
 
     // Combine all built assets into a single object that can be used to resolve
     // paths inside buildPosts
