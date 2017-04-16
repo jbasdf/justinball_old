@@ -235,7 +235,7 @@ function apps(options) {
 }
 
 // -----------------------------------------------------------------------------
-// Generates an app setting for all applications found in the client directory
+// Generates an app setting for all themes
 // -----------------------------------------------------------------------------
 function themes(options) {
   return themeSettings(theme, options.port, options);
