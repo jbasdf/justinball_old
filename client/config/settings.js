@@ -29,17 +29,19 @@ const devAssetsUrl = process.env.ASSETS_URL;
 
 const theme = process.env.THEME || 'stripy';
 const site = {
-  title: 'Speak Easy',
-  subtitle: "What's on your mind?",
-  domain: 'www.speakeasy.com',
-  author: 'Speak Easy Team',
-  email: 'speakeasy@example.com',
-  google_analytics_account: 'UA-73651-1',
-  github_username: 'speakeasy',
-  twitter_username: 'speakeasy',
-  disqus_id: 'speakeasy',
+  title: 'Nobody Listens Anyway',
+  subtitle: 'Life is an optimization issue',
+  domain: 'www.justinball.com',
+  author: 'Justin Ball',
+  email: 'justinball@example.com',
   postsSource: '/content/posts/',
   tagsPath: 'tags',
+  paginate: 10,
+  google_analytics_account: 'UA-73651-1',
+  github_username: 'jbasdf',
+  twitter_username: 'jbasdf',
+  strava_profile: 'justin_ball',
+  disqus_id: 'jbasdf',
   theme
 };
 
