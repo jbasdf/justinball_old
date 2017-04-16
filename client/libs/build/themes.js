@@ -9,8 +9,6 @@ const settings = require('../../config/settings');
 // -----------------------------------------------------------------------------
 function buildThemes(options) {
   return _.map(settings.themes(options), (app) => {
-    fs.emptyDirSync(app.outputPath);
-
     const buildPromise = build.buildWebpackEntries(app);
     buildPromise.then(() => {
       console.log(`Finished Javascript for ${app.name}`);

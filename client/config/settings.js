@@ -171,20 +171,16 @@ function appSettings(name, port, options) {
 // -----------------------------------------------------------------------------
 // Generate all settings needed for a given theme
 // -----------------------------------------------------------------------------
-function themeSettings(name, port, options) {
-  const themeEntryFile = 'entry.js';
-  const appPath = path.join(themesDir, name);
+function themeSettings(themeEntryFile, appPath, name, port, options) {
   const staticPath = path.join(appPath, 'static');
-  if (fs.existsSync(path.join(appPath, themeEntryFile))) {
-    const app = _.merge({
-      staticPath
-    }, webpackSettings(name, themeEntryFile, appPath, port, options),
-       outputPaths(name, port, options));
-    return {
-      [name] : app
-    };
-  }
-  return null;
+  const entryName = themeEntryFile.replace('.js', '');
+  const app = _.merge({
+    staticPath
+  }, webpackSettings(entryName, themeEntryFile, appPath, port, options),
+      outputPaths(name, port, options));
+  return {
+    [entryName] : app
+  };
 }
 
 // -----------------------------------------------------------------------------
@@ -238,10 +234,17 @@ function apps(options) {
 }
 
 // -----------------------------------------------------------------------------
-// Generates an app setting for all applications found in the client directory
+// Generates an app setting for all themes
 // -----------------------------------------------------------------------------
 function themes(options) {
-  return themeSettings(theme, options.port, options);
+  const entriesPath = path.join(themesDir, theme, 'entries');
+  return fs.readdirSync(entriesPath)
+    .reduce((result, file) =>
+      _.merge(
+        {},
+        result,
+        themeSettings(file, entriesPath, theme, options.port, options)),
+      {});
 }
 
 module.exports = {
