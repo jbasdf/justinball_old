@@ -27,7 +27,7 @@ const prodOutput = path.join(__dirname, '../../build/prod', prodRelativeOutput);
 const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
 const devAssetsUrl = process.env.ASSETS_URL;
 
-const theme = process.env.THEME || 'stripy';
+const theme = process.env.THEME || 'pure';
 const site = {
   title: 'Nobody Listens Anyway',
   subtitle: 'Life is an optimization issue',
