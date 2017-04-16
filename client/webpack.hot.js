@@ -67,8 +67,8 @@ if (appName) {
   const postsApp = settings.postsApp(options);
   options.hotPack = true;
   options.onlyPack = true;
-  _.each(site.buildSite(options), (result) => {
-    setupMiddleware(result.app);
-  });
+  const results = site.buildSite(options);
+  const apps = _.map(results, result => result.app);
+  setupMiddleware(apps);
   runServer(postsApp.port, postsApp.outputPath);
 }
