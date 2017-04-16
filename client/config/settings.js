@@ -27,7 +27,7 @@ const prodOutput = path.join(__dirname, '../../build/prod', prodRelativeOutput);
 const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
 const devAssetsUrl = process.env.ASSETS_URL;
 
-const theme = process.env.THEME || 'pure';
+const theme = process.env.THEME || 'stripy';
 const site = {
   title: 'Speak Easy',
   subtitle: "What's on your mind?",
@@ -168,20 +168,16 @@ function appSettings(name, port, options) {
 // -----------------------------------------------------------------------------
 // Generate all settings needed for a given theme
 // -----------------------------------------------------------------------------
-function themeSettings(name, port, options) {
-  const themeEntryFile = 'entry.js';
-  const appPath = path.join(themesDir, name);
+function themeSettings(themeEntryFile, appPath, name, port, options) {
   const staticPath = path.join(appPath, 'static');
-  if (fs.existsSync(path.join(appPath, themeEntryFile))) {
-    const app = _.merge({
-      staticPath
-    }, webpackSettings(name, themeEntryFile, appPath, port, options),
-       outputPaths(name, port, options));
-    return {
-      [name] : app
-    };
-  }
-  return null;
+  const entryName = themeEntryFile.replace('.js', '');
+  const app = _.merge({
+    staticPath
+  }, webpackSettings(entryName, themeEntryFile, appPath, port, options),
+      outputPaths(name, port, options));
+  return {
+    [entryName] : app
+  };
 }
 
 // -----------------------------------------------------------------------------
@@ -238,7 +234,14 @@ function apps(options) {
 // Generates an app setting for all themes
 // -----------------------------------------------------------------------------
 function themes(options) {
-  return themeSettings(theme, options.port, options);
+  const entriesPath = path.join(themesDir, theme, 'entries');
+  return fs.readdirSync(entriesPath)
+    .reduce((result, file) =>
+      _.merge(
+        {},
+        result,
+        themeSettings(file, entriesPath, theme, options.port, options)),
+      {});
 }
 
 module.exports = {

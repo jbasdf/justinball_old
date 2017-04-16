@@ -1,4 +1,6 @@
-@import '_defines';
+@import '../../common/styles/_flat';
+//@import '../node_modules/font-awesome/scss/font-awesome';
+//@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 $icon-font-path: '../fonts/bootstrap';
 $fa-font-path:   '../fonts';
@@ -26,5 +28,3 @@ $btn_background_color: $midnight_blue;
 $btn_background_color_highlight: $wet_asphalt;
 
 
-//@import '../../node_modules/font-awesome/scss/font-awesome';
-//@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
