@@ -128,6 +128,11 @@ function buildContents(
   webpackAssets) {
 
   let results = [];
+
+  if (_.isEmpty(inputPath)) {
+    return results;
+  }
+
   const files = fs.readdirSync(inputPath);
 
   files.forEach((fileName) => {

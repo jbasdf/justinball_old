@@ -54,6 +54,7 @@ const themeTemplateDirs = [
 // Get a list of all directories in the apps directory.
 // These will be used to generate the entries for webpack
 const appsDir = path.join(__dirname, '../apps/');
+const themesDir = path.join(__dirname, '../themes/');
 
 const buildSuffix = '_bundle.js';
 
@@ -106,7 +107,8 @@ function outputPaths(name, port, options) {
   // Public path indicates where the assets will be served from. In dev this will likely be
   // localhost or a local domain. In production this could be a CDN. In developerment this will
   // point to whatever public url is serving dev assets.
-  let publicPath = `${devAssetsUrl}:${port}${options.hotPack ? `/${name}` : ''}${devRelativeOutput}`;
+  const urlPath = options.hotPack && !_.isEmpty(name) ? `/${name}` : '';
+  let publicPath = `${devAssetsUrl}:${port}${urlPath}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
@@ -123,6 +125,21 @@ function outputPaths(name, port, options) {
 }
 
 // -----------------------------------------------------------------------------
+// Generate settings needed for webpack
+// -----------------------------------------------------------------------------
+function webpackSettings(name, file, appPath, port, options) {
+  return {
+    name,
+    file,
+    path: appPath,
+    stage: options.stage,
+    production: isProduction(options.stage),
+    buildSuffix,
+    port,
+  };
+}
+
+// -----------------------------------------------------------------------------
 // Generate all settings needed for a given application
 // -----------------------------------------------------------------------------
 function appSettings(name, port, options) {
@@ -132,9 +149,6 @@ function appSettings(name, port, options) {
   const staticPath = path.join(appPath, 'static');
 
   const app = _.merge({
-    name,
-    path: appPath,
-    file: 'app.jsx',
     htmlPath,
     staticPath,
     templateData: {
@@ -144,17 +158,33 @@ function appSettings(name, port, options) {
     templateMap: {
       'index.html': 'home'
     }, // Used to specify specific templates on a per file basis
-    stage: options.stage,
-    buildSuffix,
-    port,
-    production: isProduction(options.stage),
     htmlOptions,
-  }, outputPaths(name, port, options));
+  }, webpackSettings(name, 'app.jsx', appPath, port, options),
+     outputPaths(name, port, options));
 
   app.templateDirs = _.union(templateDirs(app, ['layouts']), themeTemplateDirs);
   return {
     [name] : app
   };
+}
+
+// -----------------------------------------------------------------------------
+// Generate all settings needed for a given theme
+// -----------------------------------------------------------------------------
+function themeSettings(name, port, options) {
+  const themeEntryFile = 'entry.js';
+  const appPath = path.join(themesDir, name);
+  const staticPath = path.join(appPath, 'static');
+  if (fs.existsSync(path.join(appPath, themeEntryFile))) {
+    const app = _.merge({
+      staticPath
+    }, webpackSettings(name, themeEntryFile, appPath, port, options),
+       outputPaths(name, port, options));
+    return {
+      [name] : app
+    };
+  }
+  return null;
 }
 
 // -----------------------------------------------------------------------------
@@ -183,21 +213,35 @@ function postsApp(options) {
     production: isProduction(options.stage),
     htmlOptions,
     templateDirs: themeTemplateDirs,
-  }, outputPaths(name, port, options));
+  }, outputPaths('', port, options));
+}
+
+// -----------------------------------------------------------------------------
+// Iterate a given directory to generate app or webpack settings
+// -----------------------------------------------------------------------------
+function iterateDirAndPorts(dir, options, cb) {
+  let port = options.port;
+  return fs.readdirSync(dir)
+    .filter(file => fs.statSync(path.join(dir, file)).isDirectory())
+    .reduce((result, appName) => {
+      const app = cb(appName, port, options);
+      port = options.appPerPort ? port + 1 : options.port;
+      return _.merge(result, app);
+    }, {});
 }
 
 // -----------------------------------------------------------------------------
 // Generates an app setting for all applications found in the client directory
 // -----------------------------------------------------------------------------
 function apps(options) {
-  let port = options.port;
-  return fs.readdirSync(appsDir)
-    .filter(file => fs.statSync(path.join(appsDir, file)).isDirectory())
-    .reduce((result, appName) => {
-      const app = appSettings(appName, port, options);
-      port = options.appPerPort ? port + 1 : options.port;
-      return _.merge(result, app);
-    }, {});
+  return iterateDirAndPorts(appsDir, options, appSettings);
+}
+
+// -----------------------------------------------------------------------------
+// Generates an app setting for all applications found in the client directory
+// -----------------------------------------------------------------------------
+function themes(options) {
+  return themeSettings(theme, options.port, options);
 }
 
 module.exports = {
@@ -205,5 +249,6 @@ module.exports = {
   hotPort,
   outputPaths,
   apps,
+  themes,
   postsApp
 };
