@@ -1,21 +1,23 @@
 const _ = require('lodash');
+const fs = require('fs-extra');
 
-const settings = require('../../config/settings');
 const build = require('./build');
+const settings = require('../../config/settings');
 
 // -----------------------------------------------------------------------------
 // Build all themes
 // -----------------------------------------------------------------------------
 function buildThemes(options) {
-  return _.map(settings.themes(options), (theme) => {
+  return _.map(settings.themes(options), (app) => {
+    fs.emptyDirSync(app.outputPath);
 
-    const buildPromise = build.buildWebpackEntries(theme);
+    const buildPromise = build.buildWebpackEntries(app);
     buildPromise.then(() => {
-      console.log(`Finished Javascript for ${theme.name}`);
+      console.log(`Finished Javascript for ${app.name}`);
     });
 
     return {
-      theme,
+      app,
       buildPromise
     };
   });

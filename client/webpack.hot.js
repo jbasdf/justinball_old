@@ -66,6 +66,7 @@ if (appName) {
   runServer(settings.hotPort, settings.paths.devOutput);
 } else {
   const postsApp = settings.postsApp(options);
+  options.hotPack = true;
   options.onlyPack = true;
   _.each(site.buildSite(options), (result) => {
     setupMiddleware(result.app);

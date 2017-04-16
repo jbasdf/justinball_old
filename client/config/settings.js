@@ -104,7 +104,8 @@ function outputPaths(name, port, options) {
   // Public path indicates where the assets will be served from. In dev this will likely be
   // localhost or a local domain. In production this could be a CDN. In developerment this will
   // point to whatever public url is serving dev assets.
-  let publicPath = `${devAssetsUrl}:${port}${options.hotPack ? `/${name}` : ''}${devRelativeOutput}`;
+  const urlPath = options.hotPack && !_.isEmpty(name) ? `/${name}` : '';
+  let publicPath = `${devAssetsUrl}:${port}${urlPath}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
@@ -168,10 +169,19 @@ function appSettings(name, port, options) {
 // Generate all settings needed for a given theme
 // -----------------------------------------------------------------------------
 function themeSettings(name, port, options) {
+  const themeEntryFile = 'entry.js';
   const appPath = path.join(themesDir, name);
-  return {
-    [name] : webpackSettings('entry.js', appPath, port, options)
-  };
+  const staticPath = path.join(appPath, 'static');
+  if (fs.existsSync(path.join(appPath, themeEntryFile))) {
+    const app = _.merge({
+      staticPath
+    }, webpackSettings(name, themeEntryFile, appPath, port, options),
+       outputPaths(name, port, options));
+    return {
+      [name] : app
+    };
+  }
+  return null;
 }
 
 // -----------------------------------------------------------------------------
@@ -228,7 +238,7 @@ function apps(options) {
 // Generates an app setting for all applications found in the client directory
 // -----------------------------------------------------------------------------
 function themes(options) {
-  return iterateDirAndPorts(themesDir, options, themeSettings);
+  return themeSettings(theme, options.port, options);
 }
 
 module.exports = {

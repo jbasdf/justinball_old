@@ -15,7 +15,7 @@ function buildSite(options) {
   // Build themes
   const themeResults = themes.buildThemes(options);
 
-  const buildResults = _.union(appResults, themeResults);
+  const buildResults = _.union(themeResults, appResults);
   const buildPromises = _.map(buildResults, result => result.buildPromise);
 
   Promise.all(buildPromises).then((results) => {

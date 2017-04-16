@@ -1,5 +1,5 @@
 @import '_defines';
-@import "../../../node_modules/reveal.js/css/reveal.scss";
+@import '../node_modules/reveal.js/css/reveal.scss';
 
 $mainFont: $font-family;
 $mainColor: $white;
@@ -12,7 +12,7 @@ $linkColor: $concrete;
 $linkColorHover: $sunflower;
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
-//@import "../../../node_modules/reveal.js/css/theme/solarized";
+//@import "../node_modules/reveal.js/css/theme/solarized";
 
 .reveal{
   .left{
