@@ -15,7 +15,7 @@ function buildSite(options) {
   // Build themes
   const themeResults = themes.buildThemes(options);
 
-  const buildResults = _.union(themeResults, appResults);
+  const buildResults = _.union(appResults, themeResults);
   const buildPromises = _.map(buildResults, result => result.buildPromise);
 
   Promise.all(buildPromises).then((results) => {
@@ -23,8 +23,9 @@ function buildSite(options) {
     // Combine all built assets into a single object that can be used to resolve
     // paths inside buildPosts
     const webpackAssets = _.reduce(results,
-      (collection, result) => _.merge(collection, result.webpackAssets),
-    {});
+      (collection, result) => _.merge({}, collection, result.webpackAssets),
+      {}
+    );
 
     // Build posts
     posts.buildPosts(options, webpackAssets);

@@ -51,4 +51,5 @@ function buildApps(options) {
 module.exports = {
   buildApp,
   buildApps,
+  buildAppParts,
 };
