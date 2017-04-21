@@ -8,7 +8,7 @@ const ejs           = require('ejs');
 
 const marked          = require('./markdown');
 const templates       = require('./templates');
-const applyProduction = require('./production');
+const applyHtmlPaths = require('./html_paths');
 const file            = require('./file');
 const utils           = require('./utils');
 
@@ -81,7 +81,7 @@ function buildContent(fullPath, app, webpackAssets, ext) {
     fullPath,
     app.templateMap,
     app.templateDirs);
-  html = applyProduction(html, app.stage, webpackAssets, app.buildSuffix);
+  html = applyHtmlPaths(html, app.production, webpackAssets, app.buildSuffix);
 
   return {
     title,

@@ -250,6 +250,7 @@ module.exports = {
   hotPort,
   outputPaths,
   apps,
+  isProduction,
   themes,
   postsApp
 };
