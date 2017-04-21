@@ -69,7 +69,7 @@ if (appName) {
   options.hotPack = true;
   options.onlyPack = true;
   const results = site.buildSite(options);
-  const apps = _.map(results, result => result.app);  
+  const apps = _.map(results, result => result.app);
   const promises = _.map(results, result => result.buildPromise);
   Promise.all(promises).then(() => {
     setupMiddleware(apps);
