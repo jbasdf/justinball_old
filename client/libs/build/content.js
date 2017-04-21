@@ -64,10 +64,10 @@ function buildContent(fullPath, app, webpackAssets, ext) {
       html = marked(html);
     }
   } catch (err) {
-    console.log(`Unable to compile html from ${fullPath}`);
-    console.log(err);
-    console.log('Call stack');
-    console.log(err.stack);
+    console.error(`Unable to compile html from ${fullPath}`);
+    console.error(err);
+    console.error('Call stack');
+    console.error(err.stack);
   }
 
   // Generate summary of content
@@ -110,6 +110,9 @@ function writeContent(
       app,
       webpackAssets,
       ext);
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    process.stdout.write(`Writing content to: ${app.outputPath}`);
     const out = outFilePath(page, app.outputPath, inputFilePath, app.htmlPath);
     page.outputFilePath = file.write(out, page.html);
     return page;
@@ -159,6 +162,7 @@ function buildContents(
       }
     }
   });
+  console.log('');
   return results;
 }
 
