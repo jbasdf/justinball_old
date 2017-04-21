@@ -71,7 +71,7 @@ if (appName) {
   const results = site.buildSite(options);
   const apps = _.map(results, result => result.app);  
   const promises = _.map(results, result => result.buildPromise);
-  Promise.all(promises, () => {
+  Promise.all(promises).then(() => {
     setupMiddleware(apps);
     runServer(postsApp.port, postsApp.outputPath);
   });
