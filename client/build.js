@@ -6,4 +6,3 @@ const port = parseInt(process.env.ASSETS_PORT, 10) || 8080;
 const options = { port, stage, onlyPack: argv.onlyPack };
 
 site.buildSite(options);
-

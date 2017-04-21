@@ -16,6 +16,7 @@ const serverApp = express();
 const localIp = '0.0.0.0';
 const appName = _.trim(argv._[0]);
 const hotPack = argv.hotPack;
+const shouldLint = argv.lint;
 
 function setupMiddleware(apps) {
 
@@ -29,7 +30,13 @@ function setupMiddleware(apps) {
     headers: { 'Access-Control-Allow-Origin': '*' }
   });
   serverApp.use(webpackMiddlewareInstance);
-  serverApp.use(webpackHotMiddleware(compiler));
+  serverApp.use(webpackHotMiddleware(compiler, {
+    log: false,
+    heartbeat: 2000,
+    timeout: 20000,
+    reload: true
+  }));
+
 }
 
 function runServer(port, servePath) {
@@ -52,23 +59,20 @@ function launch(app) {
   runServer(app.port, app.outputPath);
 }
 
-const options = { hotPack, stage: 'hot', onlyPack: false, port: settings.hotPort, appPerPort: true };
+const options = { hotPack, shouldLint, stage: 'hot', onlyPack: false, port: settings.hotPort, appPerPort: true };
+
 if (appName) {
   const result = clientApps.buildApp(appName, options);
-  launch(result.app);
-} else if (hotPack) {
-  options.onlyPack = true;
-  options.appPerPort = false;
-  const results = clientApps.buildApps(options);
-  const apps = _.map(results, result => result.app);
-  setupMiddleware(apps);
-  runServer(settings.hotPort, settings.paths.devOutput);
+  result.buildPromise.then(() => launch(result.app));
 } else {
   const postsApp = settings.postsApp(options);
   options.hotPack = true;
   options.onlyPack = true;
   const results = site.buildSite(options);
   const apps = _.map(results, result => result.app);
-  setupMiddleware(apps);
-  runServer(postsApp.port, postsApp.outputPath);
+  const promises = _.map(results, result => result.buildPromise);
+  Promise.all(promises).then(() => {
+    setupMiddleware(apps);
+    runServer(postsApp.port, postsApp.outputPath);
+  });
 }

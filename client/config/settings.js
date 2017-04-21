@@ -25,7 +25,7 @@ const prodOutput = path.join(__dirname, '../../build/prod', prodRelativeOutput);
                           // https://s3.amazonaws.com/' + deployConfig.domain;
 
 const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
-const devAssetsUrl = process.env.ASSETS_URL;
+const devAssetsUrl = `${process.env.ASSETS_URL}:${hotPort}`;
 
 const theme = process.env.THEME || 'pure';
 const site = {
@@ -102,18 +102,16 @@ function isProduction(stage) {
 function outputPaths(name, port, options) {
 
   let rootOutputPath = devOutput;
-  let outputPath = options.onlyPack ?
-    devOutput : path.join(devOutput, name);
+  let outputPath = options.onlyPack ? devOutput : path.join(devOutput, name);
   // Public path indicates where the assets will be served from. In dev this will likely be
-  // localhost or a local domain. In production this could be a CDN. In developerment this will
+  // localhost or a local domain. In production this could be a CDN. In development this will
   // point to whatever public url is serving dev assets.
-  const urlPath = options.hotPack && !_.isEmpty(name) ? `/${name}` : '';
-  let publicPath = `${devAssetsUrl}:${port}${urlPath}${devRelativeOutput}`;
+  const urlPath = !_.isEmpty(name) ? `/${name}` : '';
+  let publicPath = `${devAssetsUrl}${urlPath}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
-    outputPath = options.onlyPack ?
-      prodOutput : path.join(prodOutput, name);
+    outputPath = options.onlyPack ? prodOutput : path.join(prodOutput, name);
     publicPath = prodAssetsUrl + prodRelativeOutput;
   }
 
@@ -132,6 +130,7 @@ function webpackSettings(name, file, appPath, port, options) {
     name,
     file,
     path: appPath,
+    shouldLint: options.shouldLint,
     stage: options.stage,
     production: isProduction(options.stage),
     buildSuffix,
@@ -252,6 +251,7 @@ module.exports = {
   hotPort,
   outputPaths,
   apps,
+  isProduction,
   themes,
   postsApp
 };

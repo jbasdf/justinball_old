@@ -3,7 +3,7 @@ const path = require('path');
 const build = require('./build');
 const settings = require('../../config/settings');
 const templates = require('./templates');
-const applyProduction = require('./production');
+const applyHtmlPaths = require('./html_paths');
 const file = require('./file');
 const utils = require('./utils');
 
@@ -41,7 +41,7 @@ function buildTagPages(pages, postsApp, webpackAssets) {
     // Apply template
     const fileName = `${utils.cleanTag(tag)}.html`;
     let html = templates.apply(data, fileName, postsApp.templateMap, postsApp.templateDirs);
-    html = applyProduction(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
+    html = applyHtmlPaths(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
     file.write(path.join(postsApp.outputPath, site.tagsPath, fileName), html);
   });
 }
@@ -88,7 +88,7 @@ function buildArchive(pages, postsApp, webpackAssets) {
       fileName,
       postsApp.templateMap,
       postsApp.templateDirs);
-    html = applyProduction(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
+    html = applyHtmlPaths(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
     file.write(path.join(postsApp.outputPath, fileName), html);
   });
 }
