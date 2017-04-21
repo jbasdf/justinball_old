@@ -5,6 +5,7 @@ const ejs = require('ejs');
 const moment = require("moment");
 
 const utils = require('./utils');
+const log = require('./log');
 
 
 function safeReadLayout(file) {
@@ -62,10 +63,10 @@ function apply(data, fullPath, templateMap, templateDirs) {
       moment
     }, data));
   } catch (err) {
-    console.log(err);
-    console.log(`Unable to build file: ${fullPath} Data: ${data}`);
-    console.log('Stack Trace:');
-    console.log(err.trace);
+    log.out(err);
+    log.out(`Unable to build file: ${fullPath} Data: ${data}`);
+    log.out('Stack Trace:');
+    log.out(err.trace);
   }
 
   return html;

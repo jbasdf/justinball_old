@@ -1,16 +1,17 @@
-const path          = require('path');
-const _             = require('lodash');
-const fs            = require('fs');
-const frontMatter   = require('front-matter');
-const truncate      = require('html-truncate');
-const moment        = require('moment');
-const ejs           = require('ejs');
+const path = require('path');
+const _ = require('lodash');
+const fs = require('fs');
+const frontMatter = require('front-matter');
+const truncate = require('html-truncate');
+const moment = require('moment');
+const ejs = require('ejs');
 
-const marked          = require('./markdown');
-const templates       = require('./templates');
+const marked = require('./markdown');
+const templates = require('./templates');
 const applyHtmlPaths = require('./html_paths');
-const file            = require('./file');
-const utils           = require('./utils');
+const file = require('./file');
+const utils = require('./utils');
+const log = require('./log');
 
 const ignoreFiles     = ['.DS_Store'];
 
@@ -64,10 +65,10 @@ function buildContent(fullPath, app, webpackAssets, ext) {
       html = marked(html);
     }
   } catch (err) {
-    console.error(`Unable to compile html from ${fullPath}`);
-    console.error(err);
-    console.error('Call stack');
-    console.error(err.stack);
+    log.error(`Unable to compile html from ${fullPath}`);
+    log.error(err);
+    log.error('Call stack');
+    log.error(err.stack);
   }
 
   // Generate summary of content
@@ -110,9 +111,7 @@ function writeContent(
       app,
       webpackAssets,
       ext);
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
-    process.stdout.write(`Writing content to: ${app.outputPath}`);
+    log.replace(`Writing content to: ${app.outputPath}`);
     const out = outFilePath(page, app.outputPath, inputFilePath, app.htmlPath);
     page.outputFilePath = file.write(out, page.html);
     return page;
@@ -162,7 +161,7 @@ function buildContents(
       }
     }
   });
-  console.log('');
+  log.out('');
   return results;
 }
 
