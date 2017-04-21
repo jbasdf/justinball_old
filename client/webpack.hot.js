@@ -58,13 +58,6 @@ const options = { hotPack, shouldLint, stage: 'hot', onlyPack: false, port: sett
 if (appName) {
   const result = clientApps.buildApp(appName, options);
   launch(result.app);
-} else if (hotPack) {
-  options.onlyPack = true;
-  options.appPerPort = false;
-  const results = clientApps.buildApps(options);
-  const apps = _.map(results, result => result.app);
-  setupMiddleware(apps);
-  runServer(settings.hotPort, settings.paths.devOutput);
 } else {
   const postsApp = settings.postsApp(options);
   options.hotPack = true;
