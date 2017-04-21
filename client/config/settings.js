@@ -99,18 +99,16 @@ function isProduction(stage) {
 function outputPaths(name, port, options) {
 
   let rootOutputPath = devOutput;
-  let outputPath = options.onlyPack ?
-    devOutput : path.join(devOutput, name);
+  let outputPath = options.onlyPack ? devOutput : path.join(devOutput, name);
   // Public path indicates where the assets will be served from. In dev this will likely be
-  // localhost or a local domain. In production this could be a CDN. In developerment this will
+  // localhost or a local domain. In production this could be a CDN. In development this will
   // point to whatever public url is serving dev assets.
   const urlPath = !_.isEmpty(name) ? `/${name}` : '';
   let publicPath = `${devAssetsUrl}${urlPath}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
-    outputPath = options.onlyPack ?
-      prodOutput : path.join(prodOutput, name);
+    outputPath = options.onlyPack ? prodOutput : path.join(prodOutput, name);
     publicPath = prodAssetsUrl + prodRelativeOutput;
   }
 
