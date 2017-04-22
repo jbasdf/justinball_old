@@ -34,12 +34,12 @@ function outFilePath(page, outputPath, inputFilePath, originalInputPath) {
 // build a single file
 // -----------------------------------------------------------------------------
 function buildContent(fullPath, app, webpackAssets, ext) {
-  const content     = fs.readFileSync(fullPath, 'utf8');
-  const parsed      = frontMatter(content);
-  const metadata    = parsed.attributes;
-  const pathResult  = utils.filename2date(fullPath);
-  const date        = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
-  const title       = metadata.title || pathResult.title;
+  const content = fs.readFileSync(fullPath, 'utf8');
+  const parsed = frontMatter(content);
+  const metadata = parsed.attributes;
+  const pathResult = utils.filename2date(fullPath);
+  const date = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
+  const title = metadata.title || pathResult.title;
   const destination = metadata.permalink || pathResult.url || '/';
 
   const data = _.merge({
@@ -56,8 +56,8 @@ function buildContent(fullPath, app, webpackAssets, ext) {
   try {
     // Allow ejs code in content
     html = ejs.compile(html, {
-      cache    : false,
-      filename : fullPath
+      cache: false,
+      filename: fullPath
     })(data);
 
     // Parse any markdown in the resulting html
@@ -111,8 +111,8 @@ function writeContent(
       app,
       webpackAssets,
       ext);
-    log.replace(`Writing content to: ${app.outputPath}`);
     const out = outFilePath(page, app.outputPath, inputFilePath, app.htmlPath);
+    log.replace(`Writing content to: ${outFilePath}`);
     page.outputFilePath = file.write(out, page.html);
     return page;
   }
