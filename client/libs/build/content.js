@@ -2,7 +2,7 @@ const path = require('path');
 const _ = require('lodash');
 const fs = require('fs');
 const frontMatter = require('front-matter');
-const truncate = require('html-truncate');
+const truncate = require('truncate-html');
 const moment = require('moment');
 const ejs = require('ejs');
 
