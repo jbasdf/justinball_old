@@ -3,7 +3,8 @@
     "postinstall": "node node_modules/phantomjs-prebuilt/install.js && for dir in apps/*; do cd \"$dir\" || continue; yarn; cd ..; cd ..; done && for dir in themes/*; do cd \"$dir\" || continue; yarn; cd ..; cd ..; done"
   },
   "dependencies": {
-    "superagent": "^3.5.0"
+    "superagent": "^3.5.0",
+    "truncate-html": "^0.1.4"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -42,7 +43,6 @@
     "fs-extra": "^2.1.0",
     "highlight.js": "^9.10.0",
     "html-minifier": "^3.4.3",
-    "html-truncate": "^1.2.2",
     "imports-loader": "^0.7.1",
     "istanbul": "0.4.5",
     "istanbul-instrumenter-loader": "^2.0.0",
