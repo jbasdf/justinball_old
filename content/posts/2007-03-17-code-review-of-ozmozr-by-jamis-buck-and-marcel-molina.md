@@ -34,13 +34,13 @@ Use exceptions.  Nested ifs are ugly and if elsif is bad.  In the code proceed w
 Extract stuff from views into helpers.  ie The views have long lines that look like this:
 
 <pre><code class="ruby">
-  &lt;li <%if @current_tab == "popular" %>class="current"<% end %>><%= link_to("Popular", :action => "index") %>&lt;/li&gt;
+  &lt;li &lt;%if @current_tab == &quot;popular&quot; %&gt;class=&quot;current&quot;&lt;% end %&gt;&gt;&lt;%= link_to(&quot;Popular&quot;, :action =&gt; &quot;index&quot;) %&gt;&lt;/li&gt;
 </pre></code>
 
 they should look like this:
 
 <pre><code class="ruby">
-  <%= tab 'popular' %>
+  &lt;%= tab &#039;popular&#039; %&gt;
   def tab(name, options={})
     lang = _(name)
     s = "li>"
@@ -54,15 +54,15 @@ they should look like this:
 Instead of this:
 
 <pre><code class="ruby">
-  <% if @editable %>
-  <% end %>
+  &lt;% if @editable %&gt;
+  &lt;% end %&gt;
 </pre></code>
 
 Do this:
 <pre><code class="ruby">
-  <% editable do %>
+  &lt;% editable do %&gt;
     stuff
-  <% end %>
+  &lt;% end %&gt;
 </pre></code>
 
 In the helper add this:

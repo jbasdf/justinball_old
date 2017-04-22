@@ -37,8 +37,8 @@ Breakpoints are bad.  1.8.5 broke them by fixing the bug that breakpoints depend
 
 DHH is addressing the fact that HTTP <strong>performance</strong> matters.  This is good.  You can factor out css and javascript into separate files is good for understanding.  However, in deployment it is better to have one javascript include and one css include.  Then zip it up.  Use the same include 
 <pre><code class="ruby">
-<%= javascript_include_tag :all, :cache => true %>.
-<%= stylesheet_link_tag :all, :cache => true %>
+&lt;%= javascript_include_tag :all, :cache =&gt; true %&gt;.
+&lt;%= stylesheet_link_tag :all, :cache =&gt; true %&gt;
 </pre></code>
 
 They found that http performance made the biggest difference.  This reduces the number of connections made to the server by the browser.
