@@ -14,7 +14,8 @@ tags:
   - trek
 ---
 
-Sure I am a bit obsessed, but I have been tracking my bike's movements from the Trek factory to the local shop. At 6:07pm it hit Salt Lake City. It should be here tomorrow. Maybe I should take the day off.
+Sure I am a bit obsessed, but I have been tracking my bike's movements from the Trek factory to the local shop.
+At 6:07pm it hit Salt Lake City. It should be here tomorrow. Maybe I should take the day off.
 
 In the mean time I have been satiating my bike lust with whatever I can find online. Here are some cool videos:
 
@@ -28,5 +29,3 @@ This is my favorite:
 
 <h3>How the Madone is built from National Geographic</h3>
 <iframe width="420" height="315" src="//www.youtube.com/embed/2nVbmcnsXXs" frameborder="0" allowfullscreen></iframe>
-
-
