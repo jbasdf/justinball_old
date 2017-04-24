@@ -1,11 +1,14 @@
 const _ = require('lodash');
 const path = require('path');
-const build = require('./build');
+const nodeWatch = require('node-watch');
+
 const settings = require('../../config/settings');
 const templates = require('./templates');
 const applyHtmlPaths = require('./html_paths');
 const file = require('./file');
 const utils = require('./utils');
+const content = require('./content');
+const log = require('./log');
 
 // -----------------------------------------------------------------------------
 // Build pages based on tags
@@ -93,17 +96,48 @@ function buildArchive(pages, postsApp, webpackAssets) {
   });
 }
 
+// -----------------------------------------------------------------------------
+// Used to rebuild html or templates if files change.
+// -----------------------------------------------------------------------------
+function watchHtml(webpackAssets, pages, app) {
+  const watchedPages = pages;
+  log.out(`Watching html files in ${app.htmlPath}`);
+  nodeWatch(app.htmlPath, { recursive: true }, (evt, fullInputPath) => {
+    log.out(`Change in html file ${fullInputPath}`);
+    const newPage = content.writeContent(
+      fullInputPath,
+      webpackAssets,
+      app);
+    // Find the changed page and swap it out
+    const changedIndex = _.findIndex(watchedPages, page => page.source === newPage.source);
+    watchedPages[changedIndex] = newPage;
+    buildArchive(watchedPages, app, webpackAssets);
+    buildTagPages(watchedPages, app, webpackAssets);
+  });
+}
+
 function buildPosts(options, webpackAssets) {
   const postsApp = settings.postsApp(options);
-  const pages = build.buildHtml(postsApp, webpackAssets).sort((a, b) => {
+
+  const pages = content.buildContents(
+    postsApp.htmlPath,
+    postsApp,
+    webpackAssets
+  ).sort((a, b) => {
     // Sort pages by date
     if (a.date.unix() > b.date.unix()) return -1;
     if (a.date.unix() < b.date.unix()) return 1;
     return 0;
   });
 
+  if (postsApp.stage === 'hot') {
+    watchHtml(webpackAssets, pages, postsApp);
+  }
+
   buildArchive(pages, postsApp, webpackAssets);
   buildTagPages(pages, postsApp, webpackAssets);
+
+  return pages;
 }
 
 module.exports = {

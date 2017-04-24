@@ -230,17 +230,28 @@ function apps(options) {
 }
 
 // -----------------------------------------------------------------------------
+// Generates an app settings for a given directory
+// -----------------------------------------------------------------------------
+function themesFrom(currentTheme, options) {
+  const entriesPath = path.join(themesDir, currentTheme, 'entries');
+  return fs.readdirSync(entriesPath)
+  .reduce((result, file) =>
+    _.merge(
+      {},
+      result,
+      themeSettings(file, entriesPath, currentTheme, options.port, options)),
+    {});
+}
+
+// -----------------------------------------------------------------------------
 // Generates an app setting for all themes
 // -----------------------------------------------------------------------------
 function themes(options) {
-  const entriesPath = path.join(themesDir, theme, 'entries');
-  return fs.readdirSync(entriesPath)
-    .reduce((result, file) =>
-      _.merge(
-        {},
-        result,
-        themeSettings(file, entriesPath, theme, options.port, options)),
-      {});
+  return _.merge(
+    {},
+    themesFrom('default', options),
+    themesFrom(theme, options)
+  );
 }
 
 module.exports = {
