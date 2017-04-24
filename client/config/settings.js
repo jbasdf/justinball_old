@@ -106,8 +106,7 @@ function outputPaths(name, port, options) {
   // Public path indicates where the assets will be served from. In dev this will likely be
   // localhost or a local domain. In production this could be a CDN. In development this will
   // point to whatever public url is serving dev assets.
-  const urlPath = !_.isEmpty(name) ? `/${name}` : '';
-  let publicPath = `${devAssetsUrl}${urlPath}${devRelativeOutput}`;
+  let publicPath = `${devAssetsUrl}${devRelativeOutput}`;
 
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
@@ -233,17 +232,28 @@ function apps(options) {
 }
 
 // -----------------------------------------------------------------------------
+// Generates an app settings for a given directory
+// -----------------------------------------------------------------------------
+function themesFrom(currentTheme, options) {
+  const entriesPath = path.join(themesDir, currentTheme, 'entries');
+  return fs.readdirSync(entriesPath)
+  .reduce((result, file) =>
+    _.merge(
+      {},
+      result,
+      themeSettings(file, entriesPath, currentTheme, options.port, options)),
+    {});
+}
+
+// -----------------------------------------------------------------------------
 // Generates an app setting for all themes
 // -----------------------------------------------------------------------------
 function themes(options) {
-  const entriesPath = path.join(themesDir, theme, 'entries');
-  return fs.readdirSync(entriesPath)
-    .reduce((result, file) =>
-      _.merge(
-        {},
-        result,
-        themeSettings(file, entriesPath, theme, options.port, options)),
-      {});
+  return _.merge(
+    {},
+    themesFrom('default', options),
+    themesFrom(theme, options)
+  );
 }
 
 module.exports = {

@@ -56,7 +56,6 @@ function watchStatic(app) {
 }
 
 // -----------------------------------------------------------------------------
-// watchHtml
 // Used to rebuild html or templates if files change.
 // -----------------------------------------------------------------------------
 function watchHtml(webpackAssets, app) {
@@ -64,7 +63,6 @@ function watchHtml(webpackAssets, app) {
   nodeWatch(app.htmlPath, { recursive: true }, (evt, fullInputPath) => {
     log.out(`Change in html file ${fullInputPath}`);
     content.writeContent(
-      app.htmlPath,
       fullInputPath,
       webpackAssets,
       app);
