@@ -108,20 +108,20 @@ In my user_controller.rb the create and update methods are simple.  This is than
 
 On to the view:
 <pre><code class="ruby">
-<ul class="checkbox-list">
-  <% @languages.each do |language| -%>
-<li><%= check_box_tag "user[language_ids][]", language.id, user_speaks_language?(language) -%> <%= language.english_name -%></li>
-  <% end -%>
-</ul>
+&lt;ul class=&quot;checkbox-list&quot;&gt;
+  &lt;% @languages.each do |language| -%&gt;
+&lt;li&gt;&lt;%= check_box_tag &quot;user[language_ids][]&quot;, language.id, user_speaks_language?(language) -%&gt; &lt;%= language.english_name -%&gt;&lt;/li&gt;
+  &lt;% end -%&gt;
+&lt;/ul&gt;
 </pre></code>
 
 NOTE: I had an error in my original method.  This code:
 <pre><code class="ruby">
-<li><%= f.check_box :language_ids, {:checked => user_speaks_language?(language)}, "#{language.id}", ""  -%> <%= "#{language.english_name}" -%></li>
-</pre></code>
+&lt;li&gt;&lt;%= f.check_box :language_ids, {:checked =&gt; user_speaks_language?(language)}, &quot;#{language.id}&quot;, &quot;&quot;  -%&gt; &lt;%= &quot;#{language.english_name}&quot; -%&gt;&lt;/li&gt;
+&lt;/pre&gt;&lt;/code&gt;
 should be this:
-<pre><code class="ruby">
-<li><%= check_box_tag "user[language_ids][]", language.id, user_speaks_language?(language) -%> <%= language.english_name -%></li>
+&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;
+&lt;li&gt;&lt;%= check_box_tag &quot;user[language_ids][]&quot;, language.id, user_speaks_language?(language) -%&gt; &lt;%= language.english_name -%&gt;&lt;/li&gt;
 </pre></code>
 
 And we'll need this helper method:

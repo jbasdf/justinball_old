@@ -39,27 +39,27 @@ end
 Here's the yml file I was using:
 <pre><code class="ruby">
 quentin:
-	  login: quentin
-	  email: quentin@example.com
-	  newsletter: 1
-	  notify_of_events: 1
-	  terms_of_service: 1
-	  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
-	  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
-	  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
-	  activated_at: <%= 5.days.ago.to_s :db %>
-	  password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
+      login: quentin
+      email: quentin@example.com
+      newsletter: 1
+      notify_of_events: 1
+      terms_of_service: 1
+      salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+      crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+      activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+      activated_at: &lt;%= 5.days.ago.to_s :db %&gt;
+      password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
 
 not_activated_user:
-	  login: not_activated_user
-	  email: not_activated_user@example.com
-	  newsletter: 0
-	  notify_of_events: 0
-	  terms_of_service: 1
-	  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
-	  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
-	  activation_code: 9f24789ae988411ccf33ab0c30fe9106fab32e9a
-	  password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
+      login: not_activated_user
+      email: not_activated_user@example.com
+      newsletter: 0
+      notify_of_events: 0
+      terms_of_service: 1
+      salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+      crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+      activation_code: 9f24789ae988411ccf33ab0c30fe9106fab32e9a
+      password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
 </pre></code>
 
 For some reason the email part of the test failed every time.  I finally changed my code to this:
