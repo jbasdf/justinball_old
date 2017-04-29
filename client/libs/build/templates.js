@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _  = require('lodash');
 const ejs = require('ejs');
-const moment = require("moment");
+const moment = require('moment');
 
 const utils = require('./utils');
 const log = require('./log');
