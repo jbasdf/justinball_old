@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "purecss": "^0.6.2",
+    "purecss-sass": "^0.6.2",
+    "reveal.js": "^3.4.1"
+  }
+}
