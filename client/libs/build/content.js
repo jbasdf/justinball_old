@@ -40,7 +40,7 @@ function buildContent(fullPath, app, webpackAssets, ext) {
   const pathResult = utils.filename2date(fullPath);
   const date = moment(new Date(pathResult.date || fs.statSync(fullPath).ctime));
   const title = metadata.title || pathResult.title;
-  const destination = metadata.permalink || pathResult.url || '/';
+  const destination = metadata.permalink || pathResult.path || '/';
 
   const data = _.merge({
     _,
