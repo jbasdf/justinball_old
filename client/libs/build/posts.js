@@ -43,9 +43,10 @@ function buildTagPages(pages, postsApp, webpackAssets) {
 
     // Apply template
     const fileName = `${utils.cleanTag(tag)}.html`;
+    const fullFilePath = path.join(postsApp.outputPath, site.tagsPath, fileName);
     let html = templates.apply(data, fileName, postsApp.templateMap, postsApp.templateDirs);
-    html = applyHtmlPaths(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
-    file.write(path.join(postsApp.outputPath, site.tagsPath, fileName), html);
+    html = applyHtmlPaths(fullFilePath, html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
+    file.write(fullFilePath, html);
   });
 }
 
@@ -91,8 +92,9 @@ function buildArchive(pages, postsApp, webpackAssets) {
       fileName,
       postsApp.templateMap,
       postsApp.templateDirs);
-    html = applyHtmlPaths(html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
-    file.write(path.join(postsApp.outputPath, fileName), html);
+    const fullFilePath = path.join(postsApp.outputPath, fileName);
+    html = applyHtmlPaths(fullFilePath, html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
+    file.write(fullFilePath, html);
   });
 }
 
