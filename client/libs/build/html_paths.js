@@ -2,7 +2,7 @@ const minify = require('html-minifier').minify;
 const webpackUtils = require('./webpack_utils');
 const log = require('./log');
 
-module.exports = function applyHtmlPaths(html, production, webpackAssets, buildSuffix) {
+module.exports = function applyHtmlPaths(fullPath, html, production, webpackAssets, buildSuffix) {
 
   const updatedHtml = webpackUtils.apply(
     html,
@@ -18,7 +18,8 @@ module.exports = function applyHtmlPaths(html, production, webpackAssets, buildS
         minifyJS: true
       });
     } catch (err) {
-      log.out(`Unable to minify html. Error: ${err}`);
+      log.out(`Unable to minify html for ${fullPath}`);
+      // log.error(`Error: ${err})`;
       return updatedHtml;
     }
   }
