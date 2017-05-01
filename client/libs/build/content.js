@@ -83,7 +83,7 @@ function buildContent(fullPath, app, webpackAssets, ext) {
     fullPath,
     app.templateMap,
     app.templateDirs);
-  html = applyHtmlPaths(html, app.production, webpackAssets, app.buildSuffix);
+  html = applyHtmlPaths(fullPath, html, app.production, webpackAssets, app.buildSuffix);
 
   return {
     title,
