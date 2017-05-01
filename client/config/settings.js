@@ -185,6 +185,7 @@ function postsApp(options) {
   const contentPath = path.join(__dirname, '../../content');
   const port = options.port;
   const name = 'posts';
+  const outputPathResults = outputPaths('', port, options);
   return _.merge({
     name,
     path: contentPath,
@@ -198,13 +199,14 @@ function postsApp(options) {
     templateMap: {
       'index.html': 'home'
     }, // Used to specify specific templates on a per file basis
+    postSource: `${contentPath}/posts/`,
     stage: options.stage,
     buildSuffix,
     port,
     production: isProduction(options.stage),
     htmlOptions,
     templateDirs: themeTemplateDirs,
-  }, outputPaths('', port, options));
+  }, outputPathResults);
 }
 
 // -----------------------------------------------------------------------------

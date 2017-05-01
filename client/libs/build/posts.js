@@ -136,8 +136,9 @@ function buildPosts(options, webpackAssets) {
     watchHtml(webpackAssets, pages, postsApp);
   }
 
-  buildArchive(pages, postsApp, webpackAssets);
-  buildTagPages(pages, postsApp, webpackAssets);
+  const posts = _.filter(pages, page => _.includes(page.source, postsApp.postSource));
+  buildArchive(posts, postsApp, webpackAssets);
+  buildTagPages(posts, postsApp, webpackAssets);
 
   return pages;
 }
