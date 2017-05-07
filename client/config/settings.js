@@ -173,10 +173,11 @@ function appSettings(name, port, options) {
 function themeSettings(themeEntryFile, appPath, name, port, options) {
   const staticPath = path.join(appPath, 'static');
   const entryName = themeEntryFile.replace('.js', '');
+  const themeOptions = _.merge({}, options, { onlyPack: true });
   const app = _.merge({
     staticPath
-  }, webpackSettings(entryName, themeEntryFile, appPath, port, options),
-      outputPaths(name, port, options));
+  }, webpackSettings(entryName, themeEntryFile, appPath, port, themeOptions),
+      outputPaths(name, port, themeOptions));
   return {
     [entryName] : app
   };
