@@ -18,13 +18,13 @@ const prodRelativeOutput = '/';
 const devOutput  = path.join(__dirname, '../../build/dev', devRelativeOutput);
 const prodOutput = path.join(__dirname, '../../build/prod', prodRelativeOutput);
 
-// const prodAssetsUrl = ''; // Set this to the url where the assets will be deployed.
+const prodAssetsUrl = ''; // Set this to the url where the assets will be deployed.
                           // If you want the paths to be relative to the deploy then leave this
                           // value as an empty string. This value could also be a CDN or
                           // it could be the ssl version of your S3 bucket ie:
                           // https://s3.amazonaws.com/' + deployConfig.domain;
 
-const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
+//const prodAssetsUrl = `https://s3.amazonaws.com/${deployConfig.domain}`;
 const devAssetsUrl = `${process.env.ASSETS_URL}:${hotPort}`;
 
 const theme = process.env.THEME || 'pure';
@@ -169,10 +169,11 @@ function appSettings(name, port, options) {
 function themeSettings(themeEntryFile, appPath, name, port, options) {
   const staticPath = path.join(appPath, 'static');
   const entryName = themeEntryFile.replace('.js', '');
+  const themeOptions = _.merge({}, options, { onlyPack: true });
   const app = _.merge({
     staticPath
-  }, webpackSettings(entryName, themeEntryFile, appPath, port, options),
-      outputPaths(name, port, options));
+  }, webpackSettings(entryName, themeEntryFile, appPath, port, themeOptions),
+      outputPaths(name, port, themeOptions));
   return {
     [entryName] : app
   };
