@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const nodeWatch = require('node-watch');
+const exec = require('child_process').exec;
 
 const content = require('./content');
 const webpackUtils = require('./webpack_utils');
@@ -18,10 +19,10 @@ function buildWebpackEntries(app) {
     const bundler = webpack(webpackConfig);
     const bundle = (err, stats) => {
       if (err) {
-        log.error('webpack error', err);
+        log.error(`webpack error: ${err}`);
         reject(err);
       }
-      // log.out('webpack', stats.toString({ colors: true }));
+      // log.out(`webpack: ${stats.toString({ colors: true })}`);
       resolve({
         webpackConfig,
         webpackStats: stats.toJson()
@@ -35,11 +36,9 @@ function buildWebpackEntries(app) {
 // copy over static files to build directory
 // -----------------------------------------------------------------------------
 function buildStatic(app) {
-  try {
+  if (fs.existsSync(app.staticPath)) {
     log.out(`Copying static files in ${app.staticPath}`);
-    fs.copy(app.staticPath, app.outputPath);
-  } catch (err) {
-    // No static dir. Do nothing
+    exec(`cp -r ${app.staticPath}/. ${app.outputPath}`);
   }
 }
 
@@ -100,7 +99,7 @@ function build(app) {
     log.out(`Webpacking ${app.name}`);
 
     buildWebpackEntries(app).then((packResults) => {
-      const webpackAssets = webpackUtils.loadWebpackAssets(app, packResults);
+      const webpackAssets = webpackUtils.loadWebpackAssets(app);
 
       // Build html
       log.out(`Building html for ${app.name}`);
