@@ -40,6 +40,7 @@ const site = {
   twitter_username: 'speakeasy',
   disqus_id: 'speakeasy',
   tagsPath: 'tags',
+  language: 'en-us',
   theme
 };
 

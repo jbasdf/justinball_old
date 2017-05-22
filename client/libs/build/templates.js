@@ -58,7 +58,7 @@ function apply(data, fullPath, templateMap, templateDirs) {
 
   try {
     html = template(_.merge({
-      cleanTag   : utils.cleanTag,
+      cleanTag: utils.cleanTag,
       _,
       moment
     }, data));
