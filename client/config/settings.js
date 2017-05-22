@@ -44,6 +44,7 @@ const site = {
   twitter_username: 'jbasdf',
   strava_profile: 'justin_ball',
   disqus_id: 'jbasdf',
+  language: 'en-us',
   theme
 };
 

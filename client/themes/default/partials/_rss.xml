@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title><%-site.title%></title>
+ <author><%-site.author%></author>
+ <description><%-site.subtitle%></description>
+ <link>http://<%-url%></link>
+ <language><%-site.language%></language>
+ <lastBuildDate><%-moment.utc().format()%></lastBuildDate>
+ <pubDate><%-moment.utc().format()%></pubDate>
+ <ttl>1800</ttl>
+ <% _.each(posts, function(post){ -%>
+ <item>
+  <title><%-post.title%></title>
+  <description><%- post.summary %></description>
+  <link>http://<%-url%><%- post.url %></link>
+  <pubDate><%-post.date.utc().format()%></pubDate>
+  <% if(post.metadata.tags && post.metadata.tags.length > 0){ %>
+    <category domain="<%-url%>">
+    <% _.each(post.metadata.tags, function(tag){ -%>
+      <%-cleanTag(tag)%>
+    <% }) -%>
+    </category>
+  <% } %>
+ </item>
+<% }) -%>
+</channel>
+</rss>

@@ -4,6 +4,7 @@ const nodeWatch = require('node-watch');
 
 const settings = require('../../config/settings');
 const templates = require('./templates');
+const rss = require('./rss');
 const applyHtmlPaths = require('./html_paths');
 const file = require('./file');
 const utils = require('./utils');
@@ -63,6 +64,7 @@ function buildArchive(pages, postsApp, webpackAssets) {
     const prevPage = `${(index > 1 ? index - 1 : 'index')}.html`;
     const nextPage = index < max ? `${index + 1}.html` : '#';
     const fileName = `${(index === 0 ? 'index' : index)}.html`;
+    const rssFileName = `${(index === 0 ? 'index' : index)}.xml`;
 
     let title;
     if (_.isString(postsApp.htmlOptions.recentPostsTitle)) {
@@ -95,6 +97,11 @@ function buildArchive(pages, postsApp, webpackAssets) {
     const fullFilePath = path.join(postsApp.outputPath, fileName);
     html = applyHtmlPaths(fullFilePath, html, postsApp.stage, webpackAssets, postsApp.buildSuffix);
     file.write(fullFilePath, html);
+
+    // Output rss
+    const fullRssFilePath = path.join(postsApp.outputPath, rssFileName);
+    const rssXml = rss.apply(data, rssFileName, postsApp.templateDirs);
+    file.write(fullRssFilePath, rssXml);
   });
 }
 
