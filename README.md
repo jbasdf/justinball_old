@@ -14,6 +14,8 @@ Make sure to install git, npm and yarn before you start then:
 1. git clone https://github.com/jbasdf/speakeasy.git my_project_name
 2. Rename .env.example to .env. This file contains the port the server will use.
    The default 8080 should be fine, but you can also use a local domain or ngrok if you wish.
+   Be sure that the ASSETS_URL is not commented out for the domain that you plan on using. The
+   ASSETS_URL=http://0.0.0.0 or localhost is set as default.
 3. Install packages with
 
     `yarn`
@@ -31,7 +33,7 @@ If you have multiple applications you can run them one at a time with the applic
 
   `yarn hot hello_world`
 
-then `visit http://localhost:8080`
+then visit `http://localhost:8080`
 
 
 # Using the React Client Starter App
@@ -41,6 +43,34 @@ an example "hello world" application in client/apps/hello_world
 Modify html and js files in that directory to build your application or copy paste that directory to build additional
 applications. The build process will automatically add a new webpack entry point for each folder in that directory.
 
+## Custom Build Settings
+-----------
+Default build settings can be overridden by adding the following json files to the application directory:
+
+Change the output directory for an application by specifying "outName" which will override the default name
+used when generating a path:
+
+In output_paths.json
+`
+{
+  "outName": "hello_world"
+}
+`
+
+By default app.jsx is used as the webpack entry point. This can be overriden in webpack.json. Change the buildSuffix,
+filename, chunkFilename and other settings:
+
+In webpack.json
+`
+{
+  "file": "app.js",         // The webpack entry. Default is app.jsx
+  "buildSuffix": ".js",     // Change the build suffix. Default is _bundle.js
+  "filename": "[name]",     // Change the output file name. Default is based on production/development
+  "chunkFilename": "[id]",  // Change the chunkFilename. Default is based on production/development
+  "codeSplittingOff": true, // Turn off code splitting
+  "extractCssOff": true     // Turn off css extraction
+}
+`
 
 ## Posts
 Add new posts to "/content/posts/". Content added to this directory will be added in typical blog fashion with the latest
