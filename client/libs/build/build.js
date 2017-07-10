@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const _ = require('lodash');
 const webpack = require('webpack');
 const nodeWatch = require('node-watch');
 const exec = require('child_process').exec;
@@ -36,10 +37,8 @@ function buildWebpackEntries(app) {
 // copy over static files to build directory
 // -----------------------------------------------------------------------------
 function buildStatic(app) {
-  if (fs.existsSync(app.staticPath)) {
-    log.out(`Copying static files in ${app.staticPath}`);
-    exec(`cp -r ${app.staticPath}/. ${app.outputPath}`);
-  }
+  log.out(`Copying static files in ${app.staticPath}`);
+  exec(`cp -r ${app.staticPath}/. ${app.outputPath}`);
 }
 
 // -----------------------------------------------------------------------------
@@ -75,7 +74,7 @@ function buildHtml(app, webpackAssets) {
     webpackAssets
   );
 
-  if (app.stage === 'hot') {
+  if (app.stage === 'hot' && fs.existsSync(app.htmlPath)) {
     watchHtml(webpackAssets, app);
   }
 
@@ -89,16 +88,23 @@ function build(app) {
 
   return new Promise((resolve) => {
 
-    // Copy static files to build directory
-    buildStatic(app);
-    if (app.stage === 'hot') {
-      watchStatic(app);
+    if (fs.existsSync(app.staticPath)) {
+      // Copy static files to build directory
+      buildStatic(app);
+      if (app.stage === 'hot') {
+        watchStatic(app);
+      }
     }
 
     // Webpack build
     log.out(`Webpacking ${app.name}`);
 
     buildWebpackEntries(app).then((packResults) => {
+
+      _.each(packResults.webpackStats.errors, (error) => {
+        log.error(error);
+      });
+
       const webpackAssets = webpackUtils.loadWebpackAssets(app);
 
       // Build html

@@ -133,7 +133,7 @@ function buildContents(
 
   let results = [];
 
-  if (_.isEmpty(inputPath)) {
+  if (_.isEmpty(inputPath) || !fs.existsSync(inputPath)) {
     return results;
   }
 

@@ -6,7 +6,9 @@
    "corsConfiguration": [
       {
          "AllowedMethods": [
-            "POST", "PUT", "DELETE"
+            "POST",
+            "PUT",
+            "DELETE"
          ],
          "AllowedOrigins": [
             "*"
@@ -18,5 +20,7 @@
       }
    ],
    "enableCloudfront": true,
-   "domain": "speakeasy.com"
+   "retries": 20,
+   "domain": "speakeasy.com",
+   "configFile": ".s3-website.json"
 }
