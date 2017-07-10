@@ -1,0 +1,19 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::www.justinball.com"
+        },
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::www.justinball.com",
+                "arn:aws:s3:::www.justinball.com/*"
+            ]
+        }
+    ]
+}
