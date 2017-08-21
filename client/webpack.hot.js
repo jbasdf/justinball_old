@@ -80,15 +80,18 @@ if (appName) {
     });
   });
 } else {
-  const postsApp = settings.postsApp(options);
-  options.hotPack = true;
+  // Generate the posts first so that it can use the first port
   options.onlyPack = true;
-  const app = site.buildSite(options);
-  launch(app);
+  options.rootOutput = true;
+  options.appPerPort = false;
   // Run and serve all applications
-  clientApps.buildApps(options).then((results) => {
-    _.each(results, (result) => {
-      result.buildPromise.then(() => launch(result.app));
+  site.buildSite(options).then((results) => {
+    const apps = _.map(results, result => result.app);
+    const promises = _.map(results, result => result.buildPromise);
+    const serverApp = express();
+    Promise.all(promises).then(() => {
+      setupMiddleware(serverApp, apps);
+      runServer(serverApp, settings.hotPort, settings.paths.devOutput);
     });
   });
 }
