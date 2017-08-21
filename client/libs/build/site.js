@@ -8,7 +8,7 @@ const webpackUtils = require('./webpack_utils');
 // -----------------------------------------------------------------------------
 // Build site
 // -----------------------------------------------------------------------------
-function buildSite(options) {
+async function buildSite(options) {
 
   // Build apps
   const appResults = apps.buildApps(options);

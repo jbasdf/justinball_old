@@ -12,7 +12,7 @@ const clientApps = require('./libs/build/apps');
 const site = require('./libs/build/site');
 
 const localIp = '0.0.0.0';
-const appName = _.trim(argv._[0]);
+const appName = argv.app;
 const hotPack = argv.hotPack;
 const shouldLint = argv.lint;
 
@@ -61,18 +61,37 @@ function launch(app) {
 const options = { hotPack, shouldLint, stage: 'hot', onlyPack: false, port: settings.hotPort, appPerPort: true };
 
 if (appName) {
+  // Run a single app. Note that when using yarn hot in order to run a single
+  // application you will need to type 'yarn hot -- --app=my-app'
   const result = clientApps.buildApp(appName, options);
   result.buildPromise.then(() => launch(result.app));
-} else {
-  const postsApp = settings.postsApp(options);
-  options.hotPack = true;
+} else if (hotPack) {
+  // Only run webpack. Do not run the rest of the build process
   options.onlyPack = true;
-  const results = site.buildSite(options);
-  const apps = _.map(results, result => result.app);
-  const promises = _.map(results, result => result.buildPromise);
-  const serverApp = express();
-  Promise.all(promises).then(() => {
-    setupMiddleware(serverApp, apps);
-    runServer(serverApp, postsApp.port, postsApp.outputPath);
+  options.rootOutput = true;
+  options.appPerPort = false;
+  clientApps.buildApps(options).then((results) => {
+    const apps = _.map(results, result => result.app);
+    const promises = _.map(results, result => result.buildPromise);
+    const serverApp = express();
+    Promise.all(promises).then(() => {
+      setupMiddleware(serverApp, apps);
+      runServer(serverApp, settings.hotPort, settings.paths.devOutput);
+    });
+  });
+} else {
+  // Generate the posts first so that it can use the first port
+  options.onlyPack = true;
+  options.rootOutput = true;
+  options.appPerPort = false;
+  // Run and serve all applications
+  site.buildSite(options).then((results) => {
+    const apps = _.map(results, result => result.app);
+    const promises = _.map(results, result => result.buildPromise);
+    const serverApp = express();
+    Promise.all(promises).then(() => {
+      setupMiddleware(serverApp, apps);
+      runServer(serverApp, settings.hotPort, settings.paths.devOutput);
+    });
   });
 }

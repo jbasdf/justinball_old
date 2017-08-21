@@ -1,19 +1,24 @@
 const fs = require('fs-extra');
+const path = require('path');
 const _ = require('lodash');
-const urljoin = require('url-join');
+const utils = require('./utils');
 
 // -----------------------------------------------------------------------------
 // Loads webpack assets file
 // -----------------------------------------------------------------------------
 function loadWebpackAssets(app) {
-  let webpackAssets = null;
-  const webpackAssetsFilePath = `${app.outputPath}/${app.name}-webpack-assets.json`;
-  if (fs.existsSync(webpackAssetsFilePath)) {
-    webpackAssets = _.mapValues(fs.readJsonSync(webpackAssetsFilePath), asset =>
-      _.mapValues(asset, assetFilename => urljoin(app.publicPath, assetFilename))
-    );
-  }
-  return webpackAssets;
+  return _(fs.readdirSync(app.outputPath)
+  ).filter(filename =>
+    _.endsWith(filename, '-webpack-assets.json')
+  ).reduce((result, filename) => {
+    const webpackAssetsFilePath = path.join(app.outputPath, filename);
+    if (fs.existsSync(webpackAssetsFilePath)) {
+      return _.merge(result, _.mapValues(fs.readJsonSync(webpackAssetsFilePath), asset =>
+        _.mapValues(asset, assetFilename => utils.joinUrlOrPath(app.publicPath, assetFilename))
+      ));
+    }
+    return {};
+  }, {});
 }
 
 // -----------------------------------------------------------------------------
@@ -38,5 +43,5 @@ function apply(html, webpackAssets, buildSuffix) {
 
 module.exports = {
   apply,
-  loadWebpackAssets
+  loadWebpackAssets,
 };

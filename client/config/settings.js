@@ -1,7 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const _ = require('lodash');
-const urljoin = require('url-join');
+
+const utils = require('../libs/build/utils');
 
 // There is a warning if the .env file is missing
 // This is fine in a production setting, where settings
@@ -100,15 +101,15 @@ function isProduction(stage) {
 }
 
 function isNameRequired(options) {
-  return !options.onlyPack && !options.appPerPort && !options.rootOutput;
+  return !options.onlyPack && !options.rootOutput;
 }
 
 // -----------------------------------------------------------------------------
 // Generates a path with the app name if needed
 // -----------------------------------------------------------------------------
 function withNameIfRequired(name, relativeOutput, options) {
-  if (isNameRequired(options)) {
-    return urljoin(relativeOutput, name);
+  if (isNameRequired(options) && !options.appPerPort) {
+    return utils.joinUrlOrPath(relativeOutput, name);
   }
   return relativeOutput;
 }
@@ -118,13 +119,7 @@ function withNameIfRequired(name, relativeOutput, options) {
 // -----------------------------------------------------------------------------
 function outputPaths(name, port, appPath, options) {
 
-  let outName = name;
-
-  const customOutputPaths = `${appPath}/output_paths.json`;
-  if (fs.existsSync(customOutputPaths)) {
-    const custom = JSON.parse(fs.readFileSync(customOutputPaths, 'utf8'));
-    outName = custom.outName;
-  }
+  const outName = options.name || name;
 
   let rootOutputPath = devOutput;
   let outputPath = isNameRequired(options) ? path.join(devOutput, outName) : devOutput;
@@ -137,18 +132,24 @@ function outputPaths(name, port, appPath, options) {
   if (isProduction(options.stage)) {
     rootOutputPath = prodOutput;
     outputPath = isNameRequired(options) ? path.join(prodOutput, outName) : prodOutput;
-    publicPath = urljoin(prodAssetsUrl, withNameIfRequired(outName, prodRelativeOutput, options));
+    publicPath = utils.joinUrlOrPath(
+      prodAssetsUrl,
+      withNameIfRequired(outName, prodRelativeOutput, options)
+    );
   } else {
     let devUrl = devAssetsUrl;
     // Include the port if we are running on localhost
     if (_.find(['localhost', '0.0.0.0', '127.0.0.1'], d => _.includes(devAssetsUrl, d))) {
       devUrl = `${devAssetsUrl}:${port}`;
     }
-    publicPath = urljoin(devUrl, withNameIfRequired(outName, devRelativeOutput, options));
+    publicPath = utils.joinUrlOrPath(
+      devUrl,
+      withNameIfRequired(outName, devRelativeOutput, options)
+    );
   }
 
   // Make sure the public path ends with a / or fonts will not have the correct path
-  if (!_.endsWith(publicPath)) {
+  if (!_.endsWith(publicPath, '/')) {
     publicPath = `${publicPath}/`;
   }
 
@@ -197,6 +198,13 @@ function appSettings(name, port, options) {
   const htmlPath = path.join(appPath, 'html');
   const staticPath = path.join(appPath, 'static');
 
+  const customOptionsPath = `${appPath}/options.json`;
+  let combinedOptions = options;
+  if (fs.existsSync(customOptionsPath)) {
+    const customOptions = JSON.parse(fs.readFileSync(customOptionsPath, 'utf8'));
+    combinedOptions = _.merge(options, customOptions);
+  }
+
   const app = _.merge({
     htmlPath,
     staticPath,
@@ -208,8 +216,8 @@ function appSettings(name, port, options) {
       'index.html': 'home'
     }, // Used to specify specific templates on a per file basis
     htmlOptions,
-  }, webpackSettings(name, 'app.jsx', appPath, port, options),
-     outputPaths(name, port, appPath, options));
+  }, webpackSettings(name, 'app.jsx', appPath, port, combinedOptions),
+     outputPaths(name, port, appPath, combinedOptions));
 
   app.templateDirs = _.union(templateDirs(app, ['layouts']), themeTemplateDirs);
   return {
@@ -227,7 +235,7 @@ function themeSettings(themeEntryFile, appPath, name, port, options) {
   const app = _.merge({
     staticPath
   }, webpackSettings(entryName, themeEntryFile, appPath, port, themeOptions),
-      outputPaths(name, port, themeOptions));
+      outputPaths(name, port, appPath, themeOptions));
   return {
     [entryName] : app
   };
@@ -240,7 +248,7 @@ function postsApp(options) {
   const contentPath = path.join(__dirname, '../../content');
   const port = options.port;
   const name = 'posts';
-  const outputPathResults = outputPaths('', port, options);
+  const outputPathResults = outputPaths('', port, contentPath, options);
   return _.merge({
     name,
     path: contentPath,
@@ -316,6 +324,8 @@ module.exports = {
   outputPaths,
   apps,
   isProduction,
+  devOutput,
+  prodOutput,
   themes,
-  postsApp
+  postsApp,
 };
